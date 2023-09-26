@@ -9,7 +9,7 @@ public class EnemyManager : MonoBehaviour
     /// Maneja a los enemigos.
     /// </summary>
 
-    private List<Enemy> enemiesList = new List<Enemy>();
+    [SerializeField] private List<Enemy> enemiesList = new List<Enemy>();
 
     // Es el numero de elementos en el enum de abajo.
     private int enemyNumber = 4;
@@ -24,7 +24,7 @@ public class EnemyManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        PopulateGame(5);
+        PopulateGame(4);
     }
 
     // Update is called once per frame
@@ -53,7 +53,7 @@ public class EnemyManager : MonoBehaviour
                 break;
         }
         enemiesList.Add(enemy);
-        Debug.Log("Se agrego enemigo " + enemy.name);
+        //Debug.Log("Se agrego enemigo " + enemy.name);
     }
 
     // Agrega X enemigos al juego.

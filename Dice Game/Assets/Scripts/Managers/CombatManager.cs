@@ -12,7 +12,19 @@ public class CombatManager : MonoBehaviour
     private Player1 p1;
     private Player2 p2;
 
-    // Start is called before the first frame update
+    public static CombatManager instance = null;
+
+    void Awake()
+    {
+        //If this script does not exit already, use this current instance
+        if (instance == null)
+            instance = this;
+
+        //If this script already exit, DESTROY this current instance
+        else if (instance != this)
+            Destroy(gameObject);
+    }
+
     void Start()
     {
         
@@ -22,5 +34,10 @@ public class CombatManager : MonoBehaviour
     void Update()
     {
         
+    }
+
+    public void EnterCombat()
+    {
+        Debug.Log("Iniciando Combate o accion.");
     }
 }
