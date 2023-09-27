@@ -40,16 +40,16 @@ public class EnemyManager : MonoBehaviour
         switch (name)
         {
             case EnemyName.ENEMIGO1:
-                enemy = new Enemy("Pepito", 500, 10);
+                enemy = new Enemy("Pepito", 500, 10, 0);
                 break;
             case EnemyName.ENEMIGO2:
-                enemy = new Enemy("Azul", 250, 1);
+                enemy = new Enemy("Azul", 250, 1, 50);
                 break;
             case EnemyName.ENEMIGO3:
-                enemy = new Enemy("Chun Li", 500, 5);
+                enemy = new Enemy("Chun Li", 500, 5, 20);
                 break;
             case EnemyName.ENEMIGO4:
-                enemy = new Enemy("Saraza", 100, 20);
+                enemy = new Enemy("Saraza", 100, 10, 10);
                 break;
         }
         enemiesList.Add(enemy);

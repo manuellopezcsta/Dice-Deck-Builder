@@ -38,6 +38,13 @@ public class CombatManager : MonoBehaviour
 
     public void EnterCombat()
     {
+        GameManager.instance.SetGameState(GameManager.GAME_STATE.ON_COMBAT);
         Debug.Log("Iniciando Combate o accion.");
+    }
+
+    public void ExitCombat()
+    {
+        GameManager.instance.SetGameState(GameManager.GAME_STATE.OVERWORLD);
+        Debug.Log("Saliendo de combate o accion.");
     }
 }

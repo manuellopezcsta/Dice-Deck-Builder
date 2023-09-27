@@ -8,12 +8,14 @@ public class Enemy
     public string name;
     public int hp;
     public int armour;
+    public int mArmour;
     //public Deck deck;  x si le damos inteligencia y mazos luego.
 
-    public Enemy(string name, int hp, int armour)
+    public Enemy(string name, int hp, int armour = 0,int mArmour = 0)
     {
         this.name = name;
         this.hp = hp;
         this.armour = armour;
+        this.mArmour = mArmour;
     }
 }

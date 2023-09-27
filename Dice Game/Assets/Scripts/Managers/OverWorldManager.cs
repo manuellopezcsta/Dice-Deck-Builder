@@ -52,6 +52,7 @@ public class OverWorldManager : MonoBehaviour
         {
             case 1:
                 holder = Instantiate(mapa1, canvas.transform);
+                //Debug.Log(holder.tag);
                 break;
             case 2:
                 holder = Instantiate(mapa2, canvas.transform);
