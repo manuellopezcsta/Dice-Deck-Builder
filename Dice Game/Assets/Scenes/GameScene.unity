@@ -157,8 +157,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -2.1509094, y: -1.4338989}
-  m_SizeDelta: {x: -21.5085, y: -20.0745}
+  m_AnchoredPosition: {x: 4.3017, y: -1.4338989}
+  m_SizeDelta: {x: -8.6033, y: -20.0745}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &22347515
 MonoBehaviour:
@@ -185,7 +185,7 @@ MonoBehaviour:
   m_PreserveAspect: 0
   m_FillCenter: 1
   m_FillMethod: 0
-  m_FillAmount: 0.795
+  m_FillAmount: 0.68
   m_FillClockwise: 1
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
@@ -340,7 +340,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.37788942, g: 1, b: 0.051886797, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -416,6 +416,13 @@ MonoBehaviour:
   currentGameState: 1
   combatPanel: {fileID: 1394185958}
   overWorldPanel: {fileID: 0}
+  currentEnemy:
+    name: 
+    hp: 0
+    currentHp: 0
+    armour: 0
+    mArmour: 0
+    img: {fileID: 0}
 --- !u!1 &144140721
 GameObject:
   m_ObjectHideFlags: 0
@@ -1678,6 +1685,22 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a1538d99bad0527459644dce271f3500, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  decks: {fileID: 1275695246}
+  enemyName: {fileID: 1196658705}
+  enemySprite: {fileID: 101031900}
+  enemyHpBar: {fileID: 1412800114}
+  enemyArmourText: {fileID: 1012417183}
+  enemyMrText: {fileID: 281450951}
+  p1Sprite: {fileID: 376966297}
+  p1HpBar: {fileID: 22347515}
+  p1ArmourText: {fileID: 1419652289}
+  p1MrText: {fileID: 745736114}
+  p2Sprite: {fileID: 1666559570}
+  p2HpBar: {fileID: 1547375809}
+  p2ArmourText: {fileID: 2074227869}
+  p2MrText: {fileID: 1641747104}
+  imagenJ1: {fileID: 21300000, guid: 96bbecc347482204d8abda8c304eb785, type: 3}
+  imagenJ2: {fileID: -846263310, guid: b5d46c107aebdb64ba8c43e570b40cbc, type: 3}
 --- !u!1 &786920714
 GameObject:
   m_ObjectHideFlags: 0
@@ -2589,6 +2612,64 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1258991466}
   m_CullTransparentMesh: 1
+--- !u!1 &1275695245
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1275695247}
+  - component: {fileID: 1275695246}
+  m_Layer: 0
+  m_Name: Deck List
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1275695246
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1275695245}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9a77aae9975ebd14d8cddb49f03db03a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  deckList:
+  - cardCount: 0
+    cards: []
+  - cardCount: 0
+    cards: []
+  - cardCount: 0
+    cards: []
+  - cardCount: 0
+    cards: []
+  - cardCount: 0
+    cards: []
+  - cardCount: 0
+    cards: []
+  cardList: {fileID: 1825884905}
+--- !u!4 &1275695247
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1275695245}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 1055.5083, y: 516.7155, z: 22.009325}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1300156469
 GameObject:
   m_ObjectHideFlags: 0
@@ -3067,8 +3148,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -2.1509094, y: -1.4338989}
-  m_SizeDelta: {x: -21.5085, y: -20.0745}
+  m_AnchoredPosition: {x: 4.3017, y: -1.4338989}
+  m_SizeDelta: {x: -8.6033, y: -20.0745}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1412800114
 MonoBehaviour:
@@ -3095,7 +3176,7 @@ MonoBehaviour:
   m_PreserveAspect: 0
   m_FillCenter: 1
   m_FillMethod: 0
-  m_FillAmount: 0.795
+  m_FillAmount: 0.66
   m_FillClockwise: 1
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
@@ -3351,8 +3432,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -2.1509094, y: -1.4338989}
-  m_SizeDelta: {x: -21.5085, y: -20.0745}
+  m_AnchoredPosition: {x: 4.301605, y: -1.4338989}
+  m_SizeDelta: {x: -8.6033, y: -20.0745}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1547375809
 MonoBehaviour:
@@ -3379,7 +3460,7 @@ MonoBehaviour:
   m_PreserveAspect: 0
   m_FillCenter: 1
   m_FillMethod: 0
-  m_FillAmount: 0.795
+  m_FillAmount: 0.85
   m_FillClockwise: 1
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
@@ -4282,6 +4363,111 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!1 &1825884902
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1825884904}
+  - component: {fileID: 1825884905}
+  m_Layer: 0
+  m_Name: Card List
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1825884904
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1825884902}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 1055.5083, y: 516.7155, z: 22.009325}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1825884905
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1825884902}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ac4eaec16eb72bc45b6e43ce04a6919b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  cardList:
+  - cardName: 0
+    image: {fileID: -521962062, guid: 7badeeff956da6043b72597dbf20a731, type: 3}
+    effect: 0
+  - cardName: 1
+    image: {fileID: -521962062, guid: 7badeeff956da6043b72597dbf20a731, type: 3}
+    effect: 1
+  - cardName: 2
+    image: {fileID: -521962062, guid: 7badeeff956da6043b72597dbf20a731, type: 3}
+    effect: 2
+  - cardName: 3
+    image: {fileID: -521962062, guid: 7badeeff956da6043b72597dbf20a731, type: 3}
+    effect: 3
+  - cardName: 4
+    image: {fileID: -521962062, guid: 7badeeff956da6043b72597dbf20a731, type: 3}
+    effect: 4
+  - cardName: 5
+    image: {fileID: -521962062, guid: 7badeeff956da6043b72597dbf20a731, type: 3}
+    effect: 4
+  - cardName: 6
+    image: {fileID: -521962062, guid: 7badeeff956da6043b72597dbf20a731, type: 3}
+    effect: 4
+  - cardName: 7
+    image: {fileID: -521962062, guid: 7badeeff956da6043b72597dbf20a731, type: 3}
+    effect: 4
+  - cardName: 8
+    image: {fileID: -521962062, guid: 7badeeff956da6043b72597dbf20a731, type: 3}
+    effect: 4
+  - cardName: 9
+    image: {fileID: -521962062, guid: 7badeeff956da6043b72597dbf20a731, type: 3}
+    effect: 4
+  - cardName: 10
+    image: {fileID: -521962062, guid: 7badeeff956da6043b72597dbf20a731, type: 3}
+    effect: 4
+  - cardName: 11
+    image: {fileID: -521962062, guid: 7badeeff956da6043b72597dbf20a731, type: 3}
+    effect: 4
+  - cardName: 12
+    image: {fileID: -521962062, guid: 7badeeff956da6043b72597dbf20a731, type: 3}
+    effect: 4
+  - cardName: 13
+    image: {fileID: -521962062, guid: 7badeeff956da6043b72597dbf20a731, type: 3}
+    effect: 4
+  - cardName: 14
+    image: {fileID: -521962062, guid: 7badeeff956da6043b72597dbf20a731, type: 3}
+    effect: 4
+  - cardName: 15
+    image: {fileID: -521962062, guid: 7badeeff956da6043b72597dbf20a731, type: 3}
+    effect: 4
+  - cardName: 16
+    image: {fileID: -521962062, guid: 7badeeff956da6043b72597dbf20a731, type: 3}
+    effect: 4
+  - cardName: 17
+    image: {fileID: -521962062, guid: 7badeeff956da6043b72597dbf20a731, type: 3}
+    effect: 4
+  - cardName: 18
+    image: {fileID: -521962062, guid: 7badeeff956da6043b72597dbf20a731, type: 3}
+    effect: 4
+  - cardName: 19
+    image: {fileID: -521962062, guid: 7badeeff956da6043b72597dbf20a731, type: 3}
+    effect: 4
 --- !u!1 &1872879121
 GameObject:
   m_ObjectHideFlags: 0
@@ -5286,3 +5472,5 @@ SceneRoots:
   - {fileID: 1184092744}
   - {fileID: 1577685240}
   - {fileID: 2042150511}
+  - {fileID: 1825884904}
+  - {fileID: 1275695247}

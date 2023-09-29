@@ -7,6 +7,7 @@ public class Enemy : CombatesYEventos
 {
     public string name;
     public int hp;
+    public int currentHp;
     public int armour;
     public int mArmour;
     public Sprite img;
@@ -16,6 +17,7 @@ public class Enemy : CombatesYEventos
     {
         this.name = name;
         this.hp = hp;
+        this.currentHp = hp;
         this.armour = armour;
         this.mArmour = mArmour;
         this.img = img;

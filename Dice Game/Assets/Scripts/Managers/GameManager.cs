@@ -28,6 +28,7 @@ public class GameManager : MonoBehaviour
     [SerializeField] private GameObject combatPanel;
     [SerializeField] private GameObject overWorldPanel = null;
     [SerializeField] List<CombatesYEventos> combatesYEventos = new List<CombatesYEventos>();
+    public Enemy currentEnemy;// Indicador del enemigo actual
 
 
     public enum GAME_STATE
@@ -103,6 +104,8 @@ public class GameManager : MonoBehaviour
             case GAME_STATE.ON_COMBAT:
                 overWorldPanel.SetActive(false);
                 combatPanel.SetActive(true);
+                // Cargamos la data del combate.
+                CombatManager.instance.LoadCombatData();
                 break;
         }
     }
@@ -181,6 +184,7 @@ public class GameManager : MonoBehaviour
         if(action.GetType() == typeof(Enemy))
         {
             Debug.Log("Ejecutando Combate.");
+            currentEnemy = (Enemy) action;
             CombatManager.instance.EnterCombat();
         }
         // Si es un evento
