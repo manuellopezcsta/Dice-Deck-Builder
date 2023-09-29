@@ -413,6 +413,7 @@ MonoBehaviour:
   transition: {fileID: 1485953711}
   fillSpeed: 1
   waitTime: 1
+  currentGameState: 1
   combatPanel: {fileID: 1394185958}
   overWorldPanel: {fileID: 0}
 --- !u!1 &144140721
@@ -911,6 +912,55 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 282351926}
   m_CullTransparentMesh: 1
+--- !u!1 &334503089
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 334503090}
+  - component: {fileID: 334503091}
+  m_Layer: 0
+  m_Name: Event Manager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &334503090
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 334503089}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 2042150511}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &334503091
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 334503089}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c7251d1699328f34faed96b752ea3733, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  eventSprites:
+  - {fileID: -128055020, guid: 2576618d91b48cb429bceb1c20521301, type: 3}
+  - {fileID: -1313672582, guid: 2576618d91b48cb429bceb1c20521301, type: 3}
+  - {fileID: -580571447, guid: 2576618d91b48cb429bceb1c20521301, type: 3}
+  - {fileID: -1345237322, guid: 2576618d91b48cb429bceb1c20521301, type: 3}
 --- !u!1 &376966295
 GameObject:
   m_ObjectHideFlags: 0
@@ -4095,6 +4145,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   enemiesList: []
+  enemySprites:
+  - {fileID: 1772347146, guid: b5d46c107aebdb64ba8c43e570b40cbc, type: 3}
+  - {fileID: -1377818235, guid: b5d46c107aebdb64ba8c43e570b40cbc, type: 3}
+  - {fileID: -156597770, guid: b5d46c107aebdb64ba8c43e570b40cbc, type: 3}
+  - {fileID: 1952838979, guid: b5d46c107aebdb64ba8c43e570b40cbc, type: 3}
+  - {fileID: 353324645, guid: b5d46c107aebdb64ba8c43e570b40cbc, type: 3}
+  - {fileID: 188517038, guid: b5d46c107aebdb64ba8c43e570b40cbc, type: 3}
+  - {fileID: -1637452613, guid: b5d46c107aebdb64ba8c43e570b40cbc, type: 3}
 --- !u!1 &1789613027
 GameObject:
   m_ObjectHideFlags: 0
@@ -4653,9 +4711,9 @@ MonoBehaviour:
   canvas: {fileID: 1577685236}
   initialPlayerPos: {fileID: 786920714}
   mapa1: {fileID: 4385998640637908110, guid: 77f9b457c79c240448c00e98a9162f36, type: 3}
-  mapa2: {fileID: 4385998640637908110, guid: b2ae4771d58cda8428629ce78a52758c, type: 3}
-  mapa3: {fileID: 4385998640637908110, guid: 8a121bb228b1ae945b67f59ccc1291d8, type: 3}
-  mapa4: {fileID: 4385998640637908110, guid: bb5a2701b972f3f46b2e68ed3d6aae30, type: 3}
+  mapa2: {fileID: 4385998640637908110, guid: d28ad8a805e15954ca690d701e5d698f, type: 3}
+  mapa3: {fileID: 4385998640637908110, guid: 79cb4ca3630ff8c4cac1c04fc8dcbdf2, type: 3}
+  mapa4: {fileID: 4385998640637908110, guid: 6c4f7f3c94bcc8544a36c0c905307509, type: 3}
 --- !u!1 &1956404678
 GameObject:
   m_ObjectHideFlags: 0
@@ -4936,6 +4994,7 @@ Transform:
   - {fileID: 1947112774}
   - {fileID: 752319329}
   - {fileID: 104160002}
+  - {fileID: 334503090}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &2072441200

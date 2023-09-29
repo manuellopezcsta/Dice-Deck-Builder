@@ -25,21 +25,10 @@ public class CombatManager : MonoBehaviour
             Destroy(gameObject);
     }
 
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
-
     public void EnterCombat()
     {
         GameManager.instance.SetGameState(GameManager.GAME_STATE.ON_COMBAT);
-        Debug.Log("Iniciando Combate o accion.");
+        Debug.Log("Entrando en Combate.");
     }
 
     public void ExitCombat()

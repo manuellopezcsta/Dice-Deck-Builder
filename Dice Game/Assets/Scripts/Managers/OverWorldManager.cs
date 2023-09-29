@@ -40,6 +40,8 @@ public class OverWorldManager : MonoBehaviour
     {
         //Debug.Log(playerSprite.transform.position);
         ChangeToNextMap(currentLevel);
+        // Creamos los eventos para los botones.
+        GameManager.instance.BuildLevelMap();
     }
 
     public void ChangeToNextMap(int levelNumber)

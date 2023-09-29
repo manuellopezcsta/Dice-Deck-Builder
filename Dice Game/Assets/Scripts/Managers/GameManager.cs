@@ -1,8 +1,16 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
-using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.UI;
+using Random=UnityEngine.Random; // Para que sepa de donde saco el random.
+
+
+public interface CombatesYEventos
+{
+    // Es como la herencia le definis algo que es obligatoria implementarla en todas la clases que la hereden.
+    public Sprite GetSprite();
+}
 
 public class GameManager : MonoBehaviour
 {
@@ -19,6 +27,7 @@ public class GameManager : MonoBehaviour
     // Para el combate
     [SerializeField] private GameObject combatPanel;
     [SerializeField] private GameObject overWorldPanel = null;
+    [SerializeField] List<CombatesYEventos> combatesYEventos = new List<CombatesYEventos>();
 
 
     public enum GAME_STATE
@@ -132,5 +141,54 @@ public class GameManager : MonoBehaviour
             transition.fillAmount = currentValue;
             yield return null;
         }
+    }
+
+    public void BuildLevelMap()
+    {
+        // Primer y Segundo nodo combate
+        combatesYEventos.Add(EnemyManager.instance.enemiesList[0]);
+        combatesYEventos.Add(EnemyManager.instance.enemiesList[1]);
+        // El resto puede ser cualquier cosa
+        for (int i = 0; i < 3; i++)
+        {
+            int b = Random.Range(0, 2);
+            if (b == 0)
+            {
+                //Agregar Combate
+                combatesYEventos.Add(EnemyManager.instance.enemiesList[0]);
+                EnemyManager.instance.enemiesList.RemoveAt(0);
+
+            }
+            else
+            {
+                // Agregar Evento
+                combatesYEventos.Add(EventManager.instance.eventList[0]);
+                EventManager.instance.eventList.RemoveAt(0);
+            }
+        }
+    }
+
+    public CombatesYEventos GetNodeData(int index)
+    {
+        return combatesYEventos[index];
+    }
+
+    // Se encarga de activar los eventos o los combates.
+    public void HandleNodeAction(int index)
+    {
+        CombatesYEventos action = combatesYEventos[index];
+        // Si es un combate
+        if(action.GetType() == typeof(Enemy))
+        {
+            Debug.Log("Ejecutando Combate.");
+            CombatManager.instance.EnterCombat();
+        }
+        // Si es un evento
+        if(action.GetType() == typeof(Event))
+        {
+            Debug.Log("Ejecutando Evento.");
+            EventManager.instance.ResolveEvent((Event) action);
+        }
+
     }
 }
