@@ -185,6 +185,7 @@ public class GameManager : MonoBehaviour
         {
             Debug.Log("Ejecutando Combate.");
             currentEnemy = (Enemy) action;
+            //currentEnemy.DebugInfo();
             CombatManager.instance.EnterCombat();
         }
         // Si es un evento

@@ -1055,6 +1055,7 @@ GameObject:
   - component: {fileID: 395285660}
   - component: {fileID: 395285659}
   - component: {fileID: 395285661}
+  - component: {fileID: 395285662}
   m_Layer: 5
   m_Name: Carta 3
   m_TagString: Untagged
@@ -1132,6 +1133,19 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   cardDisplay: {fileID: 2022971869}
+--- !u!114 &395285662
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 395285657}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 67f3f22918453134e9d89757ce72df6d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  uniqueID: 3
 --- !u!1 &448047505
 GameObject:
   m_ObjectHideFlags: 0
@@ -1354,6 +1368,7 @@ GameObject:
   - component: {fileID: 610708296}
   - component: {fileID: 610708295}
   - component: {fileID: 610708297}
+  - component: {fileID: 610708298}
   m_Layer: 5
   m_Name: Carta 4
   m_TagString: Untagged
@@ -1431,6 +1446,19 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   cardDisplay: {fileID: 2022971869}
+--- !u!114 &610708298
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 610708293}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 67f3f22918453134e9d89757ce72df6d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  uniqueID: 4
 --- !u!1 &697849178
 GameObject:
   m_ObjectHideFlags: 0
@@ -1701,6 +1729,14 @@ MonoBehaviour:
   p2MrText: {fileID: 1641747104}
   imagenJ1: {fileID: 21300000, guid: 96bbecc347482204d8abda8c304eb785, type: 3}
   imagenJ2: {fileID: -846263310, guid: b5d46c107aebdb64ba8c43e570b40cbc, type: 3}
+  currentTurn: 0
+  playerHand: []
+  card1: {fileID: 1789613032}
+  card2: {fileID: 1569206743}
+  card3: {fileID: 395285662}
+  card4: {fileID: 610708298}
+  card5: {fileID: 1329534338}
+  card6: {fileID: 1373943989}
 --- !u!1 &786920714
 GameObject:
   m_ObjectHideFlags: 0
@@ -2829,6 +2865,7 @@ GameObject:
   - component: {fileID: 1329534336}
   - component: {fileID: 1329534335}
   - component: {fileID: 1329534337}
+  - component: {fileID: 1329534338}
   m_Layer: 5
   m_Name: Carta 5
   m_TagString: Untagged
@@ -2906,6 +2943,19 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   cardDisplay: {fileID: 2022971869}
+--- !u!114 &1329534338
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1329534333}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 67f3f22918453134e9d89757ce72df6d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  uniqueID: 5
 --- !u!1 &1373943984
 GameObject:
   m_ObjectHideFlags: 0
@@ -2918,6 +2968,7 @@ GameObject:
   - component: {fileID: 1373943988}
   - component: {fileID: 1373943987}
   - component: {fileID: 1373943986}
+  - component: {fileID: 1373943989}
   m_Layer: 5
   m_Name: Carta 6
   m_TagString: Untagged
@@ -2995,6 +3046,19 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1373943984}
   m_CullTransparentMesh: 1
+--- !u!114 &1373943989
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1373943984}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 67f3f22918453134e9d89757ce72df6d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  uniqueID: 6
 --- !u!1 &1385808474
 GameObject:
   m_ObjectHideFlags: 0
@@ -3485,6 +3549,7 @@ GameObject:
   - component: {fileID: 1569206741}
   - component: {fileID: 1569206740}
   - component: {fileID: 1569206742}
+  - component: {fileID: 1569206743}
   m_Layer: 5
   m_Name: Carta 2
   m_TagString: Untagged
@@ -3562,6 +3627,19 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   cardDisplay: {fileID: 2022971869}
+--- !u!114 &1569206743
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1569206738}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 67f3f22918453134e9d89757ce72df6d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  uniqueID: 2
 --- !u!1 &1577685236
 GameObject:
   m_ObjectHideFlags: 0
@@ -4246,6 +4324,7 @@ GameObject:
   - component: {fileID: 1789613030}
   - component: {fileID: 1789613029}
   - component: {fileID: 1789613031}
+  - component: {fileID: 1789613032}
   m_Layer: 5
   m_Name: Carta 1
   m_TagString: Untagged
@@ -4323,6 +4402,19 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   cardDisplay: {fileID: 2022971869}
+--- !u!114 &1789613032
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1789613027}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 67f3f22918453134e9d89757ce72df6d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  uniqueID: 1
 --- !u!1 &1799074085
 GameObject:
   m_ObjectHideFlags: 0
@@ -4409,64 +4501,64 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   cardList:
   - cardName: 0
-    image: {fileID: -521962062, guid: 7badeeff956da6043b72597dbf20a731, type: 3}
+    image: {fileID: 21300000, guid: 50f6e262ebfb6fe4f8bfb0a5e45bb759, type: 3}
     effect: 0
   - cardName: 1
-    image: {fileID: -521962062, guid: 7badeeff956da6043b72597dbf20a731, type: 3}
+    image: {fileID: 21300000, guid: b6cd2bc6d5a6c794899b156f42ad8f39, type: 3}
     effect: 1
   - cardName: 2
-    image: {fileID: -521962062, guid: 7badeeff956da6043b72597dbf20a731, type: 3}
+    image: {fileID: 21300000, guid: eef975f984b08a84084f9a609844dd58, type: 3}
     effect: 2
   - cardName: 3
-    image: {fileID: -521962062, guid: 7badeeff956da6043b72597dbf20a731, type: 3}
+    image: {fileID: 21300000, guid: d0caa0316120f714ea47b04527643db1, type: 3}
     effect: 3
   - cardName: 4
-    image: {fileID: -521962062, guid: 7badeeff956da6043b72597dbf20a731, type: 3}
+    image: {fileID: 21300000, guid: 28b8f1f8dd9614c41b77a1e0a692267d, type: 3}
     effect: 4
   - cardName: 5
-    image: {fileID: -521962062, guid: 7badeeff956da6043b72597dbf20a731, type: 3}
+    image: {fileID: 21300000, guid: 4eba2f20922f0e44483ce640d18e8b99, type: 3}
     effect: 4
   - cardName: 6
-    image: {fileID: -521962062, guid: 7badeeff956da6043b72597dbf20a731, type: 3}
+    image: {fileID: 21300000, guid: bf450cf0ba824824fb6cdfdf51cf42e9, type: 3}
     effect: 4
   - cardName: 7
-    image: {fileID: -521962062, guid: 7badeeff956da6043b72597dbf20a731, type: 3}
+    image: {fileID: 21300000, guid: 413117a45e5a1ab4d8e40cc165f1fe4c, type: 3}
     effect: 4
   - cardName: 8
-    image: {fileID: -521962062, guid: 7badeeff956da6043b72597dbf20a731, type: 3}
+    image: {fileID: 21300000, guid: 7861f6346992b2c4d864093be04e9ceb, type: 3}
     effect: 4
   - cardName: 9
-    image: {fileID: -521962062, guid: 7badeeff956da6043b72597dbf20a731, type: 3}
+    image: {fileID: 21300000, guid: d31529f082efd3142974de17820aa024, type: 3}
     effect: 4
   - cardName: 10
-    image: {fileID: -521962062, guid: 7badeeff956da6043b72597dbf20a731, type: 3}
+    image: {fileID: 21300000, guid: 50f6e262ebfb6fe4f8bfb0a5e45bb759, type: 3}
     effect: 4
   - cardName: 11
-    image: {fileID: -521962062, guid: 7badeeff956da6043b72597dbf20a731, type: 3}
+    image: {fileID: 21300000, guid: b6cd2bc6d5a6c794899b156f42ad8f39, type: 3}
     effect: 4
   - cardName: 12
-    image: {fileID: -521962062, guid: 7badeeff956da6043b72597dbf20a731, type: 3}
+    image: {fileID: 21300000, guid: eef975f984b08a84084f9a609844dd58, type: 3}
     effect: 4
   - cardName: 13
-    image: {fileID: -521962062, guid: 7badeeff956da6043b72597dbf20a731, type: 3}
+    image: {fileID: 21300000, guid: d0caa0316120f714ea47b04527643db1, type: 3}
     effect: 4
   - cardName: 14
-    image: {fileID: -521962062, guid: 7badeeff956da6043b72597dbf20a731, type: 3}
+    image: {fileID: 21300000, guid: 28b8f1f8dd9614c41b77a1e0a692267d, type: 3}
     effect: 4
   - cardName: 15
-    image: {fileID: -521962062, guid: 7badeeff956da6043b72597dbf20a731, type: 3}
+    image: {fileID: 21300000, guid: 4eba2f20922f0e44483ce640d18e8b99, type: 3}
     effect: 4
   - cardName: 16
-    image: {fileID: -521962062, guid: 7badeeff956da6043b72597dbf20a731, type: 3}
+    image: {fileID: 21300000, guid: bf450cf0ba824824fb6cdfdf51cf42e9, type: 3}
     effect: 4
   - cardName: 17
-    image: {fileID: -521962062, guid: 7badeeff956da6043b72597dbf20a731, type: 3}
+    image: {fileID: 21300000, guid: 413117a45e5a1ab4d8e40cc165f1fe4c, type: 3}
     effect: 4
   - cardName: 18
-    image: {fileID: -521962062, guid: 7badeeff956da6043b72597dbf20a731, type: 3}
+    image: {fileID: 21300000, guid: 7861f6346992b2c4d864093be04e9ceb, type: 3}
     effect: 4
   - cardName: 19
-    image: {fileID: -521962062, guid: 7badeeff956da6043b72597dbf20a731, type: 3}
+    image: {fileID: 21300000, guid: d31529f082efd3142974de17820aa024, type: 3}
     effect: 4
 --- !u!1 &1872879121
 GameObject:

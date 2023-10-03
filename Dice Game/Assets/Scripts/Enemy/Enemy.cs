@@ -27,4 +27,9 @@ public class Enemy : CombatesYEventos
     {
         return img;
     }
+
+    public void DebugInfo()
+    {
+        Debug.Log("NAME: " +this.name +" HP: " +this.hp + " CURRENTHP: " + this.currentHp + " ARMOUR:" + this.armour + " MR: " + this.mArmour);
+    }
 }
