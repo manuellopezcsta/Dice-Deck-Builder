@@ -1,8 +1,10 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.UI;
+//using UnityEngine.UIElements;
 using Random=UnityEngine.Random; // Para que sepa de donde saco el random.
 
 
@@ -29,13 +31,14 @@ public class GameManager : MonoBehaviour
     [SerializeField] private GameObject overWorldPanel = null;
     [SerializeField] List<CombatesYEventos> combatesYEventos = new List<CombatesYEventos>();
     public Enemy currentEnemy;// Indicador del enemigo actual
+    public List<Dice> defaultDiceList = new List<Dice>(); // Lista de dados Default
 
 
     public enum GAME_STATE
     {
         TUTORIAL,
         OVERWORLD,
-        ON_COMBAT
+        ON_COMBAT,
     }
 
     public static GameManager instance = null;
@@ -53,6 +56,7 @@ public class GameManager : MonoBehaviour
 
     void Start()
     {
+        BuildDefaultDiceList(); // Armamos la lista de dados
         StartCoroutine(AssignOverWorld()); // Por alguna razon necesite correrlo como corutina para que lo encuentre.
     }
 
@@ -195,5 +199,17 @@ public class GameManager : MonoBehaviour
             EventManager.instance.ResolveEvent((Event) action);
         }
 
+    }
+
+    private void BuildDefaultDiceList()
+    {
+        // Armamos la lista default para despues crear players con dados.
+        DiceList diceListScript = GameObject.Find("Dice List").GetComponent<DiceList>();
+        List<Dice> globalDices = diceListScript.diceList;
+
+        defaultDiceList.Add(globalDices[0]);
+        defaultDiceList.Add(globalDices[1]);
+        defaultDiceList.Add(globalDices[2]);
+        defaultDiceList.Add(globalDices[3]);
     }
 }
