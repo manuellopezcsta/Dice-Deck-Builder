@@ -19,6 +19,13 @@ public class SFXManager : MonoBehaviour
     public AudioClip pickupSound;
     public AudioClip hoverSound;
 
+    [Header("Clips de Main Song")]
+    public AudioClip menuSong;
+    public AudioClip nivel1Song;
+    public AudioClip nivel2Song;
+    public AudioClip combateSong;
+    public AudioClip gameOverSong;
+
 
     // El Enum que se usa de Key para llamar a la funcion PlayVFX.
     public enum VFXName {
@@ -27,8 +34,17 @@ public class SFXManager : MonoBehaviour
         PICKUP,
         HOVER
     }
+
+    public enum MSName {
+        MENU,
+        NIVEL1,
+        NIVEL2,
+        COMBATE,
+        GAME_OVER
+    }
     // Un diccionario que va a contener todos los clips de audio con su respectivos volumenes.
     Dictionary<VFXName, Tuple<AudioClip, float>> clipLibrary = new Dictionary<VFXName, Tuple<AudioClip, float>>();
+    Dictionary<MSName, Tuple<AudioClip, float>> mainSongLibrary = new Dictionary<MSName, Tuple<AudioClip, float>>();
 
     public static SFXManager instance = null;
 
@@ -44,6 +60,8 @@ public class SFXManager : MonoBehaviour
         
         //LLenamos la libreria de Sonidos
         FillSoundLibrary();
+        // Para que no se destuya.
+        //DontDestroyOnLoad(this.gameObject);
     }
 
     // Funcion que reproduce cualquier VFX que queramos.
@@ -69,11 +87,24 @@ public class SFXManager : MonoBehaviour
         clipLibrary.Add(VFXName.ROLL, Tuple.Create(rollSound, 0.6f));
         clipLibrary.Add(VFXName.PICKUP, Tuple.Create(pickupSound, 0.28f));
         clipLibrary.Add(VFXName.HOVER, Tuple.Create(hoverSound, 1f));
+        
+        // Los de main song
+        mainSongLibrary.Add(MSName.NIVEL1, Tuple.Create(nivel1Song, 1f));
+        mainSongLibrary.Add(MSName.NIVEL2, Tuple.Create(nivel2Song, 1f));
+        mainSongLibrary.Add(MSName.MENU, Tuple.Create(menuSong, 1f));
+        mainSongLibrary.Add(MSName.COMBATE, Tuple.Create(combateSong, 1f));
+        mainSongLibrary.Add(MSName.GAME_OVER, Tuple.Create(gameOverSong, 1f));
     }
 
     // Esta funcion utiliza el Music Player Original.
-    public void PlaySong(){
-        mainSong.volume = 0.25f;
+    public void PlaySong(MSName song){
+        if(mainSong.isPlaying)
+        {
+            mainSong.Stop();
+        }
+        // Seteamos los valores.
+        mainSong.clip = mainSongLibrary[song].Item1;
+        mainSong.volume = mainSongLibrary[song].Item2;
         mainSong.Play();
     }
 
