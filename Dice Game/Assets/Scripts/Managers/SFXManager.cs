@@ -50,6 +50,7 @@ public class SFXManager : MonoBehaviour
 
     void Awake()
     {
+        DontDestroyOnLoad(this.gameObject);
         //If this script does not exit already, use this current instance
         if (instance == null)
             instance = this;
@@ -61,7 +62,7 @@ public class SFXManager : MonoBehaviour
         //LLenamos la libreria de Sonidos
         FillSoundLibrary();
         // Para que no se destuya.
-        //DontDestroyOnLoad(this.gameObject);
+        
     }
 
     // Funcion que reproduce cualquier VFX que queramos.
