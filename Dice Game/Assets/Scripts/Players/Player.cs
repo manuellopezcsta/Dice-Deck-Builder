@@ -11,8 +11,17 @@ public class Player
     public int currentHp;
     public int armour;
     public int mArmour;
+    public int maxArmour = 50;
+    public int maxMArmour = 50;
+    public bool parryFisico;
+    public bool parryMagico;
+    public bool envenenado;
+    public int poisonedTime;
     public Sprite sprite;
-    public Player(string name, Deck startingDeck, int MaxHp, int armour, int mArmour, Sprite img = null)
+    public List<Dice> dices;
+
+
+    public Player(string name, Deck startingDeck, int MaxHp, int armour, int mArmour, List<Dice> dices, Sprite img = null)
     {
         this.name = name;
         this.currentDeck = startingDeck;
@@ -21,53 +30,109 @@ public class Player
         this.mArmour = mArmour;
         this.currentHp = MaxHp;
         this.sprite = img;
+        this.dices = dices;
     }
 
-    public void TomarDaño(int valor)
+    public void TomarDaño(int valor, Enemy enemigo = null)
     {
-        int danioPasa = 999;
+        if (parryFisico)
+        {
+            //Llamar daño al enemigo
+            enemigo.TomarDaño(valor * 2);
+            parryFisico = false;
+            return;
+        }
+
+        int dañoPasa = 999;
         // Si tiene armadura
         if(armour > 0)
         {
             // Si tengo mas  armadura que el ataque
             if(armour > valor)
             {
-                danioPasa = 0;
+                dañoPasa = 0;
                 armour -= valor;
             }
             else{
-                danioPasa = valor - armour;
+                dañoPasa = valor - armour;
                 armour = 0;
             }
         } else {
             // SI no tengo armadura
-            danioPasa = valor;
+            dañoPasa = valor;
         }
         // Igualamos
-        currentHp -= danioPasa;
+        currentHp -= dañoPasa;
+                
+        // Updateamos el display
+        CombatManager.instance.p1Display.UpdateDisplay();
+        CombatManager.instance.p2Display.UpdateDisplay();
     }
 
-    public void TomarDañoMagico(int valor)
+    public void TomarDañoMagico(int valor, Enemy enemigo = null)
     {
-        int danioPasa = 999;
+        if (parryMagico)
+        {
+            //Llamar daño al enemigo
+            enemigo.TomarDañoMagico(valor * 2);
+            parryMagico = false;
+            return;
+        }
+        int dañoPasa = 999;
         // Si tiene armadura
         if(mArmour > 0)
         {
             // Si tengo mas  armadura que el ataque
             if(mArmour > valor)
             {
-                danioPasa = 0;
+                dañoPasa = 0;
                 mArmour -= valor;
             }
             else{
-                danioPasa = valor - mArmour;
+                dañoPasa = valor - mArmour;
                 mArmour = 0;
             }
         } else {
             // SI no tengo armadura
-            danioPasa = valor;
+            dañoPasa = valor;
         }
         // Igualamos
-        currentHp -= danioPasa;
+        currentHp -= dañoPasa;
+                
+        // Updateamos el display
+        CombatManager.instance.p1Display.UpdateDisplay();
+        CombatManager.instance.p2Display.UpdateDisplay();
+    }
+
+    public void Cura(int valor){
+        //Cura
+        currentHp += valor;
+        currentHp = Mathf.Clamp(currentHp,0,MaxHp);
+                
+        // Updateamos el display
+        CombatManager.instance.p1Display.UpdateDisplay();
+        CombatManager.instance.p2Display.UpdateDisplay();       
+    }
+
+    public void ChanceEnvenenado(int valor){
+        //Chance de envenenar
+        int chance = Random.Range(0,2);
+        if(chance == 0){
+            envenenado = true;
+            poisonedTime += valor;
+        }
+    }
+
+    public void Envenenado(){
+        //Daño veneno
+         if(envenenado){
+            if(poisonedTime < 0){
+                currentHp -= CombatManager.instance.poisonDotValue;
+                poisonedTime -= 1;
+            }
+            else{
+                envenenado = false;
+            }
+        }
     }    
 }

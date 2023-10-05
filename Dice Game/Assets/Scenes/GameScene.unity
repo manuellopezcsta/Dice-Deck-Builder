@@ -422,7 +422,10 @@ MonoBehaviour:
     currentHp: 0
     armour: 0
     mArmour: 0
+    envenenado: 0
+    poisonedTime: 0
     img: {fileID: 0}
+  defaultDiceList: []
 --- !u!1 &144140721
 GameObject:
   m_ObjectHideFlags: 0
@@ -434,6 +437,10 @@ GameObject:
   - component: {fileID: 144140722}
   - component: {fileID: 144140724}
   - component: {fileID: 144140723}
+  - component: {fileID: 144140725}
+  - component: {fileID: 144140726}
+  - component: {fileID: 144140727}
+  - component: {fileID: 144140728}
   m_Layer: 5
   m_Name: Dado 1
   m_TagString: Untagged
@@ -499,6 +506,105 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 144140721}
   m_CullTransparentMesh: 1
+--- !u!114 &144140725
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 144140721}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 369904729c4940b408ff1430a4cb8316, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isCollidingWithCard: 0
+  collidedCard: {fileID: 0}
+  uniqueID: 1
+--- !u!61 &144140726
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 144140721}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_ForceSendLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ForceReceiveLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ContactCaptureLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_CallbackLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0, y: 0}
+    oldSize: {x: 0, y: 0}
+    newSize: {x: 0, y: 0}
+    adaptiveTilingThreshold: 0
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 25, y: 25}
+  m_EdgeRadius: 0
+--- !u!50 &144140727
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 144140721}
+  m_BodyType: 0
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 0
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_Interpolate: 0
+  m_SleepingMode: 0
+  m_CollisionDetection: 0
+  m_Constraints: 0
+--- !u!114 &144140728
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 144140721}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dd1ce28f15bf3b4489219e4d7c907e58, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &154752256
 GameObject:
   m_ObjectHideFlags: 0
@@ -842,7 +948,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 10
+  m_text: 1
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -1056,9 +1162,10 @@ GameObject:
   - component: {fileID: 395285659}
   - component: {fileID: 395285661}
   - component: {fileID: 395285662}
+  - component: {fileID: 395285663}
   m_Layer: 5
   m_Name: Carta 3
-  m_TagString: Untagged
+  m_TagString: CARD
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1146,6 +1253,51 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   uniqueID: 3
+--- !u!61 &395285663
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 395285657}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_ForceSendLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ForceReceiveLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ContactCaptureLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_CallbackLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0, y: 0}
+    oldSize: {x: 0, y: 0}
+    newSize: {x: 0, y: 0}
+    adaptiveTilingThreshold: 0
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 112, y: 191}
+  m_EdgeRadius: 0
 --- !u!1 &448047505
 GameObject:
   m_ObjectHideFlags: 0
@@ -1203,7 +1355,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 10
+  m_text: 4
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -1369,9 +1521,10 @@ GameObject:
   - component: {fileID: 610708295}
   - component: {fileID: 610708297}
   - component: {fileID: 610708298}
+  - component: {fileID: 610708299}
   m_Layer: 5
   m_Name: Carta 4
-  m_TagString: Untagged
+  m_TagString: CARD
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1459,6 +1612,51 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   uniqueID: 4
+--- !u!61 &610708299
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 610708293}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_ForceSendLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ForceReceiveLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ContactCaptureLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_CallbackLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0, y: 0}
+    oldSize: {x: 0, y: 0}
+    newSize: {x: 0, y: 0}
+    adaptiveTilingThreshold: 0
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 112, y: 191}
+  m_EdgeRadius: 0
 --- !u!1 &697849178
 GameObject:
   m_ObjectHideFlags: 0
@@ -1470,6 +1668,10 @@ GameObject:
   - component: {fileID: 697849179}
   - component: {fileID: 697849181}
   - component: {fileID: 697849180}
+  - component: {fileID: 697849182}
+  - component: {fileID: 697849183}
+  - component: {fileID: 697849184}
+  - component: {fileID: 697849185}
   m_Layer: 5
   m_Name: Dado 2
   m_TagString: Untagged
@@ -1535,6 +1737,105 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 697849178}
   m_CullTransparentMesh: 1
+--- !u!114 &697849182
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 697849178}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 369904729c4940b408ff1430a4cb8316, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isCollidingWithCard: 0
+  collidedCard: {fileID: 0}
+  uniqueID: 2
+--- !u!50 &697849183
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 697849178}
+  m_BodyType: 0
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 0
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_Interpolate: 0
+  m_SleepingMode: 0
+  m_CollisionDetection: 0
+  m_Constraints: 0
+--- !u!61 &697849184
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 697849178}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_ForceSendLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ForceReceiveLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ContactCaptureLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_CallbackLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0, y: 0}
+    oldSize: {x: 0, y: 0}
+    newSize: {x: 0, y: 0}
+    adaptiveTilingThreshold: 0
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 25, y: 25}
+  m_EdgeRadius: 0
+--- !u!114 &697849185
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 697849178}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dd1ce28f15bf3b4489219e4d7c907e58, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &745736112
 GameObject:
   m_ObjectHideFlags: 0
@@ -1737,6 +2038,16 @@ MonoBehaviour:
   card4: {fileID: 610708298}
   card5: {fileID: 1329534338}
   card6: {fileID: 1373943989}
+  poisonDotValue: 5
+  finalBattle: 0
+  diceDisplays:
+  - {fileID: 144140728}
+  - {fileID: 697849185}
+  - {fileID: 1696825280}
+  - {fileID: 1621828439}
+  p1Display: {fileID: 1385808476}
+  p2Display: {fileID: 1799074087}
+  enemyDisplay: {fileID: 878618449}
 --- !u!1 &786920714
 GameObject:
   m_ObjectHideFlags: 0
@@ -1923,6 +2234,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 878618448}
+  - component: {fileID: 878618449}
   m_Layer: 5
   m_Name: Enemy
   m_TagString: Untagged
@@ -1951,6 +2263,21 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &878618449
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 878618447}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2e1a97b49ea3af8469922ed980e3b4e5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  hpBar: {fileID: 1412800114}
+  armour: {fileID: 1012417183}
+  mrArmour: {fileID: 281450951}
 --- !u!1 &892219755
 GameObject:
   m_ObjectHideFlags: 0
@@ -2853,6 +3180,11 @@ MonoBehaviour:
   rollSound: {fileID: 0}
   pickupSound: {fileID: 0}
   hoverSound: {fileID: 0}
+  menuSong: {fileID: 0}
+  nivel1Song: {fileID: 0}
+  nivel2Song: {fileID: 0}
+  combateSong: {fileID: 0}
+  gameOverSong: {fileID: 0}
 --- !u!1 &1329534333
 GameObject:
   m_ObjectHideFlags: 0
@@ -2866,9 +3198,10 @@ GameObject:
   - component: {fileID: 1329534335}
   - component: {fileID: 1329534337}
   - component: {fileID: 1329534338}
+  - component: {fileID: 1329534339}
   m_Layer: 5
   m_Name: Carta 5
-  m_TagString: Untagged
+  m_TagString: CARD
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2956,6 +3289,51 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   uniqueID: 5
+--- !u!61 &1329534339
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1329534333}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_ForceSendLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ForceReceiveLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ContactCaptureLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_CallbackLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0, y: 0}
+    oldSize: {x: 0, y: 0}
+    newSize: {x: 0, y: 0}
+    adaptiveTilingThreshold: 0
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 112, y: 191}
+  m_EdgeRadius: 0
 --- !u!1 &1373943984
 GameObject:
   m_ObjectHideFlags: 0
@@ -2969,9 +3347,10 @@ GameObject:
   - component: {fileID: 1373943987}
   - component: {fileID: 1373943986}
   - component: {fileID: 1373943989}
+  - component: {fileID: 1373943990}
   m_Layer: 5
   m_Name: Carta 6
-  m_TagString: Untagged
+  m_TagString: CARD
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -3059,6 +3438,51 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   uniqueID: 6
+--- !u!61 &1373943990
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1373943984}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_ForceSendLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ForceReceiveLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ContactCaptureLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_CallbackLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0, y: 0}
+    oldSize: {x: 0, y: 0}
+    newSize: {x: 0, y: 0}
+    adaptiveTilingThreshold: 0
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 112, y: 191}
+  m_EdgeRadius: 0
 --- !u!1 &1385808474
 GameObject:
   m_ObjectHideFlags: 0
@@ -3068,6 +3492,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1385808475}
+  - component: {fileID: 1385808476}
   m_Layer: 5
   m_Name: Player 1
   m_TagString: Untagged
@@ -3099,6 +3524,22 @@ RectTransform:
   m_AnchoredPosition: {x: -755, y: -218}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0, y: 0}
+--- !u!114 &1385808476
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1385808474}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ef8fab77206b1cf4a870b61aa3841c37, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  hpBar: {fileID: 22347515}
+  armour: {fileID: 1419652289}
+  mrArmour: {fileID: 745736114}
+  playerNumber: 1
 --- !u!1 &1394185958
 GameObject:
   m_ObjectHideFlags: 0
@@ -3550,9 +3991,10 @@ GameObject:
   - component: {fileID: 1569206740}
   - component: {fileID: 1569206742}
   - component: {fileID: 1569206743}
+  - component: {fileID: 1569206744}
   m_Layer: 5
   m_Name: Carta 2
-  m_TagString: Untagged
+  m_TagString: CARD
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -3640,6 +4082,51 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   uniqueID: 2
+--- !u!61 &1569206744
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1569206738}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_ForceSendLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ForceReceiveLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ContactCaptureLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_CallbackLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0, y: 0}
+    oldSize: {x: 0, y: 0}
+    newSize: {x: 0, y: 0}
+    adaptiveTilingThreshold: 0
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 112, y: 191}
+  m_EdgeRadius: 0
 --- !u!1 &1577685236
 GameObject:
   m_ObjectHideFlags: 0
@@ -3746,6 +4233,63 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 0}
+--- !u!1 &1597110513
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1597110515}
+  - component: {fileID: 1597110514}
+  m_Layer: 0
+  m_Name: Dice List
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1597110514
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1597110513}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c9625dfe0a8cc914bb3ca771aa2a78f6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  diceList:
+  - currentValue: 0
+    values: 010000000200000003000000040000000500000006000000
+  - currentValue: 0
+    values: 010000000200000003000000040000000500000006000000
+  - currentValue: 0
+    values: 010000000200000003000000040000000500000006000000
+  - currentValue: 0
+    values: 010000000200000003000000040000000500000006000000
+  - currentValue: 0
+    values: 010000000200000003000000040000000500000006000000
+  - currentValue: 0
+    values: 010000000200000003000000040000000500000006000000
+--- !u!4 &1597110515
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1597110513}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 1055.5083, y: 516.7155, z: 22.009325}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1621828432
 GameObject:
   m_ObjectHideFlags: 0
@@ -3757,6 +4301,10 @@ GameObject:
   - component: {fileID: 1621828433}
   - component: {fileID: 1621828435}
   - component: {fileID: 1621828434}
+  - component: {fileID: 1621828436}
+  - component: {fileID: 1621828437}
+  - component: {fileID: 1621828438}
+  - component: {fileID: 1621828439}
   m_Layer: 5
   m_Name: Dado 4
   m_TagString: Untagged
@@ -3822,6 +4370,105 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1621828432}
   m_CullTransparentMesh: 1
+--- !u!114 &1621828436
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1621828432}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 369904729c4940b408ff1430a4cb8316, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isCollidingWithCard: 0
+  collidedCard: {fileID: 0}
+  uniqueID: 4
+--- !u!50 &1621828437
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1621828432}
+  m_BodyType: 0
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 0
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_Interpolate: 0
+  m_SleepingMode: 0
+  m_CollisionDetection: 0
+  m_Constraints: 0
+--- !u!61 &1621828438
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1621828432}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_ForceSendLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ForceReceiveLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ContactCaptureLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_CallbackLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0, y: 0}
+    oldSize: {x: 0, y: 0}
+    newSize: {x: 0, y: 0}
+    adaptiveTilingThreshold: 0
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 25, y: 25}
+  m_EdgeRadius: 0
+--- !u!114 &1621828439
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1621828432}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dd1ce28f15bf3b4489219e4d7c907e58, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1641747102
 GameObject:
   m_ObjectHideFlags: 0
@@ -4118,6 +4765,10 @@ GameObject:
   - component: {fileID: 1696825274}
   - component: {fileID: 1696825276}
   - component: {fileID: 1696825275}
+  - component: {fileID: 1696825277}
+  - component: {fileID: 1696825278}
+  - component: {fileID: 1696825279}
+  - component: {fileID: 1696825280}
   m_Layer: 5
   m_Name: Dado 3
   m_TagString: Untagged
@@ -4183,6 +4834,105 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1696825273}
   m_CullTransparentMesh: 1
+--- !u!114 &1696825277
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1696825273}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 369904729c4940b408ff1430a4cb8316, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isCollidingWithCard: 0
+  collidedCard: {fileID: 0}
+  uniqueID: 3
+--- !u!50 &1696825278
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1696825273}
+  m_BodyType: 0
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 0
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_Interpolate: 0
+  m_SleepingMode: 0
+  m_CollisionDetection: 0
+  m_Constraints: 0
+--- !u!61 &1696825279
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1696825273}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_ForceSendLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ForceReceiveLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ContactCaptureLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_CallbackLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0, y: 0}
+    oldSize: {x: 0, y: 0}
+    newSize: {x: 0, y: 0}
+    adaptiveTilingThreshold: 0
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 25, y: 25}
+  m_EdgeRadius: 0
+--- !u!114 &1696825280
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1696825273}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dd1ce28f15bf3b4489219e4d7c907e58, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1707980154
 GameObject:
   m_ObjectHideFlags: 0
@@ -4325,9 +5075,10 @@ GameObject:
   - component: {fileID: 1789613029}
   - component: {fileID: 1789613031}
   - component: {fileID: 1789613032}
+  - component: {fileID: 1789613033}
   m_Layer: 5
   m_Name: Carta 1
-  m_TagString: Untagged
+  m_TagString: CARD
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -4342,7 +5093,7 @@ RectTransform:
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
+  m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 2072441201}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -4415,6 +5166,51 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   uniqueID: 1
+--- !u!61 &1789613033
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1789613027}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_ForceSendLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ForceReceiveLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ContactCaptureLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_CallbackLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0, y: 0}
+    oldSize: {x: 0, y: 0}
+    newSize: {x: 0, y: 0}
+    adaptiveTilingThreshold: 0
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 112, y: 191}
+  m_EdgeRadius: 0
 --- !u!1 &1799074085
 GameObject:
   m_ObjectHideFlags: 0
@@ -4424,6 +5220,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1799074086}
+  - component: {fileID: 1799074087}
   m_Layer: 5
   m_Name: Player 2
   m_TagString: Untagged
@@ -4455,6 +5252,22 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &1799074087
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1799074085}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ef8fab77206b1cf4a870b61aa3841c37, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  hpBar: {fileID: 1547375809}
+  armour: {fileID: 2074227869}
+  mrArmour: {fileID: 1641747104}
+  playerNumber: 2
 --- !u!1 &1825884902
 GameObject:
   m_ObjectHideFlags: 0
@@ -4500,66 +5313,72 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   cardList:
-  - cardName: 0
+  - cardName: Ataque
     image: {fileID: 21300000, guid: 50f6e262ebfb6fe4f8bfb0a5e45bb759, type: 3}
     effect: 0
-  - cardName: 1
+  - cardName: Ataque Magico
     image: {fileID: 21300000, guid: b6cd2bc6d5a6c794899b156f42ad8f39, type: 3}
     effect: 1
-  - cardName: 2
+  - cardName: Curar
     image: {fileID: 21300000, guid: eef975f984b08a84084f9a609844dd58, type: 3}
     effect: 2
-  - cardName: 3
+  - cardName: Armadura
     image: {fileID: 21300000, guid: d0caa0316120f714ea47b04527643db1, type: 3}
     effect: 3
-  - cardName: 4
+  - cardName: Resistencia Magica
     image: {fileID: 21300000, guid: 28b8f1f8dd9614c41b77a1e0a692267d, type: 3}
     effect: 4
-  - cardName: 5
+  - cardName: Quita A y MR
     image: {fileID: 21300000, guid: 4eba2f20922f0e44483ce640d18e8b99, type: 3}
-    effect: 4
-  - cardName: 6
+    effect: 5
+  - cardName: Parry Fisico
     image: {fileID: 21300000, guid: bf450cf0ba824824fb6cdfdf51cf42e9, type: 3}
-    effect: 4
-  - cardName: 7
+    effect: 6
+  - cardName: Parry Magico
     image: {fileID: 21300000, guid: 413117a45e5a1ab4d8e40cc165f1fe4c, type: 3}
-    effect: 4
-  - cardName: 8
+    effect: 7
+  - cardName: Veneno
     image: {fileID: 21300000, guid: 7861f6346992b2c4d864093be04e9ceb, type: 3}
-    effect: 4
-  - cardName: 9
+    effect: 8
+  - cardName: Cura x 2
     image: {fileID: 21300000, guid: d31529f082efd3142974de17820aa024, type: 3}
-    effect: 4
-  - cardName: 10
+    effect: 9
+  - cardName: Potenciador
     image: {fileID: 21300000, guid: 50f6e262ebfb6fe4f8bfb0a5e45bb759, type: 3}
-    effect: 4
-  - cardName: 11
+    effect: 10
+  - cardName: Armadura x 2
     image: {fileID: 21300000, guid: b6cd2bc6d5a6c794899b156f42ad8f39, type: 3}
-    effect: 4
-  - cardName: 12
+    effect: 11
+  - cardName: Bloqueador
     image: {fileID: 21300000, guid: eef975f984b08a84084f9a609844dd58, type: 3}
-    effect: 4
-  - cardName: 13
+    effect: 12
+  - cardName: Ataque Rompejuramentos
     image: {fileID: 21300000, guid: d0caa0316120f714ea47b04527643db1, type: 3}
-    effect: 4
-  - cardName: 14
+    effect: 13
+  - cardName: Ataque Magico Rompejuramentos
     image: {fileID: 21300000, guid: 28b8f1f8dd9614c41b77a1e0a692267d, type: 3}
-    effect: 4
-  - cardName: 15
+    effect: 14
+  - cardName: Cura Rompejuramentos
     image: {fileID: 21300000, guid: 4eba2f20922f0e44483ce640d18e8b99, type: 3}
-    effect: 4
-  - cardName: 16
+    effect: 15
+  - cardName: Armadura Rompejuramentos
     image: {fileID: 21300000, guid: bf450cf0ba824824fb6cdfdf51cf42e9, type: 3}
-    effect: 4
-  - cardName: 17
+    effect: 16
+  - cardName: Resistencia Magica Rompejuramentos
     image: {fileID: 21300000, guid: 413117a45e5a1ab4d8e40cc165f1fe4c, type: 3}
-    effect: 4
-  - cardName: 18
+    effect: 17
+  - cardName: Saca A y MR Rompejuramentos
     image: {fileID: 21300000, guid: 7861f6346992b2c4d864093be04e9ceb, type: 3}
-    effect: 4
-  - cardName: 19
+    effect: 18
+  - cardName: Parry Fisico Rompejuramentos
     image: {fileID: 21300000, guid: d31529f082efd3142974de17820aa024, type: 3}
-    effect: 4
+    effect: 19
+  - cardName: Parry Magico Rompejuramentos
+    image: {fileID: 21300000, guid: 50f6e262ebfb6fe4f8bfb0a5e45bb759, type: 3}
+    effect: 20
+  - cardName: Veneno Rompejuramentos
+    image: {fileID: 21300000, guid: b6cd2bc6d5a6c794899b156f42ad8f39, type: 3}
+    effect: 21
 --- !u!1 &1872879121
 GameObject:
   m_ObjectHideFlags: 0
@@ -4863,7 +5682,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 10
+  m_text: 2
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -5161,7 +5980,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 10
+  m_text: 3
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -5566,3 +6385,4 @@ SceneRoots:
   - {fileID: 2042150511}
   - {fileID: 1825884904}
   - {fileID: 1275695247}
+  - {fileID: 1597110515}
