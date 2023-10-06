@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
 using UnityEngine.UI;
+using System;
 
 public class EnemyDisplay : MonoBehaviour
 {
@@ -15,7 +16,9 @@ public class EnemyDisplay : MonoBehaviour
         Enemy enemy = CombatManager.instance.GetEnemy();
         armour.text = enemy.armour.ToString();
         mrArmour.text = enemy.mArmour.ToString();
-        hpBar.fillAmount = ((enemy.currentHp * 100f) /enemy.hp) / 100f;
+        //Debug.Log("CHP: " + enemy.currentHp + " MHP: " + enemy.hp);
+        //Debug.Log(((1f* enemy.currentHp) / (1f *enemy.hp)).ToString());
+        hpBar.fillAmount = (float) enemy.currentHp / enemy.hp;
         Debug.Log("Enemy Hp at: " + enemy.currentHp);
     }
 }

@@ -104,27 +104,34 @@ public class Enemy : CombatesYEventos
         {
             case 0:
                 player1.TomarDaño(daño);
+                Debug.Log("ENEMIGO ATACANDO A P1 FISICO!");
                 break;
             case 1:
                 player2.TomarDaño(daño);
+                Debug.Log("ENEMIGO ATACANDO A P2 FISICO!");
                 break;
             case 2:
                 player1.TomarDaño(daño);
                 player2.TomarDaño(daño);
+                Debug.Log("ENEMIGO ATACANDO A AMBOS PLAYER FISICO!");
                 break;
             case 3:
                 player1.TomarDañoMagico(daño);
+                Debug.Log("ENEMIGO ATACANDO A P1 MAGIC ATACK!");
                 break;
             case 4:
                 player2.TomarDañoMagico(daño);
+                Debug.Log("ENEMIGO ATACANDO A P2 MAGIC ATACK!");
                 break;
             case 5:
                 player1.TomarDañoMagico(daño);
                 player2.TomarDañoMagico(daño);
+                Debug.Log("ENEMIGO ATACANDO A AMBOS PLAYER MAGICO!");
                 break;
             case 6:
                 currentHp += daño;
                 currentHp = Mathf.Clamp(currentHp, 0, hp);
+                Debug.Log("ENEMIGO CURANDOSE UWU !");
                 break;
 
         }

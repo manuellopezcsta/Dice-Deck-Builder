@@ -77,6 +77,8 @@ public class Card
         {
             target.armour -= dado.currentValue;
             target.mArmour -= dado.currentValue;
+            target.armour = Mathf.Clamp(target.armour, 0, 50); // no tiene max
+            target.mArmour = Mathf.Clamp(target.mArmour, 0, 50); // no tiene max
         }
     }
     public void UsarCartaParryAtaque(Player player)
@@ -124,6 +126,8 @@ public class Card
     {
         player.armour -= dado.currentValue;
         player.mArmour -= dado.currentValue;
+        player.armour = Mathf.Clamp(player.armour, 0, player.maxArmour); 
+        player.mArmour = Mathf.Clamp(player.mArmour, 0, player.maxMArmour); 
     }
     public void UsarCartaVenenoRomp(Player player, Dice dado)
     {

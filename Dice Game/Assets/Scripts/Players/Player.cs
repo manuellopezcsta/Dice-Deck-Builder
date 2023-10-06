@@ -37,6 +37,7 @@ public class Player
     {
         if (parryFisico)
         {
+            enemigo = CombatManager.instance.GetEnemy();
             //Llamar daño al enemigo
             enemigo.TomarDaño(valor * 2);
             parryFisico = false;
@@ -73,6 +74,7 @@ public class Player
     {
         if (parryMagico)
         {
+            enemigo = CombatManager.instance.GetEnemy();
             //Llamar daño al enemigo
             enemigo.TomarDañoMagico(valor * 2);
             parryMagico = false;

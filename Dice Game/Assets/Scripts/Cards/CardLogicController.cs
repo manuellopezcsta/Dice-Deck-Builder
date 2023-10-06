@@ -18,6 +18,7 @@ public class CardLogicController : MonoBehaviour
     public void SwitchCardImage()
     {
         carta = CombatManager.instance.playerHand[uniqueID - 1];
+        //Debug.Log("PLAYER HAND SIZE: " + CombatManager.instance.playerHand.Count); // ESTO TA ROTO
         cardImage.sprite = carta.image;
     }
 

@@ -5314,71 +5314,56 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   cardList:
   - cardName: Ataque
-    image: {fileID: 21300000, guid: 50f6e262ebfb6fe4f8bfb0a5e45bb759, type: 3}
+    image: {fileID: 2047441128, guid: e983f61e24dfcbc4e951fe19c4f1dffb, type: 3}
     effect: 0
   - cardName: Ataque Magico
-    image: {fileID: 21300000, guid: b6cd2bc6d5a6c794899b156f42ad8f39, type: 3}
+    image: {fileID: 1235117332, guid: e983f61e24dfcbc4e951fe19c4f1dffb, type: 3}
     effect: 1
   - cardName: Curar
-    image: {fileID: 21300000, guid: eef975f984b08a84084f9a609844dd58, type: 3}
+    image: {fileID: 1085963963, guid: e983f61e24dfcbc4e951fe19c4f1dffb, type: 3}
     effect: 2
   - cardName: Armadura
-    image: {fileID: 21300000, guid: d0caa0316120f714ea47b04527643db1, type: 3}
+    image: {fileID: 230591260, guid: e983f61e24dfcbc4e951fe19c4f1dffb, type: 3}
     effect: 3
   - cardName: Resistencia Magica
-    image: {fileID: 21300000, guid: 28b8f1f8dd9614c41b77a1e0a692267d, type: 3}
+    image: {fileID: 830719280, guid: e983f61e24dfcbc4e951fe19c4f1dffb, type: 3}
     effect: 4
   - cardName: Quita A y MR
-    image: {fileID: 21300000, guid: 4eba2f20922f0e44483ce640d18e8b99, type: 3}
+    image: {fileID: -341394523, guid: e983f61e24dfcbc4e951fe19c4f1dffb, type: 3}
     effect: 5
   - cardName: Parry Fisico
-    image: {fileID: 21300000, guid: bf450cf0ba824824fb6cdfdf51cf42e9, type: 3}
+    image: {fileID: 554487802, guid: e983f61e24dfcbc4e951fe19c4f1dffb, type: 3}
     effect: 6
   - cardName: Parry Magico
-    image: {fileID: 21300000, guid: 413117a45e5a1ab4d8e40cc165f1fe4c, type: 3}
+    image: {fileID: -1441916835, guid: e983f61e24dfcbc4e951fe19c4f1dffb, type: 3}
     effect: 7
   - cardName: Veneno
-    image: {fileID: 21300000, guid: 7861f6346992b2c4d864093be04e9ceb, type: 3}
+    image: {fileID: -1391727424, guid: e983f61e24dfcbc4e951fe19c4f1dffb, type: 3}
     effect: 8
   - cardName: Cura x 2
-    image: {fileID: 21300000, guid: d31529f082efd3142974de17820aa024, type: 3}
+    image: {fileID: 441062121, guid: e983f61e24dfcbc4e951fe19c4f1dffb, type: 3}
     effect: 9
   - cardName: Potenciador
-    image: {fileID: 21300000, guid: 50f6e262ebfb6fe4f8bfb0a5e45bb759, type: 3}
+    image: {fileID: -196615726, guid: e983f61e24dfcbc4e951fe19c4f1dffb, type: 3}
     effect: 10
   - cardName: Armadura x 2
-    image: {fileID: 21300000, guid: b6cd2bc6d5a6c794899b156f42ad8f39, type: 3}
+    image: {fileID: -242069937, guid: e983f61e24dfcbc4e951fe19c4f1dffb, type: 3}
     effect: 11
   - cardName: Bloqueador
-    image: {fileID: 21300000, guid: eef975f984b08a84084f9a609844dd58, type: 3}
+    image: {fileID: 546326306, guid: e983f61e24dfcbc4e951fe19c4f1dffb, type: 3}
     effect: 12
   - cardName: Ataque Rompejuramentos
-    image: {fileID: 21300000, guid: d0caa0316120f714ea47b04527643db1, type: 3}
+    image: {fileID: -120612382, guid: e983f61e24dfcbc4e951fe19c4f1dffb, type: 3}
     effect: 13
   - cardName: Ataque Magico Rompejuramentos
-    image: {fileID: 21300000, guid: 28b8f1f8dd9614c41b77a1e0a692267d, type: 3}
+    image: {fileID: -370058628, guid: e983f61e24dfcbc4e951fe19c4f1dffb, type: 3}
     effect: 14
-  - cardName: Cura Rompejuramentos
-    image: {fileID: 21300000, guid: 4eba2f20922f0e44483ce640d18e8b99, type: 3}
+  - cardName: Quita Armadura Y MR RompeJuramentos
+    image: {fileID: 927285040, guid: e983f61e24dfcbc4e951fe19c4f1dffb, type: 3}
     effect: 15
-  - cardName: Armadura Rompejuramentos
-    image: {fileID: 21300000, guid: bf450cf0ba824824fb6cdfdf51cf42e9, type: 3}
-    effect: 16
-  - cardName: Resistencia Magica Rompejuramentos
-    image: {fileID: 21300000, guid: 413117a45e5a1ab4d8e40cc165f1fe4c, type: 3}
-    effect: 17
-  - cardName: Saca A y MR Rompejuramentos
-    image: {fileID: 21300000, guid: 7861f6346992b2c4d864093be04e9ceb, type: 3}
-    effect: 18
-  - cardName: Parry Fisico Rompejuramentos
-    image: {fileID: 21300000, guid: d31529f082efd3142974de17820aa024, type: 3}
-    effect: 19
-  - cardName: Parry Magico Rompejuramentos
-    image: {fileID: 21300000, guid: 50f6e262ebfb6fe4f8bfb0a5e45bb759, type: 3}
-    effect: 20
   - cardName: Veneno Rompejuramentos
-    image: {fileID: 21300000, guid: b6cd2bc6d5a6c794899b156f42ad8f39, type: 3}
-    effect: 21
+    image: {fileID: 1849768423, guid: e983f61e24dfcbc4e951fe19c4f1dffb, type: 3}
+    effect: 16
 --- !u!1 &1872879121
 GameObject:
   m_ObjectHideFlags: 0

@@ -155,6 +155,10 @@ public class GameManager : MonoBehaviour
         // Primer y Segundo nodo combate
         combatesYEventos.Add(EnemyManager.instance.enemiesList[0]);
         combatesYEventos.Add(EnemyManager.instance.enemiesList[1]);
+        // Saco los primeros 2 para que despues no se dupliquen los enemigos.
+
+        EnemyManager.instance.enemiesList.RemoveAt(0); // ARREGLAR. BUG ACA BUG
+        EnemyManager.instance.enemiesList.RemoveAt(0);
         // El resto puede ser cualquier cosa
         for (int i = 0; i < 3; i++)
         {

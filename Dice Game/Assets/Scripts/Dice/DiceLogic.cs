@@ -54,6 +54,11 @@ public class DiceLogic : MonoBehaviour, IPointerDownHandler, IPointerUpHandler, 
                 //Debug.Log("Boop! activando codigo de " + collidedCard.name); // NUMERO DE CARTA DE 1 a 6
                 Debug.Log("Boop! activando codigo de " + collidedCard.GetComponent<CardLogicController>().GetCard().cardName);
                 RunCardCode(collidedCard.GetComponent<CardLogicController>().GetCard()); // Le pasamos el codigo de esa carta.
+
+                // Ocultamos el dado que usamos. Y LA CARTA
+                collidedCard.SetActive(false); // Carta. 1ero sino apagaria el codigo del dado y no encontraria la carta.
+                gameObject.SetActive(false); // Dado
+
             }
             imageTransform.SetAsFirstSibling(); // Para que se debuge. si no lo hago el ultimo dado queda en una posicion rara.
             imageTransform.SetSiblingIndex(originalSiblingPosition); // Para que vuelva a su pos original.
@@ -97,6 +102,10 @@ public class DiceLogic : MonoBehaviour, IPointerDownHandler, IPointerUpHandler, 
         {
             card.RunLogic(card, p2.dices[uniqueID - 1]);
         }
-        
+        // Actualizamos la interfaz para ver que hizo la carta.
+        CombatManager.instance.UpdateUI();
+
+        // Avanzamos el turno actual despues de jugar una carta
+        CombatManager.instance.SwitchToNextPhase();
     }
 }

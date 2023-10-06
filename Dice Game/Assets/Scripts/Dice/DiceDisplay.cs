@@ -14,6 +14,8 @@ public class DiceDisplay : MonoBehaviour
 
     public void UpdateDisplay(int value)
     {
+        // Activamos el objeto antes de updatearle el texto por las dudas.
+        gameObject.SetActive(true);
         diceValueDisplay.text = value.ToString();
     }
 }

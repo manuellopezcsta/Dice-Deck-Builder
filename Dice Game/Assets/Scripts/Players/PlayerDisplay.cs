@@ -16,7 +16,7 @@ public class PlayerDisplay : MonoBehaviour
         Player player = CombatManager.instance.GetPlayerN(playerNumber);
         armour.text = player.armour.ToString();
         mrArmour.text = player.mArmour.ToString();
-        hpBar.fillAmount = ((player.currentHp * 100f) / player.MaxHp) / 100f;
+        hpBar.fillAmount = (float) player.currentHp / player.MaxHp;
         Debug.Log("Player" + playerNumber + " Hp at: " + player.currentHp);
     }
 }

@@ -80,10 +80,32 @@ public class CombatManager : MonoBehaviour
 
     public void SwitchToNextPhase()
     {
-        // Cambia el turno al que sigue.
-        // MISING CASOS BORDES ? q pasa si el enum sobre pasa los limites ?
-        currentPhase += 1;
-
+        switch(currentTurn)
+        {
+            case Turno.P1:
+                currentPhase += 1;
+                if((int)currentPhase == 3)
+                {
+                    currentTurn = Turno.P2;
+                    currentPhase = Phase.Drawing;
+                    Debug.Log("//      Se inicio turno Player 2.");
+                }
+                break;
+            case Turno.P2:
+                currentPhase += 1;
+                if((int)currentPhase == 3)
+                {
+                    currentTurn = Turno.ENEMY;
+                    currentPhase = Phase.WaitingForAction1;
+                    Debug.Log("//      Se inicio turno enemigo.");
+                }
+                break;
+            case Turno.ENEMY:
+                currentTurn = Turno.P1;
+                currentPhase = Phase.Drawing;
+                Debug.Log("//      Se inicio turno Player 1.");
+                break;
+        }
     }
 
     public enum Phase
@@ -113,8 +135,8 @@ public class CombatManager : MonoBehaviour
         Deck p2Deck = decks.deckList[1];
 
         // Creamos los players
-        player1 = new Player("Jugador1", p1Deck, 100, 10, 0, GameManager.instance.defaultDiceList, imagenJ1);
-        player2 = new Player("Jugador2", p2Deck, 200, 0, 10, GameManager.instance.defaultDiceList, imagenJ2);
+        player1 = new Player("Jugador1", p1Deck, 20, 10, 0, GameManager.instance.defaultDiceList, imagenJ1);
+        player2 = new Player("Jugador2", p2Deck, 20, 0, 10, GameManager.instance.defaultDiceList, imagenJ2);
     }
 
     public void EnterCombat()
@@ -130,22 +152,52 @@ public class CombatManager : MonoBehaviour
     {
         if (fightingEnemy)
         {
-            if (currentPhase == Phase.Drawing)
+            if (currentPhase == Phase.Drawing && (currentTurn == Turno.P1 || currentTurn == Turno.P2))
             {
                 Debug.Log("Starting Draw Phase");
+                ShowMissingHand(); // Nos aseguramos que esten todas las cartas al comenzar.
+                ShowMissingDice();
+
                 // Actualizamos las cartas y cambiamos a la phase de esperar acciones.
                 DrawHand();
                 // Actualizamos el visual de la mano
                 UpdatePlayerHandImages();
                 RollDicesAndUpdate(); // Roleamos los dados y Mostramos las imagenes.
+                //currentPhase = Phase.WaitingForAction1;
+                SwitchToNextPhase();
                 Debug.Log("Waiting for action 1");
-                currentPhase = Phase.WaitingForAction1;
             }
+
             // Checkeamos para ver si termina el combate.
             CheckForEndOfCombat();
+
+            if(currentTurn == Turno.ENEMY)
+            {
+                // Checkeamos el veneno
+                enemy.Envenenado();
+                // El enemigo hace algo.
+                enemy.TomarAccion(player1, player2);
+
+                CheckForEndOfCombat();
+                SwitchToNextPhase(); // Esto va aca ?
+            }
         }
     }
 
+    void HandleP1Turn()
+    {
+
+    }
+
+    void HandleP2Turn()
+    {
+
+    }
+
+    void HandleEnemyTurn()
+    {
+
+    }
     void DrawHand()
     {
         // Funcion que te arma la mano y muestra esas cartas.
@@ -159,6 +211,7 @@ public class CombatManager : MonoBehaviour
         switch (currentTurn)
         {
             case Turno.P1:
+                //Debug.Log("CANTIDAD DE CARTAS ACTUALES EN EL MAZO: " + p1InsideCombatDeck.cardCount);
                 if (p1InsideCombatDeck.cardCount >= 6)
                 {
                     // Robamos las 6 cartas.
@@ -177,12 +230,14 @@ public class CombatManager : MonoBehaviour
                     int missingCards = 6 - p1InsideCombatDeck.cardCount;
 
                     // Robamos las cartas que si hay.
-                    for (int i = 0; i < p1InsideCombatDeck.cardCount; i++)
+                    int cardsLeftInsideTheDeck = p1InsideCombatDeck.cardCount;
+                    for (int i = 0; i < cardsLeftInsideTheDeck; i++)
                     {
                         playerHand.Add(p1InsideCombatDeck.cards[0]);
                         p1InsideCombatDeck.cards.Remove(p1InsideCombatDeck.cards[0]);
                         p1InsideCombatDeck.cardCount -= 1;
                     }
+                    //Debug.Log("Se agarraron las cartas que faltaban en el mazo quedan: " + p1InsideCombatDeck.cardCount);
                     // Mezclamos el mazo
                     p1InsideCombatDeck = ShuffleDeck(player1.currentDeck);
                     // Robamos las que faltan.
@@ -201,7 +256,7 @@ public class CombatManager : MonoBehaviour
                     // Robamos las 6 cartas.
                     for (int i = 0; i < 6; i++)
                     {
-                        Debug.Log("I: " + i + " V: " + p2InsideCombatDeck.cards[0] + " LEN: " + p2InsideCombatDeck.cardCount);
+                        //Debug.Log("I: " + i + " V: " + p2InsideCombatDeck.cards[0] + " LEN: " + p2InsideCombatDeck.cardCount);
                         playerHand.Add(p2InsideCombatDeck.cards[0]);
                         // Eliminamos el item que agregamos del mazo temporal.
                         p2InsideCombatDeck.cards.Remove(p2InsideCombatDeck.cards[0]);
@@ -214,7 +269,9 @@ public class CombatManager : MonoBehaviour
                     int missingCards = 6 - p2InsideCombatDeck.cardCount;
 
                     // Robamos las cartas que si hay.
-                    for (int i = 0; i < p2InsideCombatDeck.cardCount; i++)
+                    int cardsLeftInsideTheDeck = p2InsideCombatDeck.cardCount;
+
+                    for (int i = 0; i < cardsLeftInsideTheDeck; i++)
                     {
                         playerHand.Add(p2InsideCombatDeck.cards[0]);
                         p2InsideCombatDeck.cards.Remove(p2InsideCombatDeck.cards[0]);
@@ -301,6 +358,7 @@ public class CombatManager : MonoBehaviour
     {
         // Agregar algo q diga ganaste ?
         GameManager.instance.SetGameState(GameManager.GAME_STATE.OVERWORLD);
+
         Debug.Log("Saliendo de combate o accion.");
     }
 
@@ -318,34 +376,38 @@ public class CombatManager : MonoBehaviour
 
         //Cargamos al player 1
         p1Sprite.sprite = player1.sprite;
-        p1HpBar.fillAmount = 1;
+        p1HpBar.fillAmount = (float) player1.currentHp / player1.MaxHp;
         p1ArmourText.text = player1.armour.ToString();
         p1MrText.text = player1.mArmour.ToString();
 
         //Cargamos al player 2
         p2Sprite.sprite = player2.sprite;
-        p2HpBar.fillAmount = 1;
+        p2HpBar.fillAmount = (float) player2.currentHp / player2.MaxHp;
         p2ArmourText.text = player2.armour.ToString();
         p2MrText.text = player2.mArmour.ToString();
         // Activamos el combate
         fightingEnemy = true;
+
+        // Activamos el turno correctamente
+        currentTurn = Turno.P1;
+        currentPhase = Phase.Drawing; // Reseteamos la fase para que este listo para el proximo combate.
     }
 
     // Llamarla cuando hace algo una carta
     public void UpdateUI()
     {
         // Actualiza la UI si cambia un valor.
-        enemyHpBar.fillAmount = enemy.currentHp / enemy.hp;
+        enemyHpBar.fillAmount = (float) enemy.currentHp / enemy.hp;
         enemyArmourText.text = enemy.armour.ToString();
         enemyMrText.text = enemy.mArmour.ToString();
 
         //Cargamos al player 1
-        p1HpBar.fillAmount = player1.currentHp / player1.MaxHp;
+        p1HpBar.fillAmount = (float) player1.currentHp / player1.MaxHp;
         p1ArmourText.text = player1.armour.ToString();
         p1MrText.text = player1.mArmour.ToString();
 
         //Cargamos al player 2
-        p2HpBar.fillAmount = player2.currentHp / player2.MaxHp;
+        p2HpBar.fillAmount = (float) player2.currentHp / player2.MaxHp;
         p2ArmourText.text = player2.armour.ToString();
         p2MrText.text = player2.mArmour.ToString();
     }
@@ -389,12 +451,36 @@ public class CombatManager : MonoBehaviour
 
     void UpdatePlayerHandImages()
     {
+        // Nos aseguramos que estan todas prendidas primero.
+        ShowMissingHand();
+
+        // Actualizamos las cartas.
         card1.SwitchCardImage();
         card2.SwitchCardImage();
         card3.SwitchCardImage();
         card4.SwitchCardImage();
         card5.SwitchCardImage();
         card6.SwitchCardImage();
+    }
+
+    void ShowMissingHand()
+    {
+        // Muestra las cartas que faltan cuando pasa de turno.
+        card1.gameObject.SetActive(true);
+        card2.gameObject.SetActive(true);
+        card3.gameObject.SetActive(true);
+        card4.gameObject.SetActive(true);
+        card5.gameObject.SetActive(true);
+        card6.gameObject.SetActive(true);
+    }
+
+    void ShowMissingDice()
+    {
+        // Muestra los dados faltantes.
+        foreach(DiceDisplay dice in diceDisplays)
+        {
+            dice.gameObject.SetActive(true);
+        }
     }
 
     public Player GetPlayerN(int number)
