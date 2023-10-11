@@ -10,6 +10,8 @@ public class EnemyDisplay : MonoBehaviour
     [SerializeField] Image hpBar;
     [SerializeField] TextMeshProUGUI armour;
     [SerializeField] TextMeshProUGUI mrArmour;
+    [SerializeField] Image enemyPoison;
+    [SerializeField] TextMeshProUGUI poisonTurns;
 
     public void UpdateDisplay()
     {
@@ -20,5 +22,15 @@ public class EnemyDisplay : MonoBehaviour
         //Debug.Log(((1f* enemy.currentHp) / (1f *enemy.hp)).ToString());
         hpBar.fillAmount = (float) enemy.currentHp / enemy.hp;
         Debug.Log("Enemy Hp at: " + enemy.currentHp);
+
+        // Agregar check para ver en player si esta envenenado y mostrar el gameobject si lo esta
+        if(enemy.envenenado)
+        {
+            enemyPoison.gameObject.SetActive(true);
+            // Actualizar el texto de turnos.
+            poisonTurns.text = enemy.poisonedTime.ToString();
+        } else{
+            enemyPoison.gameObject.SetActive(false);
+        }
     }
 }

@@ -101,8 +101,17 @@ public class Card
         UsarCartaCurar(player1, dado);
         UsarCartaCurar(player2, dado);
     }
-    public void UsarCartaPotenciador()
+    public void UsarCartaPotenciador(Player player, Dice dado)
     {
+        // Si se usa con un 1-3 da un +1 a todos los dados del aliado. Si se usa con un 4-6 da un +2.
+        if(dado.currentValue <= 3 && dado.currentValue != 0)
+        {
+            // Potenciado +1
+        player.potenciado = 1;
+        } else {
+            // Potenciado +2
+        player.potenciado = 2;
+        }
 
     }
     public void UsarCartaArmadurax2(Player player1, Player player2, Dice dado)
@@ -110,9 +119,9 @@ public class Card
         UsarCartaArmadura(player1, dado);
         UsarCartaArmadura(player2, dado);
     }
-    public void UsarCartaBloqueador()
+    public void UsarCartaBloqueador(Player player)
     {
-
+        player.bloqueador = true;
     }
     public void UsarCartaAtaqueRomp(Player player, Dice dado)
     {
@@ -173,13 +182,13 @@ public class Card
                 UsarCartaCurax2(actualPlayer, allyPlayer, dado);
                 break;
             case CardEffects.POTENCIADOR:
-                UsarCartaPotenciador();
+                UsarCartaPotenciador(actualPlayer, dado);
                 break;
             case CardEffects.ARMADURAX2:
                 UsarCartaArmadurax2(actualPlayer, allyPlayer, dado);
                 break;
             case CardEffects.BLOQUEADOR:
-                UsarCartaBloqueador();
+                UsarCartaBloqueador(actualPlayer);
                 break;
             case CardEffects.ATAQUEROMP:
                 UsarCartaAtaqueRomp(allyPlayer, dado);

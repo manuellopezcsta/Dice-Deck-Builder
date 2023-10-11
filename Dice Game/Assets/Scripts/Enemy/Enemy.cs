@@ -61,6 +61,9 @@ public class Enemy : CombatesYEventos
         // Igualamos
         currentHp -= dañoPasa;
 
+        // Mostramos el pop up
+        PopUpManager.instance.GeneratePopUp(this.name + " recibio " + dañoPasa + " de daño", PopUpManager.POPUPTARGET.ENEMY);
+
         // Updateamos el display
         CombatManager.instance.enemyDisplay.UpdateDisplay();
     }
@@ -90,6 +93,9 @@ public class Enemy : CombatesYEventos
         }
         // Igualamos
         currentHp -= dañoPasa;
+
+        // Mostramos el pop up
+        PopUpManager.instance.GeneratePopUp(this.name + " recibio " + dañoPasa + " de daño magico", PopUpManager.POPUPTARGET.ENEMY);
                 
         // Updateamos el display
         CombatManager.instance.enemyDisplay.UpdateDisplay();
@@ -98,43 +104,50 @@ public class Enemy : CombatesYEventos
     // IA DEL ENEMIGO.
     public void TomarAccion(Player player1, Player player2)
     {
+        // Para el bloqueador que redirecciona el da;o de un jugador a otro
+        if(player1.bloqueador){
+            PopUpManager.instance.GeneratePopUp(player1.name + " tanqueo el daño!", PopUpManager.POPUPTARGET.PLAYER1);
+            player2 = player1;
+        }
+        if(player2.bloqueador){
+            PopUpManager.instance.GeneratePopUp(player2.name + " tanqueo el daño!", PopUpManager.POPUPTARGET.PLAYER2);
+            player1 = player2;
+        }
+
         int valor = Random.Range(0, 7);
         int daño = Random.Range(0, 6);
         switch (valor)
         {
             case 0:
                 player1.TomarDaño(daño);
-                Debug.Log("ENEMIGO ATACANDO A P1 FISICO!");
                 break;
             case 1:
                 player2.TomarDaño(daño);
-                Debug.Log("ENEMIGO ATACANDO A P2 FISICO!");
                 break;
             case 2:
                 player1.TomarDaño(daño);
                 player2.TomarDaño(daño);
-                Debug.Log("ENEMIGO ATACANDO A AMBOS PLAYER FISICO!");
                 break;
             case 3:
                 player1.TomarDañoMagico(daño);
-                Debug.Log("ENEMIGO ATACANDO A P1 MAGIC ATACK!");
                 break;
             case 4:
                 player2.TomarDañoMagico(daño);
-                Debug.Log("ENEMIGO ATACANDO A P2 MAGIC ATACK!");
                 break;
             case 5:
                 player1.TomarDañoMagico(daño);
                 player2.TomarDañoMagico(daño);
-                Debug.Log("ENEMIGO ATACANDO A AMBOS PLAYER MAGICO!");
                 break;
             case 6:
                 currentHp += daño;
                 currentHp = Mathf.Clamp(currentHp, 0, hp);
-                Debug.Log("ENEMIGO CURANDOSE UWU !");
+                PopUpManager.instance.GeneratePopUp(this.name + " se curo " + valor + " puntos", PopUpManager.POPUPTARGET.ENEMY);
                 break;
 
         }
+        // Desactivamos el bloqueador al terminar el turno del enemigo.
+        player1.bloqueador = false;
+        player2.bloqueador = false;
     }
 
     public void ChanceEnvenenado(int dado)
@@ -145,6 +158,13 @@ public class Enemy : CombatesYEventos
         {
             poisonedTime += dado; // Si esta muy roto cambiar esto.
             envenenado = true;
+
+            // Mostramos el pop up
+            PopUpManager.instance.GeneratePopUp(this.name + " ha sido envenenado!", PopUpManager.POPUPTARGET.ENEMY);
+            // Updateamos si sale bien el veneno.
+            CombatManager.instance.enemyDisplay.UpdateDisplay();
+        } else {
+            PopUpManager.instance.GeneratePopUp(" Fallo el veneno!", PopUpManager.POPUPTARGET.ENEMY);
         }
     }
 
@@ -156,6 +176,7 @@ public class Enemy : CombatesYEventos
             if (poisonedTime > 0)
             {
                 currentHp -= CombatManager.instance.poisonDotValue;
+                PopUpManager.instance.GeneratePopUp(this.name + " sufrio " + CombatManager.instance.poisonDotValue + " puntos por el veneno", PopUpManager.POPUPTARGET.ENEMY);
                 poisonedTime -= 1;
             }
             else

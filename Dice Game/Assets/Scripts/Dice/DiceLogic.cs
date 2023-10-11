@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.EventSystems;
 
@@ -28,6 +29,7 @@ public class DiceLogic : MonoBehaviour, IPointerDownHandler, IPointerUpHandler, 
     // Al hacer click
     public void OnPointerDown(PointerEventData eventData)
     {
+        //if (eventData.button == PointerEventData.InputButton.Left && !PopUpManager.instance.ArePopUpsActive())
         if (eventData.button == PointerEventData.InputButton.Left)
         {
             imageTransform.SetAsLastSibling(); // Mueve la imagen al frente para que esté por encima de otras imágenes
@@ -36,6 +38,7 @@ public class DiceLogic : MonoBehaviour, IPointerDownHandler, IPointerUpHandler, 
 
     public void OnDrag(PointerEventData eventData)
     {
+        //if (eventData.button == PointerEventData.InputButton.Left && !PopUpManager.instance.ArePopUpsActive())
         if (eventData.button == PointerEventData.InputButton.Left)
         {
             Vector2 pos;
@@ -47,6 +50,7 @@ public class DiceLogic : MonoBehaviour, IPointerDownHandler, IPointerUpHandler, 
     // Al soltar el mouse
     public void OnPointerUp(PointerEventData eventData) // Al soltar el boton del mouse
     {
+        //if (eventData.button == PointerEventData.InputButton.Left && !PopUpManager.instance.ArePopUpsActive())
         if (eventData.button == PointerEventData.InputButton.Left)
         {
             if(isCollidingWithCard) // Si esta chocando con carta

@@ -135,8 +135,8 @@ public class CombatManager : MonoBehaviour
         Deck p2Deck = decks.deckList[1];
 
         // Creamos los players
-        player1 = new Player("Jugador1", p1Deck, 20, 10, 0, GameManager.instance.defaultDiceList, imagenJ1);
-        player2 = new Player("Jugador2", p2Deck, 20, 0, 10, GameManager.instance.defaultDiceList, imagenJ2);
+        player1 = new Player("Jugador1", p1Deck, 20, 10, 0, GameManager.instance.defaultDiceList, imagenJ1, PopUpManager.POPUPTARGET.PLAYER1);
+        player2 = new Player("Jugador2", p2Deck, 20, 0, 10, GameManager.instance.defaultDiceList, imagenJ2, PopUpManager.POPUPTARGET.PLAYER2);
     }
 
     public void EnterCombat()
@@ -173,10 +173,12 @@ public class CombatManager : MonoBehaviour
 
             if(currentTurn == Turno.ENEMY)
             {
-                // Checkeamos el veneno
-                enemy.Envenenado();
                 // El enemigo hace algo.
                 enemy.TomarAccion(player1, player2);
+                // Checkeamos el veneno
+                enemy.Envenenado();
+                // Updateamos el display del enemigo.
+                enemyDisplay.UpdateDisplay();
 
                 CheckForEndOfCombat();
                 SwitchToNextPhase(); // Esto va aca ?
@@ -300,7 +302,11 @@ public class CombatManager : MonoBehaviour
                 foreach (Dice dado in player1.dices)
                 {
                     dado.Roll();
+                    // Si mi compa;ero esta potenciado , le sumamos su valor 
+                    dado.currentValue += player2.potenciado;
                 }
+                // y despues lo volvemos 0.
+                    player2.potenciado = 0;
                 // Actualizamos las imagenes de los dados
                 int k = 0;
                 foreach (DiceDisplay display in diceDisplays)
@@ -314,7 +320,11 @@ public class CombatManager : MonoBehaviour
                 foreach (Dice dado in player2.dices)
                 {
                     dado.Roll();
+                    // Si mi compa;ero esta potenciado , le sumamos su valor 
+                    dado.currentValue += player1.potenciado;
                 }
+                // y despues lo volvemos 0.
+                    player1.potenciado = 0;
                 // Actualizamos las imagenes de los dados
                 int j = 0;
                 foreach (DiceDisplay display in diceDisplays)
@@ -524,5 +534,10 @@ public class CombatManager : MonoBehaviour
     public Enemy GetEnemy()
     {
         return enemy;
+    }
+
+    public bool FightingAnEnemy()
+    {
+        return fightingEnemy;
     }
 }

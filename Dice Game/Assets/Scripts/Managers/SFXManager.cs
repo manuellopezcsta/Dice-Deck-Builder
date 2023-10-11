@@ -51,7 +51,7 @@ public class SFXManager : MonoBehaviour
     void Awake()
     {
         // Para que no se destuya.
-        DontDestroyOnLoad(this.gameObject);
+        //DontDestroyOnLoad(this.gameObject);   // Tendria q ser un objeto separado para q funcione , sino no te lo va a tomar si es hijo de manager.
         //If this script does not exit already, use this current instance
         if (instance == null)
             instance = this;

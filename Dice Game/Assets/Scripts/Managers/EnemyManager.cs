@@ -14,7 +14,7 @@ public class EnemyManager : MonoBehaviour
     [SerializeField] public Sprite[] enemySprites; //= new Sprite[7];
 
     // Es el numero de elementos en el enum de abajo.
-    private int enemyNumber = 6;
+    private int enemyNumber = 4;
     public enum EnemyName
     {
         ENEMIGO1,

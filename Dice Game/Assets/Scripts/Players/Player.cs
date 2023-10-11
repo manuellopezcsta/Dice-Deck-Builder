@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.UIElements;
 
 public class Player
 {
@@ -17,11 +18,14 @@ public class Player
     public bool parryMagico;
     public bool envenenado;
     public int poisonedTime;
+    public bool bloqueador;
+    public int potenciado;
     public Sprite sprite;
     public List<Dice> dices;
+    public PopUpManager.POPUPTARGET identifier;
 
 
-    public Player(string name, Deck startingDeck, int MaxHp, int armour, int mArmour, List<Dice> dices, Sprite img = null)
+    public Player(string name, Deck startingDeck, int MaxHp, int armour, int mArmour, List<Dice> dices, Sprite img = null, PopUpManager.POPUPTARGET identifier = PopUpManager.POPUPTARGET.PLAYER1)
     {
         this.name = name;
         this.currentDeck = startingDeck;
@@ -31,6 +35,7 @@ public class Player
         this.currentHp = MaxHp;
         this.sprite = img;
         this.dices = dices;
+        this.identifier = identifier;
     }
 
     public void TomarDaño(int valor, Enemy enemigo = null)
@@ -38,6 +43,7 @@ public class Player
         if (parryFisico)
         {
             enemigo = CombatManager.instance.GetEnemy();
+            PopUpManager.instance.GeneratePopUp("Parry Exitoso!", this.identifier);
             //Llamar daño al enemigo
             enemigo.TomarDaño(valor * 2);
             parryFisico = false;
@@ -64,6 +70,9 @@ public class Player
         }
         // Igualamos
         currentHp -= dañoPasa;
+
+        // Mostramos el pop up
+        PopUpManager.instance.GeneratePopUp(this.name + " recibio " + dañoPasa + " de daño", this.identifier);
                 
         // Updateamos el display
         CombatManager.instance.p1Display.UpdateDisplay();
@@ -75,6 +84,7 @@ public class Player
         if (parryMagico)
         {
             enemigo = CombatManager.instance.GetEnemy();
+            PopUpManager.instance.GeneratePopUp("Parry Magico Exitoso!", this.identifier);
             //Llamar daño al enemigo
             enemigo.TomarDañoMagico(valor * 2);
             parryMagico = false;
@@ -100,6 +110,9 @@ public class Player
         }
         // Igualamos
         currentHp -= dañoPasa;
+
+        // Mostramos el pop up
+        PopUpManager.instance.GeneratePopUp(this.name + " recibio " + dañoPasa + " de daño", this.identifier);
                 
         // Updateamos el display
         CombatManager.instance.p1Display.UpdateDisplay();
@@ -110,6 +123,9 @@ public class Player
         //Cura
         currentHp += valor;
         currentHp = Mathf.Clamp(currentHp,0,MaxHp);
+
+        // Mostramos el pop up
+        PopUpManager.instance.GeneratePopUp(this.name + " se curo " + valor + " puntos", this.identifier);
                 
         // Updateamos el display
         CombatManager.instance.p1Display.UpdateDisplay();
@@ -121,7 +137,11 @@ public class Player
         int chance = Random.Range(0,2);
         if(chance == 0){
             envenenado = true;
+            // Mostramos el pop up
+            PopUpManager.instance.GeneratePopUp(this.name + " ha sido envenenado!", this.identifier);
             poisonedTime += valor;
+        } else {
+            PopUpManager.instance.GeneratePopUp(" Fallo el veneno!", this.identifier);
         }
     }
 
@@ -130,6 +150,7 @@ public class Player
          if(envenenado){
             if(poisonedTime < 0){
                 currentHp -= CombatManager.instance.poisonDotValue;
+                PopUpManager.instance.GeneratePopUp(this.name + " sufrio " + CombatManager.instance.poisonDotValue + " puntos por el veneno", this.identifier);
                 poisonedTime -= 1;
             }
             else{
