@@ -33,7 +33,10 @@ public class Pausa : MonoBehaviour
     }
 
     public void IrAMenuPrincipal () {
+<<<<<<< HEAD
 
+=======
+>>>>>>> 9fa13455efbc2f29f53eb373c63255dfc0b4228e
         SceneManager.LoadScene("MenuPrincipal");
     }
 }
