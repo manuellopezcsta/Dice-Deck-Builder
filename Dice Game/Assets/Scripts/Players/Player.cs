@@ -72,7 +72,12 @@ public class Player
         currentHp -= dañoPasa;
 
         // Mostramos el pop up
-        PopUpManager.instance.GeneratePopUp(this.name + " recibio " + dañoPasa + " de daño", this.identifier);
+        if(dañoPasa == 0)
+        {
+            PopUpManager.instance.GeneratePopUp("Daño bloqueado !", this.identifier);
+        } else  {
+            PopUpManager.instance.GeneratePopUp(this.name + " recibio " + dañoPasa + " de daño", this.identifier);
+        }
                 
         // Updateamos el display
         CombatManager.instance.p1Display.UpdateDisplay();
@@ -112,7 +117,12 @@ public class Player
         currentHp -= dañoPasa;
 
         // Mostramos el pop up
-        PopUpManager.instance.GeneratePopUp(this.name + " recibio " + dañoPasa + " de daño", this.identifier);
+        if(dañoPasa == 0)
+        {
+            PopUpManager.instance.GeneratePopUp("Daño bloqueado !", this.identifier);
+        } else{
+            PopUpManager.instance.GeneratePopUp(this.name + " recibio " + dañoPasa + " de daño", this.identifier);
+        }
                 
         // Updateamos el display
         CombatManager.instance.p1Display.UpdateDisplay();
@@ -123,9 +133,6 @@ public class Player
         //Cura
         currentHp += valor;
         currentHp = Mathf.Clamp(currentHp,0,MaxHp);
-
-        // Mostramos el pop up
-        PopUpManager.instance.GeneratePopUp(this.name + " se curo " + valor + " puntos", this.identifier);
                 
         // Updateamos el display
         CombatManager.instance.p1Display.UpdateDisplay();
@@ -148,7 +155,7 @@ public class Player
     public void Envenenado(){
         //Daño veneno
          if(envenenado){
-            if(poisonedTime < 0){
+            if(poisonedTime > 0){
                 currentHp -= CombatManager.instance.poisonDotValue;
                 PopUpManager.instance.GeneratePopUp(this.name + " sufrio " + CombatManager.instance.poisonDotValue + " puntos por el veneno", this.identifier);
                 poisonedTime -= 1;

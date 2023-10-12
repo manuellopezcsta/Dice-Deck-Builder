@@ -62,7 +62,12 @@ public class Enemy : CombatesYEventos
         currentHp -= dañoPasa;
 
         // Mostramos el pop up
-        PopUpManager.instance.GeneratePopUp(this.name + " recibio " + dañoPasa + " de daño", PopUpManager.POPUPTARGET.ENEMY);
+        if(dañoPasa == 0)
+        {
+            PopUpManager.instance.GeneratePopUp("Daño bloqueado !", PopUpManager.POPUPTARGET.ENEMY);
+        } else {
+            PopUpManager.instance.GeneratePopUp(this.name + " recibio " + dañoPasa + " de daño", PopUpManager.POPUPTARGET.ENEMY);
+        }
 
         // Updateamos el display
         CombatManager.instance.enemyDisplay.UpdateDisplay();
@@ -95,7 +100,12 @@ public class Enemy : CombatesYEventos
         currentHp -= dañoPasa;
 
         // Mostramos el pop up
-        PopUpManager.instance.GeneratePopUp(this.name + " recibio " + dañoPasa + " de daño magico", PopUpManager.POPUPTARGET.ENEMY);
+        if(dañoPasa == 0)
+        {
+            PopUpManager.instance.GeneratePopUp("Daño bloqueado !", PopUpManager.POPUPTARGET.ENEMY);
+        } else {
+            PopUpManager.instance.GeneratePopUp(this.name + " recibio " + dañoPasa + " de daño magico", PopUpManager.POPUPTARGET.ENEMY);
+        }
                 
         // Updateamos el display
         CombatManager.instance.enemyDisplay.UpdateDisplay();

@@ -89,6 +89,7 @@ public class CombatManager : MonoBehaviour
                     currentTurn = Turno.P2;
                     currentPhase = Phase.Drawing;
                     Debug.Log("//      Se inicio turno Player 2.");
+                    StartCoroutine(PopUpManager.instance.ShowCurrentTurnPopUp("Turno de " + player2.name)); // REPARAR
                 }
                 break;
             case Turno.P2:
@@ -98,12 +99,14 @@ public class CombatManager : MonoBehaviour
                     currentTurn = Turno.ENEMY;
                     currentPhase = Phase.WaitingForAction1;
                     Debug.Log("//      Se inicio turno enemigo.");
+                    //StartCoroutine(PopUpManager.instance.ShowCurrentTurnPopUp("Turno de " + enemy.name)); // REPARAR
                 }
                 break;
             case Turno.ENEMY:
                 currentTurn = Turno.P1;
                 currentPhase = Phase.Drawing;
                 Debug.Log("//      Se inicio turno Player 1.");
+                StartCoroutine(PopUpManager.instance.ShowCurrentTurnPopUp("Turno de " + player1.name)); // REPARAR
                 break;
         }
     }
@@ -157,7 +160,6 @@ public class CombatManager : MonoBehaviour
                 Debug.Log("Starting Draw Phase");
                 ShowMissingHand(); // Nos aseguramos que esten todas las cartas al comenzar.
                 ShowMissingDice();
-
                 // Actualizamos las cartas y cambiamos a la phase de esperar acciones.
                 DrawHand();
                 // Actualizamos el visual de la mano
@@ -166,6 +168,9 @@ public class CombatManager : MonoBehaviour
                 //currentPhase = Phase.WaitingForAction1;
                 SwitchToNextPhase();
                 Debug.Log("Waiting for action 1");
+                // Revisamos el veneno del player actual. y actualizamos la UI x las dudas de que tenga veneno.
+                GetPlayerN(currentTurn).Envenenado();
+                UIUpdateAfterCardPlayed();
             }
 
             // Checkeamos para ver si termina el combate.
@@ -186,20 +191,7 @@ public class CombatManager : MonoBehaviour
         }
     }
 
-    void HandleP1Turn()
-    {
 
-    }
-
-    void HandleP2Turn()
-    {
-
-    }
-
-    void HandleEnemyTurn()
-    {
-
-    }
     void DrawHand()
     {
         // Funcion que te arma la mano y muestra esas cartas.
@@ -360,6 +352,7 @@ public class CombatManager : MonoBehaviour
     void SwitchToGameOver()
     {
         // Agregar panel de game Over y colocar aqui las cosas para cambiar ahi x ahi otra escena o algo para hacerlo mas facil ? .
+        GameManager.instance.SwitchToGameOverScreen();
         Debug.Log("PERDISTE, CAMBIANDO A GAME OVER SCREEN");
     }
 
@@ -420,6 +413,16 @@ public class CombatManager : MonoBehaviour
         p2HpBar.fillAmount = (float) player2.currentHp / player2.MaxHp;
         p2ArmourText.text = player2.armour.ToString();
         p2MrText.text = player2.mArmour.ToString();
+    }
+
+    // La intencion es que esto se llame despues de jugar 1 carta.
+    public void UIUpdateAfterCardPlayed()
+    {
+        // Updateamos el display del enemigo.
+        enemyDisplay.UpdateDisplay();
+        // Y los players
+        p1Display.UpdateDisplay();
+        p2Display.UpdateDisplay();
     }
 
     private Deck ShuffleDeck(Deck deckToShuffle)

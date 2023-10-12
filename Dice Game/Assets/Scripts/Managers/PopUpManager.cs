@@ -13,6 +13,13 @@ public class PopUpManager : MonoBehaviour
     [SerializeField] GameObject popUpP2; // Player 2
     [SerializeField] GameObject popUpP3; // Enemigo
     [SerializeField] List<GameObject> queuedEvents = new List<GameObject>();
+    public float timeBetweenPopUps;
+
+    [Header("Turn Indicator")]
+    [SerializeField] Transform turnIndicatorHolder; // Se instancian aca.
+    [SerializeField] GameObject turnPrefab; // Player 1
+    public float waitTimeTurnIndicator;
+
     void Awake()
     {
         //If this script does not exit already, use this current instance
@@ -83,7 +90,7 @@ public class PopUpManager : MonoBehaviour
             // Comportamiento comun de la rutina.
             obj.SetActive(true);
             queuedEvents.RemoveAt(0);
-            yield return new WaitForSeconds(2f);
+            yield return new WaitForSeconds(timeBetweenPopUps);
         }
         instantiateObjects = null;
     }
@@ -94,4 +101,16 @@ public class PopUpManager : MonoBehaviour
         return instantiateObjects != null;
     }
 
+    // Para el indicador de turnos
+    //public Coroutine showCurrentTurnPopUp = null;
+    public IEnumerator ShowCurrentTurnPopUp(string popUpText)
+    {
+        // Generamos el prefab
+        GameObject popUp = Instantiate(turnPrefab, turnIndicatorHolder);
+        // Le doy el valor del texto. (turno)
+        TextMeshProUGUI text = popUp.GetComponent<TextMeshProUGUI>();
+        text.text = popUpText;
+        //showCurrentTurnPopUp = null;
+        yield return new WaitForSeconds(waitTimeTurnIndicator);
+    }
 }

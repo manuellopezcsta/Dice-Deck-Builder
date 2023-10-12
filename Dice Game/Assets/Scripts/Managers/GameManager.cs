@@ -29,6 +29,8 @@ public class GameManager : MonoBehaviour
     // Para el combate
     [SerializeField] private GameObject combatPanel;
     [SerializeField] private GameObject overWorldPanel = null;
+    [SerializeField] private GameObject gameOverPanel;
+    [SerializeField] private GameObject rewardPanel;
     [SerializeField] List<CombatesYEventos> combatesYEventos = new List<CombatesYEventos>();
     public Enemy currentEnemy;// Indicador del enemigo actual
     public List<Dice> defaultDiceList = new List<Dice>(); // Lista de dados Default
@@ -110,6 +112,8 @@ public class GameManager : MonoBehaviour
                 combatPanel.SetActive(true);
                 // Cargamos la data del combate.
                 CombatManager.instance.LoadCombatData();
+                // Updateamos el display
+                CombatManager.instance.UIUpdateAfterCardPlayed();
                 break;
         }
     }
@@ -215,5 +219,22 @@ public class GameManager : MonoBehaviour
         defaultDiceList.Add(globalDices[1]);
         defaultDiceList.Add(globalDices[2]);
         defaultDiceList.Add(globalDices[3]);
+    }
+
+    public IEnumerator WaitForSeconds(float seconds)
+    {
+        yield return new WaitForSeconds(seconds);
+    }
+
+    public void SwitchToGameOverScreen()
+    {
+        combatPanel.SetActive(false);
+        gameOverPanel.SetActive(true);
+    }
+
+    public void SwitchToRewardsScreen()
+    {
+        combatPanel.SetActive(false);
+        rewardPanel.SetActive(true);
     }
 }

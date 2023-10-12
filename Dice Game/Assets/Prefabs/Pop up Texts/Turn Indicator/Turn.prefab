@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 3935707662430975734}
   - component: {fileID: 7096379831024973598}
   m_Layer: 5
-  m_Name: Explanation Text P2
+  m_Name: Turn
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -148,7 +148,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 19d9dfad08f3d15438f1ce892ca1f0ef, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  destroyTime: 3
+  destroyTime: 1.5
 --- !u!95 &7096379831024973598
 Animator:
   serializedVersion: 5
@@ -159,7 +159,7 @@ Animator:
   m_GameObject: {fileID: 7567333580106267725}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 07a9f88e448c55542a4b850635a90de2, type: 2}
+  m_Controller: {fileID: 9100000, guid: 37f35d3ccfa21b7468a9c4f0f467abf6, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0

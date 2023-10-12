@@ -25,6 +25,11 @@ public class PlayerDisplay : MonoBehaviour
             playerPoison.gameObject.SetActive(true);
             // Actualizar el texto de turnos.
             poisonTurns.text = player.poisonedTime.ToString();
+            // Si es el ultimo tick lo apagamos.
+            if(player.poisonedTime == 0)
+            {
+                playerPoison.gameObject.SetActive(false);
+            }
         } else {
             playerPoison.gameObject.SetActive(false);
         }

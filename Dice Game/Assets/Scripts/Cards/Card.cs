@@ -60,16 +60,19 @@ public class Card
     public void UsarCartaCurar(Player player, Dice dado)
     {
         player.Cura(dado.currentValue);
+        PopUpManager.instance.GeneratePopUp("+" + dado.currentValue + " HP", player.identifier);
     }
     public void UsarCartaArmadura(Player player, Dice dado)
     {
         player.armour += dado.currentValue;
         player.armour = Mathf.Clamp(player.armour, 0, player.maxArmour);
+        PopUpManager.instance.GeneratePopUp("+" + dado.currentValue + " de armadura", player.identifier);
     }
     public void UsarCartaMr(Player player, Dice dado)
     {
         player.mArmour += dado.currentValue;
         player.mArmour = Mathf.Clamp(player.mArmour, 0, player.maxMArmour);
+        PopUpManager.instance.GeneratePopUp("+" + dado.currentValue + " de armadura magica", player.identifier);
     }
     public void UsarCartaBreak(Enemy target, Dice dado)
     {
@@ -79,15 +82,18 @@ public class Card
             target.mArmour -= dado.currentValue;
             target.armour = Mathf.Clamp(target.armour, 0, 50); // no tiene max
             target.mArmour = Mathf.Clamp(target.mArmour, 0, 50); // no tiene max
+            PopUpManager.instance.GeneratePopUp(target.name + " perdio " + dado.currentValue + " de armadura y mr",PopUpManager.POPUPTARGET.ENEMY);
         }
     }
     public void UsarCartaParryAtaque(Player player)
     {
         player.parryFisico = true;
+        PopUpManager.instance.GeneratePopUp("Parry fisico activo", player.identifier);
     }
     public void UsarCartaParryAMagico(Player player)
     {
         player.parryMagico = true;
+        PopUpManager.instance.GeneratePopUp("Parry magico activo", player.identifier);
     }
     public void UsarCartaVeneno(Enemy target, Dice dado)
     {
@@ -108,9 +114,11 @@ public class Card
         {
             // Potenciado +1
         player.potenciado = 1;
+        PopUpManager.instance.GeneratePopUp("Dando +1 a los dados aliados", player.identifier);
         } else {
             // Potenciado +2
         player.potenciado = 2;
+        PopUpManager.instance.GeneratePopUp("Dando +2 a los dados aliados", player.identifier);
         }
 
     }
@@ -122,6 +130,7 @@ public class Card
     public void UsarCartaBloqueador(Player player)
     {
         player.bloqueador = true;
+        PopUpManager.instance.GeneratePopUp("Bloqueador activo", player.identifier);
     }
     public void UsarCartaAtaqueRomp(Player player, Dice dado)
     {
@@ -137,6 +146,7 @@ public class Card
         player.mArmour -= dado.currentValue;
         player.armour = Mathf.Clamp(player.armour, 0, player.maxArmour); 
         player.mArmour = Mathf.Clamp(player.mArmour, 0, player.maxMArmour); 
+        PopUpManager.instance.GeneratePopUp(player.name + " perdio " + dado.currentValue + " de armadura y mr",player.identifier);
     }
     public void UsarCartaVenenoRomp(Player player, Dice dado)
     {
@@ -203,5 +213,7 @@ public class Card
                 UsarCartaVenenoRomp(allyPlayer, dado);
                 break;
         }
+        // Updateamos la UI
+        CombatManager.instance.UIUpdateAfterCardPlayed();
     }
 }

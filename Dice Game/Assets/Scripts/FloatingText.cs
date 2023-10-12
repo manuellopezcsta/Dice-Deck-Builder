@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class FloatingText : MonoBehaviour
 {
-    float destroyTime = 3f;
+    [SerializeField] float destroyTime;
     void Start()
     {
         Destroy(gameObject, destroyTime);
