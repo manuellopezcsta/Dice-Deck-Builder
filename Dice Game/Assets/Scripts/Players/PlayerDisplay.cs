@@ -18,7 +18,7 @@ public class PlayerDisplay : MonoBehaviour
         armour.text = player.armour.ToString();
         mrArmour.text = player.mArmour.ToString();
         hpBar.fillAmount = (float) player.currentHp / player.MaxHp;
-        Debug.Log("Player" + playerNumber + " Hp at: " + player.currentHp);
+        //Debug.Log("Player" + playerNumber + " Hp at: " + player.currentHp);
         // Agregar check para ver en player si esta envenenado y mostrar el gameobject si lo esta
         if(player.envenenado)
         {

@@ -62,6 +62,7 @@ public class SFXManager : MonoBehaviour
         
         //LLenamos la libreria de Sonidos
         FillSoundLibrary();
+        RegulateVolume();
     }
 
     // Funcion que reproduce cualquier VFX que queramos.
@@ -112,6 +113,14 @@ public class SFXManager : MonoBehaviour
     // Dice que no tiene referencias pero si se esta usando en los botones.
     public void PlayButtonHoverSound(){
         PlayVFX(VFXName.HOVER);  
+    }
+
+    void RegulateVolume()
+    {
+        if(PlayerPrefs.HasKey("musicVolume"))
+        {
+            mainSong.volume = PlayerPrefs.GetFloat("musicVolume");
+        }
     }
 
 }

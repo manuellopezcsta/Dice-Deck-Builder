@@ -55,8 +55,7 @@ public class DiceLogic : MonoBehaviour, IPointerDownHandler, IPointerUpHandler, 
         {
             if(isCollidingWithCard) // Si esta chocando con carta
             {
-                //Debug.Log("Boop! activando codigo de " + collidedCard.name); // NUMERO DE CARTA DE 1 a 6
-                Debug.Log("Boop! activando codigo de " + collidedCard.GetComponent<CardLogicController>().GetCard().cardName);
+                //Debug.Log("Boop! activando codigo de " + collidedCard.GetComponent<CardLogicController>().GetCard().cardName);
                 RunCardCode(collidedCard.GetComponent<CardLogicController>().GetCard()); // Le pasamos el codigo de esa carta.
 
                 // Ocultamos el dado que usamos. Y LA CARTA

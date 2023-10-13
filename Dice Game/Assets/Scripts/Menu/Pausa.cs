@@ -29,8 +29,6 @@ public class Pausa : MonoBehaviour
         Time.timeScale=0f;
         juegoPausado=true;
     }
-    public void AbrirOpciones(){
-    }
 
     public void IrAMenuPrincipal () {
 

@@ -140,6 +140,8 @@ public class CombatManager : MonoBehaviour
         // Creamos los players
         player1 = new Player("Jugador1", p1Deck, 20, 10, 0, GameManager.instance.defaultDiceList, imagenJ1, PopUpManager.POPUPTARGET.PLAYER1);
         player2 = new Player("Jugador2", p2Deck, 20, 0, 10, GameManager.instance.defaultDiceList, imagenJ2, PopUpManager.POPUPTARGET.PLAYER2);
+        //player1 = new Player("Jugador1", p1Deck, 3, 0, 0, GameManager.instance.defaultDiceList, imagenJ1, PopUpManager.POPUPTARGET.PLAYER1);
+        //player2 = new Player("Jugador2", p2Deck, 3, 0, 0, GameManager.instance.defaultDiceList, imagenJ2, PopUpManager.POPUPTARGET.PLAYER2);
     }
 
     public void EnterCombat()
@@ -340,9 +342,14 @@ public class CombatManager : MonoBehaviour
                 SwitchToGameOver();
             }
             // Si vences al enemigo
-            Debug.Log("HP ENEMIGO: " + enemy.currentHp);
+            //Debug.Log("HP ENEMIGO: " + enemy.currentHp);
+            Debug.Log("Enemigo Derrotado!");
             if (enemy.currentHp <= 0)
             {
+                if(!finalBattle)
+                {
+                    GameManager.instance.SwitchToRewardsScreen();
+                }
                 ExitCombat();
             }
         }

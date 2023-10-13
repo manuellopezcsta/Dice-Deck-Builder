@@ -19,11 +19,6 @@ public class Opciones : MonoBehaviour
         
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
     public void ChangeVolume () {
         //AudioListener.volume = volumeSlider.value; 
         SFXManager.instance.mainSong.volume=volumeSlider.value;
@@ -37,5 +32,4 @@ public class Opciones : MonoBehaviour
     private void GuardaPreferencias () {
         PlayerPrefs.SetFloat("musicVolume", volumeSlider.value);
     }
-
 }
