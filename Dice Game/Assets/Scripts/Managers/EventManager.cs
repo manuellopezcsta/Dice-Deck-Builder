@@ -33,7 +33,7 @@ public class EventManager : MonoBehaviour
 
     void Start()
     {
-        PopulateGame(5);
+        PopulateGame(32);
     }
 
     void AddEvent(Eventos name)
@@ -72,5 +72,6 @@ public class EventManager : MonoBehaviour
     public void ResolveEvent(Event name)
     {
         Debug.Log("Resolviendo evento: ." + name.name);
+        GameManager.instance.CheckForLevelCompletition();
     }
 }

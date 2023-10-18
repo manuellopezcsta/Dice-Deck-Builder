@@ -11,8 +11,8 @@ public class OverWorldManager : MonoBehaviour
     /// </summary>
 
     // Nivel actual va de 1 a 4
-    int currentLevel = 1;
-    public int currentButton = 1;
+    public int currentLevel = 1;
+    public int currentButton = 0;
     public GameObject playerSprite;
     [SerializeField] private GameObject canvas;
     [SerializeField] GameObject initialPlayerPos;
@@ -22,6 +22,9 @@ public class OverWorldManager : MonoBehaviour
     public GameObject mapa2;
     public GameObject mapa3;
     public GameObject mapa4;
+
+    // Para cambiar de lv.
+    public bool levelCompleted = false;
 
     public static OverWorldManager instance = null;
     void Awake()
@@ -47,7 +50,7 @@ public class OverWorldManager : MonoBehaviour
     public void ChangeToNextMap(int levelNumber)
     {
         // Reseteamos el numero de boton.
-        currentButton = 1;
+        currentButton = 0;
 
         GameObject holder;
         switch (levelNumber)
@@ -72,5 +75,10 @@ public class OverWorldManager : MonoBehaviour
         }
         holder.transform.SetAsFirstSibling();
         playerSprite.transform.position = initialPlayerPos.transform.position;
+    }
+
+    public void CompleteLevel()
+    {
+        levelCompleted = true;
     }
 }

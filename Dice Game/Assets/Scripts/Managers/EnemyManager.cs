@@ -26,7 +26,7 @@ public class EnemyManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        PopulateGame(6);
+        PopulateGame(32);
     }
 
     public static EnemyManager instance = null;
@@ -47,16 +47,16 @@ public class EnemyManager : MonoBehaviour
         switch (name)
         {
             case EnemyName.ENEMIGO1:
-                enemy = new Enemy(enemySprites[1],"Hadita", 30, 10, 0);
+                enemy = new Enemy(enemySprites[1],"Hadita", 10, 0, 0);
                 break;
             case EnemyName.ENEMIGO2:
-                enemy = new Enemy(enemySprites[2],"Hadita con Vestido", 20, 1, 10);
+                enemy = new Enemy(enemySprites[2],"Hadita con Vestido", 10, 0, 0);
                 break;
             case EnemyName.ENEMIGO3:
-                enemy = new Enemy(enemySprites[3],"Fantasma Japones", 15, 5, 10);
+                enemy = new Enemy(enemySprites[3],"Fantasma Japones", 10, 0, 0);
                 break;
             case EnemyName.ENEMIGO4:
-                enemy = new Enemy(enemySprites[4],"Hadita Azul", 20, 5, 5);
+                enemy = new Enemy(enemySprites[4],"Hadita Azul", 10, 0, 0);
                 break;
         }
         enemiesList.Add(enemy);

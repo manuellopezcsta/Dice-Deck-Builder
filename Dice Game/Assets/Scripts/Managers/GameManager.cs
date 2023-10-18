@@ -5,7 +5,7 @@ using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.UI;
 //using UnityEngine.UIElements;
-using Random=UnityEngine.Random; // Para que sepa de donde saco el random.
+using Random = UnityEngine.Random; // Para que sepa de donde saco el random.
 
 
 public interface CombatesYEventos
@@ -68,10 +68,6 @@ public class GameManager : MonoBehaviour
         {
             yield return new WaitForSeconds(0.1f);
             overWorldPanel = GameObject.FindGameObjectWithTag("LEVEL");
-            if (!overWorldPanel)
-            {
-                break;
-            }
         }
         //Debug.Log("Se asigno valor a " + overWorldPanel.name);
         yield return null;
@@ -104,6 +100,7 @@ public class GameManager : MonoBehaviour
             case GAME_STATE.TUTORIAL:
                 break;
             case GAME_STATE.OVERWORLD:
+                CheckForLevelCompletition();
                 overWorldPanel.SetActive(true);
                 combatPanel.SetActive(false);
                 break;
@@ -115,6 +112,31 @@ public class GameManager : MonoBehaviour
                 // Updateamos el display
                 CombatManager.instance.UIUpdateAfterCardPlayed();
                 break;
+        }
+    }
+
+    public void CheckForLevelCompletition()
+    {
+        Debug.Log(OverWorldManager.instance.levelCompleted);
+        if (OverWorldManager.instance.levelCompleted)
+        {
+            // Seteamos de nuevo a false
+            OverWorldManager.instance.levelCompleted = false;
+            // Borramos el viejo e iniciamos el nuevo.
+            Destroy(overWorldPanel);
+            overWorldPanel = null;
+            // Limpiamos combates y eventos y generamos uno nuevo.
+            combatesYEventos.Clear();
+            BuildLevelMap();
+            // Cambiamos al nuevo
+            OverWorldManager.instance.ChangeToNextMap(OverWorldManager.instance.currentLevel);
+            StartCoroutine(AssignOverWorld());
+            // Porque el asignado tarda tiempo esperamos hasta que este.
+            while (!overWorldPanel)
+            {
+                overWorldPanel = GameObject.FindGameObjectWithTag("LEVEL");
+            }
+            Debug.Log("Se paso con exito al siguiente nivel");
         }
     }
 
@@ -164,7 +186,7 @@ public class GameManager : MonoBehaviour
         EnemyManager.instance.enemiesList.RemoveAt(0); // ARREGLAR. BUG ACA BUG
         EnemyManager.instance.enemiesList.RemoveAt(0);
         // El resto puede ser cualquier cosa
-        for (int i = 0; i < 3; i++)
+        for (int i = 0; i < 6; i++)
         {
             int b = Random.Range(0, 2);
             if (b == 0)
@@ -193,18 +215,18 @@ public class GameManager : MonoBehaviour
     {
         CombatesYEventos action = combatesYEventos[index];
         // Si es un combate
-        if(action.GetType() == typeof(Enemy))
+        if (action.GetType() == typeof(Enemy))
         {
             Debug.Log("Ejecutando Combate.");
-            currentEnemy = (Enemy) action;
+            currentEnemy = (Enemy)action;
             //currentEnemy.DebugInfo();
             CombatManager.instance.EnterCombat();
         }
         // Si es un evento
-        if(action.GetType() == typeof(Event))
+        if (action.GetType() == typeof(Event))
         {
             Debug.Log("Ejecutando Evento.");
-            EventManager.instance.ResolveEvent((Event) action);
+            EventManager.instance.ResolveEvent((Event)action);
         }
 
     }

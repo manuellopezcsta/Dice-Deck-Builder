@@ -9172,14 +9172,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2e127f2453621d042af84f7233e91203, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  currentButton: 1
+  currentLevel: 1
+  currentButton: 0
   playerSprite: {fileID: 1190631441}
   canvas: {fileID: 1577685236}
   initialPlayerPos: {fileID: 786920714}
-  mapa1: {fileID: 4385998640637908110, guid: 77f9b457c79c240448c00e98a9162f36, type: 3}
+  mapa1: {fileID: 4385998640637908110, guid: 87a297038b8f33645a93de60b9eab4ac, type: 3}
   mapa2: {fileID: 4385998640637908110, guid: d28ad8a805e15954ca690d701e5d698f, type: 3}
   mapa3: {fileID: 4385998640637908110, guid: 79cb4ca3630ff8c4cac1c04fc8dcbdf2, type: 3}
   mapa4: {fileID: 4385998640637908110, guid: 6c4f7f3c94bcc8544a36c0c905307509, type: 3}
+  levelCompleted: 0
 --- !u!1 &1956404678
 GameObject:
   m_ObjectHideFlags: 0
