@@ -12,6 +12,7 @@ public class DialogueManager : MonoBehaviour
     private Queue<String> sentences; //guarda el dialogo en una fila para acceder luego
     // Start is called before the first frame update
     private bool inDialogue = false;
+    public static DialogueManager instance = null;
 
     public TextMeshProUGUI nameText;
     public TextMeshProUGUI dialogueText;
@@ -21,6 +22,20 @@ public class DialogueManager : MonoBehaviour
     void Start()
     {
         sentences = new Queue<string>();
+    }
+
+    void Awake()
+    {
+        // Para que no se destuya.
+        DontDestroyOnLoad(this.gameObject);   // Tendria q ser un objeto separado para q funcione , sino no te lo va a tomar si es hijo de manager.
+        //If this script does not exit already, use this current instance
+        if (instance == null)
+            instance = this;
+
+        //If this script already exit, DESTROY this current instance
+        else if (instance != this)
+            Destroy(gameObject);
+        
     }
 
     void Update()
@@ -50,9 +65,13 @@ public class DialogueManager : MonoBehaviour
         }
         string sentence = sentences.Dequeue();
         //Debug.Log(sentence);
-        //dialogueText.text = sentence; //Texto instantaneo
-        StopAllCoroutines();
-        StartCoroutine(TypeSentence(sentence));
+        if(dialogueSpeed == 0) {
+            dialogueText.text = sentence; //texto instantaneo
+        } else {
+            StopAllCoroutines();
+            StartCoroutine(TypeSentence(sentence));
+        } 
+        
     }
 
     IEnumerator TypeSentence(string sentence){ //Texto letra por letra
