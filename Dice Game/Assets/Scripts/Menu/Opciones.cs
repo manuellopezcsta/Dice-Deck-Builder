@@ -17,7 +17,7 @@ public class Opciones : MonoBehaviour
             //CargaPreferencias();
         }
         if(!PlayerPrefs.HasKey("dialogueSpeed")){
-            PlayerPrefs.SetString("dialogueSpeed", "NORMAL");
+            PlayerPrefs.SetInt("dialogueSpeed", 0);
         }
         CargaPreferencias();
     }
