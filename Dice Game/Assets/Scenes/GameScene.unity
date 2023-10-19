@@ -1870,40 +1870,50 @@ MonoBehaviour:
     mini: {fileID: -128055020, guid: 2576618d91b48cb429bceb1c20521301, type: 3}
     displayArt: {fileID: -128055020, guid: 2576618d91b48cb429bceb1c20521301, type: 3}
     textAndChoices:
-    - Texto
-    - Curar
-    - No curar
-    - Resultado1
-    - Resultado2
+    - Te encuentras con una manzana de aspecto curioso en tu camino. Que deseas hacer?
+    - Comerla
+    - No Comerla
+    - La manzana tenia propiedades curativas, y recuperaste HP!
+    - La manzana estaba envenenada, por lo que sufres dano !
+    - Decides no comer la manzana y sigues tu camino.
   - name: take dmg
     modifier: 0
     mini: {fileID: -1345237322, guid: 2576618d91b48cb429bceb1c20521301, type: 3}
     displayArt: {fileID: -1345237322, guid: 2576618d91b48cb429bceb1c20521301, type: 3}
     textAndChoices:
-    - Texto
-    - Tomar danio
-    - Boton2
-    - Resultado1
-    - Resultado2
+    - Estabas caminando cuando de la nada salta un enemigo y te insulta!
+    - Imponer respeto
+    - Ignorarlo
+    - Logras ponerlo en su lugar y seguir tu camino
+    - El enemigo te pega por tratar de defenderte y sufres dano
+    - Simplemente lo ignoras y te vas.
   - name: gain armour
     modifier: 0
     mini: {fileID: -580571447, guid: 2576618d91b48cb429bceb1c20521301, type: 3}
     displayArt: {fileID: -580571447, guid: 2576618d91b48cb429bceb1c20521301, type: 3}
     textAndChoices:
-    - Texto
-    - Ganar Escudo
-    - Boton 2
-    - Resultado1
-    - Resultado2
+    - Te encuestras con un objeto extrano en tu camino, pareciera una pieza de armadura.
+      Que deseas hacer?
+    - Equipartela
+    - Dejarla ahi
+    - Te queda perfecta! Te sientes mas duro y resistente. Has ganado armadura!
+    - Vez un resplandor maligno salir de la armadura, parece ser que estaba maldita,
+      y pierdes puntos de armadura
+    - Simplemente ignoras la armadura y te vas.
   - name: gain mr
     modifier: 0
     mini: {fileID: -1313672582, guid: 2576618d91b48cb429bceb1c20521301, type: 3}
     displayArt: {fileID: -1313672582, guid: 2576618d91b48cb429bceb1c20521301, type: 3}
     textAndChoices:
-    - Texto
-    - Ganar MR
-    - Resultado1
-    - Resultado2
+    - Te encuentras una capa que pareciera ser de alguna clase de hechizero. Que
+      deseas hacer?
+    - Equiparte la capa
+    - Dejarla ahi
+    - Al colocarte la capa, sientes una fuerza surgir en tu interior, ahora eres
+      mas resistente a la magia! Ganas MR
+    - No deberias robar las cosas de los demas, aparece su dueno y te tira una maldicion
+      que te quita puntos de MR
+    - Decides ignorar la capa y seguir tu camino.
 --- !u!1 &364070878
 GameObject:
   m_ObjectHideFlags: 0
