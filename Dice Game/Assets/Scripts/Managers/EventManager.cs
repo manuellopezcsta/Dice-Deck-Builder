@@ -11,6 +11,9 @@ public class EventManager : MonoBehaviour
 
     // Es el numero de elementos en el enum de abajo.
     private int eventNumber = 4;
+
+    // Lista con los eventos.
+    public List<Event> allPossibleEvents = new List<Event>(); 
     public enum Eventos
     {
         HEAL,
@@ -38,21 +41,26 @@ public class EventManager : MonoBehaviour
 
     void AddEvent(Eventos name)
     {
-        Event evento = new Event(eventSprites[0], "default");
+        string[] aaa = { "texto", "boton1", "boton2" };
+        Event evento = new Event(eventSprites[0], "default", eventSprites[0], aaa);
 
         switch (name)
         {
             case Eventos.HEAL:
-                evento = new Event(eventSprites[0], "heal", 5);
+                //evento = new Event(eventSprites[0], "heal", 5);
+                evento = allPossibleEvents[0];
                 break;
             case Eventos.TAKE_DMG:
-                evento = new Event(eventSprites[3], "take dmg", 5);
+                //evento = new Event(eventSprites[3], "take dmg", 5);
+                evento = allPossibleEvents[1];
                 break;
             case Eventos.GAIN_ARMOUR:
-                evento = new Event(eventSprites[2], "gain armour", 5);
+                //evento = new Event(eventSprites[2], "gain armour", 5);
+                evento = allPossibleEvents[2];
                 break;
             case Eventos.GAIN_MR:
-                evento = new Event(eventSprites[1], "gain mr", 5);
+                //evento = new Event(eventSprites[1], "gain mr", 5);
+                evento = allPossibleEvents[3];
                 break;
 
         }
@@ -72,6 +80,7 @@ public class EventManager : MonoBehaviour
     public void ResolveEvent(Event name)
     {
         Debug.Log("Resolviendo evento: ." + name.name);
-        GameManager.instance.CheckForLevelCompletition();
+        // Empezamos el evento
+        GameManager.instance.StartEvent();
     }
 }

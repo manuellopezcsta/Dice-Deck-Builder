@@ -34,6 +34,8 @@ public class GameManager : MonoBehaviour
     [SerializeField] List<CombatesYEventos> combatesYEventos = new List<CombatesYEventos>();
     public Enemy currentEnemy;// Indicador del enemigo actual
     public List<Dice> defaultDiceList = new List<Dice>(); // Lista de dados Default
+    // Para los eventos
+    [SerializeField] GameObject eventPanel;
 
 
     public enum GAME_STATE
@@ -41,6 +43,7 @@ public class GameManager : MonoBehaviour
         TUTORIAL,
         OVERWORLD,
         ON_COMBAT,
+        ON_EVENT
     }
 
     public static GameManager instance = null;
@@ -103,6 +106,7 @@ public class GameManager : MonoBehaviour
                 CheckForLevelCompletition();
                 overWorldPanel.SetActive(true);
                 combatPanel.SetActive(false);
+                eventPanel.SetActive(false);
                 break;
             case GAME_STATE.ON_COMBAT:
                 overWorldPanel.SetActive(false);
@@ -112,12 +116,15 @@ public class GameManager : MonoBehaviour
                 // Updateamos el display
                 CombatManager.instance.UIUpdateAfterCardPlayed();
                 break;
+            case GAME_STATE.ON_EVENT:
+                eventPanel.SetActive(true);
+                break;
+
         }
     }
 
     public void CheckForLevelCompletition()
     {
-        Debug.Log(OverWorldManager.instance.levelCompleted);
         if (OverWorldManager.instance.levelCompleted)
         {
             // Seteamos de nuevo a false
@@ -138,6 +145,11 @@ public class GameManager : MonoBehaviour
             }
             Debug.Log("Se paso con exito al siguiente nivel");
         }
+    }
+
+    public void StartEvent()
+    {
+        SetGameState(GAME_STATE.ON_EVENT);
     }
 
     private IEnumerator FillAndEmpty()
