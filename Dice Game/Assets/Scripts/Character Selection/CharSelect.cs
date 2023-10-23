@@ -84,6 +84,11 @@ public class CharSelect : MonoBehaviour
         } else{
             // Si es el panel del player 2 
             int p2 = PlayerPrefs.GetInt("player1");
+            if(p2==1){
+                selected=2;
+                description.text = descriptionList[1];
+                bigDisplay.sprite = charactersBigSprites[1];
+            }
             // Apagamos el boton que ya esta elegido.
             switch(p2)
             {
@@ -103,6 +108,7 @@ public class CharSelect : MonoBehaviour
                     characterButtons[4].interactable = false;
                     break;
             }
+            
         }
     }
 }
