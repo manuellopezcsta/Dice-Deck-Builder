@@ -63,7 +63,7 @@ public class CharSelect : MonoBehaviour
         } else {
             PlayerPrefs.SetInt("player2", selected);
             // Mandar a la escena tutorial
-            SceneManager.LoadScene(0); // CAMBIAR A ESCENA TUTORIAL
+            SceneManager.LoadScene("Tutorial"); // CAMBIAR A ESCENA TUTORIAL
         }
     }
 

@@ -11,7 +11,7 @@ public class DialogueManager : MonoBehaviour
 {
     private Queue<String> sentences; //guarda el dialogo en una fila para acceder luego
     // Start is called before the first frame update
-    private bool inDialogue = false;
+    public bool inDialogue = false;
     public static DialogueManager instance = null;
 
     public TextMeshProUGUI nameText;
@@ -19,15 +19,25 @@ public class DialogueManager : MonoBehaviour
     public Animator animator;
 
     public int dialogueSpeed;
+    public int numDialogo = 0;
+    [SerializeField] private DialogueTrigger dialogoInicial;
+    [SerializeField] private TutorialManager tutorialManager;
     void Start()
     {
         sentences = new Queue<string>();
+        
+    }
+
+    public void IniciarPrimerDialogo()
+    {
+        //Comenzamos el dialogo tutorial;
+        dialogoInicial.TriggerDialogue();
     }
 
     void Awake()
     {
         // Para que no se destuya.
-        //DontDestroyOnLoad(this.gameObject);   // Tendria q ser un objeto separado para q funcione , sino no te lo va a tomar si es hijo de manager.
+        //DontDestroyOnLoad(this.gameObject);   // Lo comento para que no se use en la otra escena, ya que es para el tutorial.
         //If this script does not exit already, use this current instance
         if (instance == null)
             instance = this;
@@ -41,7 +51,7 @@ public class DialogueManager : MonoBehaviour
     void Update()
     {
         if(inDialogue && UnityEngine.Input.GetMouseButtonDown(0)){
-            DisplayNextSentence(); 
+            DisplayNextSentence();
         }
     }
 
@@ -54,7 +64,6 @@ public class DialogueManager : MonoBehaviour
         foreach(string sentence in dialogue.sentences){
             sentences.Enqueue(sentence);
         }
-        
         DisplayNextSentence();
     }
 
@@ -90,5 +99,4 @@ public class DialogueManager : MonoBehaviour
         animator.SetBool("IsOpen", false);
         Debug.Log("End conversation");
     }
-    
 }
