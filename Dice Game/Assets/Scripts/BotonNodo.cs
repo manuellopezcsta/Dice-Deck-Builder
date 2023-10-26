@@ -4,6 +4,8 @@ using System.Diagnostics.Tracing;
 using UnityEngine;
 using UnityEngine.UI;
 using System.Linq;
+using UnityEngine.SceneManagement;
+
 
 public class BotonNodo : MonoBehaviour
 {
@@ -106,10 +108,20 @@ public class BotonNodo : MonoBehaviour
         // Lo comparamos con el boton actual y si es igual ejecutamos el codigo sino no.
         string botonActual = OverWorldManager.instance.currentButton.ToString();
         if(botonActual == lastButtonName)
-        {
-            OverWorldManager.instance.CompleteLevel();
+        { // ARREGLAR ESTO.
+            /*OverWorldManager.instance.CompleteLevel();
             OverWorldManager.instance.currentLevel += 1;
+            */
+            SwitchToFinalBattle();
         }
-        
     }
+    void SwitchToFinalBattle(){
+        string botonActual = OverWorldManager.instance.currentButton.ToString();
+        if(botonActual == lastButtonName)
+        {
+            GuardaRopas.instance.FinalBattle();
+            SceneManager.LoadScene("FinalBattle");
+        }
+    }
+    
 }

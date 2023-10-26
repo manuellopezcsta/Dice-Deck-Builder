@@ -21,4 +21,10 @@ public class Dice
         currentValue = values[i];
         return currentValue;
     }
+
+    public Dice Clone()
+    {
+        Dice clone = new Dice(0, values);
+        return clone;
+    } 
 }

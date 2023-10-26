@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 [Serializable]
@@ -39,23 +40,30 @@ public class Card
     }
     public void UsarCartaAtaque(Enemy target, Dice dado)
     {
-        if (!CombatManager.instance.finalBattle) // Si no es la batalla final funciona la carta
+        if (FinalBattleManager.instance != null) // Si no es la batalla final funciona la carta
         {
-            if (target == null)
-            {
-                // LO QUE PASA SI NO EXISTE TARGET , DUELO FINAL
-                return;
-            }
+            // LO QUE PASA SI NO EXISTE TARGET , DUELO FINAL
+            PopUpManager.instance.GeneratePopUp("Esta carta no sirve en pvp", PopUpManager.POPUPTARGET.ENEMY);
+            return;
+        }
+        else
+        {
             target.TomarDaño(dado.currentValue);
         }
-
     }
     public void UsarCartaAmagico(Enemy target, Dice dado)
     {
-        if (!CombatManager.instance.finalBattle)
+        if (FinalBattleManager.instance != null) // Si no es la batalla final funciona la carta
+        {
+            // LO QUE PASA SI NO EXISTE TARGET , DUELO FINAL
+            PopUpManager.instance.GeneratePopUp("Esta carta no sirve en pvp", PopUpManager.POPUPTARGET.ENEMY);
+            return;
+        }
+        else
         {
             target.TomarDañoMagico(dado.currentValue);
         }
+
     }
     public void UsarCartaCurar(Player player, Dice dado)
     {
@@ -76,14 +84,22 @@ public class Card
     }
     public void UsarCartaBreak(Enemy target, Dice dado)
     {
-        if (!CombatManager.instance.finalBattle)
+        if (FinalBattleManager.instance != null) // Si no es la batalla final funciona la carta
+        {
+            // LO QUE PASA SI NO EXISTE TARGET , DUELO FINAL
+            PopUpManager.instance.GeneratePopUp("Esta carta no sirve en pvp", PopUpManager.POPUPTARGET.ENEMY);
+            return;
+        }
+        else
         {
             target.armour -= dado.currentValue;
             target.mArmour -= dado.currentValue;
             target.armour = Mathf.Clamp(target.armour, 0, 50); // no tiene max
             target.mArmour = Mathf.Clamp(target.mArmour, 0, 50); // no tiene max
-            PopUpManager.instance.GeneratePopUp(target.name + " perdio " + dado.currentValue + " de armadura y mr",PopUpManager.POPUPTARGET.ENEMY);
+            PopUpManager.instance.GeneratePopUp(target.name + " perdio " + dado.currentValue + " de armadura y mr", PopUpManager.POPUPTARGET.ENEMY);
         }
+
+
     }
     public void UsarCartaParryAtaque(Player player)
     {
@@ -97,7 +113,13 @@ public class Card
     }
     public void UsarCartaVeneno(Enemy target, Dice dado)
     {
-        if (!CombatManager.instance.finalBattle)
+        if (FinalBattleManager.instance != null) // Si no es la batalla final funciona la carta
+        {
+            // LO QUE PASA SI NO EXISTE TARGET , DUELO FINAL
+            PopUpManager.instance.GeneratePopUp("Esta carta no sirve en pvp", PopUpManager.POPUPTARGET.ENEMY);
+            return;
+        }
+        else
         {
             target.ChanceEnvenenado(dado.currentValue);
         }
@@ -110,15 +132,17 @@ public class Card
     public void UsarCartaPotenciador(Player player, Dice dado)
     {
         // Si se usa con un 1-3 da un +1 a todos los dados del aliado. Si se usa con un 4-6 da un +2.
-        if(dado.currentValue <= 3 && dado.currentValue != 0)
+        if (dado.currentValue <= 3 && dado.currentValue != 0)
         {
             // Potenciado +1
-        player.potenciado = 1;
-        PopUpManager.instance.GeneratePopUp("Dando +1 a los dados aliados", player.identifier);
-        } else {
+            player.potenciado = 1;
+            PopUpManager.instance.GeneratePopUp("Dando +1 a los dados aliados", player.identifier);
+        }
+        else
+        {
             // Potenciado +2
-        player.potenciado = 2;
-        PopUpManager.instance.GeneratePopUp("Dando +2 a los dados aliados", player.identifier);
+            player.potenciado = 2;
+            PopUpManager.instance.GeneratePopUp("Dando +2 a los dados aliados", player.identifier);
         }
 
     }
@@ -144,9 +168,9 @@ public class Card
     {
         player.armour -= dado.currentValue;
         player.mArmour -= dado.currentValue;
-        player.armour = Mathf.Clamp(player.armour, 0, player.maxArmour); 
-        player.mArmour = Mathf.Clamp(player.mArmour, 0, player.maxMArmour); 
-        PopUpManager.instance.GeneratePopUp(player.name + " perdio " + dado.currentValue + " de armadura y mr",player.identifier);
+        player.armour = Mathf.Clamp(player.armour, 0, player.maxArmour);
+        player.mArmour = Mathf.Clamp(player.mArmour, 0, player.maxMArmour);
+        PopUpManager.instance.GeneratePopUp(player.name + " perdio " + dado.currentValue + " de armadura y mr", player.identifier);
     }
     public void UsarCartaVenenoRomp(Player player, Dice dado)
     {
@@ -155,9 +179,22 @@ public class Card
 
     public void RunLogic(Card card, Dice dado)
     {
-        Enemy enemigo = CombatManager.instance.GetEnemy();
-        Player actualPlayer = CombatManager.instance.GetPlayerN(CombatManager.instance.currentTurn);
-        Player allyPlayer = CombatManager.instance.GetAlly(CombatManager.instance.currentTurn);
+        Enemy enemigo;
+        Player actualPlayer;
+        Player allyPlayer;
+        if (FinalBattleManager.instance != null)
+        {
+            enemigo = null;
+            actualPlayer = FinalBattleManager.instance.GetPlayerN(FinalBattleManager.instance.currentTurn);
+            allyPlayer = FinalBattleManager.instance.GetAlly(FinalBattleManager.instance.currentTurn);
+        }
+        else
+        {
+            enemigo = CombatManager.instance.GetEnemy();
+            actualPlayer = CombatManager.instance.GetPlayerN(CombatManager.instance.currentTurn);
+            allyPlayer = CombatManager.instance.GetAlly(CombatManager.instance.currentTurn);
+        }
+
 
         switch (card.effect)
         {
@@ -214,6 +251,13 @@ public class Card
                 break;
         }
         // Updateamos la UI
-        CombatManager.instance.UIUpdateAfterCardPlayed();
+        if (FinalBattleManager.instance != null) // Si no es la batalla final funciona la carta
+        {
+            FinalBattleManager.instance.UIUpdateAfterCardPlayed();
+        }
+        else
+        {
+            CombatManager.instance.UIUpdateAfterCardPlayed();
+        }
     }
 }

@@ -3,28 +3,17 @@ using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
 using UnityEngine.UI;
+using Unity.VisualScripting;
 
-public class CombatManager : MonoBehaviour
+public class FinalBattleManager : MonoBehaviour
 {
-    /// <summary>
+
     /// Se va a encargar de manejar los combates.
-    /// </summary>
 
-    private Enemy enemy;
-    private Player player1;
-    private Player player2;
-    [SerializeField] DeckLists decks; // Script que tiene los mazos de todos los players
-
-    // Datos que van a ser cargados en combate ( algunos los sacamos de las clases).
+    public Player player1;
+    public Player player2;
 
     // Elementos de la Interfaz
-    [Header("Enemy")]
-    [SerializeField] private TextMeshProUGUI enemyName;
-    [SerializeField] private Image enemySprite;
-    [SerializeField] private Image enemyHpBar;
-    [SerializeField] private TextMeshProUGUI enemyArmourText;
-    [SerializeField] private TextMeshProUGUI enemyMrText;
-
     [Header("Player 1")]
     [SerializeField] private Image p1Sprite;
     [SerializeField] private Image p1HpBar;
@@ -37,46 +26,48 @@ public class CombatManager : MonoBehaviour
     [SerializeField] private TextMeshProUGUI p2ArmourText;
     [SerializeField] private TextMeshProUGUI p2MrText;
 
-    [Header("Temporal")]
-    [SerializeField] private Sprite imagenJ1;
-    [SerializeField] private Sprite imagenJ2;
-
     // Datos para las cartas mazos etc.
     [Header("Cosas relacionadas a turnos")]
     public Turno currentTurn = Turno.P1;
     // Crear clon del mazo de los jugadores.
     Deck p1InsideCombatDeck;
     Deck p2InsideCombatDeck;
-    // Variable para controlar el Update
-    bool fightingEnemy = false;
+
     Phase currentPhase = Phase.Drawing; // 0 waiting for draw, 1 after draw , 2 y 3 After you play your 2 cards.
     public List<Card> playerHand = new List<Card>();
     // Los controladores logicos de las cartas
     [Header("Cartas en Mano Scripts")]
-    [SerializeField] CardLogicController card1;
-    [SerializeField] CardLogicController card2;
-    [SerializeField] CardLogicController card3;
-    [SerializeField] CardLogicController card4;
-    [SerializeField] CardLogicController card5;
-    [SerializeField] CardLogicController card6;
+    [SerializeField] CardLogicFinalBattle card1;
+    [SerializeField] CardLogicFinalBattle card2;
+    [SerializeField] CardLogicFinalBattle card3;
+    [SerializeField] CardLogicFinalBattle card4;
+    [SerializeField] CardLogicFinalBattle card5;
+    [SerializeField] CardLogicFinalBattle card6;
 
     [Header("Valores para balancear")]
     public int poisonDotValue = 5;
-    public bool finalBattle;
 
     [Header("Cosas de Displays")]
     [SerializeField] private List<DiceDisplay> diceDisplays = new List<DiceDisplay>();
     public PlayerDisplay p1Display;
     public PlayerDisplay p2Display;
-    public EnemyDisplay enemyDisplay;
-    [Header("Player List")]
-    [SerializeField] PlayerList playerList;
+
+    [Header("Cosas de UI")]
+    //Aca veremos los objetos que cambiaran de posicion segun el turno;
+    [SerializeField] private RectTransform dadosActuales;
+    [SerializeField] private RectTransform dadosFalsos;
+    [SerializeField] private RectTransform cartasActuales;
+    [SerializeField] private RectTransform cartasFalsas;
+    [SerializeField] private Vector3 ubicacionCarta1;
+    [SerializeField] private Vector3 ubicacionCarta2;
+    [SerializeField] private Vector3 ubicacionDado1;
+    [SerializeField] private Vector3 ubicacionDado2;
+
 
     public enum Turno
     {
         P1,
         P2,
-        ENEMY
     } // Agregar algo q cambie de turno.
 
     public void SwitchToNextPhase()
@@ -84,6 +75,11 @@ public class CombatManager : MonoBehaviour
         switch (currentTurn)
         {
             case Turno.P1:
+
+                cartasActuales.anchoredPosition = ubicacionCarta1;
+                cartasFalsas.anchoredPosition = ubicacionCarta2;
+                dadosActuales.anchoredPosition = ubicacionDado1;
+                dadosFalsos.anchoredPosition = ubicacionDado2;
                 currentPhase += 1;
                 if ((int)currentPhase == 3)
                 {
@@ -94,20 +90,19 @@ public class CombatManager : MonoBehaviour
                 }
                 break;
             case Turno.P2:
+
+                cartasActuales.anchoredPosition = ubicacionCarta2;
+                cartasFalsas.anchoredPosition = ubicacionCarta1;
+                dadosActuales.anchoredPosition = ubicacionDado2;
+                dadosFalsos.anchoredPosition = ubicacionDado1;
                 currentPhase += 1;
                 if ((int)currentPhase == 3)
                 {
-                    currentTurn = Turno.ENEMY;
-                    currentPhase = Phase.WaitingForAction1;
+                    currentTurn = Turno.P1;
+                    currentPhase = Phase.Drawing;
                     Debug.Log("//      Se inicio turno enemigo.");
-                    //StartCoroutine(PopUpManager.instance.ShowCurrentTurnPopUp("Turno de " + enemy.name)); // REPARAR
+                    StartCoroutine(PopUpManager.instance.ShowCurrentTurnPopUp("Turno de " + player1.name)); // REPARAR
                 }
-                break;
-            case Turno.ENEMY:
-                currentTurn = Turno.P1;
-                currentPhase = Phase.Drawing;
-                Debug.Log("//      Se inicio turno Player 1.");
-                StartCoroutine(PopUpManager.instance.ShowCurrentTurnPopUp("Turno de " + player1.name)); // REPARAR
                 break;
         }
     }
@@ -119,7 +114,7 @@ public class CombatManager : MonoBehaviour
         WaitingForAction2
     }
 
-    public static CombatManager instance = null;
+    public static FinalBattleManager instance = null;
 
     void Awake()
     {
@@ -134,30 +129,18 @@ public class CombatManager : MonoBehaviour
 
     void Start()
     {
-        // Si venimos del char select , usamos esos datos
-        if (PlayerPrefs.GetInt("player1") != 0 && PlayerPrefs.GetInt("player2") != 0)
-        {
-            Debug.Log(PlayerPrefs.GetInt("player1"));
-            Debug.Log("Cargando Datos de Player desde memoria.");
-            player1 = playerList.GetPlayerFromListN(1);
-            player2 = playerList.GetPlayerFromListN(2);
-        }
-        else // sino creamos unos random.
-        {
-            Debug.Log("Usando Datos de Player Manuales");
-            // Creamos los mazos de los players.
-            Deck p1Deck = decks.deckList[0];
-            Deck p2Deck = decks.deckList[1];
-
-            // Creamos los players
-            player1 = new Player("Jugador1", p1Deck, 20, 10, 0, GameManager.instance.defaultDiceList, imagenJ1, PopUpManager.POPUPTARGET.PLAYER1);
-            player2 = new Player("Jugador2", p2Deck, 20, 0, 10, GameManager.instance.defaultDiceList, imagenJ2, PopUpManager.POPUPTARGET.PLAYER2);
-        }
+        player1 = GuardaRopas.instance.player1;
+        player2 = GuardaRopas.instance.player2;
+        // Los curamos
+        player1.currentHp = player1.MaxHp;
+        player2.currentHp = player2.MaxHp;
+        EnterCombat();
+        // Cargamos los datos del combate.
+        LoadCombatData();
     }
 
     public void EnterCombat()
     {
-        GameManager.instance.SetGameState(GameManager.GAME_STATE.ON_COMBAT);
         Debug.Log("Entrando en Combate.");
         // Seteamos los decks.
         p1InsideCombatDeck = ShuffleDeck(player1.currentDeck);
@@ -166,42 +149,29 @@ public class CombatManager : MonoBehaviour
 
     void Update()
     {
-        if (fightingEnemy)
+        if (currentPhase == Phase.Drawing && (currentTurn == Turno.P1 || currentTurn == Turno.P2))
         {
-            if (currentPhase == Phase.Drawing && (currentTurn == Turno.P1 || currentTurn == Turno.P2))
-            {
-                Debug.Log("Starting Draw Phase");
-                ShowMissingHand(); // Nos aseguramos que esten todas las cartas al comenzar.
-                ShowMissingDice();
-                // Actualizamos las cartas y cambiamos a la phase de esperar acciones.
-                DrawHand();
-                // Actualizamos el visual de la mano
-                UpdatePlayerHandImages();
-                RollDicesAndUpdate(); // Roleamos los dados y Mostramos las imagenes.
-                //currentPhase = Phase.WaitingForAction1;
-                SwitchToNextPhase();
-                Debug.Log("Waiting for action 1");
-                // Revisamos el veneno del player actual. y actualizamos la UI x las dudas de que tenga veneno.
-                GetPlayerN(currentTurn).Envenenado();
-                UIUpdateAfterCardPlayed();
-            }
+            Debug.Log("Starting Draw Phase");
+            ShowMissingHand(); // Nos aseguramos que esten todas las cartas al comenzar.
 
-            // Checkeamos para ver si termina el combate.
-            CheckForEndOfCombat();
-
-            if (currentTurn == Turno.ENEMY)
-            {
-                // El enemigo hace algo.
-                enemy.TomarAccion(player1, player2);
-                // Checkeamos el veneno
-                enemy.Envenenado();
-                // Updateamos el display del enemigo.
-                enemyDisplay.UpdateDisplay();
-
-                CheckForEndOfCombat();
-                SwitchToNextPhase(); // Esto va aca ?
-            }
+            ShowMissingDice();
+            Debug.Log("PrendioTodo");
+            // Actualizamos las cartas y cambiamos a la phase de esperar acciones.
+            DrawHand();
+            Debug.Log("Draw Phase");
+            // Actualizamos el visual de la mano
+            UpdatePlayerHandImages();
+            RollDicesAndUpdate(); // Roleamos los dados y Mostramos las imagenes.
+                                  //currentPhase = Phase.WaitingForAction1;
+            SwitchToNextPhase();
+            Debug.Log("Waiting for action 1");
+            // Revisamos el veneno del player actual. y actualizamos la UI x las dudas de que tenga veneno.
+            GetPlayerN(currentTurn).Envenenado();
+            UIUpdateAfterCardPlayed();
         }
+
+        // Checkeamos para ver si termina el combate.
+        CheckForEndOfCombat();
     }
 
 
@@ -218,6 +188,7 @@ public class CombatManager : MonoBehaviour
         switch (currentTurn)
         {
             case Turno.P1:
+
                 //Debug.Log("CANTIDAD DE CARTAS ACTUALES EN EL MAZO: " + p1InsideCombatDeck.cardCount);
                 if (p1InsideCombatDeck.cardCount >= 6)
                 {
@@ -339,61 +310,30 @@ public class CombatManager : MonoBehaviour
                 }
                 break;
         }
-
     }
 
     void CheckForEndOfCombat()
     {
-        if (player1.currentHp <= 0 || player2.currentHp <= 0 || enemy.currentHp <= 0)
+        if (player1.currentHp <= 0)
         {
-            fightingEnemy = false;
-            //Si perdes
-            if (player1.currentHp <= 0 || player2.currentHp <= 0)
-            {
-                SwitchToGameOver();
-            }
-            // Si vences al enemigo
-            //Debug.Log("HP ENEMIGO: " + enemy.currentHp);
-            Debug.Log("Enemigo Derrotado!");
-            if (enemy.currentHp <= 0)
-            {
-                if (!finalBattle)
-                {
-                    GameManager.instance.SwitchToRewardsScreen();
-                }
-                ExitCombat();
-            }
+            SwitchToGameOver(1);
+        }
+        if (player2.currentHp <= 0)
+        {
+            SwitchToGameOver(2);
         }
     }
 
     // COMPLETAR
-    void SwitchToGameOver()
+    void SwitchToGameOver(int playerN) // REHACER
     {
         // Agregar panel de game Over y colocar aqui las cosas para cambiar ahi x ahi otra escena o algo para hacerlo mas facil ? .
-        GameManager.instance.SwitchToGameOverScreen();
+        //GameManager.instance.SwitchToGameOverScreen(); // ARREGLAR.
         Debug.Log("PERDISTE, CAMBIANDO A GAME OVER SCREEN");
-    }
-
-
-    public void ExitCombat()
-    {
-        // Agregar algo q diga ganaste ?
-        GameManager.instance.SetGameState(GameManager.GAME_STATE.OVERWORLD);
-
-        Debug.Log("Saliendo de combate o accion.");
     }
 
     public void LoadCombatData()
     {
-        // Cargamos al enemigo
-        enemy = GameManager.instance.currentEnemy;
-        //Debug.Log("EN LOADCOMBATDATA");
-        //enemy.DebugInfo();
-        enemyName.text = enemy.name;
-        enemySprite.sprite = enemy.img;
-        enemyHpBar.fillAmount = 1;
-        enemyArmourText.text = enemy.armour.ToString();
-        enemyMrText.text = enemy.mArmour.ToString();
 
         //Cargamos al player 1
         p1Sprite.sprite = player1.sprite;
@@ -406,8 +346,6 @@ public class CombatManager : MonoBehaviour
         p2HpBar.fillAmount = (float)player2.currentHp / player2.MaxHp;
         p2ArmourText.text = player2.armour.ToString();
         p2MrText.text = player2.mArmour.ToString();
-        // Activamos el combate
-        fightingEnemy = true;
 
         // Activamos el turno correctamente
         currentTurn = Turno.P1;
@@ -418,10 +356,6 @@ public class CombatManager : MonoBehaviour
     public void UpdateUI()
     {
         // Actualiza la UI si cambia un valor.
-        enemyHpBar.fillAmount = (float)enemy.currentHp / enemy.hp;
-        enemyArmourText.text = enemy.armour.ToString();
-        enemyMrText.text = enemy.mArmour.ToString();
-
         //Cargamos al player 1
         p1HpBar.fillAmount = (float)player1.currentHp / player1.MaxHp;
         p1ArmourText.text = player1.armour.ToString();
@@ -436,9 +370,7 @@ public class CombatManager : MonoBehaviour
     // La intencion es que esto se llame despues de jugar 1 carta.
     public void UIUpdateAfterCardPlayed()
     {
-        // Updateamos el display del enemigo.
-        enemyDisplay.UpdateDisplay();
-        // Y los players
+        // Updateamos el display de los players
         p1Display.UpdateDisplay();
         p2Display.UpdateDisplay();
     }
@@ -550,15 +482,5 @@ public class CombatManager : MonoBehaviour
             return player1;
         }
         return null; // ERROR posible.
-    }
-
-    public Enemy GetEnemy()
-    {
-        return enemy;
-    }
-
-    public bool FightingAnEnemy()
-    {
-        return fightingEnemy;
     }
 }
