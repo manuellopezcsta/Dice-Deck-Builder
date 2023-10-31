@@ -63,6 +63,11 @@ public class FinalBattleManager : MonoBehaviour
     [SerializeField] private Vector3 ubicacionDado1;
     [SerializeField] private Vector3 ubicacionDado2;
 
+    [Header("Cosas de GameOverScreen")]
+    [SerializeField] GameObject combatPanel;
+    [SerializeField] GameObject gameOverPanel;
+    [SerializeField] TextMeshProUGUI textGameOver;
+
 
     public enum Turno
     {
@@ -316,21 +321,28 @@ public class FinalBattleManager : MonoBehaviour
     {
         if (player1.currentHp <= 0)
         {
-            SwitchToGameOver(1);
+            SwitchToGameOver(player2);
         }
         if (player2.currentHp <= 0)
         {
-            SwitchToGameOver(2);
+            SwitchToGameOver(player1);
         }
     }
 
     // COMPLETAR
-    void SwitchToGameOver(int playerN) // REHACER
+    void SwitchToGameOver(Player player) // REHACER
     {
-        // Agregar panel de game Over y colocar aqui las cosas para cambiar ahi x ahi otra escena o algo para hacerlo mas facil ? .
-        //GameManager.instance.SwitchToGameOverScreen(); // ARREGLAR.
+        textGameOver.text = player.name + " obtiene la banana suprema";
+        SwitchPanels();
         Debug.Log("PERDISTE, CAMBIANDO A GAME OVER SCREEN");
     }
+
+    void SwitchPanels()
+    {
+        combatPanel.SetActive(false);
+        gameOverPanel.SetActive(true);
+    }
+
 
     public void LoadCombatData()
     {

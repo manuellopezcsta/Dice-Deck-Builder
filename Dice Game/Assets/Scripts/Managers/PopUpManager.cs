@@ -81,7 +81,7 @@ public class PopUpManager : MonoBehaviour
         foreach (GameObject obj in clone)
         {
             // Si se termino el combate
-            if (!CombatManager.instance.FightingAnEnemy())
+            if (!CombatManager.instance.FightingAnEnemy()  && FinalBattleManager.instance == null)
             {
                 StopPopUps();
                 yield break;

@@ -16,6 +16,7 @@ public class BotonNodo : MonoBehaviour
     Dictionary<string, string[]> level3 = new Dictionary<string, string[]>();
     Dictionary<string, string[]> level4 = new Dictionary<string, string[]>();
     [SerializeField] string lastButtonName = "999";
+    [SerializeField] string lastLevel = "1"; // CAMBIAR A 4 CUANDO ESTE LISTO EL JUEGO. ARREGLAR.
 
     void Start()
     {
@@ -107,21 +108,31 @@ public class BotonNodo : MonoBehaviour
     {
         // Lo comparamos con el boton actual y si es igual ejecutamos el codigo sino no.
         string botonActual = OverWorldManager.instance.currentButton.ToString();
-        if(botonActual == lastButtonName)
-        { // ARREGLAR ESTO.
-            /*OverWorldManager.instance.CompleteLevel();
-            OverWorldManager.instance.currentLevel += 1;
-            */
-            SwitchToFinalBattle();
+        string levelActual = OverWorldManager.instance.currentLevel.ToString();
+
+        // Si es el ultimo boton
+        if (botonActual == lastButtonName)
+        {
+            // Te pregunta si es el ultimo nivel del juego
+            if (levelActual == lastLevel)
+            {
+                SwitchToFinalBattle();
+            } // Sino te manda al siguiente nivel del juego.
+            else
+            { // ARREGLAR ESTO.
+                OverWorldManager.instance.CompleteLevel();
+                OverWorldManager.instance.currentLevel += 1;
+            }
         }
     }
-    void SwitchToFinalBattle(){
+    void SwitchToFinalBattle()
+    {
         string botonActual = OverWorldManager.instance.currentButton.ToString();
-        if(botonActual == lastButtonName)
+        if (botonActual == lastButtonName)
         {
             GuardaRopas.instance.FinalBattle();
             SceneManager.LoadScene("FinalBattle");
         }
     }
-    
+
 }

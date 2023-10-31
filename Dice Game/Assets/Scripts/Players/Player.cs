@@ -43,6 +43,13 @@ public class Player
 
     public void TomarDaño(int valor, Enemy enemigo = null)
     {
+        // Si es el combate final y bloqueador esta activo.
+        if(FinalBattleManager.instance != null && bloqueador)
+        {
+            PopUpManager.instance.GeneratePopUp("Daño Bloqueado !", this.identifier);
+            bloqueador = false;
+            return;
+        }
         if (parryFisico)
         {
             if (FinalBattleManager.instance != null)
@@ -105,6 +112,13 @@ public class Player
 
     public void TomarDañoMagico(int valor, Enemy enemigo = null)
     {
+        // Si es el combate final y bloqueador esta activo.
+        if(FinalBattleManager.instance != null && bloqueador)
+        {
+            PopUpManager.instance.GeneratePopUp("Daño Bloqueado !", this.identifier);
+            bloqueador = false;
+            return;
+        }
         if (parryMagico)
         {
             if (FinalBattleManager.instance != null)
