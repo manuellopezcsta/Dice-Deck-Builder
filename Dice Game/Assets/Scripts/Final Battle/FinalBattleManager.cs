@@ -223,12 +223,17 @@ public class FinalBattleManager : MonoBehaviour
                     //Debug.Log("Se agarraron las cartas que faltaban en el mazo quedan: " + p1InsideCombatDeck.cardCount);
                     // Mezclamos el mazo
                     p1InsideCombatDeck = ShuffleDeck(player1.currentDeck);
-                    // ARREGLAR ACA
 
-                    // ACA HABRIA QUE SACAR LAS CARTAS QUE TENES EN LA MANO DEL MAZO p1insideCombat deck..
-                    // for a lenght de player hand actual y dentro de ese for.. para cada carta de player hand.. buscar una igual en p1insidecombat deck y sacarla de ese. comparas el cardeffect
-                    
-                    // FIN DEL ARREGLO
+                    // Sacamos las cartas que ya tenemos en la mano del mazo antes de robar cartas.
+                    for (int i = 0; i < playerHand.Count; i++)
+                    {
+                        if (p1InsideCombatDeck.cards.Contains(playerHand[i]))
+                        {
+                            p1InsideCombatDeck.RemoveCard(playerHand[i]);
+                            //Debug.Log("Se saco carta que estaba en la mano de mas");
+                        }
+                    }
+
                     // Robamos las que faltan.
                     for (int i = 0; i < missingCards; i++)
                     {
@@ -268,6 +273,14 @@ public class FinalBattleManager : MonoBehaviour
                     }
                     // Mezclamos el mazo
                     p2InsideCombatDeck = ShuffleDeck(player2.currentDeck);
+                    // Sacamos las cartas que ya tenemos en la mano del mazo antes de robar cartas.
+                    for (int i = 0; i < playerHand.Count; i++)
+                    {
+                        if (p2InsideCombatDeck.cards.Contains(playerHand[i]))
+                        {
+                            p2InsideCombatDeck.RemoveCard(playerHand[i]);
+                        }
+                    }
                     // Robamos las que faltan.
                     for (int i = 0; i < missingCards; i++)
                     {
@@ -279,7 +292,9 @@ public class FinalBattleManager : MonoBehaviour
                 break;
         }
     }
-
+    // Variables x si potencia el dado en la batalla final.
+    public bool autopotenciadoP1;
+    public bool autopotenciadoP2;
     void RollDicesAndUpdate()
     {
         switch (currentTurn)
@@ -289,8 +304,14 @@ public class FinalBattleManager : MonoBehaviour
                 foreach (Dice dado in player1.dices)
                 {
                     dado.Roll();
-                    // Si mi compa;ero esta potenciado , le sumamos su valor 
-                    dado.currentValue += player2.potenciado;
+                    // Chekeamos x si es el comportanmiento de la batalla final y potenciamos el primer dado.
+                    if (autopotenciadoP1)
+                    {
+                        //Debug.Log("Valor Comun " + dado.currentValue);
+                        dado.currentValue += 3;
+                        //Debug.Log("Valor Potenciado " + dado.currentValue);
+                        autopotenciadoP1 = false;
+                    }
                 }
                 // y despues lo volvemos 0.
                 player2.potenciado = 0;
@@ -307,8 +328,12 @@ public class FinalBattleManager : MonoBehaviour
                 foreach (Dice dado in player2.dices)
                 {
                     dado.Roll();
-                    // Si mi compa;ero esta potenciado , le sumamos su valor 
-                    dado.currentValue += player1.potenciado;
+                    // Chekeamos x si es el comportanmiento de la batalla final y potenciamos el primer dado.
+                    if (autopotenciadoP2)
+                    {
+                        dado.currentValue += 3;
+                        autopotenciadoP2 = false;
+                    }
                 }
                 // y despues lo volvemos 0.
                 player1.potenciado = 0;

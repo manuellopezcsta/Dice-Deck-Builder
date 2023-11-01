@@ -247,6 +247,15 @@ public class CombatManager : MonoBehaviour
                     //Debug.Log("Se agarraron las cartas que faltaban en el mazo quedan: " + p1InsideCombatDeck.cardCount);
                     // Mezclamos el mazo
                     p1InsideCombatDeck = ShuffleDeck(player1.currentDeck);
+                    // Sacamos del mazo mezclado las que ya tenemos en la mano.
+                    for (int i = 0; i < playerHand.Count; i++)
+                    {
+                        if (p1InsideCombatDeck.cards.Contains(playerHand[i]))
+                        {
+                            p1InsideCombatDeck.RemoveCard(playerHand[i]);
+                            Debug.Log("Se saco carta que estaba en la mano de mas");
+                        }
+                    }
                     // Robamos las que faltan.
                     for (int i = 0; i < missingCards; i++)
                     {
@@ -286,6 +295,15 @@ public class CombatManager : MonoBehaviour
                     }
                     // Mezclamos el mazo
                     p2InsideCombatDeck = ShuffleDeck(player2.currentDeck);
+                    // Sacamos las cartas que ya tenemos en la mano del mazo antes de robar cartas.
+                    for (int i = 0; i < playerHand.Count; i++)
+                    {
+                        if (p2InsideCombatDeck.cards.Contains(playerHand[i]))
+                        {
+                            p2InsideCombatDeck.RemoveCard(playerHand[i]);
+                            //Debug.Log("Se saco carta que estaba en la mano de mas");
+                        }
+                    }
                     // Robamos las que faltan.
                     for (int i = 0; i < missingCards; i++)
                     {

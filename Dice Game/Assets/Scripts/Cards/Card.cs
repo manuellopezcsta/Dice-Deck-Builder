@@ -170,18 +170,33 @@ public class Card
     }
     public void UsarCartaPotenciador(Player player, Dice dado)
     {
-        // Si se usa con un 1-3 da un +1 a todos los dados del aliado. Si se usa con un 4-6 da un +2.
-        if (dado.currentValue <= 3 && dado.currentValue != 0)
+        if (FinalBattleManager.instance == null) // Comportamiento estandar
         {
-            // Potenciado +1
-            player.potenciado = 1;
-            PopUpManager.instance.GeneratePopUp("Dando +1 a los dados aliados", player.identifier);
+            // Si se usa con un 1-3 da un +1 a todos los dados del aliado. Si se usa con un 4-6 da un +2.
+            if (dado.currentValue <= 3 && dado.currentValue != 0)
+            {
+                // Potenciado +1
+                player.potenciado = 1;
+                PopUpManager.instance.GeneratePopUp("Dando +1 a los dados aliados", player.identifier);
+            }
+            else
+            {
+                // Potenciado +2
+                player.potenciado = 2;
+                PopUpManager.instance.GeneratePopUp("Dando +2 a los dados aliados", player.identifier);
+            }
         }
-        else
+        else // si es la batalla final
         {
-            // Potenciado +2
-            player.potenciado = 2;
-            PopUpManager.instance.GeneratePopUp("Dando +2 a los dados aliados", player.identifier);
+            if (player == FinalBattleManager.instance.player1) // Potenciamos el player 1
+            {
+                FinalBattleManager.instance.autopotenciadoP1 = true;
+            }
+            else
+            {
+                FinalBattleManager.instance.autopotenciadoP2 = true; // Potenciamos el player 2
+            }
+            PopUpManager.instance.GeneratePopUp("Tendras un dado mamadisimo el proximo turno", player.identifier);
         }
 
     }
