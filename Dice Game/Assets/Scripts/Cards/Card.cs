@@ -37,6 +37,7 @@ public class Card
         AMAGICOROMP,
         BREAKROMP,
         VENENOROMP,
+        PATATA
     }
     public void UsarCartaAtaque(Enemy target, Dice dado)
     {
@@ -44,6 +45,7 @@ public class Card
         {
             // LO QUE PASA SI NO EXISTE TARGET , DUELO FINAL
             PopUpManager.instance.GeneratePopUp("Esta carta no sirve en pvp", PopUpManager.POPUPTARGET.ENEMY);
+            ColocarCartaPatata(FinalBattleManager.instance.GetPlayerN(FinalBattleManager.instance.currentTurn)); // REVISAR!
             return;
         }
         else
@@ -57,6 +59,7 @@ public class Card
         {
             // LO QUE PASA SI NO EXISTE TARGET , DUELO FINAL
             PopUpManager.instance.GeneratePopUp("Esta carta no sirve en pvp", PopUpManager.POPUPTARGET.ENEMY);
+            ColocarCartaPatata(FinalBattleManager.instance.GetPlayerN(FinalBattleManager.instance.currentTurn)); // REVISAR!
             return;
         }
         else
@@ -67,20 +70,35 @@ public class Card
     }
     public void UsarCartaCurar(Player player, Dice dado)
     {
+
+
         player.Cura(dado.currentValue);
         PopUpManager.instance.GeneratePopUp("+" + dado.currentValue + " HP", player.identifier);
+        if (FinalBattleManager.instance != null)
+        {
+            ColocarCartaPatata(player);
+        }
     }
+
     public void UsarCartaArmadura(Player player, Dice dado)
     {
         player.armour += dado.currentValue;
         player.armour = Mathf.Clamp(player.armour, 0, player.maxArmour);
         PopUpManager.instance.GeneratePopUp("+" + dado.currentValue + " de armadura", player.identifier);
+        if (FinalBattleManager.instance != null)
+        {
+            ColocarCartaPatata(player);
+        }
     }
     public void UsarCartaMr(Player player, Dice dado)
     {
         player.mArmour += dado.currentValue;
         player.mArmour = Mathf.Clamp(player.mArmour, 0, player.maxMArmour);
         PopUpManager.instance.GeneratePopUp("+" + dado.currentValue + " de armadura magica", player.identifier);
+        if (FinalBattleManager.instance != null)
+        {
+            ColocarCartaPatata(player);
+        }
     }
     public void UsarCartaBreak(Enemy target, Dice dado)
     {
@@ -88,6 +106,7 @@ public class Card
         {
             // LO QUE PASA SI NO EXISTE TARGET , DUELO FINAL
             PopUpManager.instance.GeneratePopUp("Esta carta no sirve en pvp", PopUpManager.POPUPTARGET.ENEMY);
+            ColocarCartaPatata(FinalBattleManager.instance.GetPlayerN(FinalBattleManager.instance.currentTurn)); // REVISAR!
             return;
         }
         else
@@ -105,11 +124,19 @@ public class Card
     {
         player.parryFisico = true;
         PopUpManager.instance.GeneratePopUp("Parry fisico activo", player.identifier);
+        if (FinalBattleManager.instance != null)
+        {
+            ColocarCartaPatata(player);
+        }
     }
     public void UsarCartaParryAMagico(Player player)
     {
         player.parryMagico = true;
         PopUpManager.instance.GeneratePopUp("Parry magico activo", player.identifier);
+        if (FinalBattleManager.instance != null)
+        {
+            ColocarCartaPatata(player);
+        }
     }
     public void UsarCartaVeneno(Enemy target, Dice dado)
     {
@@ -117,6 +144,7 @@ public class Card
         {
             // LO QUE PASA SI NO EXISTE TARGET , DUELO FINAL
             PopUpManager.instance.GeneratePopUp("Esta carta no sirve en pvp", PopUpManager.POPUPTARGET.ENEMY);
+            ColocarCartaPatata(FinalBattleManager.instance.GetPlayerN(FinalBattleManager.instance.currentTurn)); // REVISAR!
             return;
         }
         else
@@ -126,8 +154,19 @@ public class Card
     }
     public void UsarCartaCurax2(Player player1, Player player2, Dice dado)
     {
-        UsarCartaCurar(player1, dado);
-        UsarCartaCurar(player2, dado);
+        if (FinalBattleManager.instance == null) // En combate normal
+        {
+            UsarCartaCurar(player1, dado);
+            UsarCartaCurar(player2, dado);
+        }
+        else // En combate final
+        {
+            // Que cure el doble y luego se queme
+            dado.currentValue *= 2;
+            UsarCartaCurar(player1, dado);
+            // Colocamos la patata en el script de curar carta.
+        }
+
     }
     public void UsarCartaPotenciador(Player player, Dice dado)
     {
@@ -148,8 +187,17 @@ public class Card
     }
     public void UsarCartaArmadurax2(Player player1, Player player2, Dice dado)
     {
-        UsarCartaArmadura(player1, dado);
-        UsarCartaArmadura(player2, dado);
+        if (FinalBattleManager.instance == null)
+        {
+            UsarCartaArmadura(player1, dado);
+            UsarCartaArmadura(player2, dado);
+        }
+        else
+        {
+            dado.currentValue *= 2;
+            UsarCartaArmadura(player1, dado);
+            // Colocamos la patata en el script de curar carta.
+        }
     }
     public void UsarCartaBloqueador(Player player)
     {
@@ -175,6 +223,22 @@ public class Card
     public void UsarCartaVenenoRomp(Player player, Dice dado)
     {
         player.ChanceEnvenenado(dado.currentValue);
+    }
+
+    // Para balancear la pelea final y que no puedas espamear cartas de defensa y no termine mas.
+    public void UsarCartaPatata(Player actualPlayer, Player allyPlayer, Dice dado)
+    {
+        // Es como el struggle del pokemon te haces da;o y hace un poco.
+        allyPlayer.TomarDaño(dado.currentValue);
+        int valor = Mathf.FloorToInt(dado.currentValue / 2f);
+        actualPlayer.TomarDaño(valor);
+        PopUpManager.instance.GeneratePopUp("No tires la comida >:c", PopUpManager.POPUPTARGET.ENEMY);
+    }
+
+    void ColocarCartaPatata(Player target)
+    {
+        target.currentDeck.RemoveCard(this);
+        target.currentDeck.AddCard(GameObject.Find("Card List").GetComponent<CardList>().cardList[17]);
     }
 
     public void RunLogic(Card card, Dice dado)
@@ -248,6 +312,9 @@ public class Card
                 break;
             case CardEffects.VENENOROMP:
                 UsarCartaVenenoRomp(allyPlayer, dado);
+                break;
+            case CardEffects.PATATA:
+                UsarCartaPatata(actualPlayer, allyPlayer, dado);
                 break;
         }
         // Updateamos la UI

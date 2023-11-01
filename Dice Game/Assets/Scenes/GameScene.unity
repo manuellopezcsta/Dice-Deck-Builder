@@ -6985,6 +6985,46 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5ba44eafc3bc99247bc3efd6dd6df87f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  player1:
+    name: 
+    currentDeck:
+      cardCount: 0
+      cards: []
+    MaxHp: 0
+    currentHp: 0
+    armour: 0
+    mArmour: 0
+    maxArmour: 0
+    maxMArmour: 0
+    parryFisico: 0
+    parryMagico: 0
+    envenenado: 0
+    poisonedTime: 0
+    bloqueador: 0
+    potenciado: 0
+    sprite: {fileID: 0}
+    dices: []
+    identifier: 0
+  player2:
+    name: 
+    currentDeck:
+      cardCount: 0
+      cards: []
+    MaxHp: 0
+    currentHp: 0
+    armour: 0
+    mArmour: 0
+    maxArmour: 0
+    maxMArmour: 0
+    parryFisico: 0
+    parryMagico: 0
+    envenenado: 0
+    poisonedTime: 0
+    bloqueador: 0
+    potenciado: 0
+    sprite: {fileID: 0}
+    dices: []
+    identifier: 0
 --- !u!4 &1138470567
 Transform:
   m_ObjectHideFlags: 0
@@ -9541,6 +9581,27 @@ MonoBehaviour:
   - {fileID: 21300000, guid: 96bbecc347482204d8abda8c304eb785, type: 3}
   decks: {fileID: 1275695246}
   dices: {fileID: 1597110514}
+  list: []
+  debugPlayer:
+    name: 
+    currentDeck:
+      cardCount: 0
+      cards: []
+    MaxHp: 0
+    currentHp: 0
+    armour: 0
+    mArmour: 0
+    maxArmour: 0
+    maxMArmour: 0
+    parryFisico: 0
+    parryMagico: 0
+    envenenado: 0
+    poisonedTime: 0
+    bloqueador: 0
+    potenciado: 0
+    sprite: {fileID: 0}
+    dices: []
+    identifier: 0
 --- !u!4 &1591635911
 Transform:
   m_ObjectHideFlags: 0
@@ -11161,6 +11222,9 @@ MonoBehaviour:
   - cardName: Veneno Rompejuramentos
     image: {fileID: 1849768423, guid: e983f61e24dfcbc4e951fe19c4f1dffb, type: 3}
     effect: 16
+  - cardName: Patata
+    image: {fileID: 21300000, guid: 75c8106e8e08b8344a8a6e80f4324296, type: 3}
+    effect: 17
 --- !u!1 &1860693250
 GameObject:
   m_ObjectHideFlags: 0

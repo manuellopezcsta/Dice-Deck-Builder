@@ -223,6 +223,12 @@ public class FinalBattleManager : MonoBehaviour
                     //Debug.Log("Se agarraron las cartas que faltaban en el mazo quedan: " + p1InsideCombatDeck.cardCount);
                     // Mezclamos el mazo
                     p1InsideCombatDeck = ShuffleDeck(player1.currentDeck);
+                    // ARREGLAR ACA
+
+                    // ACA HABRIA QUE SACAR LAS CARTAS QUE TENES EN LA MANO DEL MAZO p1insideCombat deck..
+                    // for a lenght de player hand actual y dentro de ese for.. para cada carta de player hand.. buscar una igual en p1insidecombat deck y sacarla de ese. comparas el cardeffect
+                    
+                    // FIN DEL ARREGLO
                     // Robamos las que faltan.
                     for (int i = 0; i < missingCards; i++)
                     {
