@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class FloatingText : MonoBehaviour
 {
+    // Para popUps y efectos.
     [SerializeField] float destroyTime;
     void Start()
     {

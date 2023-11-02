@@ -6,6 +6,7 @@ using UnityEngine;
 public class PopUpCleaner : MonoBehaviour
 {
     // Limpia los popUps al activarse.
+    // Tambien funciona para los effectos.
     void OnEnable()
     {
         foreach (Transform child in transform)

@@ -51,6 +51,7 @@ public class Card
         else
         {
             target.TomarDaño(dado.currentValue);
+            EffectManager.instance.GenerateEffect(EffectManager.EFFECT_NAME.ATAQUE, EffectManager.EFFECT_TARGET.ENEMY);
         }
     }
     public void UsarCartaAmagico(Enemy target, Dice dado)
@@ -74,6 +75,7 @@ public class Card
 
         player.Cura(dado.currentValue);
         PopUpManager.instance.GeneratePopUp("+" + dado.currentValue + " HP", player.identifier);
+        EffectManager.instance.GenerateEffect(EffectManager.EFFECT_NAME.ATAQUE, EffectManager.instance.GetCurrentPlayerTarget());
         if (FinalBattleManager.instance != null)
         {
             ColocarCartaPatata(player);
