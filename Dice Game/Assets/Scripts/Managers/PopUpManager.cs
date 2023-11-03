@@ -95,12 +95,6 @@ public class PopUpManager : MonoBehaviour
         instantiateObjects = null;
     }
 
-    // Returns the value to check if the coroutine is running, to lock dice .
-    public bool ArePopUpsActive()
-    {
-        return instantiateObjects != null;
-    }
-
     // Para el indicador de turnos
     //public Coroutine showCurrentTurnPopUp = null;
     public IEnumerator ShowCurrentTurnPopUp(string popUpText)
