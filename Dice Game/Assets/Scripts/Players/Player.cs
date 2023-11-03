@@ -214,11 +214,14 @@ public class Player
                 {
                     currentHp -= FinalBattleManager.instance.poisonDotValue;
                     PopUpManager.instance.GeneratePopUp(this.name + " sufrio " + FinalBattleManager.instance.poisonDotValue + " puntos por el veneno", this.identifier);
+                    EffectManager.instance.GenerateEffect(EffectManager.EFFECT_NAME.POISON_TICK, EffectManager.instance.GetCurrentPlayerTarget(FinalBattleManager.instance.GetPlayerN(FinalBattleManager.instance.currentTurn)));
+                    poisonedTime -= 1;
                 }
                 else
                 {
                     currentHp -= CombatManager.instance.poisonDotValue;
                     PopUpManager.instance.GeneratePopUp(this.name + " sufrio " + CombatManager.instance.poisonDotValue + " puntos por el veneno", this.identifier);
+                    EffectManager.instance.GenerateEffect(EffectManager.EFFECT_NAME.POISON_TICK, EffectManager.instance.GetCurrentPlayerTarget(CombatManager.instance.GetPlayerN(CombatManager.instance.currentTurn)));
                     poisonedTime -= 1;
                 }
             }

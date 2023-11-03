@@ -130,28 +130,37 @@ public class Enemy : CombatesYEventos
         {
             case 0:
                 player1.TomarDaño(daño);
+                EffectManager.instance.GenerateEffect(EffectManager.EFFECT_NAME.ATAQUE, EffectManager.EFFECT_TARGET.P1);
                 break;
             case 1:
                 player2.TomarDaño(daño);
+                EffectManager.instance.GenerateEffect(EffectManager.EFFECT_NAME.ATAQUE, EffectManager.EFFECT_TARGET.P2);
                 break;
             case 2:
                 player1.TomarDaño(daño);
+                EffectManager.instance.GenerateEffect(EffectManager.EFFECT_NAME.ATAQUE, EffectManager.EFFECT_TARGET.P1);
                 player2.TomarDaño(daño);
+                EffectManager.instance.GenerateEffect(EffectManager.EFFECT_NAME.ATAQUE, EffectManager.EFFECT_TARGET.P2);
                 break;
             case 3:
                 player1.TomarDañoMagico(daño);
+                EffectManager.instance.GenerateEffect(EffectManager.EFFECT_NAME.MATAQUE, EffectManager.EFFECT_TARGET.P1);
                 break;
             case 4:
                 player2.TomarDañoMagico(daño);
+                EffectManager.instance.GenerateEffect(EffectManager.EFFECT_NAME.MATAQUE, EffectManager.EFFECT_TARGET.P2);
                 break;
             case 5:
                 player1.TomarDañoMagico(daño);
+                EffectManager.instance.GenerateEffect(EffectManager.EFFECT_NAME.MATAQUE, EffectManager.EFFECT_TARGET.P1);
                 player2.TomarDañoMagico(daño);
+                EffectManager.instance.GenerateEffect(EffectManager.EFFECT_NAME.MATAQUE, EffectManager.EFFECT_TARGET.P2);
                 break;
             case 6:
                 currentHp += daño;
                 currentHp = Mathf.Clamp(currentHp, 0, hp);
                 PopUpManager.instance.GeneratePopUp(this.name + " se curo " + valor + " puntos", PopUpManager.POPUPTARGET.ENEMY);
+                EffectManager.instance.GenerateEffect(EffectManager.EFFECT_NAME.CURAR, EffectManager.EFFECT_TARGET.ENEMY);
                 break;
 
         }
@@ -187,6 +196,7 @@ public class Enemy : CombatesYEventos
             {
                 currentHp -= CombatManager.instance.poisonDotValue;
                 PopUpManager.instance.GeneratePopUp(this.name + " sufrio " + CombatManager.instance.poisonDotValue + " puntos por el veneno", PopUpManager.POPUPTARGET.ENEMY);
+                EffectManager.instance.GenerateEffect(EffectManager.EFFECT_NAME.POISON_TICK, EffectManager.EFFECT_TARGET.ENEMY);
                 poisonedTime -= 1;
             }
             else

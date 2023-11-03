@@ -54,7 +54,8 @@ public class EffectManager : MonoBehaviour
         POTENCIAR,
         CURAR,
         PARRY,
-        BLOQUADOR
+        BLOQUADOR,
+        POISON_TICK
     }
 
     public enum EFFECT_TARGET
@@ -64,34 +65,30 @@ public class EffectManager : MonoBehaviour
         ENEMY
     }
 
-    public EFFECT_TARGET GetCurrentPlayerTarget()
+    public EFFECT_TARGET GetCurrentPlayerTarget(Player player)
     {
         EFFECT_TARGET result = 0;
 
         if(FinalBattleManager.instance == null) // Caso comun
         {
-            switch(CombatManager.instance.currentTurn)
+            if(player == CombatManager.instance.GetPlayerN(1))
             {
-                case CombatManager.Turno.P1:
-                    result = EFFECT_TARGET.P1;
-                    break;
-                case CombatManager.Turno.P2:
-                    result = EFFECT_TARGET.P2;
-                    break;
+                result = EFFECT_TARGET.P1;
+            } else {
+                result = EFFECT_TARGET.P2;
             }
         } else { // Batalla final
-            switch(FinalBattleManager.instance.currentTurn)
+            if(player == FinalBattleManager.instance.GetPlayerN(1))
             {
-                case FinalBattleManager.Turno.P1:
-                    result = EFFECT_TARGET.P1;
-                    break;
-                case FinalBattleManager.Turno.P2:
-                    result = EFFECT_TARGET.P2;
-                    break;
+                result = EFFECT_TARGET.P1;
+            } else {
+                result = EFFECT_TARGET.P2;
             }
         }
         return result;
     }
+
+    
     public void GenerateEffect(EFFECT_NAME name, EFFECT_TARGET target)
     {
         GameObject popUp = null;

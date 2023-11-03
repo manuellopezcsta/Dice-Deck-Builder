@@ -66,16 +66,15 @@ public class Card
         else
         {
             target.TomarDañoMagico(dado.currentValue);
+            EffectManager.instance.GenerateEffect(EffectManager.EFFECT_NAME.MATAQUE, EffectManager.EFFECT_TARGET.ENEMY);
         }
 
     }
     public void UsarCartaCurar(Player player, Dice dado)
     {
-
-
         player.Cura(dado.currentValue);
         PopUpManager.instance.GeneratePopUp("+" + dado.currentValue + " HP", player.identifier);
-        EffectManager.instance.GenerateEffect(EffectManager.EFFECT_NAME.ATAQUE, EffectManager.instance.GetCurrentPlayerTarget());
+        EffectManager.instance.GenerateEffect(EffectManager.EFFECT_NAME.CURAR, EffectManager.instance.GetCurrentPlayerTarget(player));
         if (FinalBattleManager.instance != null)
         {
             ColocarCartaPatata(player);
@@ -87,6 +86,7 @@ public class Card
         player.armour += dado.currentValue;
         player.armour = Mathf.Clamp(player.armour, 0, player.maxArmour);
         PopUpManager.instance.GeneratePopUp("+" + dado.currentValue + " de armadura", player.identifier);
+        EffectManager.instance.GenerateEffect(EffectManager.EFFECT_NAME.ARMADURA, EffectManager.instance.GetCurrentPlayerTarget(player));
         if (FinalBattleManager.instance != null)
         {
             ColocarCartaPatata(player);
@@ -97,6 +97,7 @@ public class Card
         player.mArmour += dado.currentValue;
         player.mArmour = Mathf.Clamp(player.mArmour, 0, player.maxMArmour);
         PopUpManager.instance.GeneratePopUp("+" + dado.currentValue + " de armadura magica", player.identifier);
+        EffectManager.instance.GenerateEffect(EffectManager.EFFECT_NAME.MR, EffectManager.instance.GetCurrentPlayerTarget(player));
         if (FinalBattleManager.instance != null)
         {
             ColocarCartaPatata(player);
@@ -118,6 +119,7 @@ public class Card
             target.armour = Mathf.Clamp(target.armour, 0, 50); // no tiene max
             target.mArmour = Mathf.Clamp(target.mArmour, 0, 50); // no tiene max
             PopUpManager.instance.GeneratePopUp(target.name + " perdio " + dado.currentValue + " de armadura y mr", PopUpManager.POPUPTARGET.ENEMY);
+            EffectManager.instance.GenerateEffect(EffectManager.EFFECT_NAME.ROMPER, EffectManager.EFFECT_TARGET.ENEMY);
         }
 
 
@@ -126,6 +128,7 @@ public class Card
     {
         player.parryFisico = true;
         PopUpManager.instance.GeneratePopUp("Parry fisico activo", player.identifier);
+        EffectManager.instance.GenerateEffect(EffectManager.EFFECT_NAME.PARRY, EffectManager.instance.GetCurrentPlayerTarget(player));
         if (FinalBattleManager.instance != null)
         {
             ColocarCartaPatata(player);
@@ -135,6 +138,7 @@ public class Card
     {
         player.parryMagico = true;
         PopUpManager.instance.GeneratePopUp("Parry magico activo", player.identifier);
+        EffectManager.instance.GenerateEffect(EffectManager.EFFECT_NAME.PARRY, EffectManager.instance.GetCurrentPlayerTarget(player));
         if (FinalBattleManager.instance != null)
         {
             ColocarCartaPatata(player);
@@ -151,6 +155,7 @@ public class Card
         }
         else
         {
+            EffectManager.instance.GenerateEffect(EffectManager.EFFECT_NAME.VENENO, EffectManager.EFFECT_TARGET.ENEMY);
             target.ChanceEnvenenado(dado.currentValue);
         }
     }
@@ -180,12 +185,14 @@ public class Card
                 // Potenciado +1
                 player.potenciado = 1;
                 PopUpManager.instance.GeneratePopUp("Dando +1 a los dados aliados", player.identifier);
+                EffectManager.instance.GenerateEffect(EffectManager.EFFECT_NAME.POTENCIAR, EffectManager.instance.GetCurrentPlayerTarget(player));
             }
             else
             {
                 // Potenciado +2
                 player.potenciado = 2;
                 PopUpManager.instance.GeneratePopUp("Dando +2 a los dados aliados", player.identifier);
+                EffectManager.instance.GenerateEffect(EffectManager.EFFECT_NAME.POTENCIAR, EffectManager.instance.GetCurrentPlayerTarget(player));
             }
         }
         else // si es la batalla final
@@ -199,6 +206,7 @@ public class Card
                 FinalBattleManager.instance.autopotenciadoP2 = true; // Potenciamos el player 2
             }
             PopUpManager.instance.GeneratePopUp("Tendras un dado mamadisimo el proximo turno", player.identifier);
+            EffectManager.instance.GenerateEffect(EffectManager.EFFECT_NAME.POTENCIAR, EffectManager.instance.GetCurrentPlayerTarget(player));
         }
 
     }
@@ -213,21 +221,24 @@ public class Card
         {
             dado.currentValue *= 2;
             UsarCartaArmadura(player1, dado);
-            // Colocamos la patata en el script de curar carta.
+            // Colocamos la patata en el script de armadura.
         }
     }
     public void UsarCartaBloqueador(Player player)
     {
         player.bloqueador = true;
         PopUpManager.instance.GeneratePopUp("Bloqueador activo", player.identifier);
+        EffectManager.instance.GenerateEffect(EffectManager.EFFECT_NAME.BLOQUADOR, EffectManager.instance.GetCurrentPlayerTarget(player));
     }
     public void UsarCartaAtaqueRomp(Player player, Dice dado)
     {
         player.TomarDaño(dado.currentValue);
+        EffectManager.instance.GenerateEffect(EffectManager.EFFECT_NAME.ATAQUE, EffectManager.instance.GetCurrentPlayerTarget(player));
     }
     public void UsarCartaAMagicoRomp(Player player, Dice dado)
     {
         player.TomarDañoMagico(dado.currentValue);
+        EffectManager.instance.GenerateEffect(EffectManager.EFFECT_NAME.MATAQUE, EffectManager.instance.GetCurrentPlayerTarget(player));
     }
     public void UsarCartaBreakRomp(Player player, Dice dado)
     {
@@ -236,10 +247,12 @@ public class Card
         player.armour = Mathf.Clamp(player.armour, 0, player.maxArmour);
         player.mArmour = Mathf.Clamp(player.mArmour, 0, player.maxMArmour);
         PopUpManager.instance.GeneratePopUp(player.name + " perdio " + dado.currentValue + " de armadura y mr", player.identifier);
+        EffectManager.instance.GenerateEffect(EffectManager.EFFECT_NAME.ROMPER, EffectManager.instance.GetCurrentPlayerTarget(player));
     }
     public void UsarCartaVenenoRomp(Player player, Dice dado)
     {
         player.ChanceEnvenenado(dado.currentValue);
+        EffectManager.instance.GenerateEffect(EffectManager.EFFECT_NAME.VENENO, EffectManager.instance.GetCurrentPlayerTarget(player));
     }
 
     // Para balancear la pelea final y que no puedas espamear cartas de defensa y no termine mas.
