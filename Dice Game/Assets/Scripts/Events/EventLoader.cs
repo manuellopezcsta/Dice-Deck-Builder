@@ -38,6 +38,12 @@ public class EventLoader : MonoBehaviour
         description.text = evento.textAndChoices[0];
         boton1text.text = evento.textAndChoices[1];
         boton2text.text = evento.textAndChoices[2];
+        // Si el evento es de historia o forzado, apagamos el segundo boton de nuevo.
+        if (evento.name.StartsWith("historia") || evento.name.StartsWith("forced"))
+        {
+            Debug.Log("Evento de historia o forzado detectado, apagando segundo boton.");
+            boton2.interactable = false;
+        }
     }
 
     public void ClickVolver()
@@ -56,7 +62,7 @@ public class EventLoader : MonoBehaviour
         boton1.interactable = false;
         boton2.interactable = false;
         // Actualizamos el texto segun el resultado y ejecuta la ganancia o perdida de recursos.
-        ResolveButton1Clicked(evento); 
+        ResolveButton1Clicked(evento);
     }
 
     public void ClickB2()
@@ -80,7 +86,7 @@ public class EventLoader : MonoBehaviour
         bool goodEnding = holder == 1;
 
         Debug.Log("EL MODIFIER ES DE : " + evento.modifier);
-        Debug.Log("GOOD ENDING ES: "+ goodEnding);
+        Debug.Log("GOOD ENDING ES: " + goodEnding);
 
         switch (evento.name)
         {
@@ -91,7 +97,9 @@ public class EventLoader : MonoBehaviour
                     description.text = evento.textAndChoices[3];
                     player1.currentHp = Mathf.Clamp(player1.currentHp + evento.modifier, 0, player1.MaxHp);
                     player2.currentHp = Mathf.Clamp(player2.currentHp + evento.modifier, 0, player2.MaxHp);
-                } else {
+                }
+                else
+                {
                     description.text = evento.textAndChoices[4];
                     player1.currentHp = Mathf.Clamp(player1.currentHp - evento.modifier, 1, player1.MaxHp);
                     player2.currentHp = Mathf.Clamp(player2.currentHp - evento.modifier, 1, player2.MaxHp);
@@ -101,7 +109,9 @@ public class EventLoader : MonoBehaviour
                 if (goodEnding) // Logras esquivar el dano
                 {
                     description.text = evento.textAndChoices[3];
-                } else { // Te comes el da;o
+                }
+                else
+                { // Te comes el da;o
                     description.text = evento.textAndChoices[4];
                     player1.currentHp = Mathf.Clamp(player1.currentHp - evento.modifier, 1, player1.MaxHp);
                     player2.currentHp = Mathf.Clamp(player2.currentHp - evento.modifier, 1, player2.MaxHp);
@@ -113,7 +123,9 @@ public class EventLoader : MonoBehaviour
                     description.text = evento.textAndChoices[3];
                     player1.armour = Mathf.Clamp(player1.armour + evento.modifier, 0, player1.maxArmour);
                     player2.armour = Mathf.Clamp(player2.armour + evento.modifier, 0, player2.maxArmour);
-                } else {
+                }
+                else
+                {
                     description.text = evento.textAndChoices[4];
                     player1.armour = Mathf.Clamp(player1.armour - evento.modifier, 1, player1.maxArmour);
                     player2.armour = Mathf.Clamp(player2.armour - evento.modifier, 1, player2.maxArmour);
@@ -125,10 +137,26 @@ public class EventLoader : MonoBehaviour
                     description.text = evento.textAndChoices[3];
                     player1.mArmour = Mathf.Clamp(player1.mArmour + evento.modifier, 0, player1.maxMArmour);
                     player2.mArmour = Mathf.Clamp(player2.mArmour + evento.modifier, 0, player2.maxMArmour);
-                } else {
+                }
+                else
+                {
                     description.text = evento.textAndChoices[4];
                     player1.mArmour = Mathf.Clamp(player1.mArmour - evento.modifier, 1, player1.maxMArmour);
                     player2.mArmour = Mathf.Clamp(player2.mArmour - evento.modifier, 1, player2.maxMArmour);
+                }
+                break;
+            case "historia1": // Un evento de historia comun
+                description.text = evento.textAndChoices[3]; // Siempre sale el primer texto..
+                GameManager.instance.secretEndingCounter += 1;
+                break;
+            case "focedTrampa": // Un evento de trampa forzado.
+                if (goodEnding) // Safas o no de la trampra.
+                {
+                    description.text = evento.textAndChoices[3]; // Safaste
+                }
+                else
+                {
+                    description.text = evento.textAndChoices[4];
                 }
                 break;
         }
