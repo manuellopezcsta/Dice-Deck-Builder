@@ -116,8 +116,7 @@ public class FinalBattleManager : MonoBehaviour
     {
         Drawing,
         WaitingForAction1,
-        WaitingForAction2,
-        EndGame
+        WaitingForAction2
     }
 
     public static FinalBattleManager instance = null;
@@ -351,18 +350,15 @@ public class FinalBattleManager : MonoBehaviour
 
     void CheckForEndOfCombat()
     {
-        if (currentPhase != Phase.EndGame)
+        if (player1.currentHp <= 0)
         {
-            currentPhase = Phase.EndGame;
-            if (player1.currentHp <= 0)
-            {
-                SwitchToGameOver(player2);
-            }
-            if (player2.currentHp <= 0)
-            {
-                SwitchToGameOver(player1);
-            }
+            SwitchToGameOver(player2);
         }
+        if (player2.currentHp <= 0)
+        {
+            SwitchToGameOver(player1);
+        }
+
     }
 
     // COMPLETAR

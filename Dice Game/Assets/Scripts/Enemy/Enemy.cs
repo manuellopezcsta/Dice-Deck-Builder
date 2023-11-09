@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Drawing;
 using UnityEngine;
 
 [System.Serializable] // Si tira error el inspector es xq estas viendo el Enemy Manager, borrar esto. y listo, no se va a ver la lista pero no ta el error.
@@ -123,46 +124,20 @@ public class Enemy : CombatesYEventos
             PopUpManager.instance.GeneratePopUp(player2.name + " tanqueo el daño!", PopUpManager.POPUPTARGET.PLAYER2);
             player1 = player2;
         }
-
         int valor = Random.Range(0, 7);
         int daño = Random.Range(0, 6);
-        switch (valor)
+        // ACA CODIGO NUEVO
+        switch (name)
         {
-            case 0:
-                player1.TomarDaño(daño);
-                EffectManager.instance.GenerateEffect(EffectManager.EFFECT_NAME.ATAQUE, EffectManager.EFFECT_TARGET.P1);
+            case "Jefe1":
+                enemyBoss1IA(valor, daño, player1, player2);
                 break;
-            case 1:
-                player2.TomarDaño(daño);
-                EffectManager.instance.GenerateEffect(EffectManager.EFFECT_NAME.ATAQUE, EffectManager.EFFECT_TARGET.P2);
+            case "Jefe2":
+                enemyBoss2IA(valor, daño, player1, player2);
                 break;
-            case 2:
-                player1.TomarDaño(daño);
-                EffectManager.instance.GenerateEffect(EffectManager.EFFECT_NAME.ATAQUE, EffectManager.EFFECT_TARGET.P1);
-                player2.TomarDaño(daño);
-                EffectManager.instance.GenerateEffect(EffectManager.EFFECT_NAME.ATAQUE, EffectManager.EFFECT_TARGET.P2);
+            default:
+                enemyDefaultIA(valor, daño, player1, player2);
                 break;
-            case 3:
-                player1.TomarDañoMagico(daño);
-                EffectManager.instance.GenerateEffect(EffectManager.EFFECT_NAME.MATAQUE, EffectManager.EFFECT_TARGET.P1);
-                break;
-            case 4:
-                player2.TomarDañoMagico(daño);
-                EffectManager.instance.GenerateEffect(EffectManager.EFFECT_NAME.MATAQUE, EffectManager.EFFECT_TARGET.P2);
-                break;
-            case 5:
-                player1.TomarDañoMagico(daño);
-                EffectManager.instance.GenerateEffect(EffectManager.EFFECT_NAME.MATAQUE, EffectManager.EFFECT_TARGET.P1);
-                player2.TomarDañoMagico(daño);
-                EffectManager.instance.GenerateEffect(EffectManager.EFFECT_NAME.MATAQUE, EffectManager.EFFECT_TARGET.P2);
-                break;
-            case 6:
-                currentHp += daño;
-                currentHp = Mathf.Clamp(currentHp, 0, hp);
-                PopUpManager.instance.GeneratePopUp(this.name + " se curo " + valor + " puntos", PopUpManager.POPUPTARGET.ENEMY);
-                EffectManager.instance.GenerateEffect(EffectManager.EFFECT_NAME.CURAR, EffectManager.EFFECT_TARGET.ENEMY);
-                break;
-
         }
         // Desactivamos el bloqueador al terminar el turno del enemigo.
         player1.bloqueador = false;
@@ -203,6 +178,129 @@ public class Enemy : CombatesYEventos
             {
                 envenenado = false;
             }
+        }
+    }
+    
+    void enemyDefaultIA(int valor, int daño, Player player1, Player player2)
+    {
+        switch (valor)
+        {
+            case 0:
+                player1.TomarDaño(daño);
+                EffectManager.instance.GenerateEffect(EffectManager.EFFECT_NAME.ATAQUE, EffectManager.EFFECT_TARGET.P1);
+                break;
+            case 1:
+                player2.TomarDaño(daño);
+                EffectManager.instance.GenerateEffect(EffectManager.EFFECT_NAME.ATAQUE, EffectManager.EFFECT_TARGET.P2);
+                break;
+            case 2:
+                player1.TomarDaño(daño);
+                EffectManager.instance.GenerateEffect(EffectManager.EFFECT_NAME.ATAQUE, EffectManager.EFFECT_TARGET.P1);
+                player2.TomarDaño(daño);
+                EffectManager.instance.GenerateEffect(EffectManager.EFFECT_NAME.ATAQUE, EffectManager.EFFECT_TARGET.P2);
+                break;
+            case 3:
+                player1.TomarDañoMagico(daño);
+                EffectManager.instance.GenerateEffect(EffectManager.EFFECT_NAME.MATAQUE, EffectManager.EFFECT_TARGET.P1);
+                break;
+            case 4:
+                player2.TomarDañoMagico(daño);
+                EffectManager.instance.GenerateEffect(EffectManager.EFFECT_NAME.MATAQUE, EffectManager.EFFECT_TARGET.P2);
+                break;
+            case 5:
+                player1.TomarDañoMagico(daño);
+                EffectManager.instance.GenerateEffect(EffectManager.EFFECT_NAME.MATAQUE, EffectManager.EFFECT_TARGET.P1);
+                player2.TomarDañoMagico(daño);
+                EffectManager.instance.GenerateEffect(EffectManager.EFFECT_NAME.MATAQUE, EffectManager.EFFECT_TARGET.P2);
+                break;
+            case 6:
+                currentHp += daño;
+                currentHp = Mathf.Clamp(currentHp, 0, hp);
+                PopUpManager.instance.GeneratePopUp(this.name + " se curo " + valor + " puntos", PopUpManager.POPUPTARGET.ENEMY);
+                EffectManager.instance.GenerateEffect(EffectManager.EFFECT_NAME.CURAR, EffectManager.EFFECT_TARGET.ENEMY);
+                break;
+        }
+    }
+
+    void enemyBoss1IA(int valor, int daño, Player player1, Player player2)
+    {
+        switch (valor)
+        {
+            case 0:
+                player1.TomarDaño(daño);
+                EffectManager.instance.GenerateEffect(EffectManager.EFFECT_NAME.ATAQUE, EffectManager.EFFECT_TARGET.P1);
+                break;
+            case 1:
+                player2.TomarDaño(daño);
+                EffectManager.instance.GenerateEffect(EffectManager.EFFECT_NAME.ATAQUE, EffectManager.EFFECT_TARGET.P2);
+                break;
+            case 2:
+                player1.TomarDaño(daño);
+                EffectManager.instance.GenerateEffect(EffectManager.EFFECT_NAME.ATAQUE, EffectManager.EFFECT_TARGET.P1);
+                player2.TomarDaño(daño);
+                EffectManager.instance.GenerateEffect(EffectManager.EFFECT_NAME.ATAQUE, EffectManager.EFFECT_TARGET.P2);
+                break;
+            case 3:
+                player1.TomarDañoMagico(daño);
+                EffectManager.instance.GenerateEffect(EffectManager.EFFECT_NAME.MATAQUE, EffectManager.EFFECT_TARGET.P1);
+                break;
+            case 4:
+                player2.TomarDañoMagico(daño);
+                EffectManager.instance.GenerateEffect(EffectManager.EFFECT_NAME.MATAQUE, EffectManager.EFFECT_TARGET.P2);
+                break;
+            case 5:
+                player1.TomarDañoMagico(daño);
+                EffectManager.instance.GenerateEffect(EffectManager.EFFECT_NAME.MATAQUE, EffectManager.EFFECT_TARGET.P1);
+                player2.TomarDañoMagico(daño);
+                EffectManager.instance.GenerateEffect(EffectManager.EFFECT_NAME.MATAQUE, EffectManager.EFFECT_TARGET.P2);
+                break;
+            case 6:
+                currentHp += daño;
+                currentHp = Mathf.Clamp(currentHp, 0, hp);
+                PopUpManager.instance.GeneratePopUp(this.name + " se curo " + valor + " puntos", PopUpManager.POPUPTARGET.ENEMY);
+                EffectManager.instance.GenerateEffect(EffectManager.EFFECT_NAME.CURAR, EffectManager.EFFECT_TARGET.ENEMY);
+                break;
+        }
+    }
+
+    void enemyBoss2IA(int valor, int daño, Player player1, Player player2)
+    {
+        switch (valor)
+        {
+            case 0:
+                player1.TomarDaño(daño);
+                EffectManager.instance.GenerateEffect(EffectManager.EFFECT_NAME.ATAQUE, EffectManager.EFFECT_TARGET.P1);
+                break;
+            case 1:
+                player2.TomarDaño(daño);
+                EffectManager.instance.GenerateEffect(EffectManager.EFFECT_NAME.ATAQUE, EffectManager.EFFECT_TARGET.P2);
+                break;
+            case 2:
+                player1.TomarDaño(daño);
+                EffectManager.instance.GenerateEffect(EffectManager.EFFECT_NAME.ATAQUE, EffectManager.EFFECT_TARGET.P1);
+                player2.TomarDaño(daño);
+                EffectManager.instance.GenerateEffect(EffectManager.EFFECT_NAME.ATAQUE, EffectManager.EFFECT_TARGET.P2);
+                break;
+            case 3:
+                player1.TomarDañoMagico(daño);
+                EffectManager.instance.GenerateEffect(EffectManager.EFFECT_NAME.MATAQUE, EffectManager.EFFECT_TARGET.P1);
+                break;
+            case 4:
+                player2.TomarDañoMagico(daño);
+                EffectManager.instance.GenerateEffect(EffectManager.EFFECT_NAME.MATAQUE, EffectManager.EFFECT_TARGET.P2);
+                break;
+            case 5:
+                player1.TomarDañoMagico(daño);
+                EffectManager.instance.GenerateEffect(EffectManager.EFFECT_NAME.MATAQUE, EffectManager.EFFECT_TARGET.P1);
+                player2.TomarDañoMagico(daño);
+                EffectManager.instance.GenerateEffect(EffectManager.EFFECT_NAME.MATAQUE, EffectManager.EFFECT_TARGET.P2);
+                break;
+            case 6:
+                currentHp += daño;
+                currentHp = Mathf.Clamp(currentHp, 0, hp);
+                PopUpManager.instance.GeneratePopUp(this.name + " se curo " + valor + " puntos", PopUpManager.POPUPTARGET.ENEMY);
+                EffectManager.instance.GenerateEffect(EffectManager.EFFECT_NAME.CURAR, EffectManager.EFFECT_TARGET.ENEMY);
+                break;
         }
     }
 }

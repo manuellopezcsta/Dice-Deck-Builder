@@ -36,7 +36,7 @@ public class EventManager : MonoBehaviour
 
     void Start()
     {
-        PopulateGame(32);
+        PopulateGame(100);
     }
 
     void AddEvent(Eventos name)

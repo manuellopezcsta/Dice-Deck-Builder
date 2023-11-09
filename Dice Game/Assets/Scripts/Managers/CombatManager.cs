@@ -30,12 +30,14 @@ public class CombatManager : MonoBehaviour
     [SerializeField] private Image p1HpBar;
     [SerializeField] private TextMeshProUGUI p1ArmourText;
     [SerializeField] private TextMeshProUGUI p1MrText;
+    [SerializeField] private Image miniSpriteP1;
 
     [Header("Player 2")]
     [SerializeField] private Image p2Sprite;
     [SerializeField] private Image p2HpBar;
     [SerializeField] private TextMeshProUGUI p2ArmourText;
     [SerializeField] private TextMeshProUGUI p2MrText;
+    [SerializeField] private Image miniSpriteP2;
 
     [Header("Temporal")]
     [SerializeField] private Sprite imagenJ1;
@@ -72,6 +74,9 @@ public class CombatManager : MonoBehaviour
     [Header("Player List")]
     [SerializeField] PlayerList playerList;
 
+    [Header("Cosas de UI Combate")]
+    [SerializeField] private Image fondoActualCombate;
+    [SerializeField] private Sprite[] fondosCombate;
     public enum Turno
     {
         P1,
@@ -134,6 +139,7 @@ public class CombatManager : MonoBehaviour
 
     void Start()
     {
+        
         // Si venimos del char select , usamos esos datos
         if (PlayerPrefs.GetInt("player1") != 0 && PlayerPrefs.GetInt("player2") != 0)
         {
@@ -152,7 +158,9 @@ public class CombatManager : MonoBehaviour
             // Creamos los players
             player1 = new Player("Jugador1", p1Deck, 20, 10, 0, GameManager.instance.defaultDiceList, imagenJ1, PopUpManager.POPUPTARGET.PLAYER1);
             player2 = new Player("Jugador2", p2Deck, 20, 0, 10, GameManager.instance.defaultDiceList, imagenJ2, PopUpManager.POPUPTARGET.PLAYER2);
+
         }
+        GuardaRopas.instance.SaveData();
     }
 
     public void EnterCombat()
@@ -162,10 +170,11 @@ public class CombatManager : MonoBehaviour
         // Seteamos los decks.
         p1InsideCombatDeck = ShuffleDeck(player1.currentDeck);
         p2InsideCombatDeck = ShuffleDeck(player2.currentDeck);
+        ChangeBackground();
     }
 
     void Update()
-    {
+    { 
         if (fightingEnemy)
         {
             if (currentPhase == Phase.Drawing && (currentTurn == Turno.P1 || currentTurn == Turno.P2))
@@ -395,6 +404,7 @@ public class CombatManager : MonoBehaviour
 
     public void ExitCombat()
     {
+        GuardaRopas.instance.SaveData();
         // Agregar algo q diga ganaste ?
         GameManager.instance.SetGameState(GameManager.GAME_STATE.OVERWORLD);
 
@@ -578,5 +588,21 @@ public class CombatManager : MonoBehaviour
     public bool FightingAnEnemy()
     {
         return fightingEnemy;
+    }
+    public void ChangeBackground()
+    {
+        string currentLevel = OverWorldManager.instance.currentLevelName;
+        switch (currentLevel)
+        {
+            case "NIVEL 1(Clone)":
+                fondoActualCombate.sprite = fondosCombate[0];
+                break;
+            case "NIVEL 2(Clone)":
+                fondoActualCombate.sprite = fondosCombate[1];
+                break;
+            case "NIVEL 3(Clone)":
+                fondoActualCombate.sprite = fondosCombate[2];
+                break;
+        }
     }
 }

@@ -14,7 +14,6 @@ public class BotonNodo : MonoBehaviour
     Dictionary<string, string[]> level1 = new Dictionary<string, string[]>();
     Dictionary<string, string[]> level2 = new Dictionary<string, string[]>();
     Dictionary<string, string[]> level3 = new Dictionary<string, string[]>();
-    Dictionary<string, string[]> level4 = new Dictionary<string, string[]>();
     [SerializeField] string lastButtonName = "999";
     [SerializeField] string lastLevel = "1"; // CAMBIAR A 4 CUANDO ESTE LISTO EL JUEGO. ARREGLAR.
 
@@ -25,28 +24,42 @@ public class BotonNodo : MonoBehaviour
         level1.Add("1", new string[] { "2" });
         level1.Add("2", new string[] { "3" });
         level1.Add("3", new string[] { "4" });
-        level1.Add("4", new string[] { "5" });
         // Para el nivel 2
         level2.Add("0", new string[] { "1" });
-        level2.Add("1", new string[] { "2", "3" });
-        level2.Add("2", new string[] { "4", "5" });
-        level2.Add("3", new string[] { "6" });
-        level2.Add("4", new string[] { "7" });
-        level2.Add("5", new string[] { "7" });
-        level2.Add("6", new string[] { "8" });
-        level2.Add("7", new string[] { "8" });
-        // Para el nivel 3
+        level2.Add("1", new string[] { "2", "3", "4" });
+        level2.Add("2", new string[] { "5", "6" });
+        level2.Add("3", new string[] { "5", "6", "7" });
+        level2.Add("4", new string[] { "6", "7" });
+        level2.Add("5", new string[] { "8", "9" });
+        level2.Add("6", new string[] { "8", "9", "10" });
+        level2.Add("7", new string[] { "9", "10" });
+        level2.Add("8", new string[] { "11" });
+        level2.Add("9", new string[] { "11" });
+        level2.Add("10", new string[] { "11" });
+        // Para el nivel 2
         level3.Add("0", new string[] { "1" });
-        level3.Add("1", new string[] { "2" });
-        level3.Add("2", new string[] { "3" });
-        level3.Add("3", new string[] { "4" });
-        level3.Add("4", new string[] { "5" });
-        // Para el nivel 4
-        level4.Add("0", new string[] { "1" });
-        level4.Add("1", new string[] { "2" });
-        level4.Add("2", new string[] { "3" });
-        level4.Add("3", new string[] { "4" });
-        level4.Add("4", new string[] { "5" });
+        level3.Add("1", new string[] { "2", "3", "4" });
+        level3.Add("2", new string[] { "5", "6" });
+        level3.Add("3", new string[] { "5", "6", "7" });
+        level3.Add("4", new string[] { "6", "7" });
+        level3.Add("5", new string[] { "8", "9", "10" });
+        level3.Add("6", new string[] { "9", "10", "11" });
+        level3.Add("7", new string[] { "10", "11", "12" });
+        level3.Add("8", new string[] { "13" });
+        level3.Add("9", new string[] { "13", "14" });
+        level3.Add("10", new string[] { "14", "15" });
+        level3.Add("11", new string[] { "15", "16" });
+        level3.Add("12", new string[] { "16" });
+        level3.Add("13", new string[] { "17" });
+        level3.Add("14", new string[] { "17", "18" });
+        level3.Add("15", new string[] { "18", "19" });
+        level3.Add("16", new string[] { "19" });
+        level3.Add("17", new string[] { "20" });
+        level3.Add("18", new string[] { "21", "22" });
+        level3.Add("19", new string[] { "21" });
+        level3.Add("20", new string[] { "22" });
+        level3.Add("21", new string[] { "22" });
+        level3.Add("22", new string[] { });
         // Para mover el player al boton.
         playerSprite = GameObject.Find("PlayerPlaceHolder"); // ARREGLAR ESTO
         // Cargamos la imagen del nodo.
@@ -67,9 +80,6 @@ public class BotonNodo : MonoBehaviour
                 break;
             case 3:
                 holder = level3;
-                break;
-            case 4:
-                holder = level4;
                 break;
         }
         // Si es el boton correcto
@@ -130,7 +140,7 @@ public class BotonNodo : MonoBehaviour
         string botonActual = OverWorldManager.instance.currentButton.ToString();
         if (botonActual == lastButtonName)
         {
-            GuardaRopas.instance.FinalBattle();
+            GuardaRopas.instance.SaveData();
             SceneManager.LoadScene("FinalBattle");
         }
     }
