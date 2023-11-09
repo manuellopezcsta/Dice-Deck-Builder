@@ -8,6 +8,7 @@ public class GuardaRopas : MonoBehaviour
     public Player player1;
     public Player player2;
     public static GuardaRopas instance = null;
+    public int secretEndingScore = 0;
     private void Awake()
     {
         DontDestroyOnLoad(this.gameObject);
@@ -20,9 +21,10 @@ public class GuardaRopas : MonoBehaviour
             Destroy(gameObject);
     }
 
-    public void FinalBattle()
+    public void SaveData()
     {
         player1 = CombatManager.instance.GetPlayerN(1);
         player2 = CombatManager.instance.GetPlayerN(2);
+        secretEndingScore = GameManager.instance.secretEndingCounter;
     }
 }

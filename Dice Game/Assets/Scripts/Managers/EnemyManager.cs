@@ -26,7 +26,7 @@ public class EnemyManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        PopulateGame(32);
+        PopulateGame(100);
     }
 
     public static EnemyManager instance = null;

@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using JetBrains.Annotations;
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.UI;
@@ -10,7 +11,7 @@ public class OverWorldManager : MonoBehaviour
     /// Maneja el screen principal antes de los combates.
     /// </summary>
 
-    // Nivel actual va de 1 a 4
+    // Nivel actual va de 1 a 3
     public int currentLevel = 1;
     public int currentButton = 0;
     public GameObject playerSprite;
@@ -21,7 +22,6 @@ public class OverWorldManager : MonoBehaviour
     public GameObject mapa1;
     public GameObject mapa2;
     public GameObject mapa3;
-    public GameObject mapa4;
 
     // Para cambiar de lv.
     public bool levelCompleted = false;
@@ -30,6 +30,7 @@ public class OverWorldManager : MonoBehaviour
     int narrativeIndex = 0;
 
     public static OverWorldManager instance = null;
+    public string currentLevelName;
     void Awake()
     {
         //If this script does not exit already, use this current instance
@@ -57,13 +58,12 @@ public class OverWorldManager : MonoBehaviour
 
         // Reseteamos el numero de boton.
         currentButton = 0;
-
+        
         GameObject holder;
         switch (levelNumber)
         {
             case 1:
                 holder = Instantiate(mapa1, canvas.transform);
-                //Debug.Log(holder.tag);
                 break;
             case 2:
                 holder = Instantiate(mapa2, canvas.transform);
@@ -71,15 +71,13 @@ public class OverWorldManager : MonoBehaviour
             case 3:
                 holder = Instantiate(mapa3, canvas.transform);
                 break;
-            case 4:
-                holder = Instantiate(mapa4, canvas.transform);
-                break;
             default:
                 holder = Instantiate(mapa1, canvas.transform);
                 Debug.Log("Se activo caso default");
                 break;
         }
         holder.transform.SetAsFirstSibling();
+        currentLevelName = holder.name;
         playerSprite.transform.position = initialPlayerPos.transform.position;
     }
 

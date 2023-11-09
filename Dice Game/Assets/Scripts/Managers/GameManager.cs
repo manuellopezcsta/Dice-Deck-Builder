@@ -199,7 +199,7 @@ public class GameManager : MonoBehaviour
         EnemyManager.instance.enemiesList.RemoveAt(0); // ARREGLAR. BUG ACA BUG
         EnemyManager.instance.enemiesList.RemoveAt(0);
         // El resto puede ser cualquier cosa
-        for (int i = 0; i < 6; i++)
+        for (int i = 0; i < 22; i++)
         {
             int b = Random.Range(0, 2);
             if (b == 0)
