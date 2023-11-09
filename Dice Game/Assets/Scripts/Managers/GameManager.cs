@@ -36,6 +36,7 @@ public class GameManager : MonoBehaviour
     public List<Dice> defaultDiceList = new List<Dice>(); // Lista de dados Default
     // Para los eventos
     [SerializeField] GameObject eventPanel;
+    public int secretEndingCounter = 0;
 
 
     public enum GAME_STATE

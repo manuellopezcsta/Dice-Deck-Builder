@@ -25,6 +25,9 @@ public class OverWorldManager : MonoBehaviour
 
     // Para cambiar de lv.
     public bool levelCompleted = false;
+    // Para las narrativas
+    public List<GameObject> narrativePanels = new List<GameObject>();
+    int narrativeIndex = 0;
 
     public static OverWorldManager instance = null;
     void Awake()
@@ -49,6 +52,9 @@ public class OverWorldManager : MonoBehaviour
 
     public void ChangeToNextMap(int levelNumber)
     {
+        // Prendemos la narrativa que corresponda ?
+        ActivateNextNarrative();
+
         // Reseteamos el numero de boton.
         currentButton = 0;
 
@@ -80,5 +86,21 @@ public class OverWorldManager : MonoBehaviour
     public void CompleteLevel()
     {
         levelCompleted = true;
+    }
+
+    void ActivateNextNarrative()
+    {
+        // Apagamos x si hay alguno prendido
+        foreach(GameObject panel in narrativePanels)
+        {
+            panel.SetActive(false);
+        }
+        // Prendemos el que corresponda.
+        // Si existe..
+        if(narrativeIndex <= narrativePanels.Count - 1)
+        {
+            narrativePanels[narrativeIndex].SetActive(true);
+            narrativeIndex++;
+        }
     }
 }
