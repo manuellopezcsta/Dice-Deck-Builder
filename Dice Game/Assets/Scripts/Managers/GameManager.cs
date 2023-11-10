@@ -216,6 +216,24 @@ public class GameManager : MonoBehaviour
                 EventManager.instance.eventList.RemoveAt(0);
             }
         }
+        // Agregamos los eventos forzados que hagan falta.
+        ReplaceNodesWithForcedData();
+    }
+    void ReplaceNodesWithForcedData()
+    {
+        // Aca ponemos los datos forzados como jefes y eventos segun el level..
+        switch (OverWorldManager.instance.currentLevel)
+        {
+            case 2:
+                combatesYEventos[0] = EnemyManager.instance.bossList[0];
+                break;
+            case 4:
+                combatesYEventos[0] = EnemyManager.instance.bossList[1];
+                break;
+            case 6:
+                combatesYEventos[0] = EnemyManager.instance.bossList[2];
+                break;
+        }
     }
 
     public CombatesYEventos GetNodeData(int index)

@@ -14,6 +14,10 @@ public class BotonNodo : MonoBehaviour
     Dictionary<string, string[]> level1 = new Dictionary<string, string[]>();
     Dictionary<string, string[]> level2 = new Dictionary<string, string[]>();
     Dictionary<string, string[]> level3 = new Dictionary<string, string[]>();
+    Dictionary<string, string[]> levelJefe1 = new Dictionary<string, string[]>();
+    Dictionary<string, string[]> levelJefe2 = new Dictionary<string, string[]>();
+    Dictionary<string, string[]> levelJefe3 = new Dictionary<string, string[]>();
+    Dictionary<string, string[]> levelNarracion = new Dictionary<string, string[]>();
     [SerializeField] string lastButtonName = "999";
     [SerializeField] string lastLevel = "1"; // CAMBIAR A 4 CUANDO ESTE LISTO EL JUEGO. ARREGLAR.
 
@@ -36,7 +40,7 @@ public class BotonNodo : MonoBehaviour
         level2.Add("8", new string[] { "11" });
         level2.Add("9", new string[] { "11" });
         level2.Add("10", new string[] { "11" });
-        // Para el nivel 2
+        // Para el nivel 3
         level3.Add("0", new string[] { "1" });
         level3.Add("1", new string[] { "2", "3", "4" });
         level3.Add("2", new string[] { "5", "6" });
@@ -55,11 +59,19 @@ public class BotonNodo : MonoBehaviour
         level3.Add("15", new string[] { "18", "19" });
         level3.Add("16", new string[] { "19" });
         level3.Add("17", new string[] { "20" });
-        level3.Add("18", new string[] { "21", "22" });
+        level3.Add("18", new string[] { "20", "21" });
         level3.Add("19", new string[] { "21" });
         level3.Add("20", new string[] { "22" });
         level3.Add("21", new string[] { "22" });
         level3.Add("22", new string[] { });
+        //Para jefe 1
+        levelJefe1.Add("0", new string[] { "1" });
+        //Para jefe 2
+        levelJefe2.Add("0", new string[] { "1" });
+        //Para jefe 3
+        levelJefe3.Add("0", new string[] { "1" });
+        //Para narracion final
+        levelNarracion.Add("0", new string[] { "1" });
         // Para mover el player al boton.
         playerSprite = GameObject.Find("PlayerPlaceHolder"); // ARREGLAR ESTO
         // Cargamos la imagen del nodo.
@@ -76,11 +88,24 @@ public class BotonNodo : MonoBehaviour
                 holder = level1;
                 break;
             case 2:
-                holder = level2;
+                holder = levelJefe1;
                 break;
             case 3:
+                holder = level2;
+                break;
+            case 4:
+                holder = levelJefe2;
+                break;
+            case 5:
                 holder = level3;
                 break;
+            case 6:
+                holder = levelJefe3;
+                break;
+            case 7:
+                holder = levelNarracion;
+                break;
+
         }
         // Si es el boton correcto
         if (holder.ContainsKey(botonActual))

@@ -24,7 +24,7 @@ public class EstadoPlayer1 : MonoBehaviour, IPointerEnterHandler, IPointerExitHa
         //carga por primera vez los sprites de los players
         Player player = GuardaRopas.instance.player1;
         sprite.sprite = player.miniSprite;
-        Debug.Log(player.name);
+        //Debug.Log(player.name);
 
     }
     public void OnPointerEnter (PointerEventData eventData)

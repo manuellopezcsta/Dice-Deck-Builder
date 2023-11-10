@@ -63,9 +63,11 @@ public class RewardMenu : MonoBehaviour
                 break;
             case "Card 2":
                 currentPlayer.currentDeck.AddCard(option2);
+                Debug.Log("Se agrego " + option2.cardName + " al mazo de " + currentPlayer.name);
                 break;
             case "Card 3":
                 currentPlayer.currentDeck.AddCard(option3);
+                Debug.Log("Se agrego " + option3.cardName + " al mazo de " + currentPlayer.name);
                 break;
         }
         // Before we switch to player 2 , we check if its player 2 turn to disable the panel and avoid a loop.

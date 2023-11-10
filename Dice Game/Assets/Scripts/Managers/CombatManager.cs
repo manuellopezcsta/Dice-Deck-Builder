@@ -86,6 +86,10 @@ public class CombatManager : MonoBehaviour
 
     public void SwitchToNextPhase()
     {
+        if (!fightingEnemy)
+        {
+            return;
+        }
         switch (currentTurn)
         {
             case Turno.P1:
@@ -109,10 +113,13 @@ public class CombatManager : MonoBehaviour
                 }
                 break;
             case Turno.ENEMY:
-                currentTurn = Turno.P1;
-                currentPhase = Phase.Drawing;
-                Debug.Log("//      Se inicio turno Player 1.");
-                StartCoroutine(PopUpManager.instance.ShowCurrentTurnPopUp("Turno de " + player1.name)); // REPARAR
+                if (fightingEnemy)
+                {
+                    currentTurn = Turno.P1;
+                    currentPhase = Phase.Drawing;
+                    Debug.Log("//      Se inicio turno Player 1.");
+                    StartCoroutine(PopUpManager.instance.ShowCurrentTurnPopUp("Turno de " + player1.name)); // REPARAR
+                }
                 break;
         }
     }
@@ -139,7 +146,7 @@ public class CombatManager : MonoBehaviour
 
     void Start()
     {
-        
+
         // Si venimos del char select , usamos esos datos
         if (PlayerPrefs.GetInt("player1") != 0 && PlayerPrefs.GetInt("player2") != 0)
         {
@@ -174,7 +181,7 @@ public class CombatManager : MonoBehaviour
     }
 
     void Update()
-    { 
+    {
         if (fightingEnemy)
         {
             if (currentPhase == Phase.Drawing && (currentTurn == Turno.P1 || currentTurn == Turno.P2))
@@ -194,11 +201,11 @@ public class CombatManager : MonoBehaviour
                 GetPlayerN(currentTurn).Envenenado();
                 UIUpdateAfterCardPlayed();
             }
-
-            // Checkeamos para ver si termina el combate.
             CheckForEndOfCombat();
+            // Checkeamos para ver si termina el combate.
 
-            if (currentTurn == Turno.ENEMY)
+
+            if (currentTurn == Turno.ENEMY && enemy.currentHp > 0)
             {
                 // El enemigo hace algo.
                 enemy.TomarAccion(player1, player2);
@@ -210,6 +217,7 @@ public class CombatManager : MonoBehaviour
                 CheckForEndOfCombat();
                 SwitchToNextPhase(); // Esto va aca ?
             }
+
         }
     }
 
@@ -374,6 +382,7 @@ public class CombatManager : MonoBehaviour
         if (player1.currentHp <= 0 || player2.currentHp <= 0 || enemy.currentHp <= 0)
         {
             fightingEnemy = false;
+
             //Si perdes
             if (player1.currentHp <= 0 || player2.currentHp <= 0)
             {
@@ -381,6 +390,7 @@ public class CombatManager : MonoBehaviour
             }
             // Si vences al enemigo
             //Debug.Log("HP ENEMIGO: " + enemy.currentHp);
+
             Debug.Log("Enemigo Derrotado!");
             if (enemy.currentHp <= 0)
             {
@@ -407,7 +417,6 @@ public class CombatManager : MonoBehaviour
         GuardaRopas.instance.SaveData();
         // Agregar algo q diga ganaste ?
         GameManager.instance.SetGameState(GameManager.GAME_STATE.OVERWORLD);
-
         Debug.Log("Saliendo de combate o accion.");
     }
 

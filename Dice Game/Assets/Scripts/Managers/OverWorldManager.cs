@@ -22,6 +22,10 @@ public class OverWorldManager : MonoBehaviour
     public GameObject mapa1;
     public GameObject mapa2;
     public GameObject mapa3;
+    public GameObject mapa4;
+    public GameObject mapa5;
+    public GameObject mapa6;
+    public GameObject mapa7;
 
     // Para cambiar de lv.
     public bool levelCompleted = false;
@@ -70,6 +74,18 @@ public class OverWorldManager : MonoBehaviour
                 break;
             case 3:
                 holder = Instantiate(mapa3, canvas.transform);
+                break;
+            case 4:
+                holder = Instantiate(mapa4, canvas.transform);
+                break;
+            case 5:
+                holder = Instantiate(mapa5, canvas.transform);
+                break;
+            case 6:
+                holder = Instantiate(mapa6, canvas.transform);
+                break;
+            case 7:
+                holder = Instantiate(mapa7, canvas.transform);
                 break;
             default:
                 holder = Instantiate(mapa1, canvas.transform);

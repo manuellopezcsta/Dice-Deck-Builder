@@ -140,10 +140,18 @@ public class EffectManager : MonoBehaviour
             case EFFECT_NAME.BLOQUADOR:
                 popUp = Instantiate(efectsLists[9], where);
                 break;
+            case EFFECT_NAME.POISON_TICK:
+                popUp = Instantiate(efectsLists[10], where);
+                break;
         }
         // Le doy el valor del texto.
-        popUp.SetActive(false);
-        queuedEffects.Add(popUp);
+        if (popUp != null)
+        {
+            popUp.SetActive(false);
+            queuedEffects.Add(popUp);
+        }
+
+       
     }
 
     Coroutine instantiateObjects = null;
