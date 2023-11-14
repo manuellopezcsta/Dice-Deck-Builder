@@ -17,7 +17,6 @@ public class Intro : MonoBehaviour
         for(int i = 0; i < text.Length; i++) {
             date.text+=text[i];
             yield return new WaitForSeconds(0.5f);
-            Debug.Log(date.text);
         }
     }
 }
