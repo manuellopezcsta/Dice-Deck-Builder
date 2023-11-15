@@ -17,7 +17,7 @@ public class Card
         this.image = image;
         this.effect = effect;
     }
-
+    
     public enum CardEffects
     {
         ATAQUE,

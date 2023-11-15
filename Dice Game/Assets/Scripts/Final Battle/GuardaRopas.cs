@@ -27,4 +27,37 @@ public class GuardaRopas : MonoBehaviour
         player2 = CombatManager.instance.GetPlayerN(2);
         secretEndingScore = GameManager.instance.secretEndingCounter;
     }
+
+    public void UpdateDeckArt()
+    {
+        CardList holder = GameObject.Find("Card List").GetComponent<CardList>();
+        List<Card> artList = holder.cardList;
+        // For player 1
+        Deck p1Deck = player1.currentDeck;
+        foreach(Card card in p1Deck.cards)
+        {
+            foreach(Card art in artList)
+            {
+                if(card.cardName == art.cardName)
+                {
+                    card.image = art.image;
+                    break;
+                }
+            }
+        }
+
+        // For player 1
+        Deck p2Deck = player2.currentDeck;
+        foreach(Card card in p2Deck.cards)
+        {
+            foreach(Card art in artList)
+            {
+                if(card.cardName == art.cardName)
+                {
+                    card.image = art.image;
+                    break;
+                }
+            }
+        }
+    }
 }

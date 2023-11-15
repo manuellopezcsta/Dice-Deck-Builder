@@ -14,6 +14,7 @@ public class CombatManager : MonoBehaviour
     private Player player1;
     private Player player2;
     [SerializeField] DeckLists decks; // Script que tiene los mazos de todos los players
+ 
 
     // Datos que van a ser cargados en combate ( algunos los sacamos de las clases).
 
@@ -529,8 +530,17 @@ public class CombatManager : MonoBehaviour
         card4.SwitchCardImage();
         card5.SwitchCardImage();
         card6.SwitchCardImage();
+        FlipCards();
     }
-
+    void FlipCards()
+    {
+        card1.FlipCard();
+        card2.FlipCard(); 
+        card3.FlipCard(); 
+        card4.FlipCard();
+        card5.FlipCard();
+        card6.FlipCard();
+    }
     void ShowMissingHand()
     {
         // Muestra las cartas que faltan cuando pasa de turno.

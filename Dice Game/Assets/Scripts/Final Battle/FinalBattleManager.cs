@@ -62,12 +62,12 @@ public class FinalBattleManager : MonoBehaviour
     [SerializeField] private Vector3 ubicacionCarta2;
     [SerializeField] private Vector3 ubicacionDado1;
     [SerializeField] private Vector3 ubicacionDado2;
+    [SerializeField] private RectTransform cartaExplicacion;
 
     [Header("Cosas de GameOverScreen")]
     [SerializeField] GameObject combatPanel;
     [SerializeField] GameObject gameOverPanel;
     [SerializeField] TextMeshProUGUI textGameOver;
-
 
     public enum Turno
     {
@@ -85,6 +85,7 @@ public class FinalBattleManager : MonoBehaviour
                 cartasFalsas.anchoredPosition = ubicacionCarta2;
                 dadosActuales.anchoredPosition = ubicacionDado1;
                 dadosFalsos.anchoredPosition = ubicacionDado2;
+                cartaExplicacion.anchoredPosition = new Vector3(-750f, 70f, 0f);
                 currentPhase += 1;
                 if ((int)currentPhase == 3)
                 {
@@ -100,6 +101,7 @@ public class FinalBattleManager : MonoBehaviour
                 cartasFalsas.anchoredPosition = ubicacionCarta1;
                 dadosActuales.anchoredPosition = ubicacionDado2;
                 dadosFalsos.anchoredPosition = ubicacionDado1;
+                cartaExplicacion.anchoredPosition = new Vector3(750f, -70f, 0f);
                 currentPhase += 1;
                 if ((int)currentPhase == 3)
                 {
@@ -139,9 +141,13 @@ public class FinalBattleManager : MonoBehaviour
         // Los curamos
         player1.currentHp = player1.MaxHp;
         player2.currentHp = player2.MaxHp;
+
+        // Cambiamos el arte de las cartas que corresponden.
+        GuardaRopas.instance.UpdateDeckArt();
         EnterCombat();
         // Cargamos los datos del combate.
         LoadCombatData();
+        
     }
 
     public void EnterCombat()
@@ -468,6 +474,16 @@ public class FinalBattleManager : MonoBehaviour
         card4.SwitchCardImage();
         card5.SwitchCardImage();
         card6.SwitchCardImage();
+        FlipCards();
+    }
+    void FlipCards()
+    {
+        card1.FlipCard();
+        card2.FlipCard();
+        card3.FlipCard();
+        card4.FlipCard();
+        card5.FlipCard();
+        card6.FlipCard();
     }
 
     void ShowMissingHand()
@@ -527,4 +543,5 @@ public class FinalBattleManager : MonoBehaviour
         }
         return null; // ERROR posible.
     }
+   
 }
