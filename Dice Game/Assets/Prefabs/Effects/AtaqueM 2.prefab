@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 5979518412814154438}
   - component: {fileID: 8478397521486665864}
   m_Layer: 5
-  m_Name: Ataque
+  m_Name: AtaqueM 2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -87,7 +87,7 @@ Animator:
   m_GameObject: {fileID: 3516252496280477905}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 03be799f4f87be2438e942c90e7c34c6, type: 2}
+  m_Controller: {fileID: 9100000, guid: d8667e0355349ff4d9157a63f9c6a216, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
