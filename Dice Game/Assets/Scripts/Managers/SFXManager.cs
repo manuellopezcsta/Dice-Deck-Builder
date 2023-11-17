@@ -14,9 +14,17 @@ public class SFXManager : MonoBehaviour
     public GameObject parlante;
 
     [Header("Clips de VFX")]
-    public AudioClip hitSound;
-    public AudioClip rollSound;
-    public AudioClip pickupSound;
+    public AudioClip ataqueSound;
+    public AudioClip mataqueSound;
+    public AudioClip armaduraSound;
+    public AudioClip mrSound;
+    public AudioClip venenoSound;
+    public AudioClip romperSound;
+    public AudioClip potenciarSound;
+    public AudioClip curarSound;
+    public AudioClip parrySound;
+    public AudioClip bloquearSound;
+    public AudioClip poisonTickSound;
     public AudioClip hoverSound;
 
     [Header("Clips de Main Song")]
@@ -29,9 +37,17 @@ public class SFXManager : MonoBehaviour
 
     // El Enum que se usa de Key para llamar a la funcion PlayVFX.
     public enum VFXName {
-        HIT,
-        ROLL,
-        PICKUP,
+        ATAQUE,
+        MATAQUE,
+        ARMADURA,
+        MR,
+        VENENO,
+        ROMPER,
+        POTENCIAR,
+        CURAR,
+        PARRY,
+        BLOQUADOR,
+        POISON_TICK,
         HOVER
     }
 
@@ -84,9 +100,17 @@ public class SFXManager : MonoBehaviour
 
     void FillSoundLibrary(){
         // Usando las keys de los enum, puedo obtener el sonido y el volumen que corresponde.
-        clipLibrary.Add(VFXName.HIT, Tuple.Create(hitSound, 1f));
-        clipLibrary.Add(VFXName.ROLL, Tuple.Create(rollSound, 0.6f));
-        clipLibrary.Add(VFXName.PICKUP, Tuple.Create(pickupSound, 0.28f));
+        clipLibrary.Add(VFXName.ATAQUE, Tuple.Create(ataqueSound, 1f));
+        clipLibrary.Add(VFXName.MATAQUE, Tuple.Create(mataqueSound, 0.6f));
+        clipLibrary.Add(VFXName.ARMADURA, Tuple.Create(armaduraSound, 0.6f));
+        clipLibrary.Add(VFXName.MR, Tuple.Create(mrSound, 0.28f));
+        clipLibrary.Add(VFXName.VENENO, Tuple.Create(venenoSound, 0.28f));
+        clipLibrary.Add(VFXName.ROMPER, Tuple.Create(romperSound, 0.28f));
+        clipLibrary.Add(VFXName.POTENCIAR, Tuple.Create(potenciarSound, 0.28f));
+        clipLibrary.Add(VFXName.CURAR, Tuple.Create(curarSound, 0.28f));
+        clipLibrary.Add(VFXName.PARRY, Tuple.Create(parrySound, 0.28f));
+        clipLibrary.Add(VFXName.BLOQUADOR, Tuple.Create(bloquearSound, 0.28f));
+        clipLibrary.Add(VFXName.POISON_TICK, Tuple.Create(poisonTickSound, 0.28f));
         clipLibrary.Add(VFXName.HOVER, Tuple.Create(hoverSound, 1f));
         
         // Los de main song

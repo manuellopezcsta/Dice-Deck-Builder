@@ -170,9 +170,17 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   mainSong: {fileID: 9682407}
   parlante: {fileID: 3432107347302901692, guid: 7de05dd31545e97478a4592c713d9946, type: 3}
-  hitSound: {fileID: 0}
-  rollSound: {fileID: 0}
-  pickupSound: {fileID: 0}
+  ataqueSound: {fileID: 8300000, guid: b4dca8445e961824593a7e00f9a3c980, type: 3}
+  mataqueSound: {fileID: 8300000, guid: 0a13956719dca0148b15c59b8d293655, type: 3}
+  armaduraSound: {fileID: 8300000, guid: f3bcfd899b8ec484a8c19fa20bf20025, type: 3}
+  mrSound: {fileID: 8300000, guid: d79327f43483e6a41a9d03c7deb2c0ba, type: 3}
+  venenoSound: {fileID: 8300000, guid: f128c3acc9c5705409fb6b80378b105a, type: 3}
+  romperSound: {fileID: 8300000, guid: cd840c3744ec3a44c8c6ee0c1af1f3ab, type: 3}
+  potenciarSound: {fileID: 8300000, guid: 284eefd51e357bb42b63fff7f3052ba6, type: 3}
+  curarSound: {fileID: 8300000, guid: 99d10bd01600ba54abdfcf03fa97925d, type: 3}
+  parrySound: {fileID: 8300000, guid: fbe5f12665a36ce4d8b1bf0f93a29b28, type: 3}
+  bloquearSound: {fileID: 8300000, guid: f712d3ab50b8a5e4cb441e0e9e49ec61, type: 3}
+  poisonTickSound: {fileID: 8300000, guid: 50e23c0997eef9144996f9f96efed672, type: 3}
   hoverSound: {fileID: 8300000, guid: 1fd81d37c4a60264fa7121864f5d3c0a, type: 3}
   menuSong: {fileID: 0}
   nivel1Song: {fileID: 0}
