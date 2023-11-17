@@ -24,12 +24,13 @@ public class Player
     public bool bloqueador;
     public int potenciado;
     public Sprite sprite;
+    public Sprite spriteFront;
     public Sprite miniSprite;
     public List<Dice> dices;
     public PopUpManager.POPUPTARGET identifier;
 
 
-    public Player(string name, Deck startingDeck, int MaxHp, int armour, int mArmour, List<Dice> dices, Sprite img = null, PopUpManager.POPUPTARGET identifier = PopUpManager.POPUPTARGET.PLAYER1,Sprite miniSprite = null)
+    public Player(string name, Deck startingDeck, int MaxHp, int armour, int mArmour, List<Dice> dices, Sprite img = null,Sprite imgFront = null, PopUpManager.POPUPTARGET identifier = PopUpManager.POPUPTARGET.PLAYER1,Sprite miniSprite = null)
     {
         this.name = name;
         this.currentDeck = startingDeck;
@@ -38,9 +39,10 @@ public class Player
         this.mArmour = mArmour;
         this.currentHp = MaxHp;
         this.sprite = img;
+        this.spriteFront = imgFront;
+        this.miniSprite = miniSprite;
         this.dices = dices;
         this.identifier = identifier;
-        this.miniSprite = miniSprite;
     }
 
     public void TomarDaño(int valor, Enemy enemigo = null)

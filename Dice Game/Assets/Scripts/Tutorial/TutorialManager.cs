@@ -10,12 +10,15 @@ using UnityEngine.SceneManagement;
 
 public class TutorialManager : MonoBehaviour
 {
+   
+
     [Header("Imagenes")]
     [SerializeField] private Image SpriteEnemy;
     [SerializeField] private Image BarraVidaEnemy;
     [SerializeField] private Image BarraPlayer1;
     [SerializeField] private TMP_Text MRPlayer1;
     [SerializeField] private Image BarraPlayer2;
+    [SerializeField] private Image BarraEspejada;
 
     [Header("Estado")]
     [SerializeField] private GameObject cartaExplicacion;
@@ -26,16 +29,13 @@ public class TutorialManager : MonoBehaviour
     [SerializeField] private DialogueTrigger dialogoEnemy;
     [SerializeField] private DialogueTrigger dialogoCuartoDado;
     [SerializeField] private DialogueTrigger dialogoFinal;
-    [Header("Evento1")]
-    [SerializeField] private GameObject PrimerDado;
-    [SerializeField] private GameObject PrimerCarta;
-    [Header("Evento2")]
+    [Header("SegundaCartaPlayer1")]
     [SerializeField] private GameObject SegundoDado;
     [SerializeField] private GameObject SegundaCarta;
-    [Header("Evento3")]
+    [Header("SegundaCartaPlayer2")]
     [SerializeField] private GameObject CuartoDado;
     [SerializeField] private GameObject CuartaCarta;
-    [Header("Evento4")]
+    [Header("SegundaCartaRemate")]
     [SerializeField] private GameObject QuintoDado;
     [SerializeField] private GameObject QuintaCarta;
     public List<GameObject> listaDados1;
@@ -43,9 +43,15 @@ public class TutorialManager : MonoBehaviour
     public List<GameObject> listaDados2;
     public List<GameObject> listaCartas2;
     public List<GameObject> listaDados3;
-    public List<GameObject> listaCartas3;    
+    public List<GameObject> listaCartas3;
 
-    
+    /*
+     aca van las cartas que se juegan por si se necesita
+     */
+  /*
+   Aclaracion: las cartas cuando cambian de cartas/dice(turno player 1) a cartasplayer2/diceplayer2 aparecen con un collider
+  prendido por eso solo referenciamos la segunda carta o dado por jugar*/
+
     private void Update()
     {
         if (DialogueManager.instance.inDialogue)
@@ -68,9 +74,10 @@ public class TutorialManager : MonoBehaviour
         {
             Debug.Log("Entro");
             BarraVidaEnemy.fillAmount = 0.7f;
+            BarraEspejada.fillAmount = BarraVidaEnemy.fillAmount;
             dialogoDado.TriggerDialogue();
             SegundoDado.GetComponent<DadoTutorial>().enabled = true;
-            SegundaCarta.GetComponent<Collider2D>().enabled = true;
+            SegundaCarta.GetComponent<BoxCollider2D>().enabled = true;
         }
         if (Evento == 2)
         {
@@ -92,7 +99,7 @@ public class TutorialManager : MonoBehaviour
             ApagarTodo2();
             BarraPlayer1.fillAmount = 0.8f;
             dialogoEnemy.TriggerDialogue();
-            CuartaCarta.GetComponent<Collider2D>().enabled = true;
+            //CuartaCarta.GetComponent<Collider2D>().enabled = true;
         }
         if (Evento == 5)
         {
@@ -103,25 +110,16 @@ public class TutorialManager : MonoBehaviour
         if (Evento == 6)
         {
             BarraVidaEnemy.fillAmount = 0.1f;
+            BarraEspejada.fillAmount = BarraVidaEnemy.fillAmount;
             QuintaCarta.GetComponent<Collider2D>().enabled = true;
             QuintoDado.GetComponent<DadoTutorial>().enabled = true;
         }
         if (Evento == 7)
         {
             BarraVidaEnemy.fillAmount = 0f;
+            BarraEspejada.fillAmount = BarraVidaEnemy.fillAmount;
             dialogoFinal.TriggerDialogue();
             ApagarFinal();
-        }
-    }
-    private void PrenderTodo2()
-    {
-        foreach (GameObject obj in listaCartas2)
-        {
-            obj.SetActive(true);
-        }
-        foreach (GameObject obj in listaDados2)
-        {
-            obj.SetActive(true);
         }
     }
     private void ApagarTodo1()
@@ -135,6 +133,18 @@ public class TutorialManager : MonoBehaviour
             obj.SetActive(false);
         }
     }
+    private void PrenderTodo2()
+    {
+        foreach (GameObject obj in listaCartas2)
+        {
+            obj.SetActive(true);
+        }
+        foreach (GameObject obj in listaDados2)
+        {
+            obj.SetActive(true);
+        }
+    }
+   
     private void ApagarTodo2()
     {
         foreach (GameObject obj in listaCartas2)

@@ -4,6 +4,8 @@ using UnityEngine;
 using TMPro;
 using UnityEngine.UI;
 using Unity.VisualScripting;
+using System.Data;
+using System.Net.Security;
 
 public class FinalBattleManager : MonoBehaviour
 {
@@ -85,7 +87,7 @@ public class FinalBattleManager : MonoBehaviour
                 cartasFalsas.anchoredPosition = ubicacionCarta2;
                 dadosActuales.anchoredPosition = ubicacionDado1;
                 dadosFalsos.anchoredPosition = ubicacionDado2;
-                cartaExplicacion.anchoredPosition = new Vector3(-750f, 70f, 0f);
+                cartaExplicacion.anchoredPosition = new Vector3(-750f, 249f, 0f);
                 currentPhase += 1;
                 if ((int)currentPhase == 3)
                 {
@@ -101,7 +103,7 @@ public class FinalBattleManager : MonoBehaviour
                 cartasFalsas.anchoredPosition = ubicacionCarta1;
                 dadosActuales.anchoredPosition = ubicacionDado2;
                 dadosFalsos.anchoredPosition = ubicacionDado1;
-                cartaExplicacion.anchoredPosition = new Vector3(750f, -70f, 0f);
+                cartaExplicacion.anchoredPosition = new Vector3(750f, -249f, 0f);
                 currentPhase += 1;
                 if ((int)currentPhase == 3)
                 {
@@ -141,8 +143,7 @@ public class FinalBattleManager : MonoBehaviour
         // Los curamos
         player1.currentHp = player1.MaxHp;
         player2.currentHp = player2.MaxHp;
-
-        // Cambiamos el arte de las cartas que corresponden.
+        
         GuardaRopas.instance.UpdateDeckArt();
         EnterCombat();
         // Cargamos los datos del combate.
@@ -392,7 +393,7 @@ public class FinalBattleManager : MonoBehaviour
         p1MrText.text = player1.mArmour.ToString();
 
         //Cargamos al player 2
-        p2Sprite.sprite = player2.sprite;
+        p2Sprite.sprite = player2.spriteFront;
         p2HpBar.fillAmount = (float)player2.currentHp / player2.MaxHp;
         p2ArmourText.text = player2.armour.ToString();
         p2MrText.text = player2.mArmour.ToString();

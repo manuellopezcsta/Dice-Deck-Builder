@@ -23,6 +23,7 @@ public class CombatManager : MonoBehaviour
     [SerializeField] private TextMeshProUGUI enemyName;
     [SerializeField] private Image enemySprite;
     [SerializeField] private Image enemyHpBar;
+    [SerializeField] private Image enemyHpBarEspejo;
     [SerializeField] private TextMeshProUGUI enemyArmourText;
     [SerializeField] private TextMeshProUGUI enemyMrText;
 
@@ -43,7 +44,8 @@ public class CombatManager : MonoBehaviour
     [Header("Temporal")]
     [SerializeField] private Sprite imagenJ1;
     [SerializeField] private Sprite imagenJ2;
-
+    [SerializeField] private Sprite imagenFrontJ1;
+    [SerializeField] private Sprite imagenFrontJ2;
     // Datos para las cartas mazos etc.
     [Header("Cosas relacionadas a turnos")]
     public Turno currentTurn = Turno.P1;
@@ -78,6 +80,8 @@ public class CombatManager : MonoBehaviour
     [Header("Cosas de UI Combate")]
     [SerializeField] private Image fondoActualCombate;
     [SerializeField] private Sprite[] fondosCombate;
+    [SerializeField] private GameObject uiBoss;
+    [SerializeField] private GameObject uiDefault;
     public enum Turno
     {
         P1,
@@ -164,8 +168,8 @@ public class CombatManager : MonoBehaviour
             Deck p2Deck = decks.deckList[1];
 
             // Creamos los players
-            player1 = new Player("Jugador1", p1Deck, 20, 10, 0, GameManager.instance.defaultDiceList, imagenJ1, PopUpManager.POPUPTARGET.PLAYER1);
-            player2 = new Player("Jugador2", p2Deck, 20, 0, 10, GameManager.instance.defaultDiceList, imagenJ2, PopUpManager.POPUPTARGET.PLAYER2);
+            player1 = new Player("Jugador1", p1Deck, 20, 10, 0, GameManager.instance.defaultDiceList, imagenJ1, imagenFrontJ1, PopUpManager.POPUPTARGET.PLAYER1);
+            player2 = new Player("Jugador2", p2Deck, 20, 0, 10, GameManager.instance.defaultDiceList, imagenJ2, imagenFrontJ2, PopUpManager.POPUPTARGET.PLAYER2);
 
         }
         GuardaRopas.instance.SaveData();
@@ -430,8 +434,19 @@ public class CombatManager : MonoBehaviour
         enemyName.text = enemy.name;
         enemySprite.sprite = enemy.img;
         enemyHpBar.fillAmount = 1;
+        enemyHpBarEspejo.fillAmount = 1;
         enemyArmourText.text = enemy.armour.ToString();
         enemyMrText.text = enemy.mArmour.ToString();
+        if(enemy.name == "Jefe1" || enemy.name == "Jefe2" || enemy.name == "Jefe3")
+        {
+            uiBoss.SetActive(true);
+            uiDefault.SetActive(false);
+        }
+        else
+        {
+            uiDefault.SetActive(true);
+            uiBoss.SetActive(false);
+        }
 
         //Cargamos al player 1
         p1Sprite.sprite = player1.sprite;

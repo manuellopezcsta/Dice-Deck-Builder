@@ -21,10 +21,12 @@ public class CardLogicController : MonoBehaviour
 
     void Start()
     {
+
         cardImage = GetComponent<Image>();
         itemTransform = GetComponent<RectTransform>();
         coroutineAllowed = true;
         faceUp = false;
+ 
         FlipCard();
     }
     public void SwitchCardImage()
@@ -32,6 +34,7 @@ public class CardLogicController : MonoBehaviour
         coroutineAllowed = true;
         carta = CombatManager.instance.playerHand[uniqueID - 1];
         //Debug.Log("PLAYER HAND SIZE: " + CombatManager.instance.playerHand.Count); // ESTO TA ROTO
+        
         faceSprite = carta.image;
         cardImage.sprite = backSprite;
         FlipCard();
@@ -39,7 +42,7 @@ public class CardLogicController : MonoBehaviour
 
     public void MakeItBig()
     {
-        // Ahora levanta la carta.
+        // Makes the card big when its selected
         itemTransform.position = itemTransform.position + new Vector3(0f, 25f, 0f);
     }
 
@@ -71,6 +74,7 @@ public class CardLogicController : MonoBehaviour
         }
         coroutineAllowed = true;
         faceUp = !faceUp;
+        
     }
     public void FlipCard()
     {
