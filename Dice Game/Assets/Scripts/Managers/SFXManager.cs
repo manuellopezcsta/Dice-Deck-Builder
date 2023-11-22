@@ -104,21 +104,21 @@ public class SFXManager : MonoBehaviour
 
     void OnDisable()
     {
-        // Asegúrate de desuscribirte del evento al desactivar el script para evitar fugas de memoria
+        // Asegï¿½rate de desuscribirte del evento al desactivar el script para evitar fugas de memoria
         SceneManager.sceneLoaded -= OnSceneLoaded;
     }
     void OnSceneLoaded(Scene scene, LoadSceneMode mode)
     {
-        // Dependiendo de la escena cargada, cambia la canción principal (main song)
+        // Dependiendo de la escena cargada, cambia la canciï¿½n principal (main song)
         string sceneName = scene.name;
         
-        // Detiene la canción actual si está reproduciéndose
+        // Detiene la canciï¿½n actual si estï¿½ reproduciï¿½ndose
         if (mainSong.isPlaying)
         {
             mainSong.Stop();
         }
 
-        // Reproducir la canción correspondiente a la escena cargada
+        // Reproducir la canciï¿½n correspondiente a la escena cargada
         switch (sceneName)
         {
             case "MenuPrincipal":
@@ -136,9 +136,9 @@ public class SFXManager : MonoBehaviour
             case "FinalBattle":
                 PlaySong(MSName.FinalBattle);
                 break;
-            // Agrega más casos según las escenas que tengas
+            // Agrega mï¿½s casos segï¿½n las escenas que tengas
             default:
-                PlaySong(MSName.MENU); // Establecer una canción predeterminada para otras escenas no definidas
+                PlaySong(MSName.MENU); // Establecer una canciï¿½n predeterminada para otras escenas no definidas
                 break;
         }
     }
@@ -206,7 +206,7 @@ public class SFXManager : MonoBehaviour
 
     private IEnumerator FadeOutAndPlay(MSName song)
     {
-        float fadeDuration = 1.0f; // Duración del fade-out en segundos
+        float fadeDuration = 1.0f; // Duraciï¿½n del fade-out en segundos
 
         if (mainSong.isPlaying)
         {
@@ -223,16 +223,17 @@ public class SFXManager : MonoBehaviour
             mainSong.Stop();
         }
 
-        // Seteamos los valores y reproducimos la nueva canción
+        // Seteamos los valores y reproducimos la nueva canciï¿½n
         mainSong.clip = mainSongLibrary[song].Item1;
         mainSong.volume = 0f;
         mainSong.Play();
 
         // Realizamos el Fade-In
         float targetVolume = mainSongLibrary[song].Item2 * PlayerPrefs.GetFloat("musicVolume");
+        Debug.Log("TARGET VOL: " + targetVolume);
         float currentVolume = 0f;
 
-        while (currentVolume < targetVolume)
+        while (currentVolume < fadeDuration)
         {
             currentVolume += Time.deltaTime;
             mainSong.volume = Mathf.Lerp(0, targetVolume, currentVolume / fadeDuration);
@@ -252,7 +253,7 @@ public class SFXManager : MonoBehaviour
         if(PlayerPrefs.HasKey("musicVolume"))
         {
             mainSong.volume = PlayerPrefs.GetFloat("musicVolume");
-            Debug.Log(PlayerPrefs.GetFloat("musicVolume"));
+            //Debug.Log(PlayerPrefs.GetFloat("musicVolume"));
         }
     }
     void RegulateEffectsVolume()

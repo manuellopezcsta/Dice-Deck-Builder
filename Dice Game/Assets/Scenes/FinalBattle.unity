@@ -4181,7 +4181,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 1460906776813968738}
         m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
         m_MethodName: SetActive
         m_Mode: 6
@@ -10119,7 +10119,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -0.000000035856, y: -49}
+  m_AnchoredPosition: {x: 0, y: -49}
   m_SizeDelta: {x: 838.25, y: 76.6212}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!224 &653598092620405326
@@ -11463,7 +11463,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -0.000000035856, y: 87}
+  m_AnchoredPosition: {x: 0, y: 87}
   m_SizeDelta: {x: 838.25, y: 76.6212}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!224 &3959741764930392023
@@ -12366,11 +12366,11 @@ RectTransform:
   - {fileID: 7980522579172619595}
   - {fileID: 4295055855824268291}
   - {fileID: 173424193268745122}
-  - {fileID: 3826454980673343059}
   - {fileID: 6848242816727747069}
-  - {fileID: 596365423165152867}
   - {fileID: 5144532199006720266}
   - {fileID: 7721502439278938778}
+  - {fileID: 3826454980673343059}
+  - {fileID: 596365423165152867}
   m_Father: {fileID: 1577685240}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
@@ -13646,10 +13646,10 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
-        m_MethodName: SetActive
-        m_Mode: 6
+      - m_Target: {fileID: 1577685241}
+        m_TargetAssemblyTypeName: Pausa, Assembly-CSharp
+        m_MethodName: Resumir
+        m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
