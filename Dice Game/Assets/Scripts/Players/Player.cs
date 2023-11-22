@@ -15,8 +15,8 @@ public class Player
     public int currentHp;
     public int armour;
     public int mArmour;
-    public int maxArmour = 20;
-    public int maxMArmour = 20;
+    public int maxArmour = 15;
+    public int maxMArmour = 15;
     public bool parryFisico;
     public bool parryMagico;
     public bool envenenado;

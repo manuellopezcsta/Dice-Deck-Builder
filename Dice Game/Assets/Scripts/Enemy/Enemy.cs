@@ -14,9 +14,10 @@ public class Enemy : CombatesYEventos
     public bool envenenado;
     public int poisonedTime;
     public Sprite img;
+    public Sprite mini;
     //public Deck deck;  x si le damos inteligencia y mazos luego.
 
-    public Enemy(Sprite img, string name, int hp, int armour = 0, int mArmour = 0)
+    public Enemy(Sprite img, Sprite mini, string name, int hp, int armour = 0, int mArmour = 0)
     {
         this.name = name;
         this.hp = hp;
@@ -24,11 +25,12 @@ public class Enemy : CombatesYEventos
         this.armour = armour;
         this.mArmour = mArmour;
         this.img = img;
+        this.mini = mini;
     }
 
     public Sprite GetSprite()
     {
-        return img;
+        return mini;
     }
 
     public void DebugInfo()
@@ -237,7 +239,7 @@ public class Enemy : CombatesYEventos
                 for (int i = 0; i < 3; i++)
                 {
                     Debug.Log("golpe fisico" + i);
-                    daño = Random.Range(1, 6) ;
+                    daño = Random.Range(1, 4) ;
                     int clase = Random.Range(0, 3);
                     switch (clase)
                     {
@@ -292,12 +294,15 @@ public class Enemy : CombatesYEventos
                 break;
             //cura
             case 2:
-                Debug.Log("Cura");
-                daño = Random.Range(1, 6);
-                currentHp += daño * 3;
-                currentHp = Mathf.Clamp(currentHp, 0, hp);
-                PopUpManager.instance.GeneratePopUp(this.name + " se curo " + valor + " puntos", PopUpManager.POPUPTARGET.ENEMY);
-                EffectManager.instance.GenerateEffect(EffectManager.EFFECT_NAME.CURAR, EffectManager.EFFECT_TARGET.ENEMY);
+                for (int i = 0; i < 3; i++)
+                {
+                    Debug.Log("Cura");
+                    daño = Random.Range(1, 5);
+                    currentHp += daño * 3;
+                    currentHp = Mathf.Clamp(currentHp, 0, hp);
+                    PopUpManager.instance.GeneratePopUp(this.name + " se curo " + valor + " puntos", PopUpManager.POPUPTARGET.ENEMY);
+                    EffectManager.instance.GenerateEffect(EffectManager.EFFECT_NAME.CURAR, EffectManager.EFFECT_TARGET.ENEMY);
+                }
                 break;
         }
     }

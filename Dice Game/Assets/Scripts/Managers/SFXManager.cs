@@ -1,17 +1,21 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+//using UnityEditor.SearchService;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class SFXManager : MonoBehaviour
 {
     /// <summary>
     /// Permite reproducir SFX
     /// </summary>
-
+    [SerializeField] string sceneName;
     public AudioSource mainSong;
     // El objeto que se va a generar cada vez que se pide un SFX
     public GameObject parlante;
+    public float volumen;
+    
 
     [Header("Clips de VFX")]
     public AudioClip ataqueSound;
@@ -29,11 +33,16 @@ public class SFXManager : MonoBehaviour
 
     [Header("Clips de Main Song")]
     public AudioClip menuSong;
-    public AudioClip nivel1Song;
-    public AudioClip nivel2Song;
-    public AudioClip combateSong;
-    public AudioClip gameOverSong;
+    public AudioClip charSelectionSong;
+    public AudioClip tutorialSong;
+    public AudioClip nivel1;
+    public AudioClip nivel2;
+    public AudioClip nivel3;
+    public AudioClip CombateDefault;
+    public AudioClip CombateBoss;
+    public AudioClip finalBattleSong;
 
+    float effectModifier = 1f;
 
     // El Enum que se usa de Key para llamar a la funcion PlayVFX.
     public enum VFXName {
@@ -53,10 +62,16 @@ public class SFXManager : MonoBehaviour
 
     public enum MSName {
         MENU,
-        NIVEL1,
-        NIVEL2,
-        COMBATE,
+        CharSelection,
+        Tutorial,
+        Nivel1,
+        Nivel2,
+        Nivel3,
+        CombatDefault,
+        CombateBoss,
+        FinalBattle,
         GAME_OVER
+        
     }
     // Un diccionario que va a contener todos los clips de audio con su respectivos volumenes.
     Dictionary<VFXName, Tuple<AudioClip, float>> clipLibrary = new Dictionary<VFXName, Tuple<AudioClip, float>>();
@@ -79,11 +94,59 @@ public class SFXManager : MonoBehaviour
         //LLenamos la libreria de Sonidos
         FillSoundLibrary();
         RegulateVolume();
+        RegulateEffectsVolume();
+    }
+    void OnEnable()
+    {
+        // Suscribirse al evento de cambio de escena
+        SceneManager.sceneLoaded += OnSceneLoaded;
+    }
+
+    void OnDisable()
+    {
+        // Asegúrate de desuscribirte del evento al desactivar el script para evitar fugas de memoria
+        SceneManager.sceneLoaded -= OnSceneLoaded;
+    }
+    void OnSceneLoaded(Scene scene, LoadSceneMode mode)
+    {
+        // Dependiendo de la escena cargada, cambia la canción principal (main song)
+        string sceneName = scene.name;
+        
+        // Detiene la canción actual si está reproduciéndose
+        if (mainSong.isPlaying)
+        {
+            mainSong.Stop();
+        }
+
+        // Reproducir la canción correspondiente a la escena cargada
+        switch (sceneName)
+        {
+            case "MenuPrincipal":
+                PlaySong(MSName.MENU);
+                break;
+            case "CharSelection":
+                PlaySong(MSName.CharSelection);
+                break;
+            case "Tutorial":
+                PlaySong(MSName.Tutorial); 
+                break;
+            case "GameScene":
+                PlaySong(MSName.Nivel1);
+                break;
+            case "FinalBattle":
+                PlaySong(MSName.FinalBattle);
+                break;
+            // Agrega más casos según las escenas que tengas
+            default:
+                PlaySong(MSName.MENU); // Establecer una canción predeterminada para otras escenas no definidas
+                break;
+        }
     }
 
     // Funcion que reproduce cualquier VFX que queramos.
     public void PlayVFX(VFXName sonido){
         // Creamos un parlante
+        RegulateEffectsVolume();
         GameObject efectoSonoro = Instantiate(parlante);
         // Lo colocamos como hijo del VFX Manager, para no spamear la jerarquia.
         efectoSonoro.transform.parent = transform;
@@ -92,7 +155,7 @@ public class SFXManager : MonoBehaviour
         // Accedemos a su audioSource y seteamos el clip, el soonido
         AudioSource audioS = efectoSonoro.GetComponent<AudioSource>();
         audioS.clip = clipLibrary[sonido].Item1;
-        audioS.volume = clipLibrary[sonido].Item2;
+        audioS.volume = clipLibrary[sonido].Item2 * effectModifier;
         // Lo reproducimos, y le decimos que se destruya cuando termine.
         audioS.Play();
         Destroy(efectoSonoro, audioS.clip.length); // Destruye el objeto una vez que termine de reproducirse.    
@@ -114,24 +177,69 @@ public class SFXManager : MonoBehaviour
         clipLibrary.Add(VFXName.HOVER, Tuple.Create(hoverSound, 1f));
         
         // Los de main song
-        mainSongLibrary.Add(MSName.NIVEL1, Tuple.Create(nivel1Song, 1f));
-        mainSongLibrary.Add(MSName.NIVEL2, Tuple.Create(nivel2Song, 1f));
         mainSongLibrary.Add(MSName.MENU, Tuple.Create(menuSong, 1f));
-        mainSongLibrary.Add(MSName.COMBATE, Tuple.Create(combateSong, 1f));
-        mainSongLibrary.Add(MSName.GAME_OVER, Tuple.Create(gameOverSong, 1f));
+        mainSongLibrary.Add(MSName.CharSelection, Tuple.Create(charSelectionSong, 1f));
+        mainSongLibrary.Add(MSName.Tutorial, Tuple.Create(tutorialSong, 1f));
+        mainSongLibrary.Add(MSName.Nivel1, Tuple.Create(nivel1, 1f));
+        mainSongLibrary.Add(MSName.Nivel2, Tuple.Create(nivel2, 1f));
+        mainSongLibrary.Add(MSName.Nivel3, Tuple.Create(nivel3, 1f));
+        mainSongLibrary.Add(MSName.CombatDefault, Tuple.Create(CombateDefault, 1f));
+        mainSongLibrary.Add(MSName.CombateBoss, Tuple.Create(CombateBoss, 1f));
+        mainSongLibrary.Add(MSName.FinalBattle, Tuple.Create(finalBattleSong, 1f));
     }
 
     // Esta funcion utiliza el Music Player Original.
-    public void PlaySong(MSName song){
+    /*public void PlaySong(MSName song){
         if(mainSong.isPlaying)
         {
             mainSong.Stop();
-        }
+        } 
         // Seteamos los valores.
         mainSong.clip = mainSongLibrary[song].Item1;
         mainSong.volume = mainSongLibrary[song].Item2;
         mainSong.Play();
+    }*/
+    public void PlaySong(MSName song)
+    {
+        StartCoroutine(FadeOutAndPlay(song));
     }
+
+    private IEnumerator FadeOutAndPlay(MSName song)
+    {
+        float fadeDuration = 1.0f; // Duración del fade-out en segundos
+
+        if (mainSong.isPlaying)
+        {
+            float startVolume = mainSong.volume;
+
+            float currentTime = 0;
+            while (currentTime < fadeDuration)
+            {
+                currentTime += Time.deltaTime;
+                mainSong.volume = Mathf.Lerp(startVolume, 0, currentTime / fadeDuration);
+                yield return null;
+            }
+
+            mainSong.Stop();
+        }
+
+        // Seteamos los valores y reproducimos la nueva canción
+        mainSong.clip = mainSongLibrary[song].Item1;
+        mainSong.volume = 0f;
+        mainSong.Play();
+
+        // Realizamos el Fade-In
+        float targetVolume = mainSongLibrary[song].Item2 * PlayerPrefs.GetFloat("musicVolume");
+        float currentVolume = 0f;
+
+        while (currentVolume < targetVolume)
+        {
+            currentVolume += Time.deltaTime;
+            mainSong.volume = Mathf.Lerp(0, targetVolume, currentVolume / fadeDuration);
+            yield return null;
+        }
+    }
+
 
     // Esta funcion es para que hagan ruido los botones al poner el mouse sobre ellos.
     // Dice que no tiene referencias pero si se esta usando en los botones.
@@ -144,7 +252,20 @@ public class SFXManager : MonoBehaviour
         if(PlayerPrefs.HasKey("musicVolume"))
         {
             mainSong.volume = PlayerPrefs.GetFloat("musicVolume");
+            Debug.Log(PlayerPrefs.GetFloat("musicVolume"));
         }
     }
+    void RegulateEffectsVolume()
+    {
+        if (PlayerPrefs.HasKey("effectVolume"))
+        {
+            effectModifier = PlayerPrefs.GetFloat("effectVolume");
+        }
+    }
+    public AudioClip GetAudioClip()
+    {
+        return mainSong.clip;
+    }
+
 
 }

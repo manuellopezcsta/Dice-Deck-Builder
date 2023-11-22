@@ -8,8 +8,11 @@ using UnityEngine.UIElements;
 public class Opciones : MonoBehaviour
 {
     [SerializeField] UnityEngine.UI.Slider volumeSlider;
+    [SerializeField] UnityEngine.UI.Slider SFXSlider;
     [SerializeField] TMP_Dropdown textSpeedSelection;
     // Start is called before the first frame update
+
+
     void Start()
     {
         if(!PlayerPrefs.HasKey("musicVolume")){
@@ -19,22 +22,33 @@ public class Opciones : MonoBehaviour
         if(!PlayerPrefs.HasKey("dialogueSpeed")){
             PlayerPrefs.SetInt("dialogueSpeed", 0);
         }
+        if (!PlayerPrefs.HasKey("effectVolume"))
+        {
+            PlayerPrefs.SetFloat("effectVolume", 1);
+        }
         CargaPreferencias();
     }
 
     public void ChangeVolume () {
         //AudioListener.volume = volumeSlider.value; 
-        SFXManager.instance.mainSong.volume=volumeSlider.value;
+        SFXManager.instance.mainSong.volume =volumeSlider.value;
+        GuardaPreferencias();
+    }
+    public void ChangeVolumeEffect()
+    {
+        //AudioListener.volume = volumeSlider.value;
         GuardaPreferencias();
     }
 
     private void CargaPreferencias () {
         volumeSlider.value=PlayerPrefs.GetFloat("musicVolume");
         textSpeedSelection.value=PlayerPrefs.GetInt("dialogueSpeed");
+        SFXSlider.value = PlayerPrefs.GetFloat("effectVolume");
     }
 
     private void GuardaPreferencias () {
         PlayerPrefs.SetFloat("musicVolume", volumeSlider.value);
+        PlayerPrefs.SetFloat("effectVolume", SFXSlider.value);
     }
 
     public void ChangeDialogueSpeed (int selection) {

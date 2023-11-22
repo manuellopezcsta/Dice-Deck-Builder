@@ -38,10 +38,12 @@ public class GameManager : MonoBehaviour
     [SerializeField] GameObject eventPanel;
     public int secretEndingCounter = 0;
 
+    //Musica para los niveles (overworld, combate, eventos)
+
+    [SerializeField] private SFXManager sfxManager;
 
     public enum GAME_STATE
     {
-        TUTORIAL,
         OVERWORLD,
         ON_COMBAT,
         ON_EVENT
@@ -51,6 +53,7 @@ public class GameManager : MonoBehaviour
 
     void Awake()
     {
+        
         //If this script does not exit already, use this current instance
         if (instance == null)
             instance = this;
@@ -62,6 +65,7 @@ public class GameManager : MonoBehaviour
 
     void Start()
     {
+        sfxManager = GameObject.Find("Sound Manager").GetComponent<SFXManager>();
         BuildDefaultDiceList(); // Armamos la lista de dados
         StartCoroutine(AssignOverWorld()); // Por alguna razon necesite correrlo como corutina para que lo encuentre.
     }
@@ -101,13 +105,35 @@ public class GameManager : MonoBehaviour
     {
         switch (state)
         {
-            case GAME_STATE.TUTORIAL:
-                break;
             case GAME_STATE.OVERWORLD:
                 CheckForLevelCompletition();
                 overWorldPanel.SetActive(true);
                 combatPanel.SetActive(false);
                 eventPanel.SetActive(false);
+                string currentLevel = OverWorldManager.instance.currentLevelName;
+                switch (currentLevel)
+                {
+                    case "NIVEL 1(Clone)":
+                        if (sfxManager.GetAudioClip() != sfxManager.nivel1)
+                        {
+                            sfxManager.PlaySong(SFXManager.MSName.Nivel1);
+
+                        }
+                        break;
+                    case "NIVEL 2(Clone)":
+                        if (sfxManager.GetAudioClip() != sfxManager.nivel2)
+                        {
+                            sfxManager.PlaySong(SFXManager.MSName.Nivel2);
+                        }
+                        
+                        break;
+                    case "NIVEL 3(Clone)":
+                        if (sfxManager.GetAudioClip() != sfxManager.nivel3)
+                        {
+                            sfxManager.PlaySong(SFXManager.MSName.Nivel3);
+                        }
+                        break;
+                }
                 break;
             case GAME_STATE.ON_COMBAT:
                 overWorldPanel.SetActive(false);
@@ -116,11 +142,18 @@ public class GameManager : MonoBehaviour
                 CombatManager.instance.LoadCombatData();
                 // Updateamos el display
                 CombatManager.instance.UIUpdateAfterCardPlayed();
-                break;
+                Enemy enemy = CombatManager.instance.GetEnemy();
+                if (enemy.name == "Jefe1" || enemy.name == "Jefe2" || enemy.name == "Jefe3")
+                {
+                    sfxManager.PlaySong(SFXManager.MSName.CombateBoss);
+                }
+                else {
+                    sfxManager.PlaySong(SFXManager.MSName.CombatDefault);
+                }
+                    break;
             case GAME_STATE.ON_EVENT:
                 eventPanel.SetActive(true);
                 break;
-
         }
     }
 
@@ -290,4 +323,5 @@ public class GameManager : MonoBehaviour
         combatPanel.SetActive(false);
         rewardPanel.SetActive(true);
     }
+   
 }

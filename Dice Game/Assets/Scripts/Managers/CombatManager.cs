@@ -20,7 +20,8 @@ public class CombatManager : MonoBehaviour
 
     // Elementos de la Interfaz
     [Header("Enemy")]
-    [SerializeField] private TextMeshProUGUI enemyName;
+    [SerializeField] private TextMeshProUGUI enemyDefaultName;
+    [SerializeField] private TextMeshProUGUI enemyBossName;
     [SerializeField] private Image enemySprite;
     [SerializeField] private Image enemyHpBar;
     [SerializeField] private Image enemyHpBarEspejo;
@@ -82,6 +83,7 @@ public class CombatManager : MonoBehaviour
     [SerializeField] private Sprite[] fondosCombate;
     [SerializeField] private GameObject uiBoss;
     [SerializeField] private GameObject uiDefault;
+    [SerializeField] private RectTransform spriteEnemy;
     public enum Turno
     {
         P1,
@@ -431,7 +433,8 @@ public class CombatManager : MonoBehaviour
         enemy = GameManager.instance.currentEnemy;
         //Debug.Log("EN LOADCOMBATDATA");
         //enemy.DebugInfo();
-        enemyName.text = enemy.name;
+        enemyDefaultName.text = enemy.name;
+        enemyBossName.text = enemy.name;
         enemySprite.sprite = enemy.img;
         enemyHpBar.fillAmount = 1;
         enemyHpBarEspejo.fillAmount = 1;
@@ -441,11 +444,17 @@ public class CombatManager : MonoBehaviour
         {
             uiBoss.SetActive(true);
             uiDefault.SetActive(false);
+            spriteEnemy.anchoredPosition = new Vector2(487,-35);
+            spriteEnemy.sizeDelta = new Vector2(710, 654);
         }
         else
         {
             uiDefault.SetActive(true);
             uiBoss.SetActive(false);
+            //spriteEnemy.anchoredPosition = new Vector2(465 , 200);
+            //spriteEnemy.sizeDelta = new Vector2(100, 100);
+            spriteEnemy.anchoredPosition = new Vector2(487, -35);
+            spriteEnemy.sizeDelta = new Vector2(710, 654);
         }
 
         //Cargamos al player 1

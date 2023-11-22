@@ -1474,12 +1474,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   innerList:
-  - {fileID: 830719280, guid: e983f61e24dfcbc4e951fe19c4f1dffb, type: 3}
-  - {fileID: 230591260, guid: e983f61e24dfcbc4e951fe19c4f1dffb, type: 3}
-  - {fileID: 230591260, guid: e983f61e24dfcbc4e951fe19c4f1dffb, type: 3}
-  - {fileID: 2047441128, guid: e983f61e24dfcbc4e951fe19c4f1dffb, type: 3}
-  - {fileID: 1235117332, guid: e983f61e24dfcbc4e951fe19c4f1dffb, type: 3}
-  - {fileID: -120612382, guid: e983f61e24dfcbc4e951fe19c4f1dffb, type: 3}
+  - {fileID: 21300000, guid: 394548feb4db014448d69414905adcc0, type: 3}
+  - {fileID: 21300000, guid: 648f84a72599eb743a55c095448b2874, type: 3}
+  - {fileID: 21300000, guid: 648f84a72599eb743a55c095448b2874, type: 3}
+  - {fileID: 21300000, guid: 047943f100a4ab94a926203e894c457c, type: 3}
+  - {fileID: 21300000, guid: ab915935187d40a4a843467d19aeb378, type: 3}
+  - {fileID: 21300000, guid: 59cedfb7a34b8c74c8cf2e3d4e7810d0, type: 3}
 --- !u!1 &485017626
 GameObject:
   m_ObjectHideFlags: 0
@@ -1810,7 +1810,7 @@ MonoBehaviour:
       m_Calls: []
   m_Sprite: {fileID: 830719280, guid: e983f61e24dfcbc4e951fe19c4f1dffb, type: 3}
   m_Type: 0
-  m_PreserveAspect: 1
+  m_PreserveAspect: 0
   m_FillCenter: 1
   m_FillMethod: 4
   m_FillAmount: 1
@@ -2379,12 +2379,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   innerList:
-  - {fileID: 230591260, guid: e983f61e24dfcbc4e951fe19c4f1dffb, type: 3}
-  - {fileID: 1085963963, guid: e983f61e24dfcbc4e951fe19c4f1dffb, type: 3}
-  - {fileID: 2047441128, guid: e983f61e24dfcbc4e951fe19c4f1dffb, type: 3}
-  - {fileID: 1235117332, guid: e983f61e24dfcbc4e951fe19c4f1dffb, type: 3}
-  - {fileID: -120612382, guid: e983f61e24dfcbc4e951fe19c4f1dffb, type: 3}
-  - {fileID: -370058628, guid: e983f61e24dfcbc4e951fe19c4f1dffb, type: 3}
+  - {fileID: 21300000, guid: 648f84a72599eb743a55c095448b2874, type: 3}
+  - {fileID: 21300000, guid: 871235659708ede4697b984b3265ae95, type: 3}
+  - {fileID: 21300000, guid: 047943f100a4ab94a926203e894c457c, type: 3}
+  - {fileID: 21300000, guid: 02b57d8ca05895f42a0ea1e8ff495465, type: 3}
+  - {fileID: 21300000, guid: ab8af162c8ab52f498687b3cc0fcce28, type: 3}
+  - {fileID: 21300000, guid: 667248d8e1d1bae4c8018d2b1e22c0f2, type: 3}
 --- !u!1 &811341457
 GameObject:
   m_ObjectHideFlags: 0
@@ -2444,7 +2444,7 @@ MonoBehaviour:
       m_Calls: []
   m_Sprite: {fileID: 230591260, guid: e983f61e24dfcbc4e951fe19c4f1dffb, type: 3}
   m_Type: 0
-  m_PreserveAspect: 1
+  m_PreserveAspect: 0
   m_FillCenter: 1
   m_FillMethod: 4
   m_FillAmount: 1
@@ -4671,12 +4671,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   innerList:
-  - {fileID: 1085963963, guid: e983f61e24dfcbc4e951fe19c4f1dffb, type: 3}
-  - {fileID: -1391727424, guid: e983f61e24dfcbc4e951fe19c4f1dffb, type: 3}
-  - {fileID: 554487802, guid: e983f61e24dfcbc4e951fe19c4f1dffb, type: 3}
-  - {fileID: -1441916835, guid: e983f61e24dfcbc4e951fe19c4f1dffb, type: 3}
-  - {fileID: 830719280, guid: e983f61e24dfcbc4e951fe19c4f1dffb, type: 3}
-  - {fileID: 230591260, guid: e983f61e24dfcbc4e951fe19c4f1dffb, type: 3}
+  - {fileID: 21300000, guid: 871235659708ede4697b984b3265ae95, type: 3}
+  - {fileID: 21300000, guid: 5f88ba8fce7020b45acf25435c74745d, type: 3}
+  - {fileID: 21300000, guid: 02b57d8ca05895f42a0ea1e8ff495465, type: 3}
+  - {fileID: 21300000, guid: c759e8ba659c8bf44a31f1de12dccf8e, type: 3}
+  - {fileID: 21300000, guid: 394548feb4db014448d69414905adcc0, type: 3}
+  - {fileID: 21300000, guid: 648f84a72599eb743a55c095448b2874, type: 3}
 --- !u!1 &1342279084
 GameObject:
   m_ObjectHideFlags: 0
@@ -4722,12 +4722,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   innerList:
-  - {fileID: 1085963963, guid: e983f61e24dfcbc4e951fe19c4f1dffb, type: 3}
-  - {fileID: 2047441128, guid: e983f61e24dfcbc4e951fe19c4f1dffb, type: 3}
-  - {fileID: 2047441128, guid: e983f61e24dfcbc4e951fe19c4f1dffb, type: 3}
-  - {fileID: 554487802, guid: e983f61e24dfcbc4e951fe19c4f1dffb, type: 3}
-  - {fileID: -120612382, guid: e983f61e24dfcbc4e951fe19c4f1dffb, type: 3}
-  - {fileID: -120612382, guid: e983f61e24dfcbc4e951fe19c4f1dffb, type: 3}
+  - {fileID: 21300000, guid: 871235659708ede4697b984b3265ae95, type: 3}
+  - {fileID: 21300000, guid: 047943f100a4ab94a926203e894c457c, type: 3}
+  - {fileID: 21300000, guid: 047943f100a4ab94a926203e894c457c, type: 3}
+  - {fileID: 21300000, guid: 02b57d8ca05895f42a0ea1e8ff495465, type: 3}
+  - {fileID: 21300000, guid: 59cedfb7a34b8c74c8cf2e3d4e7810d0, type: 3}
+  - {fileID: 21300000, guid: 59cedfb7a34b8c74c8cf2e3d4e7810d0, type: 3}
 --- !u!1 &1354862524
 GameObject:
   m_ObjectHideFlags: 0
@@ -4909,12 +4909,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   innerList:
-  - {fileID: 441062121, guid: e983f61e24dfcbc4e951fe19c4f1dffb, type: 3}
-  - {fileID: 1085963963, guid: e983f61e24dfcbc4e951fe19c4f1dffb, type: 3}
-  - {fileID: 2047441128, guid: e983f61e24dfcbc4e951fe19c4f1dffb, type: 3}
-  - {fileID: 554487802, guid: e983f61e24dfcbc4e951fe19c4f1dffb, type: 3}
-  - {fileID: -196615726, guid: e983f61e24dfcbc4e951fe19c4f1dffb, type: 3}
-  - {fileID: 546326306, guid: e983f61e24dfcbc4e951fe19c4f1dffb, type: 3}
+  - {fileID: 21300000, guid: 2550dded24b70f04ab6793bd5fbac05b, type: 3}
+  - {fileID: 21300000, guid: 871235659708ede4697b984b3265ae95, type: 3}
+  - {fileID: 21300000, guid: 047943f100a4ab94a926203e894c457c, type: 3}
+  - {fileID: 21300000, guid: 02b57d8ca05895f42a0ea1e8ff495465, type: 3}
+  - {fileID: 21300000, guid: ab8af162c8ab52f498687b3cc0fcce28, type: 3}
+  - {fileID: 21300000, guid: 667248d8e1d1bae4c8018d2b1e22c0f2, type: 3}
 --- !u!1 &1400033734
 GameObject:
   m_ObjectHideFlags: 0
@@ -6207,7 +6207,7 @@ MonoBehaviour:
       m_Calls: []
   m_Sprite: {fileID: -341394523, guid: e983f61e24dfcbc4e951fe19c4f1dffb, type: 3}
   m_Type: 0
-  m_PreserveAspect: 1
+  m_PreserveAspect: 0
   m_FillCenter: 1
   m_FillMethod: 4
   m_FillAmount: 1
@@ -6983,7 +6983,7 @@ MonoBehaviour:
       m_Calls: []
   m_Sprite: {fileID: 1085963963, guid: e983f61e24dfcbc4e951fe19c4f1dffb, type: 3}
   m_Type: 0
-  m_PreserveAspect: 1
+  m_PreserveAspect: 0
   m_FillCenter: 1
   m_FillMethod: 4
   m_FillAmount: 1
@@ -7210,7 +7210,7 @@ MonoBehaviour:
       m_Calls: []
   m_Sprite: {fileID: 2047441128, guid: e983f61e24dfcbc4e951fe19c4f1dffb, type: 3}
   m_Type: 0
-  m_PreserveAspect: 1
+  m_PreserveAspect: 0
   m_FillCenter: 1
   m_FillMethod: 4
   m_FillAmount: 1
@@ -7743,7 +7743,7 @@ MonoBehaviour:
       m_Calls: []
   m_Sprite: {fileID: 2047441128, guid: e983f61e24dfcbc4e951fe19c4f1dffb, type: 3}
   m_Type: 0
-  m_PreserveAspect: 1
+  m_PreserveAspect: 0
   m_FillCenter: 1
   m_FillMethod: 4
   m_FillAmount: 1
