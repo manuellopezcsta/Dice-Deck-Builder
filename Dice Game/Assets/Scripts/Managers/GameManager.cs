@@ -222,7 +222,7 @@ public class GameManager : MonoBehaviour
         }
     }
 
-    public void BuildLevelMap()
+    /*public void BuildLevelMap()
     {
         // Primer y Segundo nodo combate
         combatesYEventos.Add(EnemyManager.instance.enemiesList[0]);
@@ -251,6 +251,53 @@ public class GameManager : MonoBehaviour
         }
         // Agregamos los eventos forzados que hagan falta.
         ReplaceNodesWithForcedData();
+    }*/
+    public void BuildLevelMap()
+    {
+        switch (OverWorldManager.instance.currentLevel)
+        {
+            case 1:  // Primer mapa de nodos.
+                // Primer y Segundo nodo combate
+                combatesYEventos.Add(EnemyManager.instance.enemiesListLv1[0]);
+                combatesYEventos.Add(EnemyManager.instance.enemiesListLv1[1]);
+                // Saco los primeros 2 para que despues no se dupliquen los enemigos.
+                EnemyManager.instance.enemiesListLv1.RemoveAt(0);
+                EnemyManager.instance.enemiesListLv1.RemoveAt(0);
+                ChooseEnemiesForNodeLevel(5, EnemyManager.instance.enemiesListLv1);
+                break;
+            case 3:  // Segundo mapa de nodos.
+                ChooseEnemiesForNodeLevel(22, EnemyManager.instance.enemiesListLv2);
+                break;
+            case 6:  // Tercer mapa de nodos.
+                ChooseEnemiesForNodeLevel(22, EnemyManager.instance.enemiesListLv1);
+                break;
+            default: // Para el resto de los niveles.(JEFES ETC, tiene que tener algo para que puedan remplazarse despues)
+                Debug.Log(" SE ENTRO AL DEFAULT !!! del generador");
+                ChooseEnemiesForNodeLevel(2, EnemyManager.instance.enemiesListLv3);
+                break;
+        }
+
+        // Agregamos los eventos forzados que hagan falta.
+        ReplaceNodesWithForcedData();
+    }
+    void ChooseEnemiesForNodeLevel(int quantity, List<Enemy> list)
+    {
+        for (int i = 0; i < quantity; i++)
+        {
+            int b = Random.Range(0, 2);
+            if (b == 0)
+            {
+                //Agregar Combate
+                combatesYEventos.Add(list[0]);
+                list.RemoveAt(0);
+            }
+            else
+            {
+                // Agregar Evento
+                combatesYEventos.Add(EventManager.instance.eventList[0]);
+                EventManager.instance.eventList.RemoveAt(0);
+            }
+        }
     }
     void ReplaceNodesWithForcedData()
     {
@@ -320,8 +367,14 @@ public class GameManager : MonoBehaviour
 
     public void SwitchToRewardsScreen()
     {
-        combatPanel.SetActive(false);
+        //combatPanel.SetActive(false);
         rewardPanel.SetActive(true);
     }
-   
+   public GameObject GetCombatPanel(){
+    return combatPanel;
+   }
+   public GameObject GetOverworldPanel()
+   {
+    return overWorldPanel;
+   }
 }

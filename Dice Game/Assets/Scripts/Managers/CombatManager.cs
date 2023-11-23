@@ -405,7 +405,7 @@ public class CombatManager : MonoBehaviour
                 {
                     GameManager.instance.SwitchToRewardsScreen();
                 }
-                ExitCombat();
+                //ExitCombat();
             }
         }
     }
@@ -424,6 +424,7 @@ public class CombatManager : MonoBehaviour
         GuardaRopas.instance.SaveData();
         // Agregar algo q diga ganaste ?
         GameManager.instance.SetGameState(GameManager.GAME_STATE.OVERWORLD);
+        GameManager.instance.GetCombatPanel().SetActive(true);//Fix para que no quede el fondo vacio
         Debug.Log("Saliendo de combate o accion.");
     }
 

@@ -16,7 +16,7 @@ public class RewardMenu : MonoBehaviour
     Card option1;
     Card option2;
     Card option3;
-
+    private int playercounter;
     // To change the pictures
     [SerializeField] Image card1;
     [SerializeField] Image card2;
@@ -48,8 +48,10 @@ public class RewardMenu : MonoBehaviour
     public void OnCardSelection(Button boton)
     {
         Player currentPlayer;
+
         if(playerOneTurn)
         {
+            playercounter=0;
             currentPlayer = CombatManager.instance.GetPlayerN(1);
         } else {
             currentPlayer = CombatManager.instance.GetPlayerN(2);
@@ -59,15 +61,18 @@ public class RewardMenu : MonoBehaviour
         {
             case "Card 1":
                 currentPlayer.currentDeck.AddCard(option1);
-                Debug.Log("Se agrego " + option1.cardName + " al mazo de " + currentPlayer.name);
+                playercounter++;
+                Debug.Log("Se agrego " + option1.cardName + " al mazo de " + currentPlayer.name+"counter is at: "+playercounter);
                 break;
             case "Card 2":
                 currentPlayer.currentDeck.AddCard(option2);
-                Debug.Log("Se agrego " + option2.cardName + " al mazo de " + currentPlayer.name);
+                playercounter++;
+                Debug.Log("Se agrego " + option2.cardName + " al mazo de " + currentPlayer.name+"counter is at: "+playercounter);
                 break;
             case "Card 3":
                 currentPlayer.currentDeck.AddCard(option3);
-                Debug.Log("Se agrego " + option3.cardName + " al mazo de " + currentPlayer.name);
+                playercounter++;
+                Debug.Log("Se agrego " + option3.cardName + " al mazo de " + currentPlayer.name+"counter is at: "+playercounter);
                 break;
         }
         // Before we switch to player 2 , we check if its player 2 turn to disable the panel and avoid a loop.
@@ -81,6 +86,11 @@ public class RewardMenu : MonoBehaviour
         if(!playerOneTurn)
         {
             RunPanelLogic();
+        }
+        if(playercounter>1)
+        {
+            CombatManager.instance.ExitCombat();
+            
         }
     }
 

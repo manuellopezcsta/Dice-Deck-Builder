@@ -230,7 +230,7 @@ public class SFXManager : MonoBehaviour
 
         // Realizamos el Fade-In
         float targetVolume = mainSongLibrary[song].Item2 * PlayerPrefs.GetFloat("musicVolume");
-        Debug.Log("TARGET VOL: " + targetVolume);
+        //Debug.Log("TARGET VOL: " + targetVolume);
         float currentVolume = 0f;
 
         while (currentVolume < fadeDuration)
