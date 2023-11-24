@@ -304,14 +304,28 @@ public class GameManager : MonoBehaviour
         // Aca ponemos los datos forzados como jefes y eventos segun el level..
         switch (OverWorldManager.instance.currentLevel)
         {
-            case 2:
+            case 2: // Mapa jefe 1
                 combatesYEventos[0] = EnemyManager.instance.bossList[0];
                 break;
-            case 4:
+            case 4: // Mapa jefe 2
                 combatesYEventos[0] = EnemyManager.instance.bossList[1];
                 break;
-            case 5:
+            case 5: // Mapa jefe 3
                 combatesYEventos[0] = EnemyManager.instance.bossList[2];
+                break;
+            // PARA LOS EVENTOS DE HISTORIA
+            case 3: // Mapa de nodos 2
+                //combatesYEventos[2] = EventManager.instance.storyEventList[0];
+                //combatesYEventos[9] = EventManager.instance.storyEventList[1];
+                //combatesYEventos[7] = EventManager.instance.storyEventList[2];
+                break;
+            case 6: // Mapa de nodos 3
+                //combatesYEventos[2] = EventManager.instance.storyEventList[3];
+                //combatesYEventos[8] = EventManager.instance.storyEventList[4];
+                //combatesYEventos[11] = EventManager.instance.storyEventList[5];
+                //combatesYEventos[14] = EventManager.instance.storyEventList[6];
+                //combatesYEventos[17] = EventManager.instance.storyEventList[7];
+                //combatesYEventos[20] = EventManager.instance.storyEventList[8];
                 break;
         }
     }

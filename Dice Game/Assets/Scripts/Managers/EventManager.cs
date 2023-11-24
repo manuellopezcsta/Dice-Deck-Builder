@@ -6,20 +6,34 @@ using UnityEngine;
 
 public class EventManager : MonoBehaviour
 {
-    [SerializeField] public Sprite[] eventSprites;
-    public List<Event> eventList = new List<Event>();
+    public Sprite eventMini;
+    public Sprite eventDefaultPic;
+    public List<Event> eventList = new List<Event>();   // La lista donde quedan los eventos generados.
+    public List<Event> storyEventList = new List<Event>(); // Lista solo para los eventos de historia que no se repiten.
+    // PONER ICONO DE INTERROGACION A LOS DE HISTORIA.
+    
 
     // Es el numero de elementos en el enum de abajo.
-    private int eventNumber = 4;
+    private int eventNumber = 14;
 
     // Lista con los eventos.
     public List<Event> allPossibleEvents = new List<Event>(); 
     public enum Eventos
-    {
-        HEAL,
-        TAKE_DMG,
-        GAIN_ARMOUR,
-        GAIN_MR
+    { // Solo los de trampas y buff , los de historia son hechos a mano en la otra list.
+        BUFF1,
+        BUFF2,
+        BUFF3,
+        BUFF4,
+        BUFF5,
+        BUFF6,
+        BUFF7,
+        TRAP1,
+        TRAP2,
+        TRAP3,
+        TRAP4,
+        TRAP5,
+        TRAP6,
+        TRAP7,
     }
 
     public static EventManager instance = null;
@@ -42,27 +56,52 @@ public class EventManager : MonoBehaviour
     void AddEvent(Eventos name)
     {
         string[] aaa = { "texto", "boton1", "boton2" };
-        Event evento = new Event(eventSprites[0], "default", eventSprites[0], aaa);
+        Event evento = new Event(eventMini, "default", eventDefaultPic, aaa);
 
         switch (name)
         {
-            case Eventos.HEAL:
-                //evento = new Event(eventSprites[0], "heal", 5);
+            case Eventos.BUFF1:
                 evento = allPossibleEvents[0];
                 break;
-            case Eventos.TAKE_DMG:
-                //evento = new Event(eventSprites[3], "take dmg", 5);
+            case Eventos.BUFF2:
                 evento = allPossibleEvents[1];
                 break;
-            case Eventos.GAIN_ARMOUR:
-                //evento = new Event(eventSprites[2], "gain armour", 5);
+            case Eventos.BUFF3:
                 evento = allPossibleEvents[2];
                 break;
-            case Eventos.GAIN_MR:
-                //evento = new Event(eventSprites[1], "gain mr", 5);
+            case Eventos.BUFF4:
                 evento = allPossibleEvents[3];
                 break;
-
+            case Eventos.BUFF5:
+                evento = allPossibleEvents[4];
+                break;
+            case Eventos.BUFF6:
+                evento = allPossibleEvents[5];
+                break;
+            case Eventos.BUFF7:
+                evento = allPossibleEvents[6];
+                break;
+            case Eventos.TRAP1:
+                evento = allPossibleEvents[7];
+                break;
+            case Eventos.TRAP2:
+                evento = allPossibleEvents[8];
+                break;
+            case Eventos.TRAP3:
+                evento = allPossibleEvents[9];
+                break;
+            case Eventos.TRAP4:
+                evento = allPossibleEvents[10];
+                break;
+            case Eventos.TRAP5:
+                evento = allPossibleEvents[11];
+                break;
+            case Eventos.TRAP6:
+                evento = allPossibleEvents[12];
+                break;
+            case Eventos.TRAP7:
+                evento = allPossibleEvents[13];
+                break;
         }
         eventList.Add(evento);
         //Debug.Log("Se agrego evento " + evento.name);

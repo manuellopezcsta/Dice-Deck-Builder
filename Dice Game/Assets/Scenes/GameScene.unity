@@ -726,17 +726,96 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c7251d1699328f34faed96b752ea3733, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  eventSprites:
-  - {fileID: -128055020, guid: 2576618d91b48cb429bceb1c20521301, type: 3}
-  - {fileID: -1313672582, guid: 2576618d91b48cb429bceb1c20521301, type: 3}
-  - {fileID: -580571447, guid: 2576618d91b48cb429bceb1c20521301, type: 3}
-  - {fileID: -1345237322, guid: 2576618d91b48cb429bceb1c20521301, type: 3}
+  eventMini: {fileID: 21300000, guid: ee1df3ae0f84e334d949c625800fe16a, type: 3}
+  eventDefaultPic: {fileID: 21300000, guid: ee1df3ae0f84e334d949c625800fe16a, type: 3}
   eventList: []
+  storyEventList:
+  - name: historia1
+    modifier: 0
+    mini: {fileID: 21300000, guid: 90d9c0f4dc5008f4d872919afed81aab, type: 3}
+    displayArt: {fileID: 21300000, guid: eeff85745b940c444b3625c7ef2eb614, type: 3}
+    textAndChoices:
+    - Esto es un texto sobre historia bla bla
+    - Continuar
+    - '-'
+    - Esta es la segunda parte de la historia
+  - name: historia2
+    modifier: 0
+    mini: {fileID: 21300000, guid: 90d9c0f4dc5008f4d872919afed81aab, type: 3}
+    displayArt: {fileID: 21300000, guid: eeff85745b940c444b3625c7ef2eb614, type: 3}
+    textAndChoices:
+    - Esto es un texto sobre historia bla bla
+    - Continuar
+    - '-'
+    - Esta es la segunda parte de la historia
+  - name: historia3
+    modifier: 0
+    mini: {fileID: 21300000, guid: 90d9c0f4dc5008f4d872919afed81aab, type: 3}
+    displayArt: {fileID: 21300000, guid: eeff85745b940c444b3625c7ef2eb614, type: 3}
+    textAndChoices:
+    - Esto es un texto sobre historia bla bla
+    - Continuar
+    - '-'
+    - Esta es la segunda parte de la historia
+  - name: historia4
+    modifier: 0
+    mini: {fileID: 21300000, guid: 90d9c0f4dc5008f4d872919afed81aab, type: 3}
+    displayArt: {fileID: 21300000, guid: eeff85745b940c444b3625c7ef2eb614, type: 3}
+    textAndChoices:
+    - Esto es un texto sobre historia bla bla
+    - Continuar
+    - '-'
+    - Esta es la segunda parte de la historia
+  - name: historia5
+    modifier: 0
+    mini: {fileID: 21300000, guid: 90d9c0f4dc5008f4d872919afed81aab, type: 3}
+    displayArt: {fileID: 21300000, guid: eeff85745b940c444b3625c7ef2eb614, type: 3}
+    textAndChoices:
+    - Esto es un texto sobre historia bla bla
+    - Continuar
+    - '-'
+    - Esta es la segunda parte de la historia
+  - name: historia6
+    modifier: 0
+    mini: {fileID: 21300000, guid: 90d9c0f4dc5008f4d872919afed81aab, type: 3}
+    displayArt: {fileID: 21300000, guid: eeff85745b940c444b3625c7ef2eb614, type: 3}
+    textAndChoices:
+    - Esto es un texto sobre historia bla bla
+    - Continuar
+    - '-'
+    - Esta es la segunda parte de la historia
+  - name: historia7
+    modifier: 0
+    mini: {fileID: 21300000, guid: 90d9c0f4dc5008f4d872919afed81aab, type: 3}
+    displayArt: {fileID: 21300000, guid: eeff85745b940c444b3625c7ef2eb614, type: 3}
+    textAndChoices:
+    - Esto es un texto sobre historia bla bla
+    - Continuar
+    - '-'
+    - Esta es la segunda parte de la historia
+  - name: historia8
+    modifier: 0
+    mini: {fileID: 21300000, guid: 90d9c0f4dc5008f4d872919afed81aab, type: 3}
+    displayArt: {fileID: 21300000, guid: eeff85745b940c444b3625c7ef2eb614, type: 3}
+    textAndChoices:
+    - Esto es un texto sobre historia bla bla
+    - Continuar
+    - '-'
+    - Esta es la segunda parte de la historia
+  - name: historia9
+    modifier: 0
+    mini: {fileID: 21300000, guid: 90d9c0f4dc5008f4d872919afed81aab, type: 3}
+    displayArt: {fileID: 21300000, guid: eeff85745b940c444b3625c7ef2eb614, type: 3}
+    textAndChoices:
+    - Esto es un texto sobre historia bla bla
+    - Continuar
+    - '-'
+    - Esta es la segunda parte de la historia
   allPossibleEvents:
-  - name: heal
+  - name: buff1
     modifier: 0
     mini: {fileID: 21300000, guid: ee1df3ae0f84e334d949c625800fe16a, type: 3}
-    displayArt: {fileID: -128055020, guid: 2576618d91b48cb429bceb1c20521301, type: 3}
+    displayArt: {fileID: 21300000, guid: ecc5452d0961a674db0e52b3dfff7d5d, type: 3}
     textAndChoices:
     - Te encuentras con una manzana de aspecto curioso en tu camino. Que deseas hacer?
     - Comerla
@@ -744,10 +823,10 @@ MonoBehaviour:
     - La manzana tenia propiedades curativas, y recuperaste HP!
     - La manzana estaba envenenada, por lo que sufres dano !
     - Decides no comer la manzana y sigues tu camino.
-  - name: take dmg
+  - name: buff2
     modifier: 0
     mini: {fileID: 21300000, guid: ee1df3ae0f84e334d949c625800fe16a, type: 3}
-    displayArt: {fileID: -1345237322, guid: 2576618d91b48cb429bceb1c20521301, type: 3}
+    displayArt: {fileID: 21300000, guid: 681efd06ba639ed4597d9e5aaa575c8d, type: 3}
     textAndChoices:
     - Estabas caminando cuando de la nada salta un enemigo y te insulta!
     - Imponer respeto
@@ -755,10 +834,10 @@ MonoBehaviour:
     - Logras ponerlo en su lugar y seguir tu camino
     - El enemigo te pega por tratar de defenderte y sufres dano
     - Simplemente lo ignoras y te vas.
-  - name: gain armour
+  - name: buff3
     modifier: 0
     mini: {fileID: 21300000, guid: ee1df3ae0f84e334d949c625800fe16a, type: 3}
-    displayArt: {fileID: -580571447, guid: 2576618d91b48cb429bceb1c20521301, type: 3}
+    displayArt: {fileID: 21300000, guid: 8c6bf0d440562a6408d119305ff89542, type: 3}
     textAndChoices:
     - Te encuestras con un objeto extrano en tu camino, pareciera una pieza de armadura.
       Que deseas hacer?
@@ -768,10 +847,10 @@ MonoBehaviour:
     - Vez un resplandor maligno salir de la armadura, parece ser que estaba maldita,
       y pierdes puntos de armadura
     - Simplemente ignoras la armadura y te vas.
-  - name: gain mr
+  - name: buff4
     modifier: 0
     mini: {fileID: 21300000, guid: ee1df3ae0f84e334d949c625800fe16a, type: 3}
-    displayArt: {fileID: -1313672582, guid: 2576618d91b48cb429bceb1c20521301, type: 3}
+    displayArt: {fileID: 21300000, guid: a8dc153b51068d34faf07d58afd993e9, type: 3}
     textAndChoices:
     - Te encuentras una capa que pareciera ser de alguna clase de hechizero. Que
       deseas hacer?
@@ -782,19 +861,99 @@ MonoBehaviour:
     - No deberias robar las cosas de los demas, aparece su dueno y te tira una maldicion
       que te quita puntos de MR
     - Decides ignorar la capa y seguir tu camino.
-  - name: historia1
+  - name: buff5
     modifier: 0
-    mini: {fileID: 21300000, guid: 90d9c0f4dc5008f4d872919afed81aab, type: 3}
-    displayArt: {fileID: 21300000, guid: 75c8106e8e08b8344a8a6e80f4324296, type: 3}
+    mini: {fileID: 21300000, guid: ee1df3ae0f84e334d949c625800fe16a, type: 3}
+    displayArt: {fileID: 21300000, guid: 58445a1d302e3234c8c0ac2219ca2c06, type: 3}
     textAndChoices:
     - Esto es texto sobre la historia bla bla bla
     - Continuar
     - '-'
     - Esta es la segunda parte de la historia
-  - name: forcedTrampa
+  - name: buff6
     modifier: 0
     mini: {fileID: 21300000, guid: ee1df3ae0f84e334d949c625800fe16a, type: 3}
-    displayArt: {fileID: 21300000, guid: 75c8106e8e08b8344a8a6e80f4324296, type: 3}
+    displayArt: {fileID: 21300000, guid: e13f9b888a97f0a458b848bd52bc520b, type: 3}
+    textAndChoices:
+    - Esto es un evento forzado sobre una trampa, tendras suerte ??
+    - Continuar
+    - '-'
+    - Tuviste suerte ! No paso nada
+    - No tuviste suerte :c. Te comes la trampa
+  - name: buff7
+    modifier: 0
+    mini: {fileID: 21300000, guid: ee1df3ae0f84e334d949c625800fe16a, type: 3}
+    displayArt: {fileID: 21300000, guid: 82c25680ec20f7d4696f4b4983178c59, type: 3}
+    textAndChoices:
+    - Esto es un evento forzado sobre una trampa, tendras suerte ??
+    - Continuar
+    - '-'
+    - Tuviste suerte ! No paso nada
+    - No tuviste suerte :c. Te comes la trampa
+  - name: forcedTrampa1
+    modifier: 0
+    mini: {fileID: 21300000, guid: ee1df3ae0f84e334d949c625800fe16a, type: 3}
+    displayArt: {fileID: 21300000, guid: d7470c8167391974687d515d788f2796, type: 3}
+    textAndChoices:
+    - Esto es un evento forzado sobre una trampa, tendras suerte ??
+    - Continuar
+    - '-'
+    - Tuviste suerte ! No paso nada
+    - No tuviste suerte :c. Te comes la trampa
+  - name: forcedTrampa2
+    modifier: 0
+    mini: {fileID: 21300000, guid: ee1df3ae0f84e334d949c625800fe16a, type: 3}
+    displayArt: {fileID: 21300000, guid: 57bef200776cb044093cb6ace9de4cd4, type: 3}
+    textAndChoices:
+    - Esto es un evento forzado sobre una trampa, tendras suerte ??
+    - Continuar
+    - '-'
+    - Tuviste suerte ! No paso nada
+    - No tuviste suerte :c. Te comes la trampa
+  - name: forcedTrampa3
+    modifier: 0
+    mini: {fileID: 21300000, guid: ee1df3ae0f84e334d949c625800fe16a, type: 3}
+    displayArt: {fileID: 21300000, guid: 8aa2a8cdd6475e844a44f8597a64fd2d, type: 3}
+    textAndChoices:
+    - Esto es un evento forzado sobre una trampa, tendras suerte ??
+    - Continuar
+    - '-'
+    - Tuviste suerte ! No paso nada
+    - No tuviste suerte :c. Te comes la trampa
+  - name: forcedTrampa4
+    modifier: 0
+    mini: {fileID: 21300000, guid: ee1df3ae0f84e334d949c625800fe16a, type: 3}
+    displayArt: {fileID: 21300000, guid: 850334b1d806f4e428162ed97d80fc39, type: 3}
+    textAndChoices:
+    - Esto es un evento forzado sobre una trampa, tendras suerte ??
+    - Continuar
+    - '-'
+    - Tuviste suerte ! No paso nada
+    - No tuviste suerte :c. Te comes la trampa
+  - name: forcedTrampa5
+    modifier: 0
+    mini: {fileID: 21300000, guid: ee1df3ae0f84e334d949c625800fe16a, type: 3}
+    displayArt: {fileID: 21300000, guid: 8dcc9e98d69bb9e48b76edb987af2503, type: 3}
+    textAndChoices:
+    - Esto es un evento forzado sobre una trampa, tendras suerte ??
+    - Continuar
+    - '-'
+    - Tuviste suerte ! No paso nada
+    - No tuviste suerte :c. Te comes la trampa
+  - name: forcedTrampa6
+    modifier: 0
+    mini: {fileID: 21300000, guid: ee1df3ae0f84e334d949c625800fe16a, type: 3}
+    displayArt: {fileID: 21300000, guid: a54886e0ba9ae34438d6e20c3d98bc41, type: 3}
+    textAndChoices:
+    - Esto es un evento forzado sobre una trampa, tendras suerte ??
+    - Continuar
+    - '-'
+    - Tuviste suerte ! No paso nada
+    - No tuviste suerte :c. Te comes la trampa
+  - name: forcedTrampa7
+    modifier: 0
+    mini: {fileID: 21300000, guid: ee1df3ae0f84e334d949c625800fe16a, type: 3}
+    displayArt: {fileID: 21300000, guid: 58603f235222e9b43acb7b4a3d4324dd, type: 3}
     textAndChoices:
     - Esto es un evento forzado sobre una trampa, tendras suerte ??
     - Continuar
@@ -835,8 +994,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 394.8031, y: 539.2664}
-  m_SizeDelta: {x: 789.606, y: 1078.533}
+  m_AnchoredPosition: {x: 960.00006, y: 539.2664}
+  m_SizeDelta: {x: 1920, y: 1078.533}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &364070880
 MonoBehaviour:
@@ -1248,7 +1407,7 @@ RectTransform:
   m_GameObject: {fileID: 440626681}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 0.84972, y: 0.84972, z: 0.84972}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 375103797}
@@ -1256,8 +1415,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 1354.8, y: -1032.3398}
-  m_SizeDelta: {x: 1130.4, y: 95.3205}
+  m_AnchoredPosition: {x: 1001, y: -1044.4459}
+  m_SizeDelta: {x: 843.2694, y: 71.1083}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &440626683
 MonoBehaviour:
@@ -2299,8 +2458,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 847.80005, y: -91}
-  m_SizeDelta: {x: 565.2, y: 182}
+  m_AnchoredPosition: {x: 632.452, y: -67.88525}
+  m_SizeDelta: {x: 421.6347, y: 135.7705}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &752883393
 MonoBehaviour:
@@ -2484,14 +2643,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0, g: 0, b: 0, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 0}
+  m_Sprite: {fileID: 21300000, guid: 5214f04b0612dc94a874be90f19053af, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -2872,8 +3031,8 @@ MonoBehaviour:
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 4278190335
-  m_fontColor: {r: 1, g: 0, b: 0, a: 1}
+    rgba: 4294967295
+  m_fontColor: {r: 1, g: 1, b: 1, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:
@@ -2926,7 +3085,7 @@ MonoBehaviour:
   m_VertexBufferAutoSizeReduction: 0
   m_useMaxVisibleDescender: 1
   m_pageToDisplay: 1
-  m_margin: {x: 810.3673, y: -89.456116, z: 0, w: -515.68823}
+  m_margin: {x: 8.936523, y: -89.456116, z: 12.734009, w: -515.68823}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
   m_hasFontAssetChanged: 0
@@ -2966,7 +3125,7 @@ RectTransform:
   m_GameObject: {fileID: 961215398}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 0.84972, y: 0.84972, z: 0.84972}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1716831670}
@@ -2975,8 +3134,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 394.8, y: -341}
-  m_SizeDelta: {x: 1130.4, y: 182}
+  m_AnchoredPosition: {x: 41, y: -396}
+  m_SizeDelta: {x: 843.2694, y: 135.7705}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &961215400
 MonoBehaviour:
@@ -3906,15 +4065,15 @@ MonoBehaviour:
       m_Calls: []
   m_text: Elije una carta para agregar a tu mazo
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 780e012601df9a74690135efc6001c5d, type: 2}
+  m_sharedMaterial: {fileID: -1342143236439252166, guid: 780e012601df9a74690135efc6001c5d, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 4278190335
-  m_fontColor: {r: 1, g: 0, b: 0, a: 1}
+    rgba: 4294967295
+  m_fontColor: {r: 1, g: 1, b: 1, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:
@@ -4687,8 +4846,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 282.6, y: -91}
-  m_SizeDelta: {x: 565.2, y: 182}
+  m_AnchoredPosition: {x: 210.81735, y: -67.88525}
+  m_SizeDelta: {x: 421.6347, y: 135.7705}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1716831671
 MonoBehaviour:
@@ -5397,8 +5556,8 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 954715295}
   - {fileID: 364070879}
+  - {fileID: 954715295}
   - {fileID: 961215399}
   - {fileID: 440626682}
   m_Father: {fileID: 1577685240}

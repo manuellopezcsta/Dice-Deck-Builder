@@ -16,8 +16,6 @@ public class EventLoader : MonoBehaviour
     [SerializeField] Button boton2;
     [SerializeField] Button botonVolver;
     int modifierRange = 7; // Se usa para el rango de efecto.
-    string output1;
-    string output2;
 
     void OnEnable()
     {
@@ -90,7 +88,7 @@ public class EventLoader : MonoBehaviour
 
         switch (evento.name)
         {
-            case "heal":  // Te curas o tomas dano perforante.
+            case "buff1":  // Te curas o tomas dano perforante.
                 if (goodEnding)
                 {
                     // Cambiamos la descripcion del evento con lo que paso.
@@ -105,7 +103,7 @@ public class EventLoader : MonoBehaviour
                     player2.currentHp = Mathf.Clamp(player2.currentHp - evento.modifier, 1, player2.MaxHp);
                 }
                 break;
-            case "take dmg":
+            case "buff2":
                 if (goodEnding) // Logras esquivar el dano
                 {
                     description.text = evento.textAndChoices[3];
@@ -117,7 +115,7 @@ public class EventLoader : MonoBehaviour
                     player2.currentHp = Mathf.Clamp(player2.currentHp - evento.modifier, 1, player2.MaxHp);
                 }
                 break;
-            case "gain armour": // Ganas o perdes armadura
+            case "buff3": // Ganas o perdes armadura
                 if (goodEnding)
                 {
                     description.text = evento.textAndChoices[3];
@@ -131,7 +129,49 @@ public class EventLoader : MonoBehaviour
                     player2.armour = Mathf.Clamp(player2.armour - evento.modifier, 1, player2.maxArmour);
                 }
                 break;
-            case "gain mr":
+            case "buff4":
+                if (goodEnding) // Ganas o perdes mr
+                {
+                    description.text = evento.textAndChoices[3];
+                    player1.mArmour = Mathf.Clamp(player1.mArmour + evento.modifier, 0, player1.maxMArmour);
+                    player2.mArmour = Mathf.Clamp(player2.mArmour + evento.modifier, 0, player2.maxMArmour);
+                }
+                else
+                {
+                    description.text = evento.textAndChoices[4];
+                    player1.mArmour = Mathf.Clamp(player1.mArmour - evento.modifier, 1, player1.maxMArmour);
+                    player2.mArmour = Mathf.Clamp(player2.mArmour - evento.modifier, 1, player2.maxMArmour);
+                }
+                break;
+            case "buff5":
+                if (goodEnding) // Ganas o perdes mr
+                {
+                    description.text = evento.textAndChoices[3];
+                    player1.mArmour = Mathf.Clamp(player1.mArmour + evento.modifier, 0, player1.maxMArmour);
+                    player2.mArmour = Mathf.Clamp(player2.mArmour + evento.modifier, 0, player2.maxMArmour);
+                }
+                else
+                {
+                    description.text = evento.textAndChoices[4];
+                    player1.mArmour = Mathf.Clamp(player1.mArmour - evento.modifier, 1, player1.maxMArmour);
+                    player2.mArmour = Mathf.Clamp(player2.mArmour - evento.modifier, 1, player2.maxMArmour);
+                }
+                break;
+            case "buff6":
+                if (goodEnding) // Ganas o perdes mr
+                {
+                    description.text = evento.textAndChoices[3];
+                    player1.mArmour = Mathf.Clamp(player1.mArmour + evento.modifier, 0, player1.maxMArmour);
+                    player2.mArmour = Mathf.Clamp(player2.mArmour + evento.modifier, 0, player2.maxMArmour);
+                }
+                else
+                {
+                    description.text = evento.textAndChoices[4];
+                    player1.mArmour = Mathf.Clamp(player1.mArmour - evento.modifier, 1, player1.maxMArmour);
+                    player2.mArmour = Mathf.Clamp(player2.mArmour - evento.modifier, 1, player2.maxMArmour);
+                }
+                break;
+            case "buff7":
                 if (goodEnding) // Ganas o perdes mr
                 {
                     description.text = evento.textAndChoices[3];
@@ -149,7 +189,99 @@ public class EventLoader : MonoBehaviour
                 description.text = evento.textAndChoices[3]; // Siempre sale el primer texto..
                 GameManager.instance.secretEndingCounter += 1;
                 break;
-            case "focedTrampa": // Un evento de trampa forzado.
+            case "historia2": // Un evento de historia comun
+                description.text = evento.textAndChoices[3]; // Siempre sale el primer texto..
+                GameManager.instance.secretEndingCounter += 1;
+                break;
+            case "historia3": // Un evento de historia comun
+                description.text = evento.textAndChoices[3]; // Siempre sale el primer texto..
+                GameManager.instance.secretEndingCounter += 1;
+                break;
+            case "historia4": // Un evento de historia comun
+                description.text = evento.textAndChoices[3]; // Siempre sale el primer texto..
+                GameManager.instance.secretEndingCounter += 1;
+                break;
+            case "historia5": // Un evento de historia comun
+                description.text = evento.textAndChoices[3]; // Siempre sale el primer texto..
+                GameManager.instance.secretEndingCounter += 1;
+                break;
+            case "historia6": // Un evento de historia comun
+                description.text = evento.textAndChoices[3]; // Siempre sale el primer texto..
+                GameManager.instance.secretEndingCounter += 1;
+                break;
+            case "historia7": // Un evento de historia comun
+                description.text = evento.textAndChoices[3]; // Siempre sale el primer texto..
+                GameManager.instance.secretEndingCounter += 1;
+                break;
+            case "historia8": // Un evento de historia comun
+                description.text = evento.textAndChoices[3]; // Siempre sale el primer texto..
+                GameManager.instance.secretEndingCounter += 1;
+                break;
+            case "historia9": // Un evento de historia comun
+                description.text = evento.textAndChoices[3]; // Siempre sale el primer texto..
+                GameManager.instance.secretEndingCounter += 1;
+                break;
+            case "focedTrampa1": // Un evento de trampa forzado.
+                if (goodEnding) // Safas o no de la trampra.
+                {
+                    description.text = evento.textAndChoices[3]; // Safaste
+                }
+                else
+                {
+                    description.text = evento.textAndChoices[4];
+                }
+                break;
+            case "focedTrampa2": // Un evento de trampa forzado.
+                if (goodEnding) // Safas o no de la trampra.
+                {
+                    description.text = evento.textAndChoices[3]; // Safaste
+                }
+                else
+                {
+                    description.text = evento.textAndChoices[4];
+                }
+                break;
+            case "focedTrampa3": // Un evento de trampa forzado.
+                if (goodEnding) // Safas o no de la trampra.
+                {
+                    description.text = evento.textAndChoices[3]; // Safaste
+                }
+                else
+                {
+                    description.text = evento.textAndChoices[4];
+                }
+                break;
+            case "focedTrampa4": // Un evento de trampa forzado.
+                if (goodEnding) // Safas o no de la trampra.
+                {
+                    description.text = evento.textAndChoices[3]; // Safaste
+                }
+                else
+                {
+                    description.text = evento.textAndChoices[4];
+                }
+                break;
+            case "focedTrampa5": // Un evento de trampa forzado.
+                if (goodEnding) // Safas o no de la trampra.
+                {
+                    description.text = evento.textAndChoices[3]; // Safaste
+                }
+                else
+                {
+                    description.text = evento.textAndChoices[4];
+                }
+                break;
+            case "focedTrampa6": // Un evento de trampa forzado.
+                if (goodEnding) // Safas o no de la trampra.
+                {
+                    description.text = evento.textAndChoices[3]; // Safaste
+                }
+                else
+                {
+                    description.text = evento.textAndChoices[4];
+                }
+                break;
+            case "focedTrampa7": // Un evento de trampa forzado.
                 if (goodEnding) // Safas o no de la trampra.
                 {
                     description.text = evento.textAndChoices[3]; // Safaste
