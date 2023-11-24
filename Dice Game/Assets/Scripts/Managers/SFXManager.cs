@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using UnityEditor;
 //using UnityEditor.SearchService;
 using UnityEngine;
 using UnityEngine.SceneManagement;
@@ -33,6 +34,7 @@ public class SFXManager : MonoBehaviour
 
     [Header("Clips de Main Song")]
     public AudioClip menuSong;
+    public AudioClip intro;
     public AudioClip charSelectionSong;
     public AudioClip tutorialSong;
     public AudioClip nivel1;
@@ -62,6 +64,7 @@ public class SFXManager : MonoBehaviour
 
     public enum MSName {
         MENU,
+        Intro,
         CharSelection,
         Tutorial,
         Nivel1,
@@ -124,11 +127,14 @@ public class SFXManager : MonoBehaviour
             case "MenuPrincipal":
                 PlaySong(MSName.MENU);
                 break;
+            case "Intro":
+                    PlaySong(MSName.MENU);
+                break;
             case "CharSelection":
                 PlaySong(MSName.CharSelection);
                 break;
             case "Tutorial":
-                PlaySong(MSName.Tutorial); 
+                    PlaySong(MSName.Tutorial);
                 break;
             case "GameScene":
                 PlaySong(MSName.Nivel1);

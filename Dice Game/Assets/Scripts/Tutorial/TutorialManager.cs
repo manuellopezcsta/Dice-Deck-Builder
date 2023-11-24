@@ -48,9 +48,9 @@ public class TutorialManager : MonoBehaviour
     /*
      aca van las cartas que se juegan por si se necesita
      */
-  /*
-   Aclaracion: las cartas cuando cambian de cartas/dice(turno player 1) a cartasplayer2/diceplayer2 aparecen con un collider
-  prendido por eso solo referenciamos la segunda carta o dado por jugar*/
+    /*
+     Aclaracion: las cartas cuando cambian de cartas/dice(turno player 1) a cartasplayer2/diceplayer2 aparecen con un collider
+    prendido por eso solo referenciamos la segunda carta o dado por jugar*/
 
     private void Update()
     {
@@ -70,9 +70,10 @@ public class TutorialManager : MonoBehaviour
     }
     public void DialogoTutorial()
     {
+    
         if (Evento == 1)
-        {
-            Debug.Log("Entro");
+        { 
+            //Debug.Log("Entro");
             BarraVidaEnemy.fillAmount = 0.7f;
             BarraEspejada.fillAmount = BarraVidaEnemy.fillAmount;
             dialogoDado.TriggerDialogue();
@@ -81,7 +82,7 @@ public class TutorialManager : MonoBehaviour
         }
         if (Evento == 2)
         {
-            Debug.Log("Entro2");
+            //Debug.Log("Entro2");
             MRPlayer1.text = "3";
             dialogoSegundoDado.TriggerDialogue();
             PrenderTodo2();

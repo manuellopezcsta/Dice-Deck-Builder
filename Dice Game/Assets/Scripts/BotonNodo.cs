@@ -7,9 +7,11 @@ using System.Linq;
 using UnityEngine.SceneManagement;
 
 
+
 public class BotonNodo : MonoBehaviour
 {
     Transform posButton;
+    Vector3 posButtonY = new Vector3(0, 100,0);
     private GameObject playerSprite;
     Dictionary<string, string[]> level1 = new Dictionary<string, string[]>();
     Dictionary<string, string[]> level2 = new Dictionary<string, string[]>();
@@ -20,6 +22,8 @@ public class BotonNodo : MonoBehaviour
     Dictionary<string, string[]> levelNarracion = new Dictionary<string, string[]>();
     [SerializeField] string lastButtonName = "999";
     [SerializeField] string lastLevel = "1"; // CAMBIAR A 4 CUANDO ESTE LISTO EL JUEGO. ARREGLAR.
+
+    //[SerializeField] private GameObject botones;
 
     void Start()
     {
@@ -77,8 +81,10 @@ public class BotonNodo : MonoBehaviour
         // Cargamos la imagen del nodo.
         LoadNodePicture();
     }
+
     public void OnButtonClick(Button boton)
     {
+
         int currentlevel = OverWorldManager.instance.currentLevel;
         string botonActual = OverWorldManager.instance.currentButton.ToString();
         Dictionary<string, string[]> holder = null;
@@ -107,25 +113,46 @@ public class BotonNodo : MonoBehaviour
                 break;
 
         }
+
+        string[] valores = holder[botonActual];
         // Si es el boton correcto
         if (holder.ContainsKey(botonActual))
         {
-            string[] valores = holder[botonActual];
-
             if (valores.Contains(boton.name))
             {
+
                 int index = int.Parse(boton.name) - 1;
                 OverWorldManager.instance.currentButton = int.Parse(boton.name);
                 // Checkeamos si es el ultimo boton
                 CheckForLevelCompletition();
 
                 posButton = boton.transform;
-                playerSprite.transform.position = posButton.position;
+                playerSprite.transform.position = posButton.position + posButtonY;
 
                 // Iniciamos el combate o la accion
                 GameManager.instance.HandleNodeAction(index);
                 boton.interactable = false;
+                //Intenta cambiar de color los siguientes botones conectados
+                if ((holder.Count).ToString() != boton.name)
+                {
+                    string[] nextButton = holder[boton.name];
+                    foreach (string valor in nextButton)
+                    {
+                        if ((holder.Count).ToString() != boton.name)
+                        {
+                            Image changeColorButton = GameObject.Find(valor).transform.GetChild(0).GetComponent<Image>();
+                            changeColorButton.color = Color.green;
+                        }
+
+                    }
+                }
+                foreach (string valor in valores)
+                {
+                    Image changeColorButton = GameObject.Find(valor).transform.GetChild(0).GetComponent<Image>();
+                    changeColorButton.color = Color.gray;
+                }
             }
+            
         }
 
     }
@@ -137,7 +164,9 @@ public class BotonNodo : MonoBehaviour
         // Obtenemos el objeto y luego su sprite
         Sprite nodeImage = GameManager.instance.GetNodeData(index).GetSprite();
         transform.GetChild(0).GetComponent<Image>().sprite = nodeImage;
+
     }
+
 
     void CheckForLevelCompletition()
     {

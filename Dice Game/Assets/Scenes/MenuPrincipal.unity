@@ -185,8 +185,9 @@ MonoBehaviour:
   poisonTickSound: {fileID: 8300000, guid: 50e23c0997eef9144996f9f96efed672, type: 3}
   hoverSound: {fileID: 8300000, guid: 1fd81d37c4a60264fa7121864f5d3c0a, type: 3}
   menuSong: {fileID: 8300000, guid: dc8381339bb9f1846910f1dea6c28c15, type: 3}
-  charSelectionSong: {fileID: 0}
-  tutorialSong: {fileID: 0}
+  intro: {fileID: 8300000, guid: dc8381339bb9f1846910f1dea6c28c15, type: 3}
+  charSelectionSong: {fileID: 8300000, guid: d24c9ea47eb25b54caaf564de01f770a, type: 3}
+  tutorialSong: {fileID: 8300000, guid: d24c9ea47eb25b54caaf564de01f770a, type: 3}
   nivel1: {fileID: 8300000, guid: 4d83afb3a41d7804c8cd55da353843a3, type: 3}
   nivel2: {fileID: 8300000, guid: 07d63f89ec6f4fc43a707e2e040a519c, type: 3}
   nivel3: {fileID: 8300000, guid: e6142d402fc30cc4e8c1faba4d99197e, type: 3}
