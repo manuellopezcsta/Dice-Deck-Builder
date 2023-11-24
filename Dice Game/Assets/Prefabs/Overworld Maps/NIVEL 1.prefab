@@ -715,7 +715,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   lastButtonName: 4
-  lastLevel: 1
+  lastLevel: 999
 --- !u!1 &1679873329896517267
 GameObject:
   m_ObjectHideFlags: 0

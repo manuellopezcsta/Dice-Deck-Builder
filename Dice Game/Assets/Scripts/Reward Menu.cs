@@ -62,17 +62,17 @@ public class RewardMenu : MonoBehaviour
             case "Card 1":
                 currentPlayer.currentDeck.AddCard(option1);
                 playercounter++;
-                Debug.Log("Se agrego " + option1.cardName + " al mazo de " + currentPlayer.name+"counter is at: "+playercounter);
+                Debug.Log("Se agrego " + option1.cardName + " al mazo de " + currentPlayer.name+" counter is at: "+playercounter);
                 break;
             case "Card 2":
                 currentPlayer.currentDeck.AddCard(option2);
                 playercounter++;
-                Debug.Log("Se agrego " + option2.cardName + " al mazo de " + currentPlayer.name+"counter is at: "+playercounter);
+                Debug.Log("Se agrego " + option2.cardName + " al mazo de " + currentPlayer.name+" counter is at: "+playercounter);
                 break;
             case "Card 3":
                 currentPlayer.currentDeck.AddCard(option3);
                 playercounter++;
-                Debug.Log("Se agrego " + option3.cardName + " al mazo de " + currentPlayer.name+"counter is at: "+playercounter);
+                Debug.Log("Se agrego " + option3.cardName + " al mazo de " + currentPlayer.name+" counter is at: "+playercounter);
                 break;
         }
         // Before we switch to player 2 , we check if its player 2 turn to disable the panel and avoid a loop.

@@ -310,7 +310,7 @@ public class GameManager : MonoBehaviour
             case 4:
                 combatesYEventos[0] = EnemyManager.instance.bossList[1];
                 break;
-            case 6:
+            case 5:
                 combatesYEventos[0] = EnemyManager.instance.bossList[2];
                 break;
         }

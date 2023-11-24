@@ -103,10 +103,10 @@ public class BotonNodo : MonoBehaviour
                 holder = levelJefe2;
                 break;
             case 5:
-                holder = level3;
+                holder = levelJefe3;
                 break;
             case 6:
-                holder = levelJefe3;
+                holder = level3;
                 break;
             case 7:
                 holder = levelNarracion;

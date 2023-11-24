@@ -50,122 +50,85 @@ public class EnemyManager : MonoBehaviour
             instance = this;
 
         //If this script already exit, DESTROY this current instance
-        else if (instance != this) 
+        else if (instance != this)
             Destroy(gameObject);
     }
-    /*void AddEnemy(EnemyName name)
+    void AddEnemy(EnemyName name, List<Enemy> outputList)
     {
         Enemy enemy = new Enemy(enemySprites[0], miniSprites[0], "default", 50, 50);
 
         switch (name)
-        {
-  
+        { // ARREGLAR SPRITES DE LOS ENEMIGOS
+
             case EnemyName.ENEMIGO1:
                 //enemy = new Enemy(enemySprites[1], "Hadita", 30, 10, 5);
-                enemy = new Enemy(enemySprites[1],miniSprites[0], "Hadita", 10, 0, 0);
+                enemy = new Enemy(enemySprites[0], miniSprites[0], "Robot 1", 10, 0, 0);
                 break;
             case EnemyName.ENEMIGO2:
                 //enemy = new Enemy(enemySprites[2], "Hadita con Vestido", 30, 5, 10);
-                enemy = new Enemy(enemySprites[2], miniSprites[0], "Hadita con Vestido", 10, 0, 0);
+                enemy = new Enemy(enemySprites[1], miniSprites[0], "Robot 2", 10, 0, 0);
                 break;
             case EnemyName.ENEMIGO3:
                 //enemy = new Enemy(enemySprites[3], "Fantasma Japones", 45, 0, 0);
-                enemy = new Enemy(enemySprites[3], miniSprites[0], "Fantasma Japones", 10, 0, 0);
+                enemy = new Enemy(enemySprites[2], miniSprites[0], "Robot 3", 10, 0, 0);
                 break;
-            /*case EnemyName.ENEMIGO4:
+            case EnemyName.ENEMIGO4:
                 //enemy = new Enemy(enemySprites[4], "Hadita Azul", 15, 15, 15);
-                enemy = new Enemy(enemySprites[4], "Hadita Azul", 10, 0, 0);
-                break;/
+                enemy = new Enemy(enemySprites[3], miniSprites[0], "Togaman 1", 10, 0, 0);
+                break;
+            case EnemyName.ENEMIGO5:
+                //enemy = new Enemy(enemySprites[4], "Hadita Azul", 15, 15, 15);
+                enemy = new Enemy(enemySprites[4], miniSprites[0], "Togaman 2", 10, 0, 0);
+                break;
+            case EnemyName.ENEMIGO6:
+                //enemy = new Enemy(enemySprites[4], "Hadita Azul", 15, 15, 15);
+                enemy = new Enemy(enemySprites[5], miniSprites[0], "Togaman 3", 10, 0, 0);
+                break;
+            case EnemyName.ENEMIGO7:
+                //enemy = new Enemy(enemySprites[4], "Hadita Azul", 15, 15, 15);
+                enemy = new Enemy(enemySprites[6], miniSprites[0], "Soldado 1", 10, 0, 0);
+                break;
+            case EnemyName.ENEMIGO8:
+                //enemy = new Enemy(enemySprites[4], "Hadita Azul", 15, 15, 15);
+                enemy = new Enemy(enemySprites[7], miniSprites[0], "Soldado 2", 10, 0, 0);
+                break;
+            case EnemyName.ENEMIGO9:
+                //enemy = new Enemy(enemySprites[4], "Hadita Azul", 15, 15, 15);
+                enemy = new Enemy(enemySprites[8], miniSprites[0], "Soldado 3", 10, 0, 0);
+                break;
         }
-        enemiesList.Add(enemy);
+        outputList.Add(enemy);
         //Debug.Log("Se agrego enemigo " + enemy.name);
-    }*/
+    }
 
     // Agrega X enemigos al juego.
-    /*void PopulateGame(int quantity)
+    void PopulateGame(int quantity)
     {
-        for(int i = 0; i < quantity; i++)
+        // For lv 1
+        for (int i = 0; i < quantity; i++) // Los del lv 1
         {
-            AddEnemy((EnemyName)Random.Range(0, enemyNumber)); 
-            //Debug.Log("Creado Enemigo "+ enemiesList[i].name);
+            AddEnemy((EnemyName)Random.Range(0, 3), enemiesListLv1);
+            Debug.Log("Creado Enemigo " + enemiesListLv1[i].name);
         }
-    }*/
-    void AddEnemy(EnemyName name, List<Enemy> outputList)
-{
-    Enemy enemy = new Enemy(enemySprites[0], miniSprites[0], "default", 50, 50);
-
-    switch (name)
-    { // ARREGLAR SPRITES DE LOS ENEMIGOS
-  
-        case EnemyName.ENEMIGO1:
-            //enemy = new Enemy(enemySprites[1], "Hadita", 30, 10, 5);
-            enemy = new Enemy(enemySprites[1],miniSprites[0], "Robot 1", 10, 0, 0);
-            break;
-        case EnemyName.ENEMIGO2:
-            //enemy = new Enemy(enemySprites[2], "Hadita con Vestido", 30, 5, 10);
-            enemy = new Enemy(enemySprites[1], miniSprites[0], "Robot 2", 10, 0, 0);
-            break;
-        case EnemyName.ENEMIGO3:
-            //enemy = new Enemy(enemySprites[3], "Fantasma Japones", 45, 0, 0);
-            enemy = new Enemy(enemySprites[1], miniSprites[0], "Robot 3", 10, 0, 0);
-            break;
-        case EnemyName.ENEMIGO4:
-            //enemy = new Enemy(enemySprites[4], "Hadita Azul", 15, 15, 15);
-            enemy = new Enemy(enemySprites[2], miniSprites[0],  "Togaman 1", 10, 0, 0);
-            break;
-        case EnemyName.ENEMIGO5:
-            //enemy = new Enemy(enemySprites[4], "Hadita Azul", 15, 15, 15);
-            enemy = new Enemy(enemySprites[2], miniSprites[0],  "Togaman 2", 10, 0, 0);
-            break;
-        case EnemyName.ENEMIGO6:
-            //enemy = new Enemy(enemySprites[4], "Hadita Azul", 15, 15, 15);
-            enemy = new Enemy(enemySprites[2], miniSprites[0],  "Togaman 3", 10, 0, 0);
-            break;
-        case EnemyName.ENEMIGO7:
-            //enemy = new Enemy(enemySprites[4], "Hadita Azul", 15, 15, 15);
-            enemy = new Enemy(enemySprites[3], miniSprites[0],  "Soldado 1", 10, 0, 0);
-            break;
-        case EnemyName.ENEMIGO8:
-            //enemy = new Enemy(enemySprites[4], "Hadita Azul", 15, 15, 15);
-            enemy = new Enemy(enemySprites[3], miniSprites[0],  "Soldado 2", 10, 0, 0);
-            break;
-        case EnemyName.ENEMIGO9:
-            //enemy = new Enemy(enemySprites[4], "Hadita Azul", 15, 15, 15);
-            enemy = new Enemy(enemySprites[3], miniSprites[0],  "Soldado 3", 10, 0, 0);
-            break;
+        // For lv 2
+        for (int i = 0; i < quantity; i++) // Los del lv 2
+        {
+            AddEnemy((EnemyName)Random.Range(3, 6), enemiesListLv2);
+            //Debug.Log("Creado Enemigo "+ enemiesListLv2[i].name);
+        }
+        // For lv 3
+        for (int i = 0; i < quantity; i++) // Los del lv 3
+        {
+            AddEnemy((EnemyName)Random.Range(6, 9), enemiesListLv3);
+            //Debug.Log("Creado Enemigo "+ enemiesListLv3[i].name);
+        }
     }
-    outputList.Add(enemy);
-    //Debug.Log("Se agrego enemigo " + enemy.name);
-}
-
-// Agrega X enemigos al juego.
-void PopulateGame(int quantity)
-{
-    // For lv 1
-    for(int i = 0; i < quantity; i++) // Los del lv 1
-    {
-        AddEnemy((EnemyName)Random.Range(0, 3), enemiesListLv1); 
-        Debug.Log("Creado Enemigo "+ enemiesListLv1[i].name);
-    }
-    // For lv 2
-    for(int i = 0; i < quantity; i++) // Los del lv 2
-    {
-        AddEnemy((EnemyName)Random.Range(3, 6), enemiesListLv2); 
-        //Debug.Log("Creado Enemigo "+ enemiesListLv2[i].name);
-    }
-    // For lv 3
-    for(int i = 0; i < quantity; i++) // Los del lv 3
-    {
-        AddEnemy((EnemyName)Random.Range(6, 9), enemiesListLv3); 
-        //Debug.Log("Creado Enemigo "+ enemiesListLv3[i].name);
-    }
-}
     void PopulateBosses()
     {
         // Genera los bosses para la peleas
-        Enemy boss1 = new Enemy(enemySprites[5], miniSprites[1], "Jefe1", 60, 10, 10); // Cerbero
-        Enemy boss2 = new Enemy(enemySprites[6], miniSprites[1], "Jefe2", 40, 15, 20); // Jefe 1
-        Enemy boss3 = new Enemy(enemySprites[7], miniSprites[1], "Jefe3", 150, 0, 0); // Jefe 2
+        Enemy boss1 = new Enemy(enemySprites[9], miniSprites[1], "Jefe1", 60, 10, 10); // Cerbero
+        Enemy boss2 = new Enemy(enemySprites[10], miniSprites[1], "Jefe2", 40, 15, 20); // Jefe 1
+        Enemy boss3 = new Enemy(enemySprites[11], miniSprites[1], "Jefe3", 150, 0, 0); // Jefe 2
         // Lo agregamos a la lista.
         bossList.Add(boss1);
         bossList.Add(boss2);

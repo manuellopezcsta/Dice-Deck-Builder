@@ -3528,37 +3528,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1046225834}
   m_CullTransparentMesh: 1
---- !u!1 &1053776188
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1053776189}
-  m_Layer: 0
-  m_Name: GameObject
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &1053776189
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1053776188}
-  serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 1020.2354, y: 552.9964, z: -5.5519223}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1138470565
 GameObject:
   m_ObjectHideFlags: 0
@@ -3768,7 +3737,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_RaycastTarget: 1
+  m_RaycastTarget: 0
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
   m_OnCullStateChanged:
@@ -4658,14 +4627,18 @@ MonoBehaviour:
   enemiesListLv3: []
   bossList: []
   enemySprites:
-  - {fileID: 1952838979, guid: b5d46c107aebdb64ba8c43e570b40cbc, type: 3}
-  - {fileID: 21300000, guid: f04f4f8de11a2544ca8d0a0ca678e2eb, type: 3}
-  - {fileID: 21300000, guid: ce4c2f386cba2954cb697cebf8cc4a7c, type: 3}
-  - {fileID: 21300000, guid: 9a80f43197ec18043af7b954d7730527, type: 3}
-  - {fileID: 21300000, guid: 8c7fcfda473d7044e9779e0d90e5873d, type: 3}
-  - {fileID: 21300000, guid: 853e3cc2675c6134facd6e8deae74c79, type: 3}
-  - {fileID: 21300000, guid: 20b3992720edbcd449a508ca7063d158, type: 3}
-  - {fileID: 21300000, guid: a4405de94343da84bb45f1852cb915e4, type: 3}
+  - {fileID: 21300000, guid: a314bbb370bb9474986f4990b020752e, type: 3}
+  - {fileID: 21300000, guid: 71493fdfcedf78f4286148f02b8790b3, type: 3}
+  - {fileID: 21300000, guid: d81b3140dd29b1548b4e5a35a3a23c91, type: 3}
+  - {fileID: 21300000, guid: f52daa21fa39b4e4a91c5e89c9b1b19e, type: 3}
+  - {fileID: 21300000, guid: b9979f22ebffbac4584f0eda2ec90cda, type: 3}
+  - {fileID: 21300000, guid: f4ff5700155640345938ac14ea1eeac9, type: 3}
+  - {fileID: 21300000, guid: f82e9a13fe7beba419e45de7b7928bb9, type: 3}
+  - {fileID: 21300000, guid: a2934cbae001d354186c1dffee3122a7, type: 3}
+  - {fileID: 21300000, guid: c2e0b9b17fec3854194beb532fe0cc78, type: 3}
+  - {fileID: 21300000, guid: 28777ccdf7f0d8841bd37e1f117a4b9b, type: 3}
+  - {fileID: 21300000, guid: 6083614c86d75a4489697434d430e807, type: 3}
+  - {fileID: 21300000, guid: a683ea7dbf6490e40b2f509916260a3b, type: 3}
   miniSprites:
   - {fileID: 21300000, guid: a9d218a9276c5804084650d9ffb45fb5, type: 3}
   - {fileID: 21300000, guid: de3bcbe92c4ea4742b1446440c702214, type: 3}
@@ -29741,5 +29714,4 @@ SceneRoots:
   - {fileID: 1275695247}
   - {fileID: 1597110515}
   - {fileID: 1591635911}
-  - {fileID: 1053776189}
   - {fileID: 1138470567}
