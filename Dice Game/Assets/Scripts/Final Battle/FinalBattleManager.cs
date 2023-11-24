@@ -6,6 +6,7 @@ using UnityEngine.UI;
 using Unity.VisualScripting;
 using System.Data;
 using System.Net.Security;
+using UnityEngine.SceneManagement;
 
 public class FinalBattleManager : MonoBehaviour
 {
@@ -14,7 +15,8 @@ public class FinalBattleManager : MonoBehaviour
 
     public Player player1;
     public Player player2;
-
+    public Player winner;
+    public static FinalBattleManager finalBattleManager;
     // Elementos de la Interfaz
     [Header("Player 1")]
     [SerializeField] private Image p1Sprite;
@@ -126,7 +128,9 @@ public class FinalBattleManager : MonoBehaviour
     public static FinalBattleManager instance = null;
 
     void Awake()
-    {
+    {   
+        finalBattleManager=this;
+        DontDestroyOnLoad(this.gameObject);//Prevengo que se destruya cuando cambio a la cinematica final para tener al ganador
         //If this script does not exit already, use this current instance
         if (instance == null)
             instance = this;
@@ -371,9 +375,11 @@ public class FinalBattleManager : MonoBehaviour
     // COMPLETAR
     void SwitchToGameOver(Player player) // REHACER
     {
-        textGameOver.text = player.name + " obtiene la banana suprema";
-        SwitchPanels();
-        Debug.Log("PERDISTE, CAMBIANDO A GAME OVER SCREEN");
+        //textGameOver.text = player.name + " obtiene la banana suprema";
+        //SwitchPanels();
+        //Debug.Log("PERDISTE, CAMBIANDO A GAME OVER SCREEN");
+        winner = player;
+        SceneManager.LoadScene("Final");
     }
 
     void SwitchPanels()
