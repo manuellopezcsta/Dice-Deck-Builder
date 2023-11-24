@@ -735,231 +735,315 @@ MonoBehaviour:
     mini: {fileID: 21300000, guid: 90d9c0f4dc5008f4d872919afed81aab, type: 3}
     displayArt: {fileID: 21300000, guid: eeff85745b940c444b3625c7ef2eb614, type: 3}
     textAndChoices:
-    - Esto es un texto sobre historia bla bla
+    - "P1:\u201DIntent\xF3 utilizar esta pizarra pero al parecer alguien inhabilit\xF3
+      sus funciones por alg\xFAn motivo\u201D <br>P2: \u201CQu\xE9 extra\xF1o, \xBFser\xE1
+      el planeta de nuestros captores? Hay mucha informaci\xF3n sobre sus habitantes
+      y algunas palabras escritas en c\xF3digo\u2026\u201D"
     - Continuar
     - '-'
-    - Esta es la segunda parte de la historia
+    - "P1: \u201CCuando escapemos, ese ser\xE1 mi destino. \xA1Destruir\xE9 a cada
+      habitante de ese planeta!\u201D <br>P2: \u201CPrimero ocup\xE9monos de salir
+      de este lugar!\u201D"
   - name: historia2
     modifier: 0
     mini: {fileID: 21300000, guid: 90d9c0f4dc5008f4d872919afed81aab, type: 3}
     displayArt: {fileID: 21300000, guid: eeff85745b940c444b3625c7ef2eb614, type: 3}
     textAndChoices:
-    - Esto es un texto sobre historia bla bla
+    - "P2: \u201CParece que llegamos tarde\u2026 Alguien estuvo por aqu\xED y destruy\xF3
+      todo\u201D <br>P1:\u201DEspera, ese extra\xF1o dispositivo parece estar intacto,
+      Veamos que hay aqu\xED\u201D"
     - Continuar
     - '-'
-    - Esta es la segunda parte de la historia
+    - "P2:\u201D...\u201D <br>P1:\u201DHmmmm esto parece ser un plano/boceto de un
+      arma\u2026 Pero no es cualquier arma, esta tecnolog\xEDa es\u2026 Simplemente
+      algo que nunca hab\xEDa visto\u2026\u201D"
   - name: historia3
     modifier: 0
     mini: {fileID: 21300000, guid: 90d9c0f4dc5008f4d872919afed81aab, type: 3}
     displayArt: {fileID: 21300000, guid: eeff85745b940c444b3625c7ef2eb614, type: 3}
     textAndChoices:
-    - Esto es un texto sobre historia bla bla
+    - "P1: \u201CCrees que podremos recolectar informaci\xF3n importante?\u201D <br>P2:
+      \u201CYa lo veremos\u201D <br>Al registrar la zona podemos ver un periodo corto
+      de grabaci\xF3n. Los archivos fueron da\xF1ados por alg\xFAn virus inform\xE1tico.
+      El video enfoca un humanoide desconocido que al parecer est\xE1 borrando informaci\xF3n
+      de los servidores a la vez que sabotea los sistemas de seguridad del lugar."
     - Continuar
     - '-'
-    - Esta es la segunda parte de la historia
+    - "P2: \u201CParece ser que alguien se encarg\xF3 de sabotear la seguridad desde
+      adentro\u2026\u201D P1:\u201DLo extra\xF1o es que nadie lo detuvo, parece ser
+      una tarea que requiere mucho tiempo, alguien debi\xF3 haberlo visto\u201D <br>P2:\u201DNo
+      solo eso, sabe exactamente c\xF3mo desactivar un sistema de seguridad as\xED
+      de complejo. \xBFNo te parece raro? Guarda este personaje en tu recuerdo, algo
+      me dice que lo volveremos a ver\u2026\u201D"
   - name: historia4
     modifier: 0
     mini: {fileID: 21300000, guid: 90d9c0f4dc5008f4d872919afed81aab, type: 3}
     displayArt: {fileID: 21300000, guid: eeff85745b940c444b3625c7ef2eb614, type: 3}
     textAndChoices:
-    - Esto es un texto sobre historia bla bla
+    - "Encontramos dentro de un casillero una foto de una androide pegada con cintas
+      en el reverso de la puerta , que al parecer fue arrancada, Pareciera no tener
+      nada hasta que vemos el reverso. All\xED hay una nota que dice: "
     - Continuar
     - '-'
-    - Esta es la segunda parte de la historia
+    - "\u201CEspero que esta guerra termine pronto y la operaci\xF3n que llevamos
+      adelante sea exitosa. Cuidate y recuerda, sus peores enemigos son ellos mismos,
+      solo debemos actuar en casos inevitables\u201D"
   - name: historia5
     modifier: 0
     mini: {fileID: 21300000, guid: 90d9c0f4dc5008f4d872919afed81aab, type: 3}
     displayArt: {fileID: 21300000, guid: eeff85745b940c444b3625c7ef2eb614, type: 3}
     textAndChoices:
-    - Esto es un texto sobre historia bla bla
+    - "P1: \"Eso es...\" <br>P2: \"Un mapa.\" <br>Al activar el dispositivo es el
+      plano del centro de investigaciones, donde se se\xF1aliza la zona de hangares
+      haciendo referencia a que ah\xED est\xE1n las naves."
     - Continuar
     - '-'
-    - Esta es la segunda parte de la historia
+    - 'P2: "Tenemos un destino..."'
   - name: historia6
     modifier: 0
     mini: {fileID: 21300000, guid: 90d9c0f4dc5008f4d872919afed81aab, type: 3}
     displayArt: {fileID: 21300000, guid: eeff85745b940c444b3625c7ef2eb614, type: 3}
     textAndChoices:
-    - Esto es un texto sobre historia bla bla
+    - "P2: \u201CParece que en esta habitaci\xF3n estuvieron realizando extra\xF1os
+      experimentos\u201D <br>P1: \u201CDe que se trata todo esto? Parece que estaban
+      trabajando en equipo de manera remota? \xBFQui\xE9n es ese personaje siniestro?\u201D"
     - Continuar
     - '-'
-    - Esta es la segunda parte de la historia
+    - "P2: \u201CNo lo se pero no logro entender estas anotaciones, solo entiendo
+      que existe una especie de chip con el cual est\xE1n realizando ciertas pruebas\u201D"
   - name: historia7
     modifier: 0
     mini: {fileID: 21300000, guid: 90d9c0f4dc5008f4d872919afed81aab, type: 3}
     displayArt: {fileID: 21300000, guid: eeff85745b940c444b3625c7ef2eb614, type: 3}
     textAndChoices:
-    - Esto es un texto sobre historia bla bla
+    - "P1: \u201Cqu\xE9 es esto? Parece una especie de simulaci\xF3n\u201D <br>P2:
+      \u201Cinteresante parecen estar preparando una invasi\xF3n\u2026\u201D"
     - Continuar
     - '-'
-    - Esta es la segunda parte de la historia
+    - "P1: \u201Co tal vez preparan la defensa ante un evento de ese indole\u201D
+      <br>P1: \u201CDe cualquier forma, estas personas parecen estar preparados para
+      una guerra interplanetaria\u201D"
   - name: historia8
     modifier: 0
     mini: {fileID: 21300000, guid: 90d9c0f4dc5008f4d872919afed81aab, type: 3}
     displayArt: {fileID: 21300000, guid: eeff85745b940c444b3625c7ef2eb614, type: 3}
     textAndChoices:
-    - Esto es un texto sobre historia bla bla
+    - "P1: \u201CEste sitio se pone cada vez m\xE1s intrigante, qu\xE9 tipo de informaci\xF3n
+      y experimentos est\xE1n llevando a cabo con esta especie?\u201D <br>P2: \u201CTiene
+      que haber una raz\xF3n por la que est\xE1n investigando este tipo de alien\xEDgenas,
+      son varios de la misma especie\u201D"
     - Continuar
     - '-'
-    - Esta es la segunda parte de la historia
+    - "P1: \u201CDe qu\xE9 planeta provienen? Debe haber algo que nos ayude a entender."
   - name: historia9
     modifier: 0
     mini: {fileID: 21300000, guid: 90d9c0f4dc5008f4d872919afed81aab, type: 3}
     displayArt: {fileID: 21300000, guid: eeff85745b940c444b3625c7ef2eb614, type: 3}
     textAndChoices:
-    - Esto es un texto sobre historia bla bla
+    - "P1:\u201DAcaso este cad\xE1ver no es similar al ejemplar que vimos en los
+      tubos criog\xE9nicos?\u201D <br>P2:\u201DDeben pertenecer a la misma especie,
+      esto es extra\xF1o, creo que pudo haber escapado de ser objeto de estos experimentos
+      y lo descubrieron \u201D"
     - Continuar
     - '-'
-    - Esta es la segunda parte de la historia
+    - "P1:\u201DNo crees que tambi\xE9n puede ser que haya venido a rescatar a sus
+      pares? De cualquier forma, tenemos que encontrar la salida de este lugar. \xA1YA!\u201D"
   allPossibleEvents:
   - name: buff1
     modifier: 0
     mini: {fileID: 21300000, guid: ee1df3ae0f84e334d949c625800fe16a, type: 3}
     displayArt: {fileID: 21300000, guid: ecc5452d0961a674db0e52b3dfff7d5d, type: 3}
     textAndChoices:
-    - Te encuentras con una manzana de aspecto curioso en tu camino. Que deseas hacer?
-    - Comerla
-    - No Comerla
-    - La manzana tenia propiedades curativas, y recuperaste HP!
-    - La manzana estaba envenenada, por lo que sufres dano !
-    - Decides no comer la manzana y sigues tu camino.
+    - Encuentras un suero experimental en un laboratorio abandonado.
+    - Inyectar suero
+    - Romperlo
+    - Ves una vena palpitar y lo inyectas sin dudarlo. Al mirar Notas una etiqueta
+      que dice "Suero curativo".(+Hp)
+    - Ves una vena palpitar y lo inyectas sin dudarlo. Al mirar Notas una etiqueta
+      que dice "Virus 8.a".(-Hp)
+    - Dudas de su contenido y rompes el inyectable contra el suelo.
   - name: buff2
     modifier: 0
     mini: {fileID: 21300000, guid: ee1df3ae0f84e334d949c625800fe16a, type: 3}
     displayArt: {fileID: 21300000, guid: 681efd06ba639ed4597d9e5aaa575c8d, type: 3}
     textAndChoices:
-    - Estabas caminando cuando de la nada salta un enemigo y te insulta!
-    - Imponer respeto
-    - Ignorarlo
-    - Logras ponerlo en su lugar y seguir tu camino
-    - El enemigo te pega por tratar de defenderte y sufres dano
-    - Simplemente lo ignoras y te vas.
+    - Ves una armadura brillante y te tientas a equiparla
+    - Equipar
+    - Seguir camino
+    - Al tacto notas la alta tecnologia y al equiparla se amolda a tu cuerpo. (+Armadura)
+    - Al tacto no notas nada especial pero al equiparla sientes como su peso lleva
+      tu cuerpo hacia abajo y no deja moverte libremente (-Armadura)
+    - No confias en la tecnologia alienigena y solo pasas por su lado.
   - name: buff3
     modifier: 0
     mini: {fileID: 21300000, guid: ee1df3ae0f84e334d949c625800fe16a, type: 3}
     displayArt: {fileID: 21300000, guid: 8c6bf0d440562a6408d119305ff89542, type: 3}
     textAndChoices:
-    - Te encuestras con un objeto extrano en tu camino, pareciera una pieza de armadura.
-      Que deseas hacer?
-    - Equipartela
-    - Dejarla ahi
-    - Te queda perfecta! Te sientes mas duro y resistente. Has ganado armadura!
-    - Vez un resplandor maligno salir de la armadura, parece ser que estaba maldita,
-      y pierdes puntos de armadura
-    - Simplemente ignoras la armadura y te vas.
+    - "Te encuentras con una fuente m\xE1gica de energ\xEDa.  "
+    - Beber
+    - No beber
+    - Sientes un sabor familiar, el dulsor del contenido atrae un poder magico (+MR)
+    - Sientes un sabor familiar, un gusto indescriptible inunda tu ser e intentas
+      sacarlo de inmediato (-MR)
+    - '"No bebere nada que no haya preparado con mis manos"'
   - name: buff4
     modifier: 0
     mini: {fileID: 21300000, guid: ee1df3ae0f84e334d949c625800fe16a, type: 3}
     displayArt: {fileID: 21300000, guid: a8dc153b51068d34faf07d58afd993e9, type: 3}
     textAndChoices:
-    - Te encuentras una capa que pareciera ser de alguna clase de hechizero. Que
-      deseas hacer?
-    - Equiparte la capa
-    - Dejarla ahi
-    - Al colocarte la capa, sientes una fuerza surgir en tu interior, ahora eres
-      mas resistente a la magia! Ganas MR
-    - No deberias robar las cosas de los demas, aparece su dueno y te tira una maldicion
-      que te quita puntos de MR
-    - Decides ignorar la capa y seguir tu camino.
+    - Encuentras un objeto el cual crees podria ser un dispositivo de camuflaje.
+    - Lo tocas
+    - Continuas
+    - El tacto hace notar su poder y rapidamente sientes como tu resistencia aumenta
+      al equiparlo(+Arm +MR)
+    - Al sentir su textura corta tus manos y lo sueltas (-HP)
+    - Notas un brillo al alejarte y cuando te giras a ver el objeto se desintegra
+      ante tus ojos.
   - name: buff5
     modifier: 0
     mini: {fileID: 21300000, guid: ee1df3ae0f84e334d949c625800fe16a, type: 3}
     displayArt: {fileID: 21300000, guid: 58445a1d302e3234c8c0ac2219ca2c06, type: 3}
     textAndChoices:
-    - Esto es texto sobre la historia bla bla bla
-    - Continuar
-    - '-'
-    - Esta es la segunda parte de la historia
+    - "Encontramos una c\xE1psula de energ\xEDa."
+    - Abrir la capsula
+    - Seguir tu  camino
+    - La capsula te recuerda a una cabina de regeneracion, por suerte lo es.(+HP)
+    - La capsula te recuerda a una cabina de regeneracion, ingresas y sientes el
+      cuerpo arder (-HP)
+    - Al pasarle por al lado ves chispas saltar, tu cuerpo agradece el no cometer
+      un error.
   - name: buff6
     modifier: 0
     mini: {fileID: 21300000, guid: ee1df3ae0f84e334d949c625800fe16a, type: 3}
     displayArt: {fileID: 21300000, guid: e13f9b888a97f0a458b848bd52bc520b, type: 3}
     textAndChoices:
-    - Esto es un evento forzado sobre una trampa, tendras suerte ??
-    - Continuar
-    - '-'
-    - Tuviste suerte ! No paso nada
-    - No tuviste suerte :c. Te comes la trampa
+    - 'Encuentras un amuleto encantado. '
+    - Tomarlo
+    - Dejarlo
+    - "Te colocas el amuleto y sientes un pinchazo en la mu\xF1eca. Un aura te recorre
+      el cuerpo pero sientes tu cuerpo debil(+MR -ARM)"
+    - Te colocas el amuleto y cual sanguijuela sientes como absorbe un poco de tu
+      energia (-MR)
+    - Miras con recelo el amuleto pero sigues tu camino
   - name: buff7
     modifier: 0
     mini: {fileID: 21300000, guid: ee1df3ae0f84e334d949c625800fe16a, type: 3}
     displayArt: {fileID: 21300000, guid: 82c25680ec20f7d4696f4b4983178c59, type: 3}
     textAndChoices:
-    - Esto es un evento forzado sobre una trampa, tendras suerte ??
-    - Continuar
-    - '-'
-    - Tuviste suerte ! No paso nada
-    - No tuviste suerte :c. Te comes la trampa
+    - "Te encuentras con una inyecci\xF3n experimental que contiene una etiqueta
+      que dice \"mejoramiento gen\xE9tico\"."
+    - Inyectar
+    - Seguir
+    - Buscas informacion sobre la inyeccion y sin suerte pruebas su contenido. El
+      cuerpo te empieza a temblar y notas tus brazos, piernas y pecho hincharze por
+      la circulacion de la sangre (ARM a max)
+    - Buscas informacion sobre la inyeccion y sin suerte pruebas su contenido. Sientes
+      tu corazon bombear de manera descontrolada, lo cual te asusta y baja tus defenzas
+      al maximo (ARM a 0)
+    - Dejas ir la inyeccion creyendo que no sera la unica que te encuentres.
   - name: forcedTrampa1
     modifier: 0
     mini: {fileID: 21300000, guid: ee1df3ae0f84e334d949c625800fe16a, type: 3}
     displayArt: {fileID: 21300000, guid: d7470c8167391974687d515d788f2796, type: 3}
     textAndChoices:
-    - Esto es un evento forzado sobre una trampa, tendras suerte ??
-    - Continuar
+    - "En una sala de pruebas asfixiante, el veneno del gas t\xF3xico se desliza
+      insidiosamente entre los personajes, quienes se ven obligados a encontrar una
+      salida antes de que sus pulmones se consuman en una danza mortal, lo que hace
+      que vayas cuerpo a tierra."
+    - Buscar una salida
     - '-'
-    - Tuviste suerte ! No paso nada
-    - No tuviste suerte :c. Te comes la trampa
+    - Te levantas por un momento para tener mayor vision y logras ver como el veneno
+      va hacia una puerta, corres a ella, entras y la cierras.
+    - "Te levantas por un momento para tener mayor vision, escuchas un ruido y corres
+      a el, con la desgracia de que era una puerta cerrada. La abres a la fuerza
+      pero te da\xF1as los brazos.(-HP)"
   - name: forcedTrampa2
     modifier: 0
     mini: {fileID: 21300000, guid: ee1df3ae0f84e334d949c625800fe16a, type: 3}
     displayArt: {fileID: 21300000, guid: 57bef200776cb044093cb6ace9de4cd4, type: 3}
     textAndChoices:
-    - Esto es un evento forzado sobre una trampa, tendras suerte ??
-    - Continuar
+    - "El pasillo se convierte en un ballet de sombras mortales, donde los l\xE1seres
+      de seguridad destellan como estrellas fugaces."
+    - Intentas llegar al otro lado
     - '-'
-    - Tuviste suerte ! No paso nada
-    - No tuviste suerte :c. Te comes la trampa
+    - "Los personajes, con una concentraci\xF3n casi sobrehumana, se deslizan entre
+      los haces de luz, desafiando el destino."
+    - "Intentas pasar entre los los laseres pero antes de llegar al final, uno te
+      toca la pierna y da\xF1a tu escudo magico(-MR)"
   - name: forcedTrampa3
     modifier: 0
     mini: {fileID: 21300000, guid: ee1df3ae0f84e334d949c625800fe16a, type: 3}
     displayArt: {fileID: 21300000, guid: 8aa2a8cdd6475e844a44f8597a64fd2d, type: 3}
     textAndChoices:
-    - Esto es un evento forzado sobre una trampa, tendras suerte ??
-    - Continuar
+    - "Tus ojos muestran temor al notar la habitaci\xF3n electrificada. Los suelos
+      se convierten en un tablero impredecible de peligro. Debes buscar la forma
+      de salir de esta.  Cada paso es una apuesta, mientras luchan por mantener su
+      equilibrio en este campo de tormento."
+    - Avanza
     - '-'
-    - Tuviste suerte ! No paso nada
-    - No tuviste suerte :c. Te comes la trampa
+    - "Miras el suelo y notas zonas liberadas. Una a una caminas cuidadosamente y
+      sales airoso de la habitaci\xF3n"
+    - "Corres sin dudar hacia la salida pero las descargas el\xE9ctricas serpentean
+      caprichosamente, causando da\xF1o y despojando a los personajes de su defensa
+      m\xE1gica. (-HP - MR)"
   - name: forcedTrampa4
     modifier: 0
     mini: {fileID: 21300000, guid: ee1df3ae0f84e334d949c625800fe16a, type: 3}
     displayArt: {fileID: 21300000, guid: 850334b1d806f4e428162ed97d80fc39, type: 3}
     textAndChoices:
-    - Esto es un evento forzado sobre una trampa, tendras suerte ??
-    - Continuar
+    - 'Un sistema de seguridad implacable bloquea las puertas, mientras llamas emergen
+      de las paredes como guardianes ardientes. '
+    - Intentar apagar el fuego
     - '-'
-    - Tuviste suerte ! No paso nada
-    - No tuviste suerte :c. Te comes la trampa
+    - Luego de varios intentos fallidos, realizas un topetazo a la puerta en llamas
+      poniendo tu cuerpo en peligro. Por suerte la puerta se abre y sales ileso.
+    - "Luego de varios intentos fallidos, realizas un topetazo a la puerta en llamas
+      poniendo tu cuerpo en peligro. Por desgracia el fuego abrasador recalienta
+      su armadura y les causa da\xF1o (-ARM -HP)"
   - name: forcedTrampa5
     modifier: 0
     mini: {fileID: 21300000, guid: ee1df3ae0f84e334d949c625800fe16a, type: 3}
     displayArt: {fileID: 21300000, guid: 8dcc9e98d69bb9e48b76edb987af2503, type: 3}
     textAndChoices:
-    - Esto es un evento forzado sobre una trampa, tendras suerte ??
-    - Continuar
+    - "El laberinto de espejos es un enga\xF1oso enigma, donde los personajes se
+      enfrentan a sus propias im\xE1genes distorsionadas."
+    - Buscar la salida
     - '-'
-    - Tuviste suerte ! No paso nada
-    - No tuviste suerte :c. Te comes la trampa
+    - Cierran los ojos y poniendo la atencion en sus sentidos comienzan a buscar
+      una salida. Uno la encuentra y ambos salen airosos de la situacion.
+    - "La confusi\xF3n se apodera de ellos, llev\xE1ndolos a colisiones violentas,
+      mientras el reflejo de sus propias luchas les inflige da\xF1o a ambos. (-HP)"
   - name: forcedTrampa6
     modifier: 0
     mini: {fileID: 21300000, guid: ee1df3ae0f84e334d949c625800fe16a, type: 3}
     displayArt: {fileID: 21300000, guid: a54886e0ba9ae34438d6e20c3d98bc41, type: 3}
     textAndChoices:
-    - Esto es un evento forzado sobre una trampa, tendras suerte ??
-    - Continuar
+    - "La habitaci\xF3n se sumerge en un abrazo g\xE9lido, mientras el agua helada
+      se eleva r\xE1pidamente. "
+    - Aguantar el frio
     - '-'
-    - Tuviste suerte ! No paso nada
-    - No tuviste suerte :c. Te comes la trampa
+    - Ponen en movimiento el cuerpo permitiendo que la sangre fluya y las articulaciones
+      no se congelen, esto en conjunto con sus escudos magicos hacen que pasen el
+      frio como si fuese una brisa.
+    - Los personajes luchan por mantener su enfoque y el calor en sus cuerpos, recuerdan
+      que los escudos magicos generan calor y los utilizan para no congelarse.(-MR)
   - name: forcedTrampa7
     modifier: 0
     mini: {fileID: 21300000, guid: ee1df3ae0f84e334d949c625800fe16a, type: 3}
     displayArt: {fileID: 21300000, guid: 58603f235222e9b43acb7b4a3d4324dd, type: 3}
     textAndChoices:
-    - Esto es un evento forzado sobre una trampa, tendras suerte ??
-    - Continuar
+    - "Un campo energ\xE9tico oscuro y opresivo rodea la sala, envolviendo a los
+      personajes en una sensaci\xF3n de pesadez y debilidad. Cada paso se vuelve
+      m\xE1s lento, cada defensa se debilita, mientras el campo les arrebata su fortaleza
+      f\xEDsica, dej\xE1ndolos vulnerables a los peligros que acechan en las sombras."
+    - Caminar en las sombras
     - '-'
-    - Tuviste suerte ! No paso nada
-    - No tuviste suerte :c. Te comes la trampa
+    - Por suerte las voces provenientes de las sombras, solo eran parte de tu imaginacion,
+      notas una salida y corres a ella desesperado.
+    - Al avansar sientes los pies apresados al piso y notas manos salir de las sombras
+      intentando agarrarte. Unas garras te toman por los hombros y desgarran tu piel,
+      lo cual despierta tu instinto de supervivencia y corres hacia adelante encontrando
+      una salida. (-HP)
 --- !u!1 &364070878
 GameObject:
   m_ObjectHideFlags: 0

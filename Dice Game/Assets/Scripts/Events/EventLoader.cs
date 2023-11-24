@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using TMPro;
+using UnityEditor;
 using UnityEngine;
 using UnityEngine.UI;
 using Random = UnityEngine.Random;
@@ -15,7 +16,7 @@ public class EventLoader : MonoBehaviour
     [SerializeField] Button boton1;
     [SerializeField] Button boton2;
     [SerializeField] Button botonVolver;
-    int modifierRange = 7; // Se usa para el rango de efecto.
+    int modifierRange = 4; // Se usa para el rango de efecto.
 
     void OnEnable()
     {
@@ -88,7 +89,7 @@ public class EventLoader : MonoBehaviour
 
         switch (evento.name)
         {
-            case "buff1":  // Te curas o tomas dano perforante.
+            case "buff1":  // Te curas o tomas dano 
                 if (goodEnding)
                 {
                     // Cambiamos la descripcion del evento con lo que paso.
@@ -104,19 +105,7 @@ public class EventLoader : MonoBehaviour
                 }
                 break;
             case "buff2":
-                if (goodEnding) // Logras esquivar el dano
-                {
-                    description.text = evento.textAndChoices[3];
-                }
-                else
-                { // Te comes el da;o
-                    description.text = evento.textAndChoices[4];
-                    player1.currentHp = Mathf.Clamp(player1.currentHp - evento.modifier, 1, player1.MaxHp);
-                    player2.currentHp = Mathf.Clamp(player2.currentHp - evento.modifier, 1, player2.MaxHp);
-                }
-                break;
-            case "buff3": // Ganas o perdes armadura
-                if (goodEnding)
+                if (goodEnding) // ARMADURA O NO
                 {
                     description.text = evento.textAndChoices[3];
                     player1.armour = Mathf.Clamp(player1.armour + evento.modifier, 0, player1.maxArmour);
@@ -125,64 +114,82 @@ public class EventLoader : MonoBehaviour
                 else
                 {
                     description.text = evento.textAndChoices[4];
-                    player1.armour = Mathf.Clamp(player1.armour - evento.modifier, 1, player1.maxArmour);
-                    player2.armour = Mathf.Clamp(player2.armour - evento.modifier, 1, player2.maxArmour);
+                    player1.armour = Mathf.Clamp(player1.armour - evento.modifier, 0, player1.maxArmour);
+                    player2.armour = Mathf.Clamp(player2.armour - evento.modifier, 0, player2.maxArmour);
+                }
+                break;
+            case "buff3": // MR O NO
+                if (goodEnding)
+                {
+                    description.text = evento.textAndChoices[3];
+                    player1.mArmour = Mathf.Clamp(player1.mArmour + evento.modifier, 0, player1.maxMArmour);
+                    player2.mArmour = Mathf.Clamp(player2.mArmour + evento.modifier, 0, player2.maxMArmour);
+                }
+                else
+                {
+                    description.text = evento.textAndChoices[4];
+                    player1.mArmour = Mathf.Clamp(player1.mArmour - evento.modifier, 0, player1.maxMArmour);
+                    player2.mArmour = Mathf.Clamp(player2.mArmour - evento.modifier, 0, player2.maxMArmour);
                 }
                 break;
             case "buff4":
-                if (goodEnding) // Ganas o perdes mr
+                if (goodEnding) // MR Y ARM O HP
                 {
                     description.text = evento.textAndChoices[3];
+                    player1.armour = Mathf.Clamp(player1.armour + evento.modifier, 0, player1.maxArmour);
+                    player2.armour = Mathf.Clamp(player2.armour + evento.modifier, 0, player2.maxArmour);
                     player1.mArmour = Mathf.Clamp(player1.mArmour + evento.modifier, 0, player1.maxMArmour);
                     player2.mArmour = Mathf.Clamp(player2.mArmour + evento.modifier, 0, player2.maxMArmour);
                 }
                 else
                 {
                     description.text = evento.textAndChoices[4];
-                    player1.mArmour = Mathf.Clamp(player1.mArmour - evento.modifier, 1, player1.maxMArmour);
-                    player2.mArmour = Mathf.Clamp(player2.mArmour - evento.modifier, 1, player2.maxMArmour);
+                    player1.currentHp = Mathf.Clamp(player1.currentHp - evento.modifier, 1, player1.MaxHp);
+                    player2.currentHp = Mathf.Clamp(player2.currentHp - evento.modifier, 1, player2.MaxHp);
                 }
                 break;
             case "buff5":
-                if (goodEnding) // Ganas o perdes mr
+                if (goodEnding) // HP
                 {
                     description.text = evento.textAndChoices[3];
-                    player1.mArmour = Mathf.Clamp(player1.mArmour + evento.modifier, 0, player1.maxMArmour);
-                    player2.mArmour = Mathf.Clamp(player2.mArmour + evento.modifier, 0, player2.maxMArmour);
+                    player1.currentHp = Mathf.Clamp(player1.currentHp + evento.modifier, 0, player1.MaxHp);
+                    player2.currentHp = Mathf.Clamp(player2.currentHp + evento.modifier, 0, player2.MaxHp);
                 }
                 else
                 {
                     description.text = evento.textAndChoices[4];
-                    player1.mArmour = Mathf.Clamp(player1.mArmour - evento.modifier, 1, player1.maxMArmour);
-                    player2.mArmour = Mathf.Clamp(player2.mArmour - evento.modifier, 1, player2.maxMArmour);
+                    player1.currentHp = Mathf.Clamp(player1.currentHp - evento.modifier, 0, player1.MaxHp);
+                    player2.currentHp = Mathf.Clamp(player2.currentHp - evento.modifier, 0, player2.MaxHp);
                 }
                 break;
             case "buff6":
-                if (goodEnding) // Ganas o perdes mr
+                if (goodEnding) // +MR - AR O -MR
                 {
                     description.text = evento.textAndChoices[3];
                     player1.mArmour = Mathf.Clamp(player1.mArmour + evento.modifier, 0, player1.maxMArmour);
                     player2.mArmour = Mathf.Clamp(player2.mArmour + evento.modifier, 0, player2.maxMArmour);
+                    player1.armour = Mathf.Clamp(player1.armour - evento.modifier, 0, player1.maxArmour);
+                    player2.armour = Mathf.Clamp(player2.armour - evento.modifier, 0, player2.maxArmour);
                 }
                 else
                 {
                     description.text = evento.textAndChoices[4];
-                    player1.mArmour = Mathf.Clamp(player1.mArmour - evento.modifier, 1, player1.maxMArmour);
-                    player2.mArmour = Mathf.Clamp(player2.mArmour - evento.modifier, 1, player2.maxMArmour);
+                    player1.mArmour = Mathf.Clamp(player1.mArmour - evento.modifier, 0, player1.maxMArmour);
+                    player2.mArmour = Mathf.Clamp(player2.mArmour - evento.modifier, 0, player2.maxMArmour);
                 }
                 break;
             case "buff7":
-                if (goodEnding) // Ganas o perdes mr
+                if (goodEnding) //ARM to MAX o 0
                 {
                     description.text = evento.textAndChoices[3];
-                    player1.mArmour = Mathf.Clamp(player1.mArmour + evento.modifier, 0, player1.maxMArmour);
-                    player2.mArmour = Mathf.Clamp(player2.mArmour + evento.modifier, 0, player2.maxMArmour);
+                    player1.armour = player1.maxArmour;
+                    player2.armour = player2.maxArmour;
                 }
                 else
                 {
                     description.text = evento.textAndChoices[4];
-                    player1.mArmour = Mathf.Clamp(player1.mArmour - evento.modifier, 1, player1.maxMArmour);
-                    player2.mArmour = Mathf.Clamp(player2.mArmour - evento.modifier, 1, player2.maxMArmour);
+                    player1.armour = 0;
+                    player2.armour = 0;
                 }
                 break;
             case "historia1": // Un evento de historia comun
@@ -221,27 +228,31 @@ public class EventLoader : MonoBehaviour
                 description.text = evento.textAndChoices[3]; // Siempre sale el primer texto..
                 GameManager.instance.secretEndingCounter += 1;
                 break;
-            case "focedTrampa1": // Un evento de trampa forzado.
+            case "forcedTrampa1": // Un evento de trampa forzado.
                 if (goodEnding) // Safas o no de la trampra.
                 {
                     description.text = evento.textAndChoices[3]; // Safaste
                 }
                 else
                 {
-                    description.text = evento.textAndChoices[4];
+                    description.text = evento.textAndChoices[4]; // -HP
+                    player1.currentHp = Mathf.Clamp(player1.currentHp - evento.modifier, 0, player1.MaxHp);
+                    player2.currentHp = Mathf.Clamp(player2.currentHp - evento.modifier, 0, player2.MaxHp);
                 }
                 break;
-            case "focedTrampa2": // Un evento de trampa forzado.
+            case "forcedTrampa2": // Un evento de trampa forzado.
                 if (goodEnding) // Safas o no de la trampra.
                 {
                     description.text = evento.textAndChoices[3]; // Safaste
                 }
                 else
                 {
-                    description.text = evento.textAndChoices[4];
+                    description.text = evento.textAndChoices[4]; // - MR
+                    player1.armour = Mathf.Clamp(player1.armour - evento.modifier, 0, player1.maxMArmour);
+                    player2.armour = Mathf.Clamp(player2.armour - evento.modifier, 0, player2.maxMArmour);
                 }
                 break;
-            case "focedTrampa3": // Un evento de trampa forzado.
+            case "forcedTrampa3": // Un evento de trampa forzado.
                 if (goodEnding) // Safas o no de la trampra.
                 {
                     description.text = evento.textAndChoices[3]; // Safaste
@@ -249,9 +260,13 @@ public class EventLoader : MonoBehaviour
                 else
                 {
                     description.text = evento.textAndChoices[4];
+                    player1.currentHp = Mathf.Clamp(player1.currentHp - evento.modifier, 0, player1.MaxHp);
+                    player2.currentHp = Mathf.Clamp(player2.currentHp - evento.modifier, 0, player2.MaxHp);
+                    player1.armour = Mathf.Clamp(player1.armour - evento.modifier, 0, player1.maxMArmour);
+                    player2.armour = Mathf.Clamp(player2.armour - evento.modifier, 0, player2.maxMArmour);
                 }
                 break;
-            case "focedTrampa4": // Un evento de trampa forzado.
+            case "forcedTrampa4": // Un evento de trampa forzado.
                 if (goodEnding) // Safas o no de la trampra.
                 {
                     description.text = evento.textAndChoices[3]; // Safaste
@@ -259,9 +274,13 @@ public class EventLoader : MonoBehaviour
                 else
                 {
                     description.text = evento.textAndChoices[4];
+                    player1.currentHp = Mathf.Clamp(player1.currentHp - evento.modifier, 0, player1.MaxHp);
+                    player2.currentHp = Mathf.Clamp(player2.currentHp - evento.modifier, 0, player2.MaxHp);
+                    player1.armour = Mathf.Clamp(player1.armour - evento.modifier, 0, player1.maxArmour);
+                    player2.armour = Mathf.Clamp(player2.armour - evento.modifier, 0, player2.maxArmour);
                 }
                 break;
-            case "focedTrampa5": // Un evento de trampa forzado.
+            case "forcedTrampa5": // Un evento de trampa forzado.
                 if (goodEnding) // Safas o no de la trampra.
                 {
                     description.text = evento.textAndChoices[3]; // Safaste
@@ -269,9 +288,11 @@ public class EventLoader : MonoBehaviour
                 else
                 {
                     description.text = evento.textAndChoices[4];
+                    player1.currentHp = Mathf.Clamp(player1.currentHp - evento.modifier, 0, player1.MaxHp);
+                    player2.currentHp = Mathf.Clamp(player2.currentHp - evento.modifier, 0, player2.MaxHp);
                 }
                 break;
-            case "focedTrampa6": // Un evento de trampa forzado.
+            case "forcedTrampa6": // Un evento de trampa forzado.
                 if (goodEnding) // Safas o no de la trampra.
                 {
                     description.text = evento.textAndChoices[3]; // Safaste
@@ -279,9 +300,11 @@ public class EventLoader : MonoBehaviour
                 else
                 {
                     description.text = evento.textAndChoices[4];
+                    player1.armour = Mathf.Clamp(player1.armour - evento.modifier, 0, player1.maxMArmour);
+                    player2.armour = Mathf.Clamp(player2.armour - evento.modifier, 0, player2.maxMArmour);
                 }
                 break;
-            case "focedTrampa7": // Un evento de trampa forzado.
+            case "forcedTrampa7": // Un evento de trampa forzado.
                 if (goodEnding) // Safas o no de la trampra.
                 {
                     description.text = evento.textAndChoices[3]; // Safaste
@@ -289,7 +312,12 @@ public class EventLoader : MonoBehaviour
                 else
                 {
                     description.text = evento.textAndChoices[4];
+                    player1.currentHp = Mathf.Clamp(player1.currentHp - evento.modifier, 0, player1.MaxHp);
+                    player2.currentHp = Mathf.Clamp(player2.currentHp - evento.modifier, 0, player2.MaxHp);
                 }
+                break;
+            default:
+                description.text = "REVISAR NOMBRE DE EVENTOS, SE ROMPIO ALGO, ENTRO AL DEFAULT";
                 break;
         }
     }

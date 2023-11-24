@@ -315,17 +315,17 @@ public class GameManager : MonoBehaviour
                 break;
             // PARA LOS EVENTOS DE HISTORIA
             case 3: // Mapa de nodos 2
-                //combatesYEventos[2] = EventManager.instance.storyEventList[0];
-                //combatesYEventos[9] = EventManager.instance.storyEventList[1];
-                //combatesYEventos[7] = EventManager.instance.storyEventList[2];
+                combatesYEventos[2] = EventManager.instance.storyEventList[0];
+                combatesYEventos[9] = EventManager.instance.storyEventList[1];
+                combatesYEventos[7] = EventManager.instance.storyEventList[2];
                 break;
             case 6: // Mapa de nodos 3
-                //combatesYEventos[2] = EventManager.instance.storyEventList[3];
-                //combatesYEventos[8] = EventManager.instance.storyEventList[4];
-                //combatesYEventos[11] = EventManager.instance.storyEventList[5];
-                //combatesYEventos[14] = EventManager.instance.storyEventList[6];
-                //combatesYEventos[17] = EventManager.instance.storyEventList[7];
-                //combatesYEventos[20] = EventManager.instance.storyEventList[8];
+                combatesYEventos[2] = EventManager.instance.storyEventList[3];
+                combatesYEventos[8] = EventManager.instance.storyEventList[4];
+                combatesYEventos[11] = EventManager.instance.storyEventList[5];
+                combatesYEventos[14] = EventManager.instance.storyEventList[6];
+                combatesYEventos[17] = EventManager.instance.storyEventList[7];
+                combatesYEventos[20] = EventManager.instance.storyEventList[8];
                 break;
         }
     }
