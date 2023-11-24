@@ -636,16 +636,29 @@ public class CombatManager : MonoBehaviour
     public void ChangeBackground()
     {
         string currentLevel = OverWorldManager.instance.currentLevelName;
+        int index = 0;
         switch (currentLevel)
         {
             case "NIVEL 1(Clone)":
-                fondoActualCombate.sprite = fondosCombate[0];
+                index = Random.Range(0,3);
+                fondoActualCombate.sprite = fondosCombate[index];
                 break;
             case "NIVEL 2(Clone)":
-                fondoActualCombate.sprite = fondosCombate[1];
+                index = Random.Range(3,6);
+                fondoActualCombate.sprite = fondosCombate[index];
                 break;
             case "NIVEL 3(Clone)":
-                fondoActualCombate.sprite = fondosCombate[2];
+                index = Random.Range(6,9);
+                fondoActualCombate.sprite = fondosCombate[index];
+                break;
+            case "JEFE 1(Clone)":
+                fondoActualCombate.sprite = fondosCombate[9];
+                break;
+            case "JEFE 2(Clone)":
+                fondoActualCombate.sprite = fondosCombate[10];
+                break;
+            case "JEFE 3(Clone)":
+                fondoActualCombate.sprite = fondosCombate[11];
                 break;
         }
     }

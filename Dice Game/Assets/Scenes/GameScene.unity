@@ -2248,9 +2248,18 @@ MonoBehaviour:
   playerList: {fileID: 1591635910}
   fondoActualCombate: {fileID: 6920915538052600394}
   fondosCombate:
-  - {fileID: 21300000, guid: 09d783723e9af5745a00ce365ce4c4fd, type: 3}
-  - {fileID: 21300000, guid: 4ef0f8c5dab5ac544a0629c94705697a, type: 3}
-  - {fileID: 21300000, guid: 63ca1365eee19bc4d931f08081db090e, type: 3}
+  - {fileID: 21300000, guid: a99c28d8abbe74845b3aad5b1af65b44, type: 3}
+  - {fileID: 21300000, guid: e5f6a30128d815c43b32bb0c8d3d3b26, type: 3}
+  - {fileID: 21300000, guid: c2b211b0c08a8944c90dc2df21ed392d, type: 3}
+  - {fileID: 21300000, guid: fd7c7686631616c4ea782782ef8a6add, type: 3}
+  - {fileID: 21300000, guid: 4e4768ccbff3e5645a6772c2cd1afe95, type: 3}
+  - {fileID: 21300000, guid: 10fe453835df6354bbe8c962ea1ff94a, type: 3}
+  - {fileID: 21300000, guid: 80088e120ce007043aea7cf5e781506a, type: 3}
+  - {fileID: 21300000, guid: d910ae2dfeb762c47be692cd1ff7a689, type: 3}
+  - {fileID: 21300000, guid: 225f424e020e9b34e8841cfed5d7a2d5, type: 3}
+  - {fileID: 21300000, guid: 2509225c1a7a0f54e9f0f48c39a0dd94, type: 3}
+  - {fileID: 21300000, guid: 0832c2581bee0e34db5abbcaa91d1565, type: 3}
+  - {fileID: 21300000, guid: 14611d4f29b331b4abff4435c618cc05, type: 3}
   uiBoss: {fileID: 5659061667798140541}
   uiDefault: {fileID: 3449467834984560499}
   spriteEnemy: {fileID: 2608340770092025410}

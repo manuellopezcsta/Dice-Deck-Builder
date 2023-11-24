@@ -269,7 +269,7 @@ public class GameManager : MonoBehaviour
                 ChooseEnemiesForNodeLevel(22, EnemyManager.instance.enemiesListLv2);
                 break;
             case 6:  // Tercer mapa de nodos.
-                ChooseEnemiesForNodeLevel(22, EnemyManager.instance.enemiesListLv1);
+                ChooseEnemiesForNodeLevel(22, EnemyManager.instance.enemiesListLv3);
                 break;
             default: // Para el resto de los niveles.(JEFES ETC, tiene que tener algo para que puedan remplazarse despues)
                 Debug.Log(" SE ENTRO AL DEFAULT !!! del generador");
