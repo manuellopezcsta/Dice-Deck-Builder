@@ -1202,12 +1202,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c7251d1699328f34faed96b752ea3733, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  eventSprites:
-  - {fileID: -128055020, guid: 2576618d91b48cb429bceb1c20521301, type: 3}
-  - {fileID: -1313672582, guid: 2576618d91b48cb429bceb1c20521301, type: 3}
-  - {fileID: -580571447, guid: 2576618d91b48cb429bceb1c20521301, type: 3}
-  - {fileID: -1345237322, guid: 2576618d91b48cb429bceb1c20521301, type: 3}
+  eventMini: {fileID: 0}
+  eventDefaultPic: {fileID: 0}
   eventList: []
+  storyEventList: []
   allPossibleEvents:
   - name: heal
     modifier: 0
@@ -1524,7 +1522,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 97512455, guid: f6669ac2619fd314e908639b14e396a4, type: 3}
+  m_Sprite: {fileID: 165401972, guid: 20156718df9e20744a8dc592868ac72e, type: 3}
   m_Type: 0
   m_PreserveAspect: 1
   m_FillCenter: 1
@@ -3428,6 +3426,28 @@ MonoBehaviour:
     dices: []
     identifier: 0
   player2:
+    name: 
+    currentDeck:
+      cardCount: 0
+      cards: []
+    MaxHp: 0
+    currentHp: 0
+    armour: 0
+    mArmour: 0
+    maxArmour: 0
+    maxMArmour: 0
+    parryFisico: 0
+    parryMagico: 0
+    envenenado: 0
+    poisonedTime: 0
+    bloqueador: 0
+    potenciado: 0
+    sprite: {fileID: 0}
+    spriteFront: {fileID: 0}
+    miniSprite: {fileID: 0}
+    dices: []
+    identifier: 0
+  winner:
     name: 
     currentDeck:
       cardCount: 0
@@ -6475,7 +6495,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 86a68448935ed9a48a7d9fe2fb50c122, type: 3}
+  m_Sprite: {fileID: 21300000, guid: dd3e4aca60233c5499129d5b4b6c2088, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -7393,12 +7413,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0cd44c1031e13a943bb63640046fad76, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_UiScaleMode: 0
+  m_UiScaleMode: 1
   m_ReferencePixelsPerUnit: 100
   m_ScaleFactor: 1
-  m_ReferenceResolution: {x: 800, y: 600}
+  m_ReferenceResolution: {x: 1920, y: 1080}
   m_ScreenMatchMode: 0
-  m_MatchWidthOrHeight: 0
+  m_MatchWidthOrHeight: 0.5
   m_PhysicalUnit: 3
   m_FallbackScreenDPI: 96
   m_DefaultSpriteDPI: 96
@@ -7915,8 +7935,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 850, y: 120.10663}
-  m_SizeDelta: {x: 210.8473, y: 231.6311}
+  m_AnchoredPosition: {x: 883, y: -2}
+  m_SizeDelta: {x: 154.2103, y: 183.3504}
   m_Pivot: {x: 0, y: 0}
 --- !u!114 &1666559570
 MonoBehaviour:
@@ -7938,7 +7958,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: -831929839, guid: b21703bc0499daa4bafe8ed31aca111f, type: 3}
+  m_Sprite: {fileID: -1714493690, guid: 5f3acc59ce1045a4ca81f1d1f125ced1, type: 3}
   m_Type: 0
   m_PreserveAspect: 1
   m_FillCenter: 1

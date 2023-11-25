@@ -1,7 +1,6 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
-using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.UI;
 //using UnityEngine.UIElements;
@@ -143,9 +142,17 @@ public class GameManager : MonoBehaviour
                 // Updateamos el display
                 CombatManager.instance.UIUpdateAfterCardPlayed();
                 Enemy enemy = CombatManager.instance.GetEnemy();
-                if (enemy.name == "Jefe1" || enemy.name == "Jefe2" || enemy.name == "Jefe3")
+                if (enemy.name == "Jefe1") 
                 {
-                    sfxManager.PlaySong(SFXManager.MSName.CombateBoss);
+                    sfxManager.PlaySong(SFXManager.MSName.CombateCan);
+                }
+                else if(enemy.name == "Jefe2")
+                {
+                    sfxManager.PlaySong(SFXManager.MSName.CombateTogaman);
+                }
+                else if (enemy.name == "Jefe3")
+                {
+                    sfxManager.PlaySong(SFXManager.MSName.CombateVampiro);
                 }
                 else {
                     sfxManager.PlaySong(SFXManager.MSName.CombatDefault);
@@ -327,6 +334,9 @@ public class GameManager : MonoBehaviour
                 combatesYEventos[17] = EventManager.instance.storyEventList[7];
                 combatesYEventos[20] = EventManager.instance.storyEventList[8];
                 break;
+            case 7:
+                combatesYEventos[0] = EnemyManager.instance.bossList[0];
+                break;
         }
     }
 
@@ -391,4 +401,9 @@ public class GameManager : MonoBehaviour
    {
     return overWorldPanel;
    }
+   
+   public void DestroyEnemy()
+    {
+        currentEnemy.currentHp = 0;
+    }
 }

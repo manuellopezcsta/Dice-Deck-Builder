@@ -492,12 +492,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0cd44c1031e13a943bb63640046fad76, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_UiScaleMode: 0
+  m_UiScaleMode: 1
   m_ReferencePixelsPerUnit: 100
   m_ScaleFactor: 1
-  m_ReferenceResolution: {x: 800, y: 600}
+  m_ReferenceResolution: {x: 1920, y: 1080}
   m_ScreenMatchMode: 0
-  m_MatchWidthOrHeight: 0
+  m_MatchWidthOrHeight: 0.5
   m_PhysicalUnit: 3
   m_FallbackScreenDPI: 96
   m_DefaultSpriteDPI: 96
@@ -829,16 +829,60 @@ MonoBehaviour:
   bigDisplay: {fileID: 485017628}
   description: {fileID: 1694684562}
   descriptionList:
-  - "Sacado del exitoso juego la parabola de Stan, Stan es el villano mas villano
-    que encontraras por aqui, traido a este universo por su poder de ignorar las
-    reglas y hacer lo que quiera sin que nadie lo detenga. Stan tiene mucho Hp y
-    nada mas.. al ser un sujeto comun y corriente. Te recomendamos jugar con Stan
-    si estas mas duro que el Maestruli un sabado por la ma\xF1ana."
-  - Este es el segundo personaje. Le gusta el vino y la joda y lo toma sin soda,
-    porque pega mas !. Te dijo que es cordobes? Viva Cordoba!
-  - Este es el tercer personaje. No es un tanque es Stan. Viva Stan carajo !
-  - 'UwU o no UwU . Ser o no ser?, por que estoy poniendo esto.. Nose ... '
-  - Este es el quinto personaje. Aqui va su descripcion . PI PIP IP IPIPIPIPIIII
+  - "RAIJIN, el n\xF3mada Kaiju, se alza majestuosamente en un planeta desconocido,
+    donde criaturas extra\xF1as luchan por la supervivencia. Su coraza de escamas
+    reluce como un escudo impenetrable, junto con su imponente tama\xF1o le brindan
+    una defensa inexpugnable.  Con cada batalla, Raijin despliega su fuerza y superioridad,
+    desafiando a cualquier enemigo que se atreva a cruzar su camino. Mediante sus
+    ataques de rayo pulverizador y gran fuerza f\xEDsica es capaz de derrotar a cualquier
+    enemigo . Sin embargo, en una noche g\xE9lida, mientras descansaba en su guarida,
+    un grupo de soldados de \xE9lite, equipados con tecnolog\xEDa avanzada, logra
+    capturar y secuestrar, rompiendo la armon\xEDa de su dominio. "
+  - "Anteriormente conocido como un h\xE9roe de las guerras Jionicas. Quatrio en
+    realidad utiliz\xF3 la confusi\xF3n del combate para eliminar la mayor parte
+    de sus superiores, Nadie sabe la raz\xF3n de su furia pero una vez se descubri\xF3
+    su traici\xF3n se encontr\xF3 en las miras de ambos lados del conflicto.  Escondido
+    y utilizando un seud\xF3nimo Quatrio escapa para encontrar una nuevo campo de
+    combate, sin duda para comenzar nuevamente con nuevas v\xEDctimas su venganza
+    contra el mundo. Pero lo que no se esperaba es que su fama lo procediera y despu\xE9s
+    de un combate que por coincidencia termin\xF3 en la muerte de uno de los generales
+    bajo los cuales se encontraba. Quatrio call\xF3 luego de un combate frente a
+    un antiguo rival. El capturado androide asesino solo ten\xEDa algo para decir
+    \u201CYo nunca he traicionado a nadie en mi vida\u201D "
+  - "LISBET, la valkiria rebelde. No hab\xEDa un solo d\xEDa en Vingolf donde no
+    reinara la m\xFAsica, las batallas y los festejos. Los grandes salones del se\xF1or
+    Od\xEDn ofrec\xEDan entretenimiento a los poderosos Einherjer desde el inicio
+    de los tiempos, la tarea de una valkiria es reclutar guerreros heroicos para
+    llevarlos al Vallhala donde disfrutar\xEDan de grandes placeres hasta el d\xEDa
+    del Ragnarok, cuando serian convocados para la batalla final del fin del mundo.
+    A Lisbet le resultaba una tarea tediosa que parec\xEDa no terminarse nunca, se
+    le ocurri\xF3 que podr\xEDa descansar del yugo de la monarqu\xEDa polite\xEDsta
+    reclamando a los guerreros para que luchen por ella en vez de para el todopoderoso,
+    durante a\xF1os enga\xF1o a los guerreros que le juraban amor eterno y servidumbre
+    logrando generar una rebeli\xF3n en las puertas de Asgard. Luego de varios d\xEDas
+    sus fuerzas fueron completamente arrolladas por las de sus hermanas y los siervos
+    de Od\xEDn. Encadenada en lo m\xE1s profundo de Niflheim, una luz cegadora la
+    encandilo y sin comprender porque, sus cadenas eran diferentes\u2026"
+  - "MURDOCK, el ogro solitario. En lo m\xE1s rec\xF3ndito del mundo de las sombras,
+    se extend\xEDa un pantano fr\xEDo y profundo, un h\xE1bitat oscuro que alberga
+    una infinidad de criaturas fant\xE1sticas.  En el coraz\xF3n de este lodazal
+    casi intransitable, resid\xEDa Murdoc, un ogro solitario cuya fama se cimentaba
+    en su incre\xEDble fuerza y en la temible maldad que emanaba de su ser. Se dec\xEDa
+    que era bruto e impulsivo, quiz\xE1s algo torpe, pero nadie en aquel mundo hab\xEDa
+    osado enfrentarlo cara a cara y sobrevivir a la ira desatada por cualquier intrusi\xF3n
+    en su soledad. Fue en una ma\xF1ana de domingo cuando Murdoc se preparaba para
+    adentrarse en la caza de cr\xEDas de drag\xF3n, su presa favorita, cuando una
+    bandada de cuervos interrumpi\xF3 su camino. Los p\xE1jaros se posaron en un
+    \xE1rbol gigantesco, varios metros por encima de \xE9l, y comenzaron a seguir
+    a Murdoc, dejando en claro su presencia con cada aleteo. En cuanto Murdoc les
+    dio la espalda, una multitud de ellos liber\xF3 un gas t\xF3xico, envolvi\xE9ndolo
+    en su letal abrazo y dej\xE1ndolo inconsciente\u2026"
+  - "Atra\xEDda por el dolor, la angustia y la sangre, LANA conten\xEDa las fuerzas
+    oscuras de su mente desbordando temor en las praderas del pa\xEDs de las maravillas.
+    Un d\xEDa buscando c\xF3mo saciar ese sentimiento que la ahogaba se encontr\xF3
+    con un ser ajeno, el cual a fuerza de golpes rob\xF3 su amuleto m\xE1s preciado,
+    un reloj. El ser la arrastr\xF3, sumiendola en un secuestro inesperado y cruel.
+    Hoy busca venganza, y har\xE1 lo imposible por recobrar su tesoro.  "
   charactersBigSprites:
   - {fileID: 328942782, guid: 5ae2da05c6b61934bbfdce1930ffbd47, type: 3}
   - {fileID: 356261603, guid: 5ae2da05c6b61934bbfdce1930ffbd47, type: 3}
@@ -1110,7 +1154,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: ELIJE PLAYER 2 !
+  m_text: ELIGE PLAYER 2 !
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -1531,7 +1575,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_RaycastTarget: 1
+  m_RaycastTarget: 0
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
   m_OnCullStateChanged:
@@ -1590,7 +1634,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 431.17, y: -454.94}
+  m_AnchoredPosition: {x: 350.9874, y: -454.94}
   m_SizeDelta: {x: 1057.6, y: 170.12}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &527541703
@@ -3733,7 +3777,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 431.17, y: -454.94}
+  m_AnchoredPosition: {x: 350.9874, y: -454.94}
   m_SizeDelta: {x: 1057.6, y: 170.12}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1121397743
@@ -4067,16 +4111,60 @@ MonoBehaviour:
   bigDisplay: {fileID: 330519007}
   description: {fileID: 1642463602}
   descriptionList:
-  - "Sacado del exitoso juego la parabola de Stan, Stan es el villano mas villano
-    que encontraras por aqui, traido a este universo por su poder de ignorar las
-    reglas y hacer lo que quiera sin que nadie lo detenga. Stan tiene mucho Hp y
-    nada mas.. al ser un sujeto comun y corriente. Te recomendamos jugar con Stan
-    si estas mas duro que el Maestruli un sabado por la ma\xF1ana."
-  - Este es el segundo personaje. Le gusta el vino y la joda y lo toma sin soda,
-    porque pega mas !. Te dijo que es cordobes? Viva Cordoba!
-  - Este es el tercer personaje. No es un tanque es Stan. Viva Stan carajo !
-  - 'UwU o no UwU . Ser o no ser?, por que estoy poniendo esto.. Nose ... '
-  - Este es el quinto personaje. Aqui va su descripcion . PI PIP IP IPIPIPIPIIII
+  - "RAIJIN, el n\xF3mada Kaiju, se alza majestuosamente en un planeta desconocido,
+    donde criaturas extra\xF1as luchan por la supervivencia. Su coraza de escamas
+    reluce como un escudo impenetrable, junto con su imponente tama\xF1o le brindan
+    una defensa inexpugnable.  Con cada batalla, Raijin despliega su fuerza y superioridad,
+    desafiando a cualquier enemigo que se atreva a cruzar su camino. Mediante sus
+    ataques de rayo pulverizador y gran fuerza f\xEDsica es capaz de derrotar a cualquier
+    enemigo . Sin embargo, en una noche g\xE9lida, mientras descansaba en su guarida,
+    un grupo de soldados de \xE9lite, equipados con tecnolog\xEDa avanzada, logra
+    capturar y secuestrar, rompiendo la armon\xEDa de su dominio. "
+  - "Anteriormente conocido como un h\xE9roe de las guerras Jionicas. Quatrio en
+    realidad utiliz\xF3 la confusi\xF3n del combate para eliminar la mayor parte
+    de sus superiores, Nadie sabe la raz\xF3n de su furia pero una vez se descubri\xF3
+    su traici\xF3n se encontr\xF3 en las miras de ambos lados del conflicto.  Escondido
+    y utilizando un seud\xF3nimo Quatrio escapa para encontrar una nuevo campo de
+    combate, sin duda para comenzar nuevamente con nuevas v\xEDctimas su venganza
+    contra el mundo. Pero lo que no se esperaba es que su fama lo procediera y despu\xE9s
+    de un combate que por coincidencia termin\xF3 en la muerte de uno de los generales
+    bajo los cuales se encontraba. Quatrio call\xF3 luego de un combate frente a
+    un antiguo rival. El capturado androide asesino solo ten\xEDa algo para decir
+    \u201CYo nunca he traicionado a nadie en mi vida\u201D "
+  - "LISBET, la valkiria rebelde. No hab\xEDa un solo d\xEDa en Vingolf donde no
+    reinara la m\xFAsica, las batallas y los festejos. Los grandes salones del se\xF1or
+    Od\xEDn ofrec\xEDan entretenimiento a los poderosos Einherjer desde el inicio
+    de los tiempos, la tarea de una valkiria es reclutar guerreros heroicos para
+    llevarlos al Vallhala donde disfrutar\xEDan de grandes placeres hasta el d\xEDa
+    del Ragnarok, cuando serian convocados para la batalla final del fin del mundo.
+    A Lisbet le resultaba una tarea tediosa que parec\xEDa no terminarse nunca, se
+    le ocurri\xF3 que podr\xEDa descansar del yugo de la monarqu\xEDa polite\xEDsta
+    reclamando a los guerreros para que luchen por ella en vez de para el todopoderoso,
+    durante a\xF1os enga\xF1o a los guerreros que le juraban amor eterno y servidumbre
+    logrando generar una rebeli\xF3n en las puertas de Asgard. Luego de varios d\xEDas
+    sus fuerzas fueron completamente arrolladas por las de sus hermanas y los siervos
+    de Od\xEDn. Encadenada en lo m\xE1s profundo de Niflheim, una luz cegadora la
+    encandilo y sin comprender porque, sus cadenas eran diferentes\u2026"
+  - "MURDOCK, el ogro solitario. En lo m\xE1s rec\xF3ndito del mundo de las sombras,
+    se extend\xEDa un pantano fr\xEDo y profundo, un h\xE1bitat oscuro que alberga
+    una infinidad de criaturas fant\xE1sticas.  En el coraz\xF3n de este lodazal
+    casi intransitable, resid\xEDa Murdoc, un ogro solitario cuya fama se cimentaba
+    en su incre\xEDble fuerza y en la temible maldad que emanaba de su ser. Se dec\xEDa
+    que era bruto e impulsivo, quiz\xE1s algo torpe, pero nadie en aquel mundo hab\xEDa
+    osado enfrentarlo cara a cara y sobrevivir a la ira desatada por cualquier intrusi\xF3n
+    en su soledad. Fue en una ma\xF1ana de domingo cuando Murdoc se preparaba para
+    adentrarse en la caza de cr\xEDas de drag\xF3n, su presa favorita, cuando una
+    bandada de cuervos interrumpi\xF3 su camino. Los p\xE1jaros se posaron en un
+    \xE1rbol gigantesco, varios metros por encima de \xE9l, y comenzaron a seguir
+    a Murdoc, dejando en claro su presencia con cada aleteo. En cuanto Murdoc les
+    dio la espalda, una multitud de ellos liber\xF3 un gas t\xF3xico, envolvi\xE9ndolo
+    en su letal abrazo y dej\xE1ndolo inconsciente\u2026"
+  - "Atra\xEDda por el dolor, la angustia y la sangre, LANA conten\xEDa las fuerzas
+    oscuras de su mente desbordando temor en las praderas del pa\xEDs de las maravillas.
+    Un d\xEDa buscando c\xF3mo saciar ese sentimiento que la ahogaba se encontr\xF3
+    con un ser ajeno, el cual a fuerza de golpes rob\xF3 su amuleto m\xE1s preciado,
+    un reloj. El ser la arrastr\xF3, sumiendola en un secuestro inesperado y cruel.
+    Hoy busca venganza, y har\xE1 lo imposible por recobrar su tesoro.  "
   charactersBigSprites:
   - {fileID: 328942782, guid: 5ae2da05c6b61934bbfdce1930ffbd47, type: 3}
   - {fileID: 356261603, guid: 5ae2da05c6b61934bbfdce1930ffbd47, type: 3}
@@ -4346,7 +4434,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: ELIJE PLAYER 1 !
+  m_text: ELIGE PLAYER 1 !
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -5850,11 +5938,15 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "Sacado del exitoso juego la parabola de Stan, Stan es el villano mas villano
-    que encontraras por aqui, traido a este universo por su poder de ignorar las
-    reglas y hacer lo que quiera sin que nadie lo detenga. Stan tiene mucho Hp y
-    nada mas.. al ser un sujeto comun y corriente. Te recomendamos jugar con Stan
-    si estas mas duro que el Maestruli un sabado por la ma\xF1ana."
+  m_text: "RAIJIN, el n\xF3mada Kaiju, se alza majestuosamente en un planeta desconocido,
+    donde criaturas extra\xF1as luchan por la supervivencia. Su coraza de escamas
+    reluce como un escudo impenetrable, junto con su imponente tama\xF1o le brindan
+    una defensa inexpugnable.  Con cada batalla, Raijin despliega su fuerza y superioridad,
+    desafiando a cualquier enemigo que se atreva a cruzar su camino. Mediante sus
+    ataques de rayo pulverizador y gran fuerza f\xEDsica es capaz de derrotar a cualquier
+    enemigo . Sin embargo, en una noche g\xE9lida, mientras descansaba en su guarida,
+    un grupo de soldados de \xE9lite, equipados con tecnolog\xEDa avanzada, logra
+    capturar y secuestrar, rompiendo la armon\xEDa de su dominio. "
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -5947,7 +6039,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 431.1826, y: -41.978172}
+  m_AnchoredPosition: {x: 351, y: -41.978172}
   m_SizeDelta: {x: 1057.6348, y: 655.7963}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &1660845589
@@ -6257,7 +6349,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 431.1826, y: -41.978172}
+  m_AnchoredPosition: {x: 351, y: -41.978172}
   m_SizeDelta: {x: 1057.6348, y: 655.7963}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1694684562
@@ -6280,11 +6372,15 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "Sacado del exitoso juego la parabola de Stan, Stan es el villano mas villano
-    que encontraras por aqui, traido a este universo por su poder de ignorar las
-    reglas y hacer lo que quiera sin que nadie lo detenga. Stan tiene mucho Hp y
-    nada mas.. al ser un sujeto comun y corriente. Te recomendamos jugar con Stan
-    si estas mas duro que el Maestruli un sabado por la ma\xF1ana."
+  m_text: "RAIJIN, el n\xF3mada Kaiju, se alza majestuosamente en un planeta desconocido,
+    donde criaturas extra\xF1as luchan por la supervivencia. Su coraza de escamas
+    reluce como un escudo impenetrable, junto con su imponente tama\xF1o le brindan
+    una defensa inexpugnable. \r\nCon cada batalla, Raijin despliega su fuerza y
+    superioridad, desafiando a cualquier enemigo que se atreva a cruzar su camino.
+    Mediante sus ataques de rayo pulverizador y gran fuerza f\xEDsica es capaz de
+    derrotar a cualquier enemigo .\r\nSin embargo, en una noche g\xE9lida, mientras
+    descansaba en su guarida, un grupo de soldados de \xE9lite, equipados con tecnolog\xEDa
+    avanzada, logra capturar y secuestrar, rompiendo la armon\xEDa de su dominio.\r\n"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -6311,7 +6407,7 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 57.15
+  m_fontSize: 40.8
   m_fontSizeBase: 36
   m_fontWeight: 400
   m_enableAutoSizing: 1

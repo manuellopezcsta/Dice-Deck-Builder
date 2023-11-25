@@ -62,39 +62,39 @@ public class EnemyManager : MonoBehaviour
 
             case EnemyName.ENEMIGO1:
                 //enemy = new Enemy(enemySprites[1], "Hadita", 30, 10, 5);
-                enemy = new Enemy(enemySprites[0], miniSprites[0], "Robot 1", 10, 0, 0);
+                enemy = new Enemy(enemySprites[0], miniSprites[0], "Robot 1", 30, 10, 5);
                 break;
             case EnemyName.ENEMIGO2:
                 //enemy = new Enemy(enemySprites[2], "Hadita con Vestido", 30, 5, 10);
-                enemy = new Enemy(enemySprites[1], miniSprites[0], "Robot 2", 10, 0, 0);
+                enemy = new Enemy(enemySprites[1], miniSprites[0], "Robot 2", 30, 5, 10);
                 break;
             case EnemyName.ENEMIGO3:
                 //enemy = new Enemy(enemySprites[3], "Fantasma Japones", 45, 0, 0);
-                enemy = new Enemy(enemySprites[2], miniSprites[0], "Robot 3", 10, 0, 0);
+                enemy = new Enemy(enemySprites[2], miniSprites[0], "Robot 3", 45, 0, 0);
                 break;
             case EnemyName.ENEMIGO4:
                 //enemy = new Enemy(enemySprites[4], "Hadita Azul", 15, 15, 15);
-                enemy = new Enemy(enemySprites[3], miniSprites[0], "Togaman 1", 10, 0, 0);
+                enemy = new Enemy(enemySprites[3], miniSprites[0], "Togaman 1", 35, 15, 10);
                 break;
             case EnemyName.ENEMIGO5:
                 //enemy = new Enemy(enemySprites[4], "Hadita Azul", 15, 15, 15);
-                enemy = new Enemy(enemySprites[4], miniSprites[0], "Togaman 2", 10, 0, 0);
+                enemy = new Enemy(enemySprites[4], miniSprites[0], "Togaman 2", 35, 5, 10);
                 break;
             case EnemyName.ENEMIGO6:
                 //enemy = new Enemy(enemySprites[4], "Hadita Azul", 15, 15, 15);
-                enemy = new Enemy(enemySprites[5], miniSprites[0], "Togaman 3", 10, 0, 0);
+                enemy = new Enemy(enemySprites[5], miniSprites[0], "Togaman 3", 50, 0, 0);
                 break;
             case EnemyName.ENEMIGO7:
                 //enemy = new Enemy(enemySprites[4], "Hadita Azul", 15, 15, 15);
-                enemy = new Enemy(enemySprites[6], miniSprites[0], "Soldado 1", 10, 0, 0);
+                enemy = new Enemy(enemySprites[6], miniSprites[0], "Soldado 1", 40, 15, 10);
                 break;
             case EnemyName.ENEMIGO8:
                 //enemy = new Enemy(enemySprites[4], "Hadita Azul", 15, 15, 15);
-                enemy = new Enemy(enemySprites[7], miniSprites[0], "Soldado 2", 10, 0, 0);
+                enemy = new Enemy(enemySprites[7], miniSprites[0], "Soldado 2", 40, 10, 15);
                 break;
             case EnemyName.ENEMIGO9:
                 //enemy = new Enemy(enemySprites[4], "Hadita Azul", 15, 15, 15);
-                enemy = new Enemy(enemySprites[8], miniSprites[0], "Soldado 3", 10, 0, 0);
+                enemy = new Enemy(enemySprites[8], miniSprites[0], "Soldado 3", 60, 0, 0);
                 break;
         }
         outputList.Add(enemy);
@@ -127,7 +127,7 @@ public class EnemyManager : MonoBehaviour
     {
         // Genera los bosses para la peleas
         Enemy boss1 = new Enemy(enemySprites[9], miniSprites[1], "Jefe1", 60, 10, 10); // Cerbero
-        Enemy boss2 = new Enemy(enemySprites[10], miniSprites[1], "Jefe2", 40, 15, 20); // Jefe 1
+        Enemy boss2 = new Enemy(enemySprites[10], miniSprites[1], "Jefe2", 50, 15, 20); // Jefe 1
         Enemy boss3 = new Enemy(enemySprites[11], miniSprites[1], "Jefe3", 150, 0, 0); // Jefe 2
         // Lo agregamos a la lista.
         bossList.Add(boss1);

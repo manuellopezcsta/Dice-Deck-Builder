@@ -113,19 +113,19 @@ TextureImporter:
       name: Lana_0
       rect:
         serializedVersion: 2
-        x: 0
-        y: 0
+        x: 5
+        y: 4
         width: 92
         height: 262
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 863080a542eeb4c45925ef73a5135306
-      internalID: -1609517809
+      spriteID: 2071650b14435024b9254ae553166e56
+      internalID: -49703807
       vertices: []
       indices: 
       edges: []
@@ -134,19 +134,19 @@ TextureImporter:
       name: Lana_1
       rect:
         serializedVersion: 2
-        x: 95
-        y: 23
-        width: 103
+        x: 185
+        y: 14
+        width: 159
         height: 251
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 908a2a75908f69e47a6a8bb18b53a8d6
-      internalID: 247992151
+      spriteID: f3c23d43d7b78934d96079fc9151818c
+      internalID: -1129001354
       vertices: []
       indices: 
       edges: []
@@ -162,8 +162,8 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      Lana_0: -1609517809
-      Lana_1: 247992151
+      Lana_0: -49703807
+      Lana_1: -1129001354
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

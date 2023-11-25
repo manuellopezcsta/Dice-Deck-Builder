@@ -84,6 +84,7 @@ public class CombatManager : MonoBehaviour
     [SerializeField] private GameObject uiBoss;
     [SerializeField] private GameObject uiDefault;
     [SerializeField] private RectTransform spriteEnemy;
+    [SerializeField] private GameObject[] indicadoresDeTurno;
     public enum Turno
     {
         P1,
@@ -101,8 +102,11 @@ public class CombatManager : MonoBehaviour
         {
             case Turno.P1:
                 currentPhase += 1;
+                indicadoresDeTurno[0].SetActive(true);
+                indicadoresDeTurno[1].SetActive(false);
                 if ((int)currentPhase == 3)
                 {
+                    
                     currentTurn = Turno.P2;
                     currentPhase = Phase.Drawing;
                     Debug.Log("//      Se inicio turno Player 2.");
@@ -111,6 +115,8 @@ public class CombatManager : MonoBehaviour
                 break;
             case Turno.P2:
                 currentPhase += 1;
+                indicadoresDeTurno[0].SetActive(false);
+                indicadoresDeTurno[1].SetActive(true);
                 if ((int)currentPhase == 3)
                 {
                     currentTurn = Turno.ENEMY;
@@ -122,6 +128,8 @@ public class CombatManager : MonoBehaviour
             case Turno.ENEMY:
                 if (fightingEnemy)
                 {
+                    indicadoresDeTurno[0].SetActive(false);
+                    indicadoresDeTurno[1].SetActive(false);
                     currentTurn = Turno.P1;
                     currentPhase = Phase.Drawing;
                     Debug.Log("//      Se inicio turno Player 1.");

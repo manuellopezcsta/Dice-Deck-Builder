@@ -33,6 +33,7 @@ public class SFXManager : MonoBehaviour
     public AudioClip hoverSound;
 
     [Header("Clips de Main Song")]
+
     public AudioClip menuSong;
     public AudioClip intro;
     public AudioClip charSelectionSong;
@@ -41,8 +42,13 @@ public class SFXManager : MonoBehaviour
     public AudioClip nivel2;
     public AudioClip nivel3;
     public AudioClip CombateDefault;
-    public AudioClip CombateBoss;
+    public AudioClip CombateCanSong;
+    public AudioClip CombateTogamanSong;
+    public AudioClip CombateVampiroSong;
     public AudioClip finalBattleSong;
+    public AudioClip FinalSong;
+    public AudioClip SecretEndingsSong;
+    public AudioClip CreditsSong;
 
     float effectModifier = 1f;
 
@@ -63,6 +69,7 @@ public class SFXManager : MonoBehaviour
     }
 
     public enum MSName {
+  
         MENU,
         Intro,
         CharSelection,
@@ -71,10 +78,15 @@ public class SFXManager : MonoBehaviour
         Nivel2,
         Nivel3,
         CombatDefault,
-        CombateBoss,
+        CombateCan,
+        CombateTogaman,
+        CombateVampiro,
         FinalBattle,
-        GAME_OVER
-        
+        GAME_OVER,
+        Final,
+        SecretEnding,
+        Credits
+            
     }
     // Un diccionario que va a contener todos los clips de audio con su respectivos volumenes.
     Dictionary<VFXName, Tuple<AudioClip, float>> clipLibrary = new Dictionary<VFXName, Tuple<AudioClip, float>>();
@@ -124,6 +136,7 @@ public class SFXManager : MonoBehaviour
         // Reproducir la canci�n correspondiente a la escena cargada
         switch (sceneName)
         {
+
             case "MenuPrincipal":
                 PlaySong(MSName.MENU);
                 break;
@@ -141,6 +154,15 @@ public class SFXManager : MonoBehaviour
                 break;
             case "FinalBattle":
                 PlaySong(MSName.FinalBattle);
+                break;
+            case "Final":
+                PlaySong(MSName.Final);
+                break;
+            case "SecretEnding":
+                PlaySong(MSName.SecretEnding);
+                break;
+            case "Credits":
+                PlaySong(MSName.Credits);
                 break;
             // Agrega m�s casos seg�n las escenas que tengas
             default:
@@ -181,8 +203,9 @@ public class SFXManager : MonoBehaviour
         clipLibrary.Add(VFXName.BLOQUADOR, Tuple.Create(bloquearSound, 0.28f));
         clipLibrary.Add(VFXName.POISON_TICK, Tuple.Create(poisonTickSound, 0.28f));
         clipLibrary.Add(VFXName.HOVER, Tuple.Create(hoverSound, 1f));
-        
+
         // Los de main song
+
         mainSongLibrary.Add(MSName.MENU, Tuple.Create(menuSong, 1f));
         mainSongLibrary.Add(MSName.CharSelection, Tuple.Create(charSelectionSong, 1f));
         mainSongLibrary.Add(MSName.Tutorial, Tuple.Create(tutorialSong, 1f));
@@ -190,8 +213,13 @@ public class SFXManager : MonoBehaviour
         mainSongLibrary.Add(MSName.Nivel2, Tuple.Create(nivel2, 1f));
         mainSongLibrary.Add(MSName.Nivel3, Tuple.Create(nivel3, 1f));
         mainSongLibrary.Add(MSName.CombatDefault, Tuple.Create(CombateDefault, 1f));
-        mainSongLibrary.Add(MSName.CombateBoss, Tuple.Create(CombateBoss, 1f));
+        mainSongLibrary.Add(MSName.CombateCan, Tuple.Create(CombateCanSong, 1f));
+        mainSongLibrary.Add(MSName.CombateTogaman, Tuple.Create(CombateTogamanSong, 1f));
+        mainSongLibrary.Add(MSName.CombateVampiro, Tuple.Create(CombateVampiroSong, 1f));
         mainSongLibrary.Add(MSName.FinalBattle, Tuple.Create(finalBattleSong, 1f));
+        mainSongLibrary.Add(MSName.Final, Tuple.Create(FinalSong, 1f));
+        mainSongLibrary.Add(MSName.SecretEnding, Tuple.Create(SecretEndingsSong, 1f));
+        mainSongLibrary.Add(MSName.Credits, Tuple.Create(CreditsSong, 1f));
     }
 
     // Esta funcion utiliza el Music Player Original.

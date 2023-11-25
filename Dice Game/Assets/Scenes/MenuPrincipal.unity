@@ -184,16 +184,21 @@ MonoBehaviour:
   bloquearSound: {fileID: 8300000, guid: f712d3ab50b8a5e4cb441e0e9e49ec61, type: 3}
   poisonTickSound: {fileID: 8300000, guid: 50e23c0997eef9144996f9f96efed672, type: 3}
   hoverSound: {fileID: 8300000, guid: 1fd81d37c4a60264fa7121864f5d3c0a, type: 3}
-  menuSong: {fileID: 8300000, guid: dc8381339bb9f1846910f1dea6c28c15, type: 3}
-  intro: {fileID: 8300000, guid: dc8381339bb9f1846910f1dea6c28c15, type: 3}
-  charSelectionSong: {fileID: 8300000, guid: d24c9ea47eb25b54caaf564de01f770a, type: 3}
-  tutorialSong: {fileID: 8300000, guid: d24c9ea47eb25b54caaf564de01f770a, type: 3}
-  nivel1: {fileID: 8300000, guid: 4d83afb3a41d7804c8cd55da353843a3, type: 3}
-  nivel2: {fileID: 8300000, guid: 07d63f89ec6f4fc43a707e2e040a519c, type: 3}
-  nivel3: {fileID: 8300000, guid: e6142d402fc30cc4e8c1faba4d99197e, type: 3}
-  CombateDefault: {fileID: 8300000, guid: 0b0b59a07fafe1042bec5a1f0daa38bf, type: 3}
-  CombateBoss: {fileID: 8300000, guid: fb218e03a65f97f419c0b2c20013ae51, type: 3}
-  finalBattleSong: {fileID: 8300000, guid: d24c9ea47eb25b54caaf564de01f770a, type: 3}
+  menuSong: {fileID: 8300000, guid: cb461d8e445b91f4d95195d9b60cf76d, type: 3}
+  intro: {fileID: 8300000, guid: 97228df969b05ab47be566c6603c1e98, type: 3}
+  charSelectionSong: {fileID: 8300000, guid: aaed863708fd65c4db323b490c3e32e0, type: 3}
+  tutorialSong: {fileID: 8300000, guid: 682bff72aa0af0647a049c6eb189e5cc, type: 3}
+  nivel1: {fileID: 8300000, guid: e76dc835158f3bb40b9d0c21d880e8f9, type: 3}
+  nivel2: {fileID: 8300000, guid: d1e1ef52250664b4e8a98fc518f16150, type: 3}
+  nivel3: {fileID: 8300000, guid: a36d73129c3c6c54a8a72e7c15210062, type: 3}
+  CombateDefault: {fileID: 8300000, guid: dab767cd31edb2c4aa54169c393da085, type: 3}
+  CombateCanSong: {fileID: 8300000, guid: d24c9ea47eb25b54caaf564de01f770a, type: 3}
+  CombateTogamanSong: {fileID: 8300000, guid: de68a0a37ade53e4c9b90a8b53c4a50d, type: 3}
+  CombateVampiroSong: {fileID: 8300000, guid: afb97eac77e302b4a9ebc8115a9f7fb9, type: 3}
+  finalBattleSong: {fileID: 8300000, guid: 2e62ac9a4ca00b74584f2bfc9471c789, type: 3}
+  FinalSong: {fileID: 8300000, guid: 32ed09a26b4082243b521271aab96a7d, type: 3}
+  SecretEndingsSong: {fileID: 8300000, guid: a7413e9bafc641940a06db62dd127eaa, type: 3}
+  CreditsSong: {fileID: 8300000, guid: d089d19ca7531d64f88280bb14688be5, type: 3}
 --- !u!82 &9682407
 AudioSource:
   m_ObjectHideFlags: 0
@@ -1512,12 +1517,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0cd44c1031e13a943bb63640046fad76, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_UiScaleMode: 0
+  m_UiScaleMode: 1
   m_ReferencePixelsPerUnit: 100
   m_ScaleFactor: 1
-  m_ReferenceResolution: {x: 800, y: 600}
+  m_ReferenceResolution: {x: 1920, y: 1080}
   m_ScreenMatchMode: 0
-  m_MatchWidthOrHeight: 0
+  m_MatchWidthOrHeight: 0.5
   m_PhysicalUnit: 3
   m_FallbackScreenDPI: 96
   m_DefaultSpriteDPI: 96
